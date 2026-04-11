@@ -1,0 +1,44 @@
+// Auth domain models
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+model User {
+  id        String   @id @default(cuid())
+  mobile    String   @unique @db.VarChar(11)
+  password  String // bcrypt hashed
+  name      String?  @db.VarChar(100)
+  photo     String?
+  role      UserRole @default(USER)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  otps                Otp[]
+  examAttempts        ExamAttempt[]
+  favorites           UserFavorite[]
+  userPackages        UserPackage[]
+  paymentTransactions PaymentTransaction[]
+  notificationReads   UserNotificationRead[]
+
+  @@map("users")
+}
+
+model Otp {
+  id        String   @id @default(cuid())
+  mobile    String   @db.VarChar(11)
+  code      String   @db.VarChar(4)
+  expiresAt DateTime @map("expires_at")
+  verified  Boolean  @default(false)
+  attempts  Int      @default(0)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user   User?   @relation(fields: [userId], references: [id])
+  userId String? @map("user_id")
+
+  @@index([mobile, code])
+  @@index([mobile, expiresAt])
+  @@map("otps")
+}

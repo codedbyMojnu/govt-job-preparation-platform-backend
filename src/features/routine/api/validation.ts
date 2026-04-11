@@ -1,0 +1,25 @@
+import { z } from 'zod';
+
+export const createRoutineSchema = z.object({
+  subExamCategoryId: z.string().min(1, 'Sub exam category ID is required'),
+  date: z.string().min(1, 'Date is required'),
+  title: z.string().min(1, 'Title is required').max(500),
+  totalMarks: z.number().positive('Total marks must be positive'),
+  duration: z.number().int().positive('Duration must be a positive integer'),
+  subject: z.string().min(1, 'Subject is required').max(200),
+  topics: z.string().max(2000).optional(),
+  sourceMaterial: z.string().max(500).optional(),
+  description: z.string().max(5000).optional(),
+});
+
+export const updateRoutineSchema = z.object({
+  date: z.string().min(1).optional(),
+  title: z.string().min(1).max(500).optional(),
+  totalMarks: z.number().positive().optional(),
+  duration: z.number().int().positive().optional(),
+  subject: z.string().min(1).max(200).optional(),
+  topics: z.string().max(2000).optional(),
+  sourceMaterial: z.string().max(500).optional(),
+  description: z.string().max(5000).optional(),
+  isActive: z.boolean().optional(),
+});

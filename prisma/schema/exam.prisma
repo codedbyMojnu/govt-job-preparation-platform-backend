@@ -1,0 +1,186 @@
+// Exam domain models
+
+model ExamCategory {
+  id        String   @id @default(cuid())
+  name      String   @db.VarChar(200)
+  slug      String   @unique @db.VarChar(200)
+  icon      String?
+  sortOrder Int      @default(0) @map("sort_order")
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  subCategories SubExamCategory[]
+
+  @@map("exam_categories")
+}
+
+model SubExamCategory {
+  id             String   @id @default(cuid())
+  examCategoryId String   @map("exam_category_id")
+  name           String   @db.VarChar(300)
+  slug           String   @unique @db.VarChar(300)
+  description    String?  @db.Text
+  sortOrder      Int      @default(0) @map("sort_order")
+  isActive       Boolean  @default(true) @map("is_active")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  examCategory ExamCategory @relation(fields: [examCategoryId], references: [id])
+  questionSets QuestionSet[]
+  routines     Routine[]
+  syllabuses   Syllabus[]
+
+  @@index([examCategoryId])
+  @@map("sub_exam_categories")
+}
+
+model QuestionSet {
+  id                String   @id @default(cuid())
+  subExamCategoryId String   @map("sub_exam_category_id")
+  title             String   @db.VarChar(500)
+  date              DateTime @db.Date
+  totalMarks        Float    @map("total_marks")
+  duration          Int // minutes
+  subject           String   @db.VarChar(200)
+  topics            String?  @db.Text
+  sourceMaterial    String?  @db.VarChar(500) @map("source_material")
+  markPerQuestion   Float    @default(1) @map("mark_per_question")
+  negativeMark      Float    @default(0.25) @map("negative_mark")
+  isFree            Boolean  @default(false) @map("is_free")
+  isLive            Boolean  @default(false) @map("is_live")
+  isActive          Boolean  @default(true) @map("is_active")
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  subExamCategory SubExamCategory @relation(fields: [subExamCategoryId], references: [id])
+  questions       Question[]
+  examAttempts    ExamAttempt[]
+
+  @@index([subExamCategoryId])
+  @@index([date])
+  @@map("question_sets")
+}
+
+model Question {
+  id            String   @id @default(cuid())
+  questionSetId String   @map("question_set_id")
+  questionText  String   @db.Text @map("question_text")
+  optionA       String   @db.Text @map("option_a")
+  optionB       String   @db.Text @map("option_b")
+  optionC       String   @db.Text @map("option_c")
+  optionD       String   @db.Text @map("option_d")
+  correctAnswer String   @db.VarChar(1) @map("correct_answer")
+  explanation   String?  @db.Text
+  subject       String?  @db.VarChar(200)
+  sortOrder     Int      @default(0) @map("sort_order")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  questionSet QuestionSet    @relation(fields: [questionSetId], references: [id])
+  userAnswers UserAnswer[]
+  favorites   UserFavorite[]
+
+  @@index([questionSetId])
+  @@map("questions")
+}
+
+model ExamAttempt {
+  id              String    @id @default(cuid())
+  userId          String    @map("user_id")
+  questionSetId   String    @map("question_set_id")
+  startedAt       DateTime  @default(now()) @map("started_at")
+  submittedAt     DateTime? @map("submitted_at")
+  totalCorrect    Int       @default(0) @map("total_correct")
+  totalWrong      Int       @default(0) @map("total_wrong")
+  totalUnanswered Int       @default(0) @map("total_unanswered")
+  totalMarks      Float     @default(0) @map("total_marks")
+  obtainedMarks   Float     @default(0) @map("obtained_marks")
+  isCompleted     Boolean   @default(false) @map("is_completed")
+  createdAt       DateTime  @default(now()) @map("created_at")
+
+  user        User        @relation(fields: [userId], references: [id])
+  questionSet QuestionSet @relation(fields: [questionSetId], references: [id])
+  answers     UserAnswer[]
+
+  @@unique([userId, questionSetId])
+  @@index([userId])
+  @@index([questionSetId])
+  @@map("exam_attempts")
+}
+
+model UserAnswer {
+  id             String  @id @default(cuid())
+  examAttemptId  String  @map("exam_attempt_id")
+  questionId     String  @map("question_id")
+  selectedAnswer String? @db.VarChar(1) @map("selected_answer")
+  isCorrect      Boolean @default(false) @map("is_correct")
+
+  examAttempt ExamAttempt @relation(fields: [examAttemptId], references: [id])
+  question    Question    @relation(fields: [questionId], references: [id])
+
+  @@unique([examAttemptId, questionId])
+  @@index([examAttemptId])
+  @@map("user_answers")
+}
+
+model UserFavorite {
+  id         String   @id @default(cuid())
+  userId     String   @map("user_id")
+  questionId String   @map("question_id")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  user     User     @relation(fields: [userId], references: [id])
+  question Question @relation(fields: [questionId], references: [id])
+
+  @@unique([userId, questionId])
+  @@index([userId])
+  @@map("user_favorites")
+}
+
+model Routine {
+  id                String   @id @default(cuid())
+  subExamCategoryId String   @map("sub_exam_category_id")
+  date              DateTime @db.Date
+  title             String   @db.VarChar(500)
+  totalMarks        Float    @map("total_marks")
+  duration          Int
+  subject           String   @db.VarChar(200)
+  topics            String?  @db.Text
+  sourceMaterial    String?  @db.VarChar(500) @map("source_material")
+  description       String?  @db.Text
+  isActive          Boolean  @default(true) @map("is_active")
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  subExamCategory SubExamCategory @relation(fields: [subExamCategoryId], references: [id])
+
+  @@index([subExamCategoryId])
+  @@index([date])
+  @@map("routines")
+}
+
+model Syllabus {
+  id                String   @id @default(cuid())
+  subExamCategoryId String   @map("sub_exam_category_id")
+  title             String   @db.VarChar(500)
+  slug              String   @unique @db.VarChar(300)
+  content           String   @db.Text
+  sortOrder         Int      @default(0) @map("sort_order")
+  isActive          Boolean  @default(true) @map("is_active")
+  createdAt         DateTime @default(now()) @map("created_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  subExamCategory SubExamCategory @relation(fields: [subExamCategoryId], references: [id])
+
+  @@index([subExamCategoryId])
+  @@map("syllabuses")
+}
+
+model AppSettings {
+  id               String @id @default("singleton")
+  freeLiveLimit    Int    @default(3) @map("free_live_limit")
+  freeArchiveLimit Int    @default(3) @map("free_archive_limit")
+
+  @@map("app_settings")
+}

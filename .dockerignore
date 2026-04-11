@@ -1,0 +1,12 @@
+node_modules
+dist
+.env
+.env.*
+*.md
+.git
+.gitignore
+docs
+specs
+vitest.config.*
+tsconfig.eslint.json
+eslint.config.js
