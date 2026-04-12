@@ -11,7 +11,7 @@ const container = createAppContainer();
 const logger = container.resolve<Logger>('logger');
 const app = createApp(container);
 
-const server = app.listen(config.PORT, () => {
+const server = app.listen(config.PORT, '0.0.0.0', () => {
   logger.info({ port: config.PORT, env: config.NODE_ENV }, 'Server started');
 });
 

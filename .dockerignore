@@ -1,12 +1,12 @@
 node_modules
 dist
 .env
-.env.*
-*.md
+.env.\*
+_.md
 .git
 .gitignore
 docs
 specs
-vitest.config.*
+vitest.config._
 tsconfig.eslint.json
 eslint.config.js
