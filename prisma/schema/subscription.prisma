@@ -57,10 +57,10 @@ model PaymentTransaction {
   packageId     String        @map("package_id")
   amount        Float
   paymentMethod PaymentMethod @map("payment_method")
-  mobileNumber  String        @db.VarChar(20) @map("mobile_number")
-  transactionId String        @db.VarChar(50) @map("transaction_id")
+  mobileNumber  String        @map("mobile_number") @db.VarChar(20)
+  transactionId String        @map("transaction_id") @db.VarChar(50)
   status        PaymentStatus @default(PENDING)
-  adminNote     String?       @db.Text @map("admin_note")
+  adminNote     String?       @map("admin_note") @db.Text
   reviewedAt    DateTime?     @map("reviewed_at")
   reviewedBy    String?       @map("reviewed_by")
   createdAt     DateTime      @default(now()) @map("created_at")

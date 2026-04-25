@@ -26,7 +26,7 @@ model SubExamCategory {
   createdAt      DateTime @default(now()) @map("created_at")
   updatedAt      DateTime @updatedAt @map("updated_at")
 
-  examCategory ExamCategory @relation(fields: [examCategoryId], references: [id])
+  examCategory ExamCategory  @relation(fields: [examCategoryId], references: [id])
   questionSets QuestionSet[]
   routines     Routine[]
   syllabuses   Syllabus[]
@@ -44,7 +44,7 @@ model QuestionSet {
   duration          Int // minutes
   subject           String   @db.VarChar(200)
   topics            String?  @db.Text
-  sourceMaterial    String?  @db.VarChar(500) @map("source_material")
+  sourceMaterial    String?  @map("source_material") @db.VarChar(500)
   markPerQuestion   Float    @default(1) @map("mark_per_question")
   negativeMark      Float    @default(0.25) @map("negative_mark")
   isFree            Boolean  @default(false) @map("is_free")
@@ -65,19 +65,19 @@ model QuestionSet {
 model Question {
   id            String   @id @default(cuid())
   questionSetId String   @map("question_set_id")
-  questionText  String   @db.Text @map("question_text")
-  optionA       String   @db.Text @map("option_a")
-  optionB       String   @db.Text @map("option_b")
-  optionC       String   @db.Text @map("option_c")
-  optionD       String   @db.Text @map("option_d")
-  correctAnswer String   @db.VarChar(1) @map("correct_answer")
+  questionText  String   @map("question_text") @db.Text
+  optionA       String   @map("option_a") @db.Text
+  optionB       String   @map("option_b") @db.Text
+  optionC       String   @map("option_c") @db.Text
+  optionD       String   @map("option_d") @db.Text
+  correctAnswer String   @map("correct_answer") @db.VarChar(1)
   explanation   String?  @db.Text
   subject       String?  @db.VarChar(200)
   sortOrder     Int      @default(0) @map("sort_order")
   createdAt     DateTime @default(now()) @map("created_at")
   updatedAt     DateTime @updatedAt @map("updated_at")
 
-  questionSet QuestionSet    @relation(fields: [questionSetId], references: [id])
+  questionSet QuestionSet    @relation(fields: [questionSetId], references: [id], onDelete: Cascade)
   userAnswers UserAnswer[]
   favorites   UserFavorite[]
 
@@ -99,8 +99,8 @@ model ExamAttempt {
   isCompleted     Boolean   @default(false) @map("is_completed")
   createdAt       DateTime  @default(now()) @map("created_at")
 
-  user        User        @relation(fields: [userId], references: [id])
-  questionSet QuestionSet @relation(fields: [questionSetId], references: [id])
+  user        User         @relation(fields: [userId], references: [id])
+  questionSet QuestionSet  @relation(fields: [questionSetId], references: [id], onDelete: Cascade)
   answers     UserAnswer[]
 
   @@unique([userId, questionSetId])
@@ -113,11 +113,11 @@ model UserAnswer {
   id             String  @id @default(cuid())
   examAttemptId  String  @map("exam_attempt_id")
   questionId     String  @map("question_id")
-  selectedAnswer String? @db.VarChar(1) @map("selected_answer")
+  selectedAnswer String? @map("selected_answer") @db.VarChar(1)
   isCorrect      Boolean @default(false) @map("is_correct")
 
-  examAttempt ExamAttempt @relation(fields: [examAttemptId], references: [id])
-  question    Question    @relation(fields: [questionId], references: [id])
+  examAttempt ExamAttempt @relation(fields: [examAttemptId], references: [id],onDelete: Cascade)
+  question    Question    @relation(fields: [questionId], references: [id], onDelete: Cascade)
 
   @@unique([examAttemptId, questionId])
   @@index([examAttemptId])
@@ -131,7 +131,7 @@ model UserFavorite {
   createdAt  DateTime @default(now()) @map("created_at")
 
   user     User     @relation(fields: [userId], references: [id])
-  question Question @relation(fields: [questionId], references: [id])
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
 
   @@unique([userId, questionId])
   @@index([userId])
@@ -147,7 +147,7 @@ model Routine {
   duration          Int
   subject           String   @db.VarChar(200)
   topics            String?  @db.Text
-  sourceMaterial    String?  @db.VarChar(500) @map("source_material")
+  sourceMaterial    String?  @map("source_material") @db.VarChar(500)
   description       String?  @db.Text
   isActive          Boolean  @default(true) @map("is_active")
   createdAt         DateTime @default(now()) @map("created_at")
