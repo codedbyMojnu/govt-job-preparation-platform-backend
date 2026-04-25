@@ -1,19 +1,48 @@
-# .github/workflows/keep-alive.yml
-
 name: Keep Server Alive
 
 on:
   schedule:
-    - cron: '*/10 * * * *' # runs every 10 minutes
-  workflow_dispatch: # allows manual trigger from GitHub UI
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
 
 jobs:
   ping:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Ping Render Server
+      - name: Ping 1
         run: |
-          echo "Pinging server at $(date)"
-          curl -s -o /dev/null -w "HTTP Status: %{http_code}\n" https://api-farhan-mcq.onrender.com/health
-          echo "Ping complete"
+          echo "Ping 1 at $(date)"
+          curl -s -o /dev/null -w "HTTP Status: %{http_code}\n" https://api-farhan-mcq.onrender.com/
+
+      - name: Wait 1 min
+        run: sleep 60
+
+      - name: Ping 2
+        run: |
+          echo "Ping 2 at $(date)"
+          curl -s -o /dev/null -w "HTTP Status: %{http_code}\n" https://api-farhan-mcq.onrender.com/
+
+      - name: Wait 1 min
+        run: sleep 60
+
+      - name: Ping 3
+        run: |
+          echo "Ping 3 at $(date)"
+          curl -s -o /dev/null -w "HTTP Status: %{http_code}\n" https://api-farhan-mcq.onrender.com/
+
+      - name: Wait 1 min
+        run: sleep 60
+
+      - name: Ping 4
+        run: |
+          echo "Ping 4 at $(date)"
+          curl -s -o /dev/null -w "HTTP Status: %{http_code}\n" https://api-farhan-mcq.onrender.com/
+
+      - name: Wait 1 min
+        run: sleep 60
+
+      - name: Ping 5
+        run: |
+          echo "Ping 5 at $(date)"
+          curl -s -o /dev/null -w "HTTP Status: %{http_code}\n" https://api-farhan-mcq.onrender.com/
