@@ -42,6 +42,10 @@ export const createQuestionSchema = z.object({
   correctAnswer: answerEnum,
   explanation: z.string().optional(),
   subject: z.string().max(200).optional(),
+  topic: z.string().max(200).optional(),
+  subTopic: z.string().max(200).optional(),
+  slug: z.string().max(600).optional(),
+  frequencyTag: z.string().max(200).optional(),
   sortOrder: z.number().int().min(0).optional(),
 });
 
@@ -54,6 +58,10 @@ export const updateQuestionSchema = z.object({
   correctAnswer: answerEnum.optional(),
   explanation: z.string().optional(),
   subject: z.string().max(200).optional(),
+  topic: z.string().max(200).optional(),
+  subTopic: z.string().max(200).optional(),
+  slug: z.string().max(600).optional(),
+  frequencyTag: z.string().max(200).optional(),
   sortOrder: z.number().int().min(0).optional(),
 });
 

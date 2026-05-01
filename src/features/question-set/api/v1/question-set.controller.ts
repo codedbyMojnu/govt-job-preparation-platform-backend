@@ -100,6 +100,13 @@ export class QuestionSetController {
     res.status(HttpStatus.NO_CONTENT).send();
   }
 
+  // --- Public SEO question page ---
+
+  async getPublicQuestion(req: Request, res: Response): Promise<void> {
+    const question = await this.service.getPublicQuestionBySlug(req.params.slug!);
+    res.status(HttpStatus.OK).json({ data: question });
+  }
+
   // --- Exam flow ---
 
   async getExamQuestions(req: Request, res: Response): Promise<void> {

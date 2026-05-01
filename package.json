@@ -20,6 +20,7 @@
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
     "db:seed": "tsx prisma/seed-questions.ts",
+    "db:backfill-slugs": "tsx --env-file=.env prisma/backfill-question-slugs.ts",
     "db:studio": "prisma studio"
   },
   "keywords": [

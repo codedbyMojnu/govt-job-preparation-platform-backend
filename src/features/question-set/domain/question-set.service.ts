@@ -9,6 +9,7 @@ import type {
   ExamAttemptDto,
   ExamQuestionDto,
   MarksheetDto,
+  PublicQuestionDto,
   QuestionDto,
   QuestionSetDto,
   QuestionStatsDto,
@@ -131,6 +132,16 @@ export class QuestionSetService {
   async deleteQuestion(id: string): Promise<void> {
     await this.getQuestionById(id);
     return this.repository.deleteQuestion(id);
+  }
+
+  // --- Public SEO question page ---
+
+  async getPublicQuestionBySlug(slug: string): Promise<PublicQuestionDto> {
+    const question = await this.repository.getPublicQuestionBySlug(slug);
+    if (!question) {
+      throw new NotFoundError('Question not found');
+    }
+    return question;
   }
 
   // --- Exam flow ---

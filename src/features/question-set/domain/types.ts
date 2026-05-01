@@ -83,7 +83,43 @@ export interface QuestionDto {
   correctAnswer: string;
   explanation: string | null;
   subject: string | null;
+  topic: string | null;
+  subTopic: string | null;
+  slug: string | null;
+  frequencyTag: string | null;
   sortOrder: number;
+}
+
+/** Full question page data for public SEO endpoint */
+export interface PublicQuestionDto {
+  id: string;
+  slug: string;
+  questionText: string;
+  optionA: string;
+  optionB: string;
+  optionC: string;
+  optionD: string;
+  correctAnswer: string;
+  explanation: string | null;
+  subject: string | null;
+  topic: string | null;
+  subTopic: string | null;
+  frequencyTag: string | null;
+  questionSetId: string;
+  questionSetTitle: string;
+  examCategoryName: string;
+  examCategorySlug: string;
+  subExamCategoryName: string;
+  subExamCategorySlug: string;
+  relatedQuestions: RelatedQuestionDto[];
+}
+
+export interface RelatedQuestionDto {
+  id: string;
+  slug: string;
+  questionText: string;
+  subject: string | null;
+  topic: string | null;
 }
 
 /** Question returned during exam (hides correctAnswer & explanation) */
@@ -108,6 +144,10 @@ export interface CreateQuestionInput {
   correctAnswer: string;
   explanation?: string;
   subject?: string;
+  topic?: string;
+  subTopic?: string;
+  slug?: string;
+  frequencyTag?: string;
   sortOrder?: number;
 }
 
@@ -120,6 +160,10 @@ export interface UpdateQuestionInput {
   correctAnswer?: string;
   explanation?: string;
   subject?: string;
+  topic?: string;
+  subTopic?: string;
+  slug?: string;
+  frequencyTag?: string;
   sortOrder?: number;
 }
 

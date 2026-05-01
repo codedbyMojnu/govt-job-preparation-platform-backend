@@ -10,9 +10,11 @@ import type {
   ExamAttemptDto,
   ExamQuestionDto,
   MarksheetDto,
+  PublicQuestionDto,
   QuestionDto,
   QuestionSetDto,
   QuestionStatsDto,
+  RelatedQuestionDto,
   ReviewQuestionDto,
   SubjectWiseMark,
   UpdateAppSettingsInput,
@@ -211,6 +213,10 @@ export class QuestionSetPrismaRepository implements QuestionSetRepository {
         correctAnswer: input.correctAnswer,
         explanation: input.explanation ?? null,
         subject: input.subject ?? null,
+        topic: input.topic ?? null,
+        subTopic: input.subTopic ?? null,
+        slug: input.slug ?? null,
+        frequencyTag: input.frequencyTag ?? null,
         sortOrder: input.sortOrder ?? 0,
       },
     });
@@ -229,6 +235,10 @@ export class QuestionSetPrismaRepository implements QuestionSetRepository {
         ...(input.correctAnswer !== undefined && { correctAnswer: input.correctAnswer }),
         ...(input.explanation !== undefined && { explanation: input.explanation ?? null }),
         ...(input.subject !== undefined && { subject: input.subject ?? null }),
+        ...(input.topic !== undefined && { topic: input.topic ?? null }),
+        ...(input.subTopic !== undefined && { subTopic: input.subTopic ?? null }),
+        ...(input.slug !== undefined && { slug: input.slug ?? null }),
+        ...(input.frequencyTag !== undefined && { frequencyTag: input.frequencyTag ?? null }),
         ...(input.sortOrder !== undefined && { sortOrder: input.sortOrder }),
       },
     });
@@ -237,6 +247,77 @@ export class QuestionSetPrismaRepository implements QuestionSetRepository {
 
   async deleteQuestion(id: string): Promise<void> {
     await this.prisma.question.delete({ where: { id } });
+  }
+
+  // --- Public SEO question page ---
+
+  async getPublicQuestionBySlug(slug: string): Promise<PublicQuestionDto | null> {
+    const question = await this.prisma.question.findUnique({
+      where: { slug },
+      include: {
+        questionSet: {
+          include: {
+            subExamCategory: {
+              include: { examCategory: true },
+            },
+          },
+        },
+      },
+    });
+
+    if (!question) return null;
+
+    const { questionSet } = question;
+    const { subExamCategory } = questionSet;
+    const { examCategory } = subExamCategory;
+
+    // Related: same topic + subject first, else same subject, limit 8, exclude self
+    const related = await this.prisma.question.findMany({
+      where: {
+        id: { not: question.id },
+        slug: { not: null },
+        OR: [
+          ...(question.topic && question.subject
+            ? [{ topic: question.topic, subject: question.subject }]
+            : []),
+          ...(question.subject ? [{ subject: question.subject }] : []),
+        ],
+      },
+      select: { id: true, slug: true, questionText: true, subject: true, topic: true },
+      orderBy: { sortOrder: 'asc' },
+      take: 8,
+    });
+
+    const relatedQuestions: RelatedQuestionDto[] = related.map((r) => ({
+      id: r.id,
+      slug: r.slug!,
+      questionText: r.questionText,
+      subject: r.subject,
+      topic: r.topic,
+    }));
+
+    return {
+      id: question.id,
+      slug: question.slug!,
+      questionText: question.questionText,
+      optionA: question.optionA,
+      optionB: question.optionB,
+      optionC: question.optionC,
+      optionD: question.optionD,
+      correctAnswer: question.correctAnswer,
+      explanation: question.explanation,
+      subject: question.subject,
+      topic: question.topic,
+      subTopic: question.subTopic,
+      frequencyTag: question.frequencyTag,
+      questionSetId: questionSet.id,
+      questionSetTitle: questionSet.title,
+      examCategoryName: examCategory.name,
+      examCategorySlug: examCategory.slug,
+      subExamCategoryName: subExamCategory.name,
+      subExamCategorySlug: subExamCategory.slug,
+      relatedQuestions,
+    };
   }
 
   // --- Exam flow ---

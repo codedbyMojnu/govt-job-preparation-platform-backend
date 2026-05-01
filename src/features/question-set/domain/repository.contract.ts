@@ -6,6 +6,7 @@ import type {
   ExamAttemptDto,
   ExamQuestionDto,
   MarksheetDto,
+  PublicQuestionDto,
   QuestionDto,
   QuestionSetDto,
   QuestionStatsDto,
@@ -36,6 +37,9 @@ export interface QuestionSetRepository {
   createQuestion(input: CreateQuestionInput): Promise<QuestionDto>;
   updateQuestion(id: string, input: UpdateQuestionInput): Promise<QuestionDto>;
   deleteQuestion(id: string): Promise<void>;
+
+  // Public SEO question page
+  getPublicQuestionBySlug(slug: string): Promise<PublicQuestionDto | null>;
 
   // Exam flow
   getExamQuestions(questionSetId: string): Promise<ExamQuestionDto[]>;

@@ -75,6 +75,8 @@ model Question {
   subject       String?  @db.VarChar(200)
   topic         String?  @db.VarChar(200)
   subTopic      String?  @map("sub_topic") @db.VarChar(200)
+  slug          String?  @unique @db.VarChar(600)
+  frequencyTag  String?  @map("frequency_tag") @db.VarChar(200)
   sortOrder     Int      @default(0) @map("sort_order")
   createdAt     DateTime @default(now()) @map("created_at")
   updatedAt     DateTime @updatedAt @map("updated_at")

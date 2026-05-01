@@ -50,6 +50,12 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     }),
   );
 
+  // Public: Get single question by slug (SEO page data)
+  router.get(
+    '/public/question/:slug',
+    asyncHandler((req, res) => controller.getPublicQuestion(req, res)),
+  );
+
   // Public: Get archive question sets by sub-category slug
   router.get(
     '/archive/:subCategorySlug',

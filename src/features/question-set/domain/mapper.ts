@@ -37,6 +37,10 @@ export const questionMapper = {
       correctAnswer: entity.correctAnswer,
       explanation: entity.explanation,
       subject: entity.subject,
+      topic: entity.topic,
+      subTopic: entity.subTopic,
+      slug: entity.slug,
+      frequencyTag: entity.frequencyTag,
       sortOrder: entity.sortOrder,
     };
   },
