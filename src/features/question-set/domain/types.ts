@@ -167,6 +167,25 @@ export interface UpdateQuestionInput {
   sortOrder?: number;
 }
 
+export interface BulkUpsertQuestionItem {
+  /** Present for existing questions (update); absent for new questions (create). */
+  id?: string;
+  questionSetId: string;
+  questionText: string;
+  optionA: string;
+  optionB: string;
+  optionC: string;
+  optionD: string;
+  correctAnswer: string;
+  explanation?: string;
+  subject?: string;
+  topic?: string;
+  subTopic?: string;
+  slug?: string;
+  frequencyTag?: string;
+  sortOrder?: number;
+}
+
 // --- Exam attempt types ---
 
 export interface ExamAttemptDto {

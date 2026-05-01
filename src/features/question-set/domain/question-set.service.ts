@@ -4,6 +4,7 @@ import type { QuestionSetRepository } from './repository.contract.js';
 import type {
   AnswerQuestionInput,
   AppSettingsDto,
+  BulkUpsertQuestionItem,
   CreateQuestionInput,
   CreateQuestionSetInput,
   ExamAttemptDto,
@@ -132,6 +133,14 @@ export class QuestionSetService {
   async deleteQuestion(id: string): Promise<void> {
     await this.getQuestionById(id);
     return this.repository.deleteQuestion(id);
+  }
+
+  async bulkUpsertQuestions(questions: BulkUpsertQuestionItem[]): Promise<QuestionDto[]> {
+    return this.repository.bulkUpsertQuestions(questions);
+  }
+
+  async bulkDeleteQuestions(ids: string[]): Promise<void> {
+    return this.repository.bulkDeleteQuestions(ids);
   }
 
   // --- Public SEO question page ---

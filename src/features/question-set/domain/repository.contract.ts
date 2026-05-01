@@ -1,6 +1,7 @@
 import type {
   AnswerQuestionInput,
   AppSettingsDto,
+  BulkUpsertQuestionItem,
   CreateQuestionInput,
   CreateQuestionSetInput,
   ExamAttemptDto,
@@ -37,6 +38,8 @@ export interface QuestionSetRepository {
   createQuestion(input: CreateQuestionInput): Promise<QuestionDto>;
   updateQuestion(id: string, input: UpdateQuestionInput): Promise<QuestionDto>;
   deleteQuestion(id: string): Promise<void>;
+  bulkUpsertQuestions(questions: BulkUpsertQuestionItem[]): Promise<QuestionDto[]>;
+  bulkDeleteQuestions(ids: string[]): Promise<void>;
 
   // Public SEO question page
   getPublicQuestionBySlug(slug: string): Promise<PublicQuestionDto | null>;

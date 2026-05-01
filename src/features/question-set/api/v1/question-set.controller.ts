@@ -4,6 +4,7 @@ import { HttpStatus } from '../../../../shared/constants/http-status.js';
 import type { QuestionSetService } from '../../domain/question-set.service.js';
 import type {
   AnswerQuestionInput,
+  BulkUpsertQuestionItem,
   CreateQuestionInput,
   CreateQuestionSetInput,
   UpdateAppSettingsInput,
@@ -97,6 +98,18 @@ export class QuestionSetController {
 
   async deleteQuestion(req: Request, res: Response): Promise<void> {
     await this.service.deleteQuestion(req.params.id!);
+    res.status(HttpStatus.NO_CONTENT).send();
+  }
+
+  async bulkUpsertQuestions(req: Request, res: Response): Promise<void> {
+    const { questions } = req.body as { questions: BulkUpsertQuestionItem[] };
+    const result = await this.service.bulkUpsertQuestions(questions);
+    res.status(HttpStatus.OK).json({ data: result });
+  }
+
+  async bulkDeleteQuestions(req: Request, res: Response): Promise<void> {
+    const { ids } = req.body as { ids: string[] };
+    await this.service.bulkDeleteQuestions(ids);
     res.status(HttpStatus.NO_CONTENT).send();
   }
 

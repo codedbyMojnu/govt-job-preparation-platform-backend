@@ -78,3 +78,29 @@ export const updateAppSettingsSchema = z.object({
   freeLiveLimit: z.number().int().min(0).optional(),
   freeArchiveLimit: z.number().int().min(0).optional(),
 });
+
+const bulkQuestionItem = z.object({
+  id: z.string().optional(),
+  questionSetId: z.string().min(1),
+  questionText: z.string().min(1),
+  optionA: z.string().min(1),
+  optionB: z.string().min(1),
+  optionC: z.string().min(1),
+  optionD: z.string().min(1),
+  correctAnswer: answerEnum,
+  explanation: z.string().optional(),
+  subject: z.string().max(200).optional(),
+  topic: z.string().max(200).optional(),
+  subTopic: z.string().max(200).optional(),
+  slug: z.string().max(600).optional(),
+  frequencyTag: z.string().max(200).optional(),
+  sortOrder: z.number().int().min(0).optional(),
+});
+
+export const bulkUpsertQuestionsSchema = z.object({
+  questions: z.array(bulkQuestionItem).min(1).max(500),
+});
+
+export const bulkDeleteQuestionsSchema = z.object({
+  ids: z.array(z.string().min(1)).min(1).max(500),
+});

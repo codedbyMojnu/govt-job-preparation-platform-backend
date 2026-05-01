@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
-const questionSetId = 'cmohgd4qj00a8bq01yj62zk1g';
+const questionSetId = 'cmomxyqda0001uxj4gs0ujoc6';
 
 async function main() {
   // Seed mock questions
@@ -14,1844 +14,3635 @@ async function main() {
 
     data: [
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      // বিষয়: ইংরেজি (প্রশ্ন ০১–২৫)
+      // বিষয়: সাধারণ জ্ঞান — বাংলাদেশ বিষয়াবলি (প্রশ্ন ০১–২৫)
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       {
         questionSetId,
-        questionText: '১. If I had tried again–',
-        optionA: 'I could solve the problem.',
-        optionB: 'I could have solved the problem.',
-        optionC: 'I could solved the problem.',
-        optionD: 'I could have solve the problem.',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) I could have solved the problem.
+        questionText: 'বাংলাদেশের ভৌগোলিক অবস্থান কোনটি?',
+        optionA: "২৪° ৩০' থেকে ২৮°৩৪′ দক্ষিণ অক্ষাংশ",
+        optionB: "৮০°৩৪' থেকে ৪০°৯০' পশ্চিম দ্রাঘিমাংশ",
+        optionC: "৩৪°২৫' থেকে ২৮°৩৮' উত্তর অক্ষাংশ",
+        optionD: "৮৮°০১' থেকে ৯২° ৪১' পূর্ব দ্রাঘিমাংশ",
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) ৮৮°০১' থেকে ৯২°৪১' পূর্ব দ্রাঘিমাংশ
 
-ব্যাখ্যা: এটি Third Conditional-এর নিয়ম। If যুক্ত clause-টি Past Perfect Tense (had + V3) হলে, অপর (Principal) clause-টিতে subject-এর পর would have/could have/might have + verb-এর past participle (V3) ফর্ম বসে।
-এখানে 'If I had tried again' অংশে had + tried (V3) রয়েছে, তাই পরবর্তী অংশে 'could have solved' সঠিক হবে।
+বাংলাদেশের ভৌগোলিক অবস্থান সম্পর্কিত এই প্রশ্নটি NTRCA ও BCS উভয় পরীক্ষায়ই গুরুত্বপূর্ণ।
 
-উৎস: English Grammar (Conditional Sentences).`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Conditional Sentences',
+বাংলাদেশের সম্পূর্ণ ভৌগোলিক অবস্থান:
+— অক্ষাংশ: ২০°৩৪' উত্তর থেকে ২৬°৩৮' উত্তর অক্ষাংশ
+— দ্রাঘিমাংশ: ৮৮°০১' পূর্ব থেকে ৯২°৪১' পূর্ব দ্রাঘিমাংশ
+— বাংলাদেশ উত্তর গোলার্ধে এবং পূর্ব দ্রাঘিমাংশে অবস্থিত
+
+ভুল বিকল্প বিশ্লেষণ:
+✗ দক্ষিণ অক্ষাংশ: বাংলাদেশ দক্ষিণ গোলার্ধে নয়, উত্তর গোলার্ধে অবস্থিত
+✗ পশ্চিম দ্রাঘিমাংশ: বাংলাদেশ পূর্ব গোলার্ধে অবস্থিত
+✗ ৩৪°২৫' থেকে ২৮°৩৮' উত্তর অক্ষাংশ: এটি সঠিক অক্ষাংশ পরিসীমা নয়
+
+মনে রাখার কৌশল: বাংলাদেশ এশিয়ার দক্ষিণ-পূর্বাংশে, ভারত ও মিয়ানমারের মধ্যে অবস্থিত। পূর্ব দ্রাঘিমাংশ ৮৮–৯২ মনে রাখুন।
+
+উৎস: বাংলাদেশের ভূগোল ও পরিবেশ — মাহবুবুর রহমান; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'বাংলাদেশের ভূগোল ও ভৌগোলিক অবস্থান',
         sortOrder: 1,
       },
       {
         questionSetId,
-        questionText: '২. আজকাল নারীরা জীবনের সর্বক্ষেত্রে গুরুত্বপূর্ণ ভূমিকা পালন করছে।',
-        optionA: 'Women are playing important role in all sphere of life.',
-        optionB: 'Nowadays women are playing important role everywhere.',
-        optionC: 'Women are playing most important roles in all sphere of life.',
-        optionD: 'Nowadays women are playing important role in all spheres of life.',
-        correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) Nowadays women are playing important role in all spheres of life.
+        questionText: 'বাংলার সর্বপ্রাচীন জনপদ কোনটি?',
+        optionA: 'পুণ্ড্র',
+        optionB: 'সমতট',
+        optionC: 'রাঢ়',
+        optionD: 'হরিকেল',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) পুণ্ড্র
 
-ব্যাখ্যা: অনুবাদটির প্রতিটি অংশের বিশ্লেষণ:
-- আজকাল = Nowadays
-- নারীরা = women
-- গুরুত্বপূর্ণ ভূমিকা পালন করছে = are playing important role (Present Continuous Tense)
-- জীবনের সর্বক্ষেত্রে = in all spheres of life. (sphere-এর বহুবচন spheres হবে কারণ 'all' এর পর plural countable noun বসে)।
-সুতরাং সঠিক অনুবাদ হলো অপশন (ঘ)।`,
-        subject: 'ইংরেজি',
-        topic: 'Translation',
-        subTopic: 'Bengali to English',
+বাংলার প্রাচীন জনপদ সম্পর্কিত তথ্য ইতিহাস ও বাংলাদেশ বিষয়ক প্রশ্নে বারবার আসে।
+
+পুণ্ড্র জনপদ সম্পর্কে বিস্তারিত তথ্য:
+— বাংলার সবচেয়ে প্রাচীন ও বৃহত্তম জনপদ হলো পুণ্ড্র
+— অবস্থান: বর্তমান বগুড়া, রাজশাহী ও দিনাজপুর অঞ্চল
+— রাজধানী: পুণ্ড্রনগর (বর্তমান মহাস্থানগড়, বগুড়া)
+— এটি খ্রিষ্টপূর্ব তৃতীয় শতাব্দী থেকে ইতিহাসে উল্লিখিত
+— মৌর্য সম্রাট অশোকের শিলালিপিতেও পুণ্ড্রের উল্লেখ পাওয়া যায়
+
+অন্যান্য জনপদ সম্পর্কে সংক্ষিপ্ত তথ্য:
+— সমতট: বর্তমান কুমিল্লা ও নোয়াখালী অঞ্চল
+— রাঢ়: পশ্চিমবঙ্গের বর্ধমান ও মুর্শিদাবাদ অঞ্চল
+— হরিকেল: বর্তমান সিলেট ও চট্টগ্রামের কিছু অংশ
+
+উৎস: বাংলাদেশের ইতিহাস ও বিশ্বসভ্যতা — আবু মোঃ দেলোয়ার হোসেন; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'বাংলার প্রাচীন ইতিহাস ও জনপদ',
         sortOrder: 2,
       },
       {
         questionSetId,
-        questionText: '৩. I fancy I (turn) a trifle pale.',
-        optionA: 'turned',
-        optionB: 'tuns',
-        optionC: 'am turning',
-        optionD: 'had turned',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) turned
+        questionText:
+          'বাংলাদেশে ব-দ্বীপ মহাপরিকল্পনা-২১০০ কোন দেশের পরিকল্পনাকে অনুসরণ করে করা হয়েছে?',
+        optionA: 'সুইজারল্যান্ড',
+        optionB: 'নেদারল্যান্ড',
+        optionC: 'আয়ারল্যান্ড',
+        optionD: 'ফিনল্যান্ড',
+        correctAnswer: 'B',
+        explanation: `সঠিক উত্তর: (খ) নেদারল্যান্ড
 
-ব্যাখ্যা: বাক্যে fancy, wish, it is time, it is high time ইত্যাদি থাকলে এর পরবর্তী clause-টির verb সর্বদা Past Indefinite Tense-এ হয়। 
-যেহেতু এখানে 'I fancy' আছে, তাই পরবর্তী verb 'turn' এর past form 'turned' হবে।`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Right Form of Verbs',
+বাংলাদেশ ডেল্টা প্ল্যান-২১০০ বা ব-দ্বীপ মহাপরিকল্পনা বাংলাদেশের একটি যুগান্তকারী দীর্ঘমেয়াদি পরিকল্পনা।
+
+ব-দ্বীপ মহাপরিকল্পনা-২১০০ সম্পর্কে বিস্তারিত:
+— পূর্ণ নাম: Bangladesh Delta Plan 2100 (BDP 2100)
+— অনুমোদন: ৪ সেপ্টেম্বর ২০১৮ সালে জাতীয় অর্থনৈতিক পরিষদে (ECNEC) অনুমোদিত
+— উদ্যোক্তা: বাংলাদেশ পরিকল্পনা কমিশন ও নেদারল্যান্ডের বিশেষজ্ঞ দল
+— নেদারল্যান্ড সরকার কারিগরি ও আর্থিক সহায়তা প্রদান করেছে
+— মূল লক্ষ্য: জলবায়ু পরিবর্তন মোকাবেলা, বন্যা নিয়ন্ত্রণ, খাদ্য নিরাপত্তা ও নদী ব্যবস্থাপনা
+— মেয়াদ: ২০১৮–২১০০ (৮২ বছরের দীর্ঘমেয়াদি পরিকল্পনা)
+
+নেদারল্যান্ডের সাথে সম্পর্ক:
+নেদারল্যান্ড ডেল্টা প্রোগ্রাম (The Dutch Delta Programme) থেকে অনুপ্রেরণা নিয়ে এই পরিকল্পনা তৈরি করা হয়েছে, কারণ নেদারল্যান্ডও সমুদ্রের নিচে ও বন্যাপ্রবণ দেশ।
+
+উৎস: বাংলাদেশ পরিকল্পনা কমিশন ওয়েবসাইট; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'বাংলাদেশের উন্নয়ন পরিকল্পনা',
         sortOrder: 3,
       },
       {
         questionSetId,
-        questionText: '৪. He fell ––– a trap.',
-        optionA: 'of',
-        optionB: 'off',
-        optionC: 'into',
-        optionD: 'out',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) into
+        questionText: 'বিলোনিয়া সীমান্ত কোন জেলার অন্তর্গত?',
+        optionA: 'ফেনী',
+        optionB: 'নিলফামারী',
+        optionC: 'পঞ্চগড়',
+        optionD: 'জয়পুরহাট',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) ফেনী
 
-ব্যাখ্যা: 'Fall into a trap' একটি Phrase যার অর্থ ফাঁদে পড়া বা বিপদে পতিত হওয়া। 
-তাছাড়া বাইরে থেকে ভেতরের দিকে গতিশীলতা বোঝাতে preposition হিসেবে 'into' ব্যবহৃত হয়। এখানে ফাঁদের ভেতরে পড়ার গতিশীলতা বোঝানো হয়েছে।`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Appropriate Prepositions',
+বাংলাদেশের স্থলসীমান্ত ও স্থলবন্দর সংক্রান্ত তথ্য সাধারণ জ্ঞানের গুরুত্বপূর্ণ অংশ।
+
+বিলোনিয়া সীমান্ত সম্পর্কে তথ্য:
+— বিলোনিয়া বাংলাদেশ-ভারত সীমান্তের একটি গুরুত্বপূর্ণ স্থলবন্দর
+— অবস্থান: ফেনী জেলার ছাগলনাইয়া উপজেলায়
+— ভারতীয় অংশে রয়েছে ত্রিপুরা রাজ্যের বিলোনিয়া শহর
+— এটি বাংলাদেশ-ভারত বাণিজ্যের একটি গুরুত্বপূর্ণ পয়েন্ট
+
+বাংলাদেশের কিছু গুরুত্বপূর্ণ স্থলবন্দর ও তাদের জেলা:
+— বেনাপোল: যশোর জেলা (সর্ববৃহৎ স্থলবন্দর)
+— আখাউড়া: ব্রাহ্মণবাড়িয়া জেলা
+— বুড়িমারী: লালমনিরহাট জেলা
+— তামাবিল: সিলেট জেলা
+— বাংলাবান্ধা: পঞ্চগড় জেলা
+
+উৎস: বাংলাদেশের ভূগোল ও পরিবেশ; বিগত NTRCA ও BCS প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'বাংলাদেশের সীমানা ও স্থলবন্দর',
         sortOrder: 4,
       },
       {
         questionSetId,
-        questionText: '৫. I would rather die–',
-        optionA: 'then beg',
-        optionB: 'than beg',
-        optionC: 'but I would not beg',
-        optionD: 'to beg',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) than beg
+        questionText: 'বাংলাদেশে বর্তমানে মোট কতটি শিক্ষাবোর্ড রয়েছে?',
+        optionA: '৮টি',
+        optionB: '৯টি',
+        optionC: '১০টি',
+        optionD: '১১টি',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) ১১টি
 
-ব্যাখ্যা: 'Would rather ... than' একটি correlative conjunction যা দুটি কাজের মধ্যে একটিকে বেশি পছন্দ করা বোঝাতে ব্যবহৃত হয়। এর অর্থ 'বরং... তবুও'।
-গঠন: Subject + would rather + Verb (base form) + than + Verb (base form)।
-তাই বাক্যটি হবে: I would rather die than beg (আমি বরং মরব, তবুও ভিক্ষা করব না)।`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Conjunctions',
+বাংলাদেশের শিক্ষাব্যবস্থা সম্পর্কিত এই তথ্যটি NTRCA পরীক্ষায় অত্যন্ত গুরুত্বপূর্ণ।
+
+বাংলাদেশের ১১টি শিক্ষাবোর্ডের তালিকা:
+সাধারণ শিক্ষাবোর্ড (৯টি):
+১. ঢাকা শিক্ষা বোর্ড
+২. চট্টগ্রাম শিক্ষা বোর্ড
+৩. রাজশাহী শিক্ষা বোর্ড
+৪. যশোর শিক্ষা বোর্ড
+৫. কুমিল্লা শিক্ষা বোর্ড
+৬. বরিশাল শিক্ষা বোর্ড
+৭. সিলেট শিক্ষা বোর্ড
+৮. দিনাজপুর শিক্ষা বোর্ড
+৯. ময়মনসিংহ শিক্ষা বোর্ড (সর্বশেষ প্রতিষ্ঠিত, ২০১৭)
+
+বিশেষ শিক্ষাবোর্ড (২টি):
+১০. মাদ্রাসা শিক্ষা বোর্ড
+১১. কারিগরি শিক্ষা বোর্ড
+
+মনে রাখার উপায়: ৯টি সাধারণ + ১টি মাদ্রাসা + ১টি কারিগরি = মোট ১১টি
+
+উৎস: বাংলাদেশ শিক্ষা মন্ত্রণালয়ের ওয়েবসাইট; NTRCA প্রশ্নব্যাংক ২০২২।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'বাংলাদেশের শিক্ষাব্যবস্থা',
         sortOrder: 5,
       },
       {
         questionSetId,
-        questionText: '৬. The prince has no ambition ––– the throne.',
-        optionA: 'to',
-        optionB: 'with',
-        optionC: 'of',
-        optionD: 'for',
-        correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) for
+        questionText:
+          "১৯৭১ সালের ৭ই মার্চ জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান প্রদত্ত ভাষণটি ইউনেস্কো কোন তারিখে 'বিশ্ব প্রামাণ্য ঐতিহ্য' হিসেবে ঘোষণা করে?",
+        optionA: '৩০শে অক্টোবর, ২০১৭ সাল',
+        optionB: '৩০শে নভেম্বর, ২০১৭ সাল',
+        optionC: '৩০শে সেপ্টেম্বর, ২০১৮ সাল',
+        optionD: '৩০শে অক্টোবর, ২০১৮ সাল',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) ৩০শে অক্টোবর, ২০১৭ সাল
 
-ব্যাখ্যা: 'Ambition for' একটি appropriate preposition যার অর্থ 'কোনো কিছুর জন্য উচ্চাকাঙ্ক্ষা'। 
-সিংহাসনের প্রতি রাজকুমারের কোনো লোভ বা আকাঙ্ক্ষা নেই বোঝাতে ambition-এর পর 'for' বসবে।`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Appropriate Prepositions',
+৭ই মার্চের ভাষণ বাংলাদেশের জাতীয় ইতিহাসের সবচেয়ে গুরুত্বপূর্ণ দলিলগুলোর একটি।
+
+ইউনেস্কো স্বীকৃতি সম্পর্কে বিস্তারিত তথ্য:
+— তারিখ: ৩০ অক্টোবর ২০১৭ সালে ইউনেস্কো এই ভাষণকে 'Memory of the World' বা 'বিশ্ব প্রামাণ্য ঐতিহ্য'-এর তালিকায় অন্তর্ভুক্ত করে
+— এই ভাষণ এখন বিশ্বের ৭৭টি গুরুত্বপূর্ণ দলিলের একটি
+— ভাষণের স্থান: তৎকালীন রেসকোর্স ময়দান (বর্তমান সোহরাওয়ার্দী উদ্যান), ঢাকা
+— ভাষণের দৈর্ঘ্য: ১৮ মিনিট ৩০ সেকেন্ড
+— ভাষণে বলা হয়েছিল 'এবারের সংগ্রাম আমাদের মুক্তির সংগ্রাম, এবারের সংগ্রাম স্বাধীনতার সংগ্রাম'
+
+ভাষণটি কেন ঐতিহাসিক:
+— এটি কোনো লিখিত নোট ছাড়াই দেওয়া একটি স্বতঃস্ফূর্ত ভাষণ
+— বিশ্বের অন্যতম সেরা রাজনৈতিক ভাষণ হিসেবে স্বীকৃত
+— মুক্তিযুদ্ধের অনুপ্রেরণা হিসেবে কাজ করেছিল
+
+উৎস: ইউনেস্কো অফিসিয়াল ওয়েবসাইট; বাংলাদেশের মুক্তিযুদ্ধের ইতিহাস।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'বাংলাদেশের মুক্তিযুদ্ধ ও স্বাধীনতার ইতিহাস',
         sortOrder: 6,
       },
       {
         questionSetId,
-        questionText: '৭. Which is the noun of the word wise?',
-        optionA: 'Wise',
-        optionB: 'Wisdom',
-        optionC: 'Wisely',
-        optionD: 'Wish',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) Wisdom
+        questionText: "'বর্ধমান হাউজ' কোথায় অবস্থিত?",
+        optionA: 'ঢাকা',
+        optionB: 'কলকাতা',
+        optionC: 'পশ্চিমবঙ্গ',
+        optionD: 'কুষ্টিয়া',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) ঢাকা
 
-ব্যাখ্যা: 'Wise' শব্দটি Adjective, যার অর্থ জ্ঞানী বা প্রজ্ঞাবান।
-এর Noun ফর্ম হলো 'Wisdom', যার অর্থ জ্ঞান বা প্রজ্ঞা।
-অন্যান্য অপশন:
-- Wisely (Adverb) = জ্ঞানীর মতো।
-- Wish (Verb/Noun) = ইচ্ছা।`,
-        subject: 'ইংরেজি',
-        topic: 'Vocabulary',
-        subTopic: 'Parts of Speech Interchange',
+বর্ধমান হাউজ বাংলাদেশের ইতিহাসে একটি অত্যন্ত গুরুত্বপূর্ণ স্থান।
+
+বর্ধমান হাউজ সম্পর্কে বিস্তারিত তথ্য:
+— অবস্থান: ঢাকার পুরানো পল্টনে (বর্তমানে বাংলা একাডেমির ভবন হিসেবে ব্যবহৃত হয়)
+— পূর্বে এটি বর্ধমানের মহারাজার ঢাকা আবাসস্থল ছিল
+— ভাষা আন্দোলনের ইতিহাসে বর্ধমান হাউজ গুরুত্বপূর্ণ: ১৯৪৭ সালের ১ ডিসেম্বর এখানে তমদ্দুন মজলিস সভা আহ্বান করে রাষ্ট্রভাষা প্রস্তাব উত্থাপন করা হয়
+— বর্তমানে এটি বাংলা একাডেমির প্রশাসনিক ভবন হিসেবে ব্যবহৃত হচ্ছে
+— ঐতিহাসিকভাবে এই ভবনটি বাংলা ভাষা আন্দোলনের একটি কেন্দ্রবিন্দু
+
+বাংলা একাডেমি সম্পর্কে:
+— প্রতিষ্ঠা: ৩ ডিসেম্বর ১৯৫৫ সাল
+— অবস্থান: ঢাকার বর্ধমান হাউজ ক্যাম্পাস, ঢাকা বিশ্ববিদ্যালয়ের পাশে
+
+উৎস: বাংলাদেশের ইতিহাস ও সংস্কৃতি; বাংলা একাডেমি প্রকাশিত তথ্য; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'বাংলাদেশের ঐতিহাসিক স্থান ও স্থাপত্য',
         sortOrder: 7,
       },
       {
         questionSetId,
-        questionText: '৮. Ups and downs means–',
-        optionA: 'throughly',
-        optionB: 'move upward and downward',
-        optionC: 'here and there',
-        optionD: 'rise and fall',
+        questionText: 'দেশের প্রস্তাবিত গভীর সমুদ্র বন্দর কোথায় হওয়ার কথা?',
+        optionA: 'সন্দ্বীপ',
+        optionB: 'হাতিয়া',
+        optionC: 'মনপুরা',
+        optionD: 'সোনাদিয়া',
         correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) rise and fall
+        explanation: `সঠিক উত্তর: (ঘ) সোনাদিয়া
 
-ব্যাখ্যা: 'Ups and downs' একটি Idiom যার অর্থ জীবনের উত্থান-পতন বা ভালো-মন্দের পর্যায়।
-এর সমার্থক ইংরেজি অর্থ হলো 'rise and fall'।`,
-        subject: 'ইংরেজি',
-        topic: 'Vocabulary',
-        subTopic: 'Idioms and Phrases',
+বাংলাদেশের সমুদ্রবন্দর ও নৌ-বাণিজ্য সম্পর্কিত তথ্য বর্তমান সময়ের গুরুত্বপূর্ণ আলোচ্য বিষয়।
+
+সোনাদিয়া দ্বীপ ও গভীর সমুদ্রবন্দর:
+— অবস্থান: কক্সবাজার জেলার মহেশখালী উপজেলার কাছে বঙ্গোপসাগরে
+— প্রস্তাবিত গভীর সমুদ্রবন্দর নির্মাণের পরিকল্পনা বহুদিন ধরে আলোচনায় রয়েছে
+— এই প্রকল্পে চীন বিনিয়োগে আগ্রহী ছিল, পরে মতিনীতি পরিবর্তন হয়
+— বর্তমানে মাতারবাড়ি গভীর সমুদ্রবন্দর নির্মাণ প্রকল্পও চলছে
+
+বাংলাদেশের বিদ্যমান সমুদ্রবন্দর:
+— চট্টগ্রাম সমুদ্রবন্দর: দেশের প্রধান ও বৃহত্তম সমুদ্রবন্দর
+— মোংলা সমুদ্রবন্দর: বাগেরহাট জেলায়, দেশের দ্বিতীয় সমুদ্রবন্দর
+— পায়রা সমুদ্রবন্দর: পটুয়াখালী জেলায়, দেশের তৃতীয় সমুদ্রবন্দর (সর্বশেষ)
+
+উৎস: বাংলাদেশ শিপিং কর্পোরেশন; সমকালীন বাংলাদেশ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'বাংলাদেশের বন্দর ও নৌপথ',
         sortOrder: 8,
       },
       {
         questionSetId,
-        questionText: '৯. The verb form of ‘strong’ is–',
-        optionA: 'strength',
-        optionB: 'strong',
-        optionC: 'strengthen',
-        optionD: 'stronger',
+        questionText: 'আসাদগেট নামের পটভূমির সাথে জড়িত কোন সন?',
+        optionA: '১৯৪৭ সন',
+        optionB: '১৯৫২ সন',
+        optionC: '১৯৬৯ সন',
+        optionD: '১৯৭১ সন',
         correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) strengthen
+        explanation: `সঠিক উত্তর: (গ) ১৯৬৯ সন
 
-ব্যাখ্যা: 'Strong' (Adjective) অর্থ শক্তিশালী। 
-এর Verb ফর্ম হলো 'Strengthen' (শক্তিশালী করা)। 
-এর Noun ফর্ম হলো 'Strength' (শক্তি)।
-'Stronger' হলো adjective-এর comparative form।`,
-        subject: 'ইংরেজি',
-        topic: 'Vocabulary',
-        subTopic: 'Parts of Speech Interchange',
+আসাদগেট বাংলাদেশের স্বাধীনতা আন্দোলনের একটি ঐতিহাসিক নিদর্শন।
+
+আসাদগেটের ইতিহাস:
+— ১৯৬৯ সালের গণঅভ্যুত্থান বাংলাদেশের স্বাধীনতা সংগ্রামের একটি গুরুত্বপূর্ণ পর্ব
+— শহীদ আসাদুজ্জামান: ঢাকা বিশ্ববিদ্যালয়ের ছাত্র ও ছাত্র আন্দোলনের নেতা
+— ২০ জানুয়ারি ১৯৬৯ সালে পাকিস্তানি পুলিশের গুলিতে তিনি শহীদ হন
+— তাঁর স্মৃতিতে ঢাকার নিউমার্কেটের কাছের গেটটির নামকরণ 'আসাদগেট' করা হয়
+— এই শহীদী মৃত্যু ১৯৬৯-এর গণঅভ্যুত্থানকে আরো বেগবান করে
+
+১৯৬৯-এর গণঅভ্যুত্থান:
+— আইয়ুব খানের স্বৈরশাসনের বিরুদ্ধে জনগণের সংগঠিত আন্দোলন
+— এই আন্দোলনের ফলে আগরতলা মামলা প্রত্যাহার এবং বঙ্গবন্ধুকে মুক্তি দেওয়া হয়
+— 'বঙ্গবন্ধু' উপাধিটি এই আন্দোলনেই দেওয়া হয়
+
+উৎস: বাংলাদেশের মুক্তিযুদ্ধের ইতিহাস — মুনতাসীর মামুন; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'বাংলাদেশের মুক্তিযুদ্ধ ও স্বাধীনতার ইতিহাস',
         sortOrder: 9,
       },
       {
         questionSetId,
-        questionText: '১০. ––– best companions in life.',
-        optionA: 'Books are men’s',
-        optionB: 'Books are mens',
-        optionC: 'Book is mans',
-        optionD: 'A book is a man’s',
+        questionText: 'ঢাকার ধোলাইখাল কে খনন করেন?',
+        optionA: 'ইসলাম খান',
+        optionB: 'সরফরাজ খান',
+        optionC: 'মুর্শিদ কুলি খান',
+        optionD: 'ঈশা খান',
         correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) Books are men’s
+        explanation: `সঠিক উত্তর: (ক) ইসলাম খান
 
-ব্যাখ্যা: প্রবাদ বাক্য "Books are men’s best companions in life" (বই হলো মানুষের জীবনের শ্রেষ্ঠ সঙ্গী)। 
-এখানে 'মানুষের' বোঝাতে man-এর বহুবচন men-এর সাথে possessive ('s) যুক্ত হয়ে men's হয়েছে। 'mens' বা 'mans' ব্যাকরণগতভাবে ভুল।`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Proverbs / Syntax',
+ঢাকার ইতিহাস ও ঐতিহ্য সম্পর্কিত এই প্রশ্নটি বারবার পরীক্ষায় আসে।
+
+ইসলাম খান ও ধোলাইখাল:
+— ইসলাম খান মুঘল সুবাদার হিসেবে ঢাকায় আসেন ১৬১০ খ্রিস্টাব্দে
+— তিনি বাংলার রাজধানী রাজমহল থেকে ঢাকায় স্থানান্তরিত করেন
+— ঢাকাকে 'জাহাঙ্গীরনগর' নামে নামকরণ করেন
+— ধোলাইখাল: ইসলাম খান নিরাপত্তার জন্য এই খাল খনন করেন
+— খালটি বুড়িগঙ্গা নদীর সাথে সংযুক্ত ছিল এবং দুর্গ পরিখা হিসেবে ব্যবহৃত হত
+
+ঢাকার ইতিহাসের কিছু গুরুত্বপূর্ণ তথ্য:
+— ঢাকা প্রতিষ্ঠা: ১৬১০ খ্রিস্টাব্দে মুঘল সুবাদার ইসলাম খান কর্তৃক
+— লালবাগ কেল্লা: নির্মাণ শুরু করেন মুঘল শাহজাদা মুহম্মদ আজম (১৬৭৮)
+— আহসান মঞ্জিল: নওয়াব আব্দুল গনি কর্তৃক নির্মিত (১৮৫৯–১৮৭২)
+
+উৎস: ঢাকার ইতিহাস — মুনতাসীর মামুন; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'ঢাকার ইতিহাস ও ঐতিহ্য',
         sortOrder: 10,
       },
       {
         questionSetId,
-        questionText: '১১. তিনি সৎ লোক ছিলেন, তাই না?',
-        optionA: 'He was truthful, was he?',
-        optionB: 'He was an honest man, did not he?',
-        optionC: 'He was really an honest man?',
-        optionD: 'He was an honest man, wasn’t he?',
-        correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) He was an honest man, wasn’t he?
+        questionText: 'ইউনেস্কো কবে সুন্দরবনকে বিশ্ব ঐতিহ্য হিসেবে ঘোষণা করে?',
+        optionA: '১৯৯৬ সাল',
+        optionB: '১৯৯৭ সাল',
+        optionC: '১৯৯৮ সাল',
+        optionD: '১৯৯৯ সাল',
+        correctAnswer: 'B',
+        explanation: `সঠিক উত্তর: (খ) ১৯৯৭ সাল
 
-ব্যাখ্যা: বাক্যটি একটি Tag Question। মূল বাক্যটি হলো "তিনি সৎ লোক ছিলেন" যার ইংরেজি "He was an honest man"।
-যেহেতু বাক্যটি affirmative এবং auxiliary verb 'was' আছে, তাই এর ট্যাগ হবে negative অর্থাৎ "wasn't he?"।`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Tag Questions & Translation',
+সুন্দরবন বাংলাদেশের গর্ব এবং বিশ্বের অন্যতম গুরুত্বপূর্ণ প্রাকৃতিক সম্পদ।
+
+সুন্দরবন সম্পর্কে বিস্তারিত তথ্য:
+— ইউনেস্কো বিশ্ব ঐতিহ্য ঘোষণা: ১৯৯৭ সালে (World Heritage Site)
+— মোট আয়তন: প্রায় ১০,০০০ বর্গকিলোমিটার (বাংলাদেশ ও ভারত মিলে)
+— বাংলাদেশ অংশ: প্রায় ৬,০১৭ বর্গকিলোমিটার
+— ভারত অংশ: পশ্চিমবঙ্গের সুন্দরবন ১৯৮৭ সালে বিশ্ব ঐতিহ্য ঘোষিত হয়
+— অবস্থান: বাগেরহাট, সাতক্ষীরা ও খুলনা জেলা
+— রয়েল বেঙ্গল টাইগারের প্রধান আবাসস্থল
+— বিশ্বের বৃহত্তম ম্যানগ্রোভ বন
+
+সুন্দরবনের বিশেষত্ব:
+— সুন্দরী গাছ থেকে 'সুন্দরবন' নামের উৎপত্তি
+— রামসার সাইট হিসেবেও তালিকাভুক্ত (আন্তর্জাতিক জলাভূমি)
+
+উৎস: ইউনেস্কো ওয়েবসাইট; বাংলাদেশের প্রাকৃতিক সম্পদ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'বাংলাদেশের প্রাকৃতিক পরিবেশ ও জীববৈচিত্র্য',
         sortOrder: 11,
       },
       {
         questionSetId,
-        questionText: '১২. The synonym of ‘incredible’ is–',
-        optionA: 'unbelievable',
-        optionB: 'unthinkable',
-        optionC: 'unlikely',
-        optionD: 'un-thinking',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) unbelievable
+        questionText: 'বাংলাদেশের উষ্ণতম স্থান কোনটি?',
+        optionA: 'লালখান',
+        optionB: 'লালপুর',
+        optionC: 'রাজশাহী',
+        optionD: 'বগুড়া',
+        correctAnswer: 'B',
+        explanation: `সঠিক উত্তর: (খ) লালপুর
 
-ব্যাখ্যা: 'Incredible' অর্থ অবিশ্বাস্য (যা বিশ্বাস করা কঠিন)। 
-এর সমার্থক শব্দ (Synonym) হলো 'unbelievable'। 
-অন্যান্য অপশনের অর্থ: unthinkable (অচিন্তনীয়), unlikely (সম্ভাবনা নেই এমন)।`,
-        subject: 'ইংরেজি',
-        topic: 'Vocabulary',
-        subTopic: 'Synonyms',
+বাংলাদেশের জলবায়ু ও তাপমাত্রা সংক্রান্ত তথ্য পরীক্ষায় বারবার আসে।
+
+লালপুর ও বাংলাদেশের তাপমাত্রা:
+— লালপুর: নাটোর জেলায় অবস্থিত একটি উপজেলা
+— এটি বাংলাদেশের উষ্ণতম স্থান হিসেবে রেকর্ড করা হয়েছে
+— লালপুরে সর্বোচ্চ তাপমাত্রা রেকর্ড করা হয় ৪৩.৮°সে (মে মাসে)
+— রাজশাহী বিভাগ সাধারণত দেশের উষ্ণতম অঞ্চল
+
+বাংলাদেশের জলবায়ু সম্পর্কিত গুরুত্বপূর্ণ তথ্য:
+— শীতলতম স্থান: তেঁতুলিয়া (পঞ্চগড় জেলা)
+— সর্বাধিক বৃষ্টিপাত: সিলেটের লালাখাল ও চেরাপুঞ্জির কাছাকাছি অঞ্চল
+— বাংলাদেশের জলবায়ু: ক্রান্তীয় মৌসুমী জলবায়ু (Tropical Monsoon Climate)
+
+উৎস: বাংলাদেশ আবহাওয়া অধিদপ্তর; বাংলাদেশের ভূগোল ও পরিবেশ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'বাংলাদেশের জলবায়ু ও আবহাওয়া',
         sortOrder: 12,
       },
+
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      // বিষয়: সাধারণ জ্ঞান — আন্তর্জাতিক বিষয়াবলি (প্রশ্ন ১৩–২৫)
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       {
         questionSetId,
-        questionText: '১৩. The antonym of ‘Honorary’ is–',
-        optionA: 'official',
-        optionB: 'honorable',
-        optionC: 'salaried',
-        optionD: 'literary',
+        questionText: 'বিশ্বের সবচেয়ে বড় অর্থনৈতিক জোট কোনটি?',
+        optionA: 'ASEAN',
+        optionB: 'SAFTA',
+        optionC: 'EU',
+        optionD: 'WTO',
         correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) salaried
+        explanation: `সঠিক উত্তর: (গ) EU (ইউরোপিয়ান ইউনিয়ন)
 
-ব্যাখ্যা: 'Honorary' অর্থ অবৈতনিক (বিনা বেতনে সম্মানের সাথে কাজ করা)। 
-এর বিপরীত শব্দ (Antonym) হবে 'Salaried' বা 'Paid', যার অর্থ বেতনভুক্ত।`,
-        subject: 'ইংরেজি',
-        topic: 'Vocabulary',
-        subTopic: 'Antonyms',
+আন্তর্জাতিক অর্থনৈতিক সংগঠন সম্পর্কিত জ্ঞান সকল প্রতিযোগিতামূলক পরীক্ষায় অপরিহার্য।
+
+EU সম্পর্কে বিস্তারিত তথ্য:
+— পূর্ণ নাম: European Union (ইউরোপীয় ইউনিয়ন)
+— প্রতিষ্ঠা: ১৯৯৩ সালে মাস্ট্রিশট চুক্তির মাধ্যমে (আনুষ্ঠানিকভাবে)
+— সদস্য রাষ্ট্র: ২৭টি (ব্রেক্সিটের পর যুক্তরাজ্য বাদে)
+— মুদ্রা: ইউরো (Euro)
+— GDP: বিশ্বের বৃহত্তম একক অর্থনৈতিক বাজার
+— সদর দপ্তর: ব্রাসেলস, বেলজিয়াম
+
+বিভ্রান্তিকর বিকল্প বিশ্লেষণ:
+✗ ASEAN: দক্ষিণ-পূর্ব এশিয়ার ১০টি দেশের সংগঠন — EU-এর চেয়ে অনেক ছোট
+✗ SAFTA: দক্ষিণ এশীয় মুক্তবাণিজ্য এলাকা — আঞ্চলিক সংগঠন
+✗ WTO: বিশ্ব বাণিজ্য সংস্থা — অর্থনৈতিক জোট নয়, বহুপাক্ষিক বাণিজ্য সংগঠন
+
+উৎস: আন্তর্জাতিক সম্পর্ক — ড. দেলোয়ার হোসেন; NTRCA ও BCS প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'আন্তর্জাতিক বিষয়াবলি',
+        subTopic: 'আন্তর্জাতিক সংগঠন ও জোট',
         sortOrder: 13,
       },
       {
         questionSetId,
-        questionText: '১৪. ‘To end in smoke’ means–',
-        optionA: 'to create fire',
-        optionB: 'to go thorough suffering',
-        optionC: 'to come to nothing',
-        optionD: 'to see fire',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) to come to nothing
+        questionText: "'ভেটো' কথাটি কোন শব্দ থেকে আগত?",
+        optionA: 'ল্যাটিন',
+        optionB: 'গ্রিক',
+        optionC: 'ফ্রেঞ্চ',
+        optionD: 'ইংরেজি',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) ল্যাটিন
 
-ব্যাখ্যা: 'End in smoke' একটি বহুল প্রচলিত Idiom, যার অর্থ সম্পূর্ণ ব্যর্থ হওয়া বা কোনো ফল না পাওয়া (to produce no positive result)। 
-এর সঠিক ইংরেজি অর্থ হলো 'to come to nothing'।`,
-        subject: 'ইংরেজি',
-        topic: 'Vocabulary',
-        subTopic: 'Idioms and Phrases',
+'ভেটো' শব্দের উৎপত্তি আন্তর্জাতিক রাজনীতির একটি গুরুত্বপূর্ণ জ্ঞান।
+
+ভেটো শব্দের ব্যুৎপত্তি:
+— ল্যাটিন শব্দ 'Veto' অর্থ: "আমি নিষেধ করি" বা "আমি অসম্মত"
+— প্রাচীন রোমান প্রজাতন্ত্রে ট্রিবিউন (Tribune) কর্তৃক সিনেটের সিদ্ধান্ত বাতিলের ক্ষমতাকে 'Veto' বলা হত
+— আধুনিক রাজনীতিতে এটি জাতিসংঘের নিরাপত্তা পরিষদের ৫টি স্থায়ী সদস্যের (P-5) বিশেষ অধিকার
+
+জাতিসংঘের ভেটো ক্ষমতা:
+— ৫টি স্থায়ী সদস্য: যুক্তরাষ্ট্র, যুক্তরাজ্য, ফ্রান্স, রাশিয়া, চীন
+— এই ৫টি দেশের যেকোনো একটি 'না' ভোট দিলেই সিদ্ধান্ত বাতিল হয়ে যায়
+— ভেটো শুধু নিরাপত্তা পরিষদের সিদ্ধান্তে প্রযোজ্য
+
+উৎস: রাষ্ট্রবিজ্ঞান পরিচিতি; আন্তর্জাতিক আইন; NTRCA ও BCS প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'আন্তর্জাতিক বিষয়াবলি',
+        subTopic: 'জাতিসংঘ ও আন্তর্জাতিক সংগঠন',
         sortOrder: 14,
       },
       {
         questionSetId,
-        questionText: '১৫. Kalam is as strong as Salam. (Comparative)',
-        optionA: 'Salam is not stronger than Kalam.',
-        optionB: 'Salam is stronger than Kalam.',
-        optionC: 'Kalam is not stronger than Salam.',
-        optionD: 'Kalam is stronger than Salam.',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) Salam is not stronger than Kalam.
+        questionText: 'ভূ-মধ্যসাগর ও আটলান্টিক মহাসাগরের মধ্যে কোন প্রণালির অবস্থান?',
+        optionA: 'হরমুজ',
+        optionB: 'বসফরাস',
+        optionC: 'পক',
+        optionD: 'জিব্রাল্টার',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) জিব্রাল্টার
 
-ব্যাখ্যা: Positive Degree-তে 'as + adjective + as' যুক্ত Affirmative sentence-কে Comparative Degree করতে হলে:
-১. শেষের Subject প্রথমে আসে (Salam)।
-২. Verb বসে এবং বাক্যটি Negative হয় (is not)।
-৩. Adjective-এর comparative form বসে (stronger)।
-৪. than বসে।
-৫. প্রথম Subject শেষে বসে (Kalam)।
-সুতরাং সঠিক উত্তর: Salam is not stronger than Kalam.`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Degree Transformation',
+বিশ্বের গুরুত্বপূর্ণ প্রণালিসমূহ আন্তর্জাতিক বিষয়াবলির অপরিহার্য অংশ।
+
+জিব্রাল্টার প্রণালি সম্পর্কে বিস্তারিত:
+— অবস্থান: ইউরোপের স্পেন ও আফ্রিকার মরক্কোর মাঝে
+— দৈর্ঘ্য: প্রায় ৫৮ কিলোমিটার
+— প্রস্থ: সর্বনিম্ন ১৪ কিলোমিটার
+— এটি ভূ-মধ্যসাগর ও আটলান্টিক মহাসাগরকে সংযুক্ত করেছে
+— কৌশলগত দিক থেকে অত্যন্ত গুরুত্বপূর্ণ নৌপথ
+
+অন্যান্য গুরুত্বপূর্ণ প্রণালি:
+— হরমুজ: পারস্য উপসাগর ও ওমান সাগরের মাঝে (মধ্যপ্রাচ্যের তেল রপ্তানির পথ)
+— বসফরাস: কৃষ্ণ সাগর ও মারমারা সাগরের মাঝে, তুরস্কে অবস্থিত
+— পক প্রণালি: ভারত ও শ্রীলঙ্কার মাঝে
+— মালাক্কা: মালয়েশিয়া ও ইন্দোনেশিয়ার মাঝে (সবচেয়ে ব্যস্ত নৌপথ)
+
+উৎস: বিশ্বের ভূগোল; আন্তর্জাতিক সম্পর্ক; NTRCA ও BCS প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'আন্তর্জাতিক বিষয়াবলি',
+        subTopic: 'বিশ্বের ভূগোল ও গুরুত্বপূর্ণ স্থান',
         sortOrder: 15,
       },
       {
         questionSetId,
-        questionText: '১৬. The synonym of ‘Prudent’ is–',
-        optionA: 'unwise',
-        optionB: 'insightful',
-        optionC: 'injudicious',
-        optionD: 'impolite',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) insightful
+        questionText: "'War and Peace' উপন্যাসের রচয়িতা কে?",
+        optionA: 'কার্ল মার্কস',
+        optionB: 'জেন অস্টিন',
+        optionC: 'মন্টেস্কু',
+        optionD: 'লিও টলস্টয়',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) লিও টলস্টয়
 
-ব্যাখ্যা: 'Prudent' অর্থ বিজ্ঞ, বিচক্ষণ বা দূরদর্শী। 
-এর সমার্থক শব্দ হলো 'insightful' (অন্তর্দৃষ্টিসম্পন্ন/বিচক্ষণ), 'wise', 'sagacious'। 
-অন্যান্য অপশন: unwise (নির্বোধ), injudicious (অবিবেচক), impolite (অভদ্র) - এগুলো Prudent-এর বিপরীতার্থক।`,
-        subject: 'ইংরেজি',
-        topic: 'Vocabulary',
-        subTopic: 'Synonyms',
+বিশ্বসাহিত্যের বিখ্যাত রচনাবলী জানা সাধারণ জ্ঞানের অপরিহার্য অংশ।
+
+লিও টলস্টয় ও 'War and Peace' সম্পর্কে তথ্য:
+— লেখক: লিও নিকোলায়েভিচ টলস্টয় (১৮২৮–১৯১০)
+— জাতীয়তা: রাশিয়ান
+— 'যুদ্ধ ও শান্তি' (War and Peace): ১৮৬৯ সালে প্রকাশিত
+— এটি বিশ্বসাহিত্যের শ্রেষ্ঠ উপন্যাসগুলোর একটি হিসেবে বিবেচিত
+— নেপোলিয়নের রাশিয়া আক্রমণের পটভূমিতে রচিত মহাকাব্যিক উপন্যাস
+— টলস্টয়ের অন্য বিখ্যাত রচনা: 'Anna Karenina' (আনা কারেনিনা)
+
+বিভ্রান্তিকর বিকল্প বিশ্লেষণ:
+✗ কার্ল মার্কস: দার্শনিক ও অর্থনীতিবিদ, 'Das Kapital' ও 'Communist Manifesto' রচয়িতা
+✗ জেন অস্টিন: ইংরেজ লেখিকা, 'Pride and Prejudice' রচয়িতা
+✗ মন্টেস্কু: ফরাসি রাজনৈতিক দার্শনিক, 'Spirit of the Laws' রচয়িতা
+
+উৎস: বিশ্বসাহিত্য পরিচিতি; আন্তর্জাতিক জ্ঞান; NTRCA ও BCS প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'আন্তর্জাতিক বিষয়াবলি',
+        subTopic: 'বিশ্বসাহিত্য ও বিখ্যাত ব্যক্তিত্ব',
         sortOrder: 16,
       },
       {
         questionSetId,
-        questionText: '১৭. Without working hard, you can not succeed. (Compound)',
-        optionA: 'Word hard and you can not succeed.',
-        optionB: 'Work hard or you can not succeed.',
-        optionC: 'Work hard and you can succeed.',
-        optionD: 'You work hard and you can succeed.',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) Work hard or you can not succeed.
+        questionText: "কোন শহরটি 'বিগ অ্যাপেল' নামে পরিচিত?",
+        optionA: 'লন্ডন',
+        optionB: 'প্যারিস',
+        optionC: 'সিঙ্গাপুর',
+        optionD: 'নিউইয়র্ক',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) নিউইয়র্ক
 
-ব্যাখ্যা: Simple Sentence-এ 'Without + V-ing' থাকলে Compound Sentence-এ পরিণত করার সময় Imperative Sentence-এর পর conjunction হিসেবে 'or' বসে এবং পরের clause অপরিবর্তিত থাকে।
-অতএব, Without working hard -> Work hard, এরপর or বসে। বাক্য দাঁড়ায়: Work hard or you can not succeed.`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Sentence Transformation',
+বিশ্বের বিভিন্ন শহরের ডাকনাম বা উপনাম আন্তর্জাতিক সাধারণ জ্ঞানের গুরুত্বপূর্ণ অংশ।
+
+'বিগ অ্যাপেল' ও নিউইয়র্ক:
+— নিউইয়র্ক সিটির বিখ্যাত ডাকনাম: 'The Big Apple'
+— এই নামের উৎপত্তি: ১৯২০-এর দশকে জ্যাজ সঙ্গীতশিল্পীরা নিউইয়র্কে পারফর্ম করতে আসাকে 'Big Apple' পাওয়া বলতেন
+— ১৯৭০-এর দশকে পর্যটন প্রচারণায় এই নাম আনুষ্ঠানিকভাবে ব্যবহার শুরু হয়
+
+বিশ্বের কিছু শহরের বিখ্যাত ডাকনাম:
+— লন্ডন: The Big Smoke / The Old Smoke
+— প্যারিস: City of Light (আলোর শহর)
+— রোম: The Eternal City (চিরন্তন শহর)
+— ভেনিস: City of Canals (খালের শহর)
+— টোকিও: Land of the Rising Sun (সূর্যোদয়ের দেশ)
+— ঢাকা: মসজিদের শহর
+
+উৎস: সাধারণ জ্ঞান বিশ্বকোষ; বিগত NTRCA ও BCS প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'আন্তর্জাতিক বিষয়াবলি',
+        subTopic: 'বিশ্বের বিখ্যাত শহর ও স্থান',
         sortOrder: 17,
       },
       {
         questionSetId,
-        questionText: '১৮. Over-flooding is one of the worst problems in our country. (Positive)',
-        optionA: 'Over-flooding is worse than any other problem.',
-        optionB: 'No other problem in our country is as bad as over-flooding.',
-        optionC: 'Very few problems in our country are as bad as over-flooding.',
-        optionD: 'Over-flooding is a very worse problem in our country.',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) Very few problems in our country are as bad as over-flooding.
+        questionText: 'আকাশের উজ্জ্বলতম নক্ষত্র কোনটি?',
+        optionA: 'লুব্ধক',
+        optionB: 'সূর্য',
+        optionC: 'প্রক্সিমা সেন্টারাই',
+        optionD: 'ধ্রুবতারা',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) লুব্ধক
 
-ব্যাখ্যা: Superlative Degree-তে 'one of the + adjective-এর superlative form' থাকলে Positive Degree করার নিয়ম:
-১. Very few দিয়ে শুরু হয়।
-২. Superlative-এর পরের অংশের বহুবচন বসে (problems in our country)।
-৩. Plural Verb বসে (are)।
-৪. as + positive form (bad) + as বসে।
-৫. প্রদত্ত subject শেষে বসে (over-flooding)।
-worst এর positive form হলো bad.`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Degree Transformation',
+রাতের আকাশের সবচেয়ে উজ্জ্বল নক্ষত্র সম্পর্কিত প্রশ্নটি বিজ্ঞান বিভাগের গুরুত্বপূর্ণ তথ্য।
+
+লুব্ধক (Sirius) সম্পর্কে বিস্তারিত:
+— ইংরেজি নাম: Sirius (সিরিয়াস)
+— বাংলা নাম: লুব্ধক
+— এটি রাতের আকাশে (সূর্যকে বাদ দিয়ে) সবচেয়ে উজ্জ্বল নক্ষত্র
+— তারা মানচিত্রে এটি Canis Major (বড় কুকুর) মণ্ডলীতে অবস্থিত
+— পৃথিবী থেকে দূরত্ব: প্রায় ৮.৬ আলোকবর্ষ
+— উজ্জ্বলতা: পার্শ্ববর্তী নক্ষত্রদের তুলনায় প্রায় ২৫ গুণ বেশি
+
+বিভ্রান্তিকর বিকল্প:
+✗ সূর্য: দিনের আকাশে উজ্জ্বলতম — রাতের আকাশে নয়
+✗ প্রক্সিমা সেন্টারাই: সূর্যের সবচেয়ে কাছের নক্ষত্র, কিন্তু খালি চোখে দেখা যায় না
+✗ ধ্রুবতারা (Polaris): উত্তর মেরুর দিকনির্দেশক নক্ষত্র, কিন্তু সবচেয়ে উজ্জ্বল নয়
+
+উৎস: জ্যোতির্বিজ্ঞান পরিচিতি; সাধারণ বিজ্ঞান; NTRCA ও BCS প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বিজ্ঞান ও প্রযুক্তি',
+        subTopic: 'জ্যোতির্বিজ্ঞান ও মহাকাশ',
         sortOrder: 18,
       },
       {
         questionSetId,
-        questionText: '১৯. What can not be cured must be endured. (Active)',
-        optionA: 'We must be endured what we can not cure.',
-        optionB: 'We can not cure what we must endure.',
-        optionC: 'We must endure what we can not cure.',
-        optionD: 'Must be endure we care.',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) We must endure what we can not cure.
+        questionText: "'আল আকসা' মসজিদ কোথায় অবস্থিত?",
+        optionA: 'ফিলিস্তিন',
+        optionB: 'ইসরাইল',
+        optionC: 'আলজেরিয়া',
+        optionD: 'সৌদি আরব',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) ফিলিস্তিন
 
-ব্যাখ্যা: প্রদত্ত বাক্যটি প্যাসিভ ভয়েসে আছে। এর দুটি অংশই প্যাসিভ: 'can not be cured' এবং 'must be endured'। 
-এখানে subject উহ্য আছে, যা 'We', 'People' বা 'One' হতে পারে। 
-Active করার সময় উভয়াংশের object 'We' কে subject ধরলে:
-We + must endure + what + we + can not cure. (যা প্রতিকার করা যায় না তা আমাদের অবশ্যই সহ্য করতে হবে)।`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Voice Change',
+আল-আকসা মসজিদ ইসলামের তৃতীয় পবিত্রতম স্থান এবং আন্তর্জাতিক রাজনীতিতে অত্যন্ত গুরুত্বপূর্ণ।
+
+আল-আকসা মসজিদ সম্পর্কে তথ্য:
+— অবস্থান: জেরুজালেম (বায়তুল মাকদিস), ফিলিস্তিন
+— আরবিতে 'আল-আকসা' মানে 'সুদূরের মসজিদ'
+— ইসলামের তিনটি পবিত্র মসজিদের একটি (মসজিদুল হারাম ও মসজিদে নববীর পরে)
+— মিরাজের রাতে নবী মুহাম্মদ (সা.) মক্কা থেকে এখানে এসেছিলেন
+— এই মসজিদটি 'হারাম শরিফ' বা 'টেম্পল মাউন্ট' চত্বরে অবস্থিত
+
+রাজনৈতিক প্রেক্ষাপট:
+— জেরুজালেম ইসরাইল দখল করলেও, আন্তর্জাতিকভাবে এটি ফিলিস্তিনি ভূখণ্ড হিসেবে স্বীকৃত
+— এই প্রশ্নে 'ফিলিস্তিন' উত্তর কারণ: জেরুজালেম ফিলিস্তিনি অঞ্চলে অবস্থিত
+
+উৎস: ইসলামী ইতিহাস ও ভূগোল; আন্তর্জাতিক বিষয়াবলি; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'আন্তর্জাতিক বিষয়াবলি',
+        subTopic: 'বিশ্বের বিখ্যাত স্থান ও ধর্মীয় স্থাপত্য',
         sortOrder: 19,
       },
       {
         questionSetId,
-        questionText: '২০. Let us lover our country. (Simple)',
-        optionA: 'We should not hate our country.',
-        optionB: 'We should love our country.',
-        optionC: 'We may not hate our country.',
-        optionD: 'Should love our country.',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) We should love our country.
+        questionText: 'পৃথিবীতে সবচেয়ে মূল্যবান ধাতু কোনটি?',
+        optionA: 'স্বর্ণ',
+        optionB: 'হীরা',
+        optionC: 'সিলভার',
+        optionD: 'প্লাটিনাম',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) প্লাটিনাম
 
-ব্যাখ্যা: 'Let us' যুক্ত Imperative Sentence কে Assertive বা Simple Sentence-এ পরিণত করতে হলে subject হিসেবে 'We' বসে এবং সাহায্যকারী ভাব হিসেবে 'should' বসে।
-সুতরাং, Let us love our country -> We should love our country. (আমাদের উচিত আমাদের দেশকে ভালোবাসা)।`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Sentence Transformation',
+ধাতু ও মূল্যবান খনিজ পদার্থ সংক্রান্ত তথ্য বিজ্ঞান ও সাধারণ জ্ঞান উভয় বিভাগেই আসে।
+
+প্লাটিনাম সম্পর্কে বিস্তারিত তথ্য:
+— প্লাটিনাম (Platinum) পৃথিবীর সবচেয়ে বিরল ও মূল্যবান ধাতু
+— প্রতীক: Pt, পারমাণবিক সংখ্যা: ৭৮
+— স্বর্ণের চেয়ে প্রায় ৩০ গুণ বিরল এবং মূল্যবান
+— প্রধান উৎপাদনকারী: দক্ষিণ আফ্রিকা (বিশ্বের ৭৫% সরবরাহ)
+— ব্যবহার: গহনা, ক্যাটালিটিক কনভার্টার, ওষুধ, পরিবেশ প্রযুক্তি
+
+বিভ্রান্তিকর বিকল্প:
+✗ স্বর্ণ (Gold): মূল্যবান কিন্তু প্লাটিনামের চেয়ে কম বিরল
+✗ হীরা: ধাতু নয়, এটি কার্বনের বিশেষ রূপ
+✗ সিলভার (Silver): স্বর্ণ ও প্লাটিনামের তুলনায় অনেক কম মূল্যবান
+
+উৎস: রসায়নবিজ্ঞান পরিচিতি; সাধারণ বিজ্ঞান; NTRCA ও BCS প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বিজ্ঞান ও প্রযুক্তি',
+        subTopic: 'পদার্থবিজ্ঞান ও রসায়ন',
         sortOrder: 20,
       },
       {
         questionSetId,
-        questionText: '২১. Noun form of the word ‘comfortable’ is–',
-        optionA: 'comfortably',
-        optionB: 'comfort',
-        optionC: 'comfortable',
-        optionD: 'none',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) comfort
+        questionText: 'কোনটিতে রোবটের ব্যবহার করা হয়?',
+        optionA: 'জটিল সার্জারি চিকিৎসায়',
+        optionB: 'ব্যক্তির স্বাক্ষর শনাক্তকরণে',
+        optionC: 'নতুন জাতের বীজ উৎপাদনে',
+        optionD: 'টেনিস বলের আকৃতি তৈরিতে',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) জটিল সার্জারি চিকিৎসায়
 
-ব্যাখ্যা: 'Comfortable' একটি Adjective যার অর্থ আরামদায়ক।
-এর Noun ফর্ম হলো 'Comfort' (আরাম বা স্বস্তি)।
-আর 'Comfortably' হলো Adverb।`,
-        subject: 'ইংরেজি',
-        topic: 'Vocabulary',
-        subTopic: 'Parts of Speech Interchange',
+রোবোটিক্স প্রযুক্তির প্রয়োগ আধুনিক বিজ্ঞান ও প্রযুক্তির অত্যন্ত গুরুত্বপূর্ণ বিষয়।
+
+সার্জারিতে রোবটের ব্যবহার:
+— সবচেয়ে বিখ্যাত সার্জিক্যাল রোবট: Da Vinci Surgical System
+— এটি ১৯৯৯ সালে FDA অনুমোদন পায়
+— উপকারিতা: সূক্ষ্মতা, কম ভুল, দ্রুত সুস্থতা, কম কাটাছেঁড়া
+— ব্যবহার: প্রস্টেট, হার্ট, গ্যাস্ট্রোইন্টেস্টাইনাল সার্জারিতে
+
+রোবটের অন্যান্য ক্ষেত্রে ব্যবহার:
+— কলকারখানায় উৎপাদন ও সংযোজন
+— পারমাণবিক চুল্লি রক্ষণাবেক্ষণ
+— মহাকাশ অন্বেষণ (NASA-র Mars Rover)
+— বোমা নিষ্ক্রিয়করণ
+— শিল্পকারখানায় ঝুঁকিপূর্ণ কাজ
+
+উৎস: তথ্য ও যোগাযোগ প্রযুক্তি পাঠ্যপুস্তক; আধুনিক বিজ্ঞান; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বিজ্ঞান ও প্রযুক্তি',
+        subTopic: 'আধুনিক প্রযুক্তি ও রোবোটিক্স',
         sortOrder: 21,
       },
       {
         questionSetId,
-        questionText: '২২. I look forward to (receive) a letter from you.',
-        optionA: 'receiving',
-        optionB: 'receive',
-        optionC: 'received',
-        optionD: 'receives',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) receiving
+        questionText: 'দেহ বৃদ্ধিকারক হরমোন কোনটি?',
+        optionA: 'থাইরক্সিন',
+        optionB: 'প্রোল্যাকটিন',
+        optionC: 'এড্রিনালিন',
+        optionD: 'সোমাটোট্রফিন',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) সোমাটোট্রফিন
 
-ব্যাখ্যা: সাধারণত 'to' এর পর verb-এর base form বসে। কিন্তু কিছু নির্দিষ্ট Phrase যেমন: look forward to, with a view to, be used to, get used to, addicted to ইত্যাদির পর Verb থাকলে তার সাথে 'ing' যুক্ত হয়। 
-তাই look forward to -এর পর receive না হয়ে receiving হবে।`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Right Form of Verbs',
+হরমোনতত্ত্ব জীববিজ্ঞানের অত্যন্ত গুরুত্বপূর্ণ বিষয় এবং এটি NTRCA পরীক্ষায় বারবার আসে।
+
+সোমাটোট্রফিন (Growth Hormone) সম্পর্কে বিস্তারিত:
+— পূর্ণ নাম: Somatotropin বা Human Growth Hormone (HGH)
+— উৎপত্তিস্থল: পিটুইটারি গ্রন্থির অগ্রভাগ (Anterior Pituitary)
+— কাজ: শরীরের সামগ্রিক বৃদ্ধি নিয়ন্ত্রণ করে (হাড়, পেশী, অঙ্গ সব কিছুর)
+— এই হরমোনের অভাবে বামনতা (Dwarfism) হয়
+— অতিরিক্ত নিঃসরণে অ্যাক্রোমেগালি বা দৈত্যাকৃতি হয়
+
+অন্যান্য হরমোনের কাজ:
+— থাইরক্সিন: বিপাক ক্রিয়া নিয়ন্ত্রণ করে (থাইরয়েড গ্রন্থি থেকে)
+— প্রোল্যাকটিন: মাতৃদুগ্ধ উৎপাদন নিয়ন্ত্রণ করে
+— এড্রিনালিন: 'fight-or-flight' বা জরুরি প্রতিক্রিয়া হরমোন (অ্যাড্রিনাল গ্রন্থি থেকে)
+
+উৎস: জীববিজ্ঞান পাঠ্যপুস্তক (একাদশ-দ্বাদশ); মানব দেহতত্ত্ব; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বিজ্ঞান ও প্রযুক্তি',
+        subTopic: 'জীববিজ্ঞান ও মানব শরীরবিদ্যা',
         sortOrder: 22,
       },
       {
         questionSetId,
-        questionText: '২৩. He is so dull that–',
-        optionA: 'He can understand anything.',
-        optionB: 'He could understand anything.',
-        optionC: 'He can not understand anything.',
-        optionD: 'He could not understand anything.',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) He can not understand anything.
+        questionText: 'উচ্চ ফলনশীল শস্য উৎপাদনে কোন প্রযুক্তি ব্যবহৃত হয়?',
+        optionA: 'বায়োমেট্রিক্স',
+        optionB: 'ভার্চুয়াল রিয়ালিটি',
+        optionC: 'ন্যানোটেকনোলজি',
+        optionD: 'জেনেটিক ইঞ্জিনিয়ারিং',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) জেনেটিক ইঞ্জিনিয়ারিং
 
-ব্যাখ্যা: 'so...that' এর নিয়মে that-এর পূর্বের clause-টি Present Tense হলে that-এর পরের clause-এ subject-এর পর can not/may not বসে। 
-যেহেতু 'He is' (Present Tense), তাই পরের অংশে can not বসবে। 
-অর্থ: সে এতই বোকা যে সে কিছুই বুঝতে পারে না।`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Completing Sentences',
+উচ্চ ফলনশীল শস্য উৎপাদনে জৈবপ্রযুক্তির ব্যবহার আধুনিক কৃষির একটি বিপ্লব।
+
+জেনেটিক ইঞ্জিনিয়ারিং ও কৃষি:
+— জিনগত পরিবর্তনের মাধ্যমে উচ্চ ফলনশীল (HYV) বীজ তৈরি করা হয়
+— GMO (Genetically Modified Organism): জিনগতভাবে পরিবর্তিত জীব
+— বাংলাদেশে Bt Brinjal (বিটি বেগুন) জেনেটিক ইঞ্জিনিয়ারিংয়ের মাধ্যমে তৈরি
+— Golden Rice: ভিটামিন A সমৃদ্ধ ধান — জেনেটিক ইঞ্জিনিয়ারিংয়ের ফসল
+— রোগ প্রতিরোধী, খরা-সহিষ্ণু, কীটনাশক-প্রতিরোধী ফসল তৈরিতে ব্যবহৃত
+
+বিভ্রান্তিকর বিকল্প:
+✗ বায়োমেট্রিক্স: আঙুলের ছাপ, চোখের স্ক্যান ইত্যাদি দ্বারা পরিচয় শনাক্তকরণ
+✗ ভার্চুয়াল রিয়ালিটি: কম্পিউটার-তৈরি কাল্পনিক পরিবেশ অনুভব করার প্রযুক্তি
+✗ ন্যানোটেকনোলজি: অতিক্ষুদ্র স্কেলে পদার্থ পরিচালনার প্রযুক্তি
+
+উৎস: জীববিজ্ঞান পাঠ্যপুস্তক; তথ্য ও যোগাযোগ প্রযুক্তি; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বিজ্ঞান ও প্রযুক্তি',
+        subTopic: 'জৈবপ্রযুক্তি ও কৃষিবিজ্ঞান',
         sortOrder: 23,
       },
       {
         questionSetId,
-        questionText: '২৪. I have left the room but he (enter) the room.',
-        optionA: 'enters',
-        optionB: 'entered',
-        optionC: 'has entered',
-        optionD: 'is entering',
+        questionText: 'প্রোগ্রাম থেকে কপি করা ডেটা কোথায় সংরক্ষিত থাকে?',
+        optionA: 'হার্ডডিস্ক',
+        optionB: 'RAM',
+        optionC: 'ক্লিপবোর্ড',
+        optionD: 'ROM',
         correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) has entered
+        explanation: `সঠিক উত্তর: (গ) ক্লিপবোর্ড
 
-ব্যাখ্যা: Compound Sentence-এ 'but' দ্বারা যুক্ত দুটি Clause সাধারণত সমজাতীয় Tense-এর হয়। 
-এখানে প্রথম অংশে 'have left' (Present Perfect Tense) রয়েছে, তাই অর্থের সামঞ্জস্য রক্ষার্থে দ্বিতীয় অংশেও Present Perfect Tense 'has entered' হবে। (আমি রুম ত্যাগ করেছি কিন্তু সে রুমে প্রবেশ করেছে)।`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Right Form of Verbs',
+কম্পিউটার বিজ্ঞানের মৌলিক তথ্য সম্পর্কে এই প্রশ্নটি তথ্য প্রযুক্তির পরীক্ষায় সাধারণ।
+
+ক্লিপবোর্ড সম্পর্কে বিস্তারিত তথ্য:
+— ক্লিপবোর্ড হলো অপারেটিং সিস্টেমের একটি অস্থায়ী স্মৃতিসঞ্চয় (temporary buffer)
+— Ctrl+C বা Ctrl+X করলে ডেটা ক্লিপবোর্ডে যায়
+— Ctrl+V করলে ক্লিপবোর্ড থেকে ডেটা পেস্ট হয়
+— কম্পিউটার বন্ধ করলে বা নতুন কিছু কপি করলে পুরনো ডেটা মুছে যায়
+— এটি RAM-এর একটি অংশে অস্থায়ীভাবে থাকে, কিন্তু কার্যকরীভাবে এটাকে ক্লিপবোর্ড বলে
+
+কম্পিউটারের স্মৃতির ধরন:
+— RAM: প্রধান কার্যকর মেমোরি, বিদ্যুৎ গেলে মুছে যায়
+— ROM: স্থায়ী মেমোরি, পরিবর্তন করা যায় না (বায়োস সংরক্ষণ)
+— হার্ডডিস্ক: স্থায়ী ডেটা সংরক্ষণের জন্য দীর্ঘমেয়াদি স্টোরেজ
+— ক্লিপবোর্ড: সাময়িক কপি-পেস্টের জন্য ব্যবহৃত অস্থায়ী মেমোরি
+
+উৎস: তথ্য ও যোগাযোগ প্রযুক্তি পাঠ্যপুস্তক; কম্পিউটার বেসিক্স; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বিজ্ঞান ও প্রযুক্তি',
+        subTopic: 'তথ্য ও যোগাযোগ প্রযুক্তি (ICT)',
         sortOrder: 24,
       },
       {
         questionSetId,
-        questionText: '২৫. The man is ––– his son’s fault.',
-        optionA: 'blind to',
-        optionB: 'blind of',
-        optionC: 'blind in',
-        optionD: 'blind at',
+        questionText: "'আলোর কণা' তত্ত্বের প্রবক্তা কে?",
+        optionA: 'আইজ্যাক নিউটন',
+        optionB: 'অ্যালো হ্যাজেন',
+        optionC: 'গ্যালিলিও',
+        optionD: 'রামফোর্ড',
         correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) blind to
+        explanation: `সঠিক উত্তর: (ক) আইজ্যাক নিউটন
 
-ব্যাখ্যা: 'Blind of/in' অর্থ হলো চোখে অন্ধ (দৃষ্টিশক্তিহীন)। যেমন: He is blind of one eye.
-কিন্তু কারও দোষ দেখেও না দেখার ভান করা বা দোষের প্রতি অন্ধ হওয়া বোঝাতে 'Blind to' ব্যবহৃত হয়। 
-এখানে লোকটি তার ছেলের দোষের প্রতি অন্ধ, তাই 'blind to' হবে।`,
-        subject: 'ইংরেজি',
-        topic: 'Grammar',
-        subTopic: 'Appropriate Prepositions',
+আলোর প্রকৃতি সম্পর্কিত তত্ত্ব পদার্থবিজ্ঞানের একটি গুরুত্বপূর্ণ বিষয়।
+
+নিউটনের আলোর কণিকা তত্ত্ব (Corpuscular Theory):
+— আইজ্যাক নিউটন (১৬৪২–১৭২৭) প্রস্তাব করেন যে আলো অতিক্ষুদ্র কণিকা বা 'corpus' দিয়ে তৈরি
+— তাঁর বিখ্যাত গ্রন্থ 'Opticks' (১৭০৪)-এ এই তত্ত্ব বিস্তারিত বর্ণনা করেন
+— এই তত্ত্ব দিয়ে আলোর প্রতিফলন ও প্রতিসরণ ব্যাখ্যা করা যেত
+— পরে হাইগেনস তরঙ্গ তত্ত্ব দেন এবং ইয়ং-এর দ্বিচির পরীক্ষায় কণিকা তত্ত্বের সীমাবদ্ধতা প্রমাণিত হয়
+
+আলোর তত্ত্বের ইতিহাস:
+— কণিকা তত্ত্ব: নিউটন
+— তরঙ্গ তত্ত্ব: হাইগেনস (১৬৭৮)
+— ইলেক্ট্রোম্যাগনেটিক তরঙ্গ তত্ত্ব: ম্যাক্সওয়েল (১৮৬৪)
+— ফোটন তত্ত্ব (কোয়ান্টাম): আইনস্টাইন (১৯০৫)
+— বর্তমান: আলো তরঙ্গ ও কণা — উভয় ধর্ম প্রদর্শন করে (Wave-Particle Duality)
+
+উৎস: পদার্থবিজ্ঞান পাঠ্যপুস্তক (একাদশ-দ্বাদশ); NTRCA ও BCS প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বিজ্ঞান ও প্রযুক্তি',
+        subTopic: 'পদার্থবিজ্ঞান — আলোকবিজ্ঞান',
         sortOrder: 25,
       },
+
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      // বিষয়: সাধারণ জ্ঞান (প্রশ্ন ২৬–৫০)
+      // বিষয়: গণিত (প্রশ্ন ২৬–৫০)
       // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       {
         questionSetId,
-        questionText: '২৬. বাংলাদেশের একমাত্র পাহাড়ি দ্বীপ কোনটি?',
-        optionA: 'কুতুবদিয়া',
-        optionB: 'ভোলা',
-        optionC: 'মহেশখালী',
-        optionD: 'সেন্টমার্টিন',
+        questionText:
+          '২১৯৫২ সংখ্যাটিকে কোন ক্ষুদ্রতম সংখ্যা দ্বারা ভাগ করলে ভাগফল পূর্ণবর্গ সংখ্যা হবে?',
+        optionA: '২',
+        optionB: '৪',
+        optionC: '৭',
+        optionD: '৮',
         correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) মহেশখালী
+        explanation: `সঠিক উত্তর: (গ) ৭
 
-ব্যাখ্যা: বাংলাদেশের একমাত্র পাহাড়ি দ্বীপ হলো কক্সবাজার জেলার অন্তর্গত মহেশখালী। আদিনাথ মন্দির এই দ্বীপেই অবস্থিত। 
-অন্যদিকে, সেন্টমার্টিন হলো বাংলাদেশের একমাত্র প্রবাল দ্বীপ এবং ভোলা হলো দেশের বৃহত্তম দ্বীপ।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'বাংলাদেশ বিষয়াবলি',
-        subTopic: 'ভৌগলিক অবস্থান ও দ্বীপসমূহ',
+পূর্ণবর্গ সংখ্যা সংক্রান্ত সমস্যা সমাধানের জন্য মৌলিক উৎপাদকে বিশ্লেষণ করতে হয়।
+
+সমাধান প্রক্রিয়া:
+২১৯৫২ কে মৌলিক উৎপাদকে বিশ্লেষণ করি:
+২১৯৫২ = ২ × ১০৯৭৬
+= ২ × ২ × ৫৪৮৮
+= ২² × ৫৪৮৮
+= ২² × ২ × ২৭৪৪
+= ২³ × ২৭৪৪
+= ২³ × ২ × ১৩৭২
+= ২⁴ × ১৩৭২
+= ২⁴ × ২ × ৬৮৬
+= ২⁵ × ৬৮৬
+= ২⁵ × ২ × ৩৪৩
+= ২⁶ × ৩৪৩
+= ২⁶ × ৭³
+
+সুতরাং: ২১৯৫২ = ২⁶ × ৭³
+
+পূর্ণবর্গ হওয়ার শর্ত:
+— পূর্ণবর্গ সংখ্যায় প্রতিটি মৌলিক উৎপাদকের ঘাত জোড় (even) হতে হবে
+— ২-এর ঘাত ৬ (জোড়) ✓
+— ৭-এর ঘাত ৩ (বিজোড়) ✗
+
+৭ দিয়ে ভাগ করলে: ২⁶ × ৭³ ÷ ৭ = ২⁶ × ৭² — এটি পূর্ণবর্গ!
+ক্ষুদ্রতম ভাজক = ৭
+
+উৎস: সাধারণ গণিত — মো. মহসিন; গণিত অলিম্পিয়াড; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'পাটিগণিত',
+        subTopic: 'মৌলিক সংখ্যা ও বিভাজ্যতা',
         sortOrder: 26,
       },
       {
         questionSetId,
-        questionText: '২৭. বাংলাদেশের যে জেলায় সবচেয়ে বেশি চা বাগান রয়েছে-',
-        optionA: 'হবিগঞ্জ',
-        optionB: 'মৌলভীবাজার',
-        optionC: 'সিলেট',
-        optionD: 'কুড়িগ্রাম',
+        questionText: '৯১, ১০১, ১১৭ এবং ১২৩ এর মধ্যে মৌলিক সংখ্যা কোনটি?',
+        optionA: '৯১',
+        optionB: '১০১',
+        optionC: '১১৭',
+        optionD: '১২৩',
         correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) মৌলভীবাজার
+        explanation: `সঠিক উত্তর: (খ) ১০১
 
-ব্যাখ্যা: বাংলাদেশে সবচেয়ে বেশি চা বাগান রয়েছে মৌলভীবাজার জেলায়। বাংলাদেশের চা বোর্ডের সর্বশেষ তথ্য অনুযায়ী দেশে বর্তমানে ১৬৮টি (মতান্তরে ১৬৭টি) নিবন্ধিত চা বাগান রয়েছে, যার মধ্যে শুধুমাত্র মৌলভীবাজারেই রয়েছে ৯১টি চা বাগান।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'বাংলাদেশ বিষয়াবলি',
-        subTopic: 'কৃষি ও সম্পদ',
+মৌলিক সংখ্যা শনাক্তকরণ গণিতের একটি মৌলিক দক্ষতা।
+
+প্রতিটি বিকল্প যাচাই:
+✗ ৯১ = ৭ × ১৩ → যৌগিক সংখ্যা
+✓ ১০১ = শুধুমাত্র ১ ও ১০১ দ্বারা বিভাজ্য → মৌলিক সংখ্যা
+✗ ১১৭ = ৩ × ৩৯ = ৩ × ৩ × ১৩ = ৩² × ১৩ → যৌগিক সংখ্যা
+✗ ১২৩ = ৩ × ৪১ → যৌগিক সংখ্যা
+
+১০১ মৌলিক কিনা যাচাই:
+— √১০১ ≈ ১০.০৫
+— তাই ১০ পর্যন্ত মৌলিক সংখ্যা (২, ৩, ৫, ৭) দিয়ে ভাগ করে দেখতে হবে
+— ১০১ ÷ ২ = অবিভাজ্য (বিজোড়)
+— ১০১ ÷ ৩ = অবিভাজ্য (সংখ্যার সমষ্টি ১+০+১=২, ৩-এর গুণিতক নয়)
+— ১০১ ÷ ৫ = অবিভাজ্য (শেষ সংখ্যা ৫ বা ০ নয়)
+— ১০১ ÷ ৭ = ১৪.৪২... অবিভাজ্য
+— সুতরাং ১০১ মৌলিক সংখ্যা ✓
+
+উৎস: সাধারণ গণিত; NTRCA ও BCS প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'পাটিগণিত',
+        subTopic: 'মৌলিক সংখ্যা',
         sortOrder: 27,
       },
       {
         questionSetId,
-        questionText: '২৮. ভাষা শহিদদের মধ্যে ঢাকা বিশ্ববিদ্যালয়ের ছাত্র ছিলেন-',
-        optionA: 'আব্দুস সালাম',
-        optionB: 'রফিক উদ্দিন',
-        optionC: 'আবুল বরকত',
-        optionD: 'সকলেই',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) আবুল বরকত
+        questionText: 'x – y = 2 এবং xy = 24 হলে x + y এর মান কত?',
+        optionA: '± 4',
+        optionB: '± 5',
+        optionC: '± 7',
+        optionD: '± 10',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) ± 10
 
-ব্যাখ্যা: ১৯৫২ সালের ভাষা আন্দোলনে শহিদ আবুল বরকত ঢাকা বিশ্ববিদ্যালয়ের রাষ্ট্রবিজ্ঞান বিভাগের ছাত্র ছিলেন (স্নাতকোত্তর)। 
-শহিদ রফিক ছিলেন মানিকগঞ্জের দেবেন্দ্র কলেজের ছাত্র এবং শহিদ সালাম ছিলেন ডিরেক্টরেট অব ইন্ডাস্ট্রিজ বিভাগের পিয়ন।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'বাংলাদেশ বিষয়াবলি',
-        subTopic: 'ভাষা আন্দোলন',
+বীজগাণিতিক পরিচিতি ব্যবহার করে এই সমস্যাটি সমাধান করতে হয়।
+
+সমাধান প্রক্রিয়া:
+দেওয়া আছে: x - y = 2 এবং xy = 24
+
+পরিচিতি ব্যবহার করি:
+(x + y)² = (x - y)² + 4xy
+
+মান বসাই:
+(x + y)² = (2)² + 4 × 24
+(x + y)² = 4 + 96
+(x + y)² = 100
+∴ x + y = ±√100 = ±10
+
+যাচাই:
+যদি x + y = 10 এবং x - y = 2 হয়, তাহলে:
+x = 6, y = 4
+xy = 6 × 4 = 24 ✓
+
+যদি x + y = -10 এবং x - y = 2 হয়, তাহলে:
+x = -4, y = -6
+xy = (-4) × (-6) = 24 ✓
+
+গুরুত্বপূর্ণ পরিচিতি:
+— (a+b)² = (a-b)² + 4ab
+— (a-b)² = (a+b)² - 4ab
+— a² + b² = (a+b)² - 2ab
+
+উৎস: সাধারণ গণিত বীজগণিত বিভাগ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'বীজগণিত',
+        subTopic: 'বীজগাণিতিক পরিচিতি ও সূত্র',
         sortOrder: 28,
       },
       {
         questionSetId,
-        questionText: '২৯. বাংলাদেশের প্রথম ডিজিটাল জেলা কোনটি?',
-        optionA: 'ঢাকা',
-        optionB: 'গাজীপুর',
-        optionC: 'যশোর',
-        optionD: 'সিলেট',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) যশোর
+        questionText:
+          'দুইটি সংখ্যার অনুপাত ৩ : ২ এবং এদের গ.সা.গু. ৪ হলে সংখ্যা দুইটির ল.সা.গু কত?',
+        optionA: '৪',
+        optionB: '৮',
+        optionC: '১৬',
+        optionD: '২৪',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) ২৪
 
-ব্যাখ্যা: বাংলাদেশের প্রথম ডিজিটাল জেলা হলো যশোর। ২০১২ সালে যশোরকে দেশের প্রথম 'ডিজিটাল জেলা' হিসেবে ঘোষণা করা হয়। এছাড়া দেশের প্রথম ডিজিটাল ইউনিয়ন হলো 'শিকড়িকান্দা' (যশোর)।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'বাংলাদেশ বিষয়াবলি',
-        subTopic: 'তথ্য ও প্রযুক্তি',
+গ.সা.গু. ও ল.সা.গু. সম্পর্কিত সমস্যা NTRCA পরীক্ষায় প্রায়ই আসে।
+
+সমাধান:
+যেহেতু অনুপাত ৩ : ২ এবং গ.সা.গু. = ৪
+∴ সংখ্যা দুইটি = ৩ × ৪ = ১২ এবং ২ × ৪ = ৮
+
+ল.সা.গু. নির্ণয়:
+গুরুত্বপূর্ণ সূত্র: ল.সা.গু. × গ.সা.গু. = দুইটি সংখ্যার গুণফল
+ল.সা.গু. × ৪ = ১২ × ৮
+ল.সা.গু. × ৪ = ৯৬
+ল.সা.গু. = ৯৬ ÷ ৪ = ২৪
+
+অথবা সরাসরি:
+৮ এবং ১২-এর ল.সা.গু.:
+৮ = ২³
+১২ = ২² × ৩
+ল.সা.গু. = ২³ × ৩ = ২৪ ✓
+
+মূল সূত্র: দুটি সংখ্যার (ল.সা.গু. × গ.সা.গু.) = দুটি সংখ্যার গুণফল
+
+উৎস: সাধারণ গণিত; NTRCA ও BCS প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'পাটিগণিত',
+        subTopic: 'গ.সা.গু. ও ল.সা.গু.',
         sortOrder: 29,
       },
       {
         questionSetId,
-        questionText: '৩০. ‘স্বাধীনতা ও মুক্তিযুদ্ধ’ পুরস্কার- ২০২০ লাভ করেন-',
-        optionA: 'আজিজুর রহমান',
-        optionB: 'ফেরদৌসী মজুমদার',
-        optionC: 'কালীপদ দাস',
-        optionD: 'জাফর ওয়াজেদ',
+        questionText:
+          'একটি খুঁটির দৈর্ঘ্য 20 মিটার। এর ছায়ার দৈর্ঘ্য কত মিটার হলে উন্নতি কোণ 45° হবে?',
+        optionA: '20 মি.',
+        optionB: '25 মি.',
+        optionC: '30 মি.',
+        optionD: '40 মি.',
         correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) আজিজুর রহমান
+        explanation: `সঠিক উত্তর: (ক) 20 মি.
 
-ব্যাখ্যা: ২০২০ সালে স্বাধীনতা ও মুক্তিযুদ্ধ ক্যাটাগরিতে আজিজুর রহমান স্বাধীনতা পুরস্কার লাভ করেন। 
-তবে সাম্প্রতিক তথ্য মনে রাখা জরুরি: ২০২৫ সালে মুক্তিযুদ্ধ ও সংস্কৃতির ক্ষেত্রে মরণোত্তর স্বাধীনতা পুরস্কার পেয়েছেন মোহাম্মদ মাহবুবুল হক খান (পপসম্রাট আজম খান)।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'বাংলাদেশ বিষয়াবলি',
-        subTopic: 'জাতীয় পুরস্কার',
+উচ্চতা ও ছায়া সংক্রান্ত ত্রিকোণমিতি সমস্যা NTRCA পরীক্ষায় নিয়মিত আসে।
+
+সমাধান:
+উন্নতি কোণ (Angle of Elevation) = 45°
+খুঁটির উচ্চতা = 20 মিটার
+ছায়ার দৈর্ঘ্য = ?
+
+ত্রিকোণমিতির সূত্র:
+tan(উন্নতি কোণ) = উচ্চতা / ছায়ার দৈর্ঘ্য
+
+tan 45° = 20 / ছায়ার দৈর্ঘ্য
+1 = 20 / ছায়ার দৈর্ঘ্য (কারণ tan 45° = 1)
+ছায়ার দৈর্ঘ্য = 20 মিটার
+
+গুরুত্বপূর্ণ ত্রিকোণমিতিক মান:
+— tan 30° = 1/√3 ≈ 0.577
+— tan 45° = 1
+— tan 60° = √3 ≈ 1.732
+— tan 90° = অসংজ্ঞায়িত
+
+উন্নতি কোণ 45° হলে: উচ্চতা = ছায়ার দৈর্ঘ্য (সমদ্বিবাহু সমকোণী ত্রিভুজ)
+
+উৎস: সাধারণ গণিত ত্রিকোণমিতি বিভাগ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'ত্রিকোণমিতি',
+        subTopic: 'উচ্চতা ও দূরত্ব নির্ণয়',
         sortOrder: 30,
       },
       {
         questionSetId,
-        questionText: '৩১. জাতির জনক শেখ মুজিবুর রহমানকে ‘বঙ্গবন্ধু’ উপাধি দেয়া হয়-',
-        optionA: '২৩ মার্চ, ১৯৭১',
-        optionB: '২৩ ফেব্রুয়ারি, ১৯৬৯',
-        optionC: '২৩ ফেব্রুয়ারি, ১৯৬৭',
-        optionD: '২৩ ফেব্রুয়ারি, ১৯৬৬',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) ২৩ ফেব্রুয়ারি, ১৯৬৯
+        questionText:
+          'একজন মাঝি দাঁড় বেয়ে 15 কি.মি. যেতে এবং সেখান থেকে ফিরে আসতে 4 ঘণ্টা সময় লাগে। সে স্রোতের অনুকূলে যতক্ষণে 5 কি.মি. যায়, স্রোতের প্রতিকূলে ততক্ষণে 3 কি.মি. যায়। স্রোতের বেগ কত?',
+        optionA: '8',
+        optionB: '4',
+        optionC: '2',
+        optionD: '1',
+        correctAnswer: 'C',
+        explanation: `সঠিক উত্তর: (গ) 2 কি.মি./ঘণ্টা
 
-ব্যাখ্যা: আগরতলা ষড়যন্ত্র মামলা থেকে মুক্তি লাভের পর ১৯৬৯ সালের ২৩ ফেব্রুয়ারি ঢাকার রেসকোর্স ময়দানে (বর্তমান সোহরাওয়ার্দী উদ্যান) ছাত্র সংগ্রাম পরিষদ কর্তৃক আয়োজিত এক বিশাল জনসভায় তৎকালীন ডাকসু ভিপি তোফায়েল আহমেদ শেখ মুজিবুর রহমানকে 'বঙ্গবন্ধু' উপাধিতে ভূষিত করেন।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'বাংলাদেশ বিষয়াবলি',
-        subTopic: 'বঙ্গবন্ধু ও মুক্তিযুদ্ধ',
+নৌকার গতি সংক্রান্ত সমস্যা পাটিগণিতের একটি গুরুত্বপূর্ণ বিষয়।
+
+সমাধান:
+ধরি, নৌকার বেগ (শান্ত পানিতে) = v কি.মি./ঘণ্টা
+স্রোতের বেগ = u কি.মি./ঘণ্টা
+
+অনুকূলে বেগ = v + u
+প্রতিকূলে বেগ = v - u
+
+শর্ত ১: অনুকূলে 5 কি.মি. ও প্রতিকূলে 3 কি.মি. যেতে সমান সময় লাগে
+∴ 5/(v+u) = 3/(v-u)
+5(v-u) = 3(v+u)
+5v - 5u = 3v + 3u
+2v = 8u
+v = 4u ... (i)
+
+শর্ত ২: 15 কি.মি. যেতে ও আসতে মোট 4 ঘণ্টা
+15/(v+u) + 15/(v-u) = 4
+
+(i) থেকে v = 4u বসাই:
+15/(4u+u) + 15/(4u-u) = 4
+15/5u + 15/3u = 4
+3/u + 5/u = 4
+8/u = 4
+u = 2
+
+∴ স্রোতের বেগ = 2 কি.মি./ঘণ্টা
+
+উৎস: সাধারণ গণিত পাটিগণিত; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'পাটিগণিত',
+        subTopic: 'নৌকা ও স্রোতের সমস্যা',
         sortOrder: 31,
       },
       {
         questionSetId,
-        questionText: '৩২. ‘সবার জন্য শিক্ষা’ স্লোগানটি বাংলাদেশে প্রচলিত কোন মুদ্রা বহন করে?',
-        optionA: '১ টাকা',
-        optionB: '২ টাকা',
-        optionC: '৫ টাকা',
-        optionD: '১০ টাকা',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) ২ টাকা
+        questionText:
+          'একটি দ্রব্য x% ক্ষতিতে বিক্রয় করলে যে মূল্য পাওয়া যায় 3x% লাভে বিক্রয় করলে তার চেয়ে 18x টাকা বেশি পাওয়া যায়। দ্রব্যটির ক্রয়মূল্য কত?',
+        optionA: '400 টাকা',
+        optionB: '500 টাকা',
+        optionC: '450 টাকা',
+        optionD: '540 টাকা',
+        correctAnswer: 'C',
+        explanation: `সঠিক উত্তর: (গ) 450 টাকা
 
-ব্যাখ্যা: বাংলাদেশে প্রচলিত ২ টাকার ধাতব মুদ্রায় 'সবার জন্য শিক্ষা' স্লোগানটি মুদ্রিত রয়েছে। এর একপাশে বঙ্গবন্ধু শেখ মুজিবুর রহমানের প্রতিকৃতি এবং অপর পাশে সবার জন্য শিক্ষা লোগো ও স্লোগানটি যুক্ত আছে।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'বাংলাদেশ বিষয়াবলি',
-        subTopic: 'অর্থনীতি ও মুদ্রা',
+লাভ-ক্ষতি সমস্যা পাটিগণিতের একটি গুরুত্বপূর্ণ বিষয়।
+
+সমাধান:
+ধরি ক্রয়মূল্য = P টাকা
+
+x% ক্ষতিতে বিক্রয়মূল্য = P × (100 - x)/100 = P(100-x)/100
+
+3x% লাভে বিক্রয়মূল্য = P × (100 + 3x)/100 = P(100+3x)/100
+
+শর্ত অনুযায়ী: 3x% লাভের মূল্য − x% ক্ষতির মূল্য = 18x
+P(100+3x)/100 − P(100-x)/100 = 18x
+P[(100+3x) − (100−x)]/100 = 18x
+P[100 + 3x − 100 + x]/100 = 18x
+P × 4x / 100 = 18x
+4Px = 1800x
+4P = 1800
+P = 450
+
+∴ ক্রয়মূল্য = 450 টাকা
+
+যাচাই: P = 450
+— x% ক্ষতিতে বিক্রয়মূল্য = 450(100-x)/100
+— 3x% লাভে বিক্রয়মূল্য = 450(100+3x)/100
+— পার্থক্য = 450 × 4x/100 = 18x ✓
+
+উৎস: সাধারণ গণিত পাটিগণিত; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'পাটিগণিত',
+        subTopic: 'লাভ-ক্ষতি ও শতকরা',
         sortOrder: 32,
       },
       {
         questionSetId,
-        questionText: '৩৩. চাকমা জনগোষ্ঠীর লোকসংখ্যা সর্বাধিক কোথায়?',
-        optionA: 'রাঙামাটি জেলায়',
-        optionB: 'খাগড়াছড়ি জেলায়',
-        optionC: 'বান্দরবান জেলায়',
-        optionD: 'সিলেট জেলায়',
+        questionText:
+          '4% হার মুনাফায় কোনো টাকার 2 বছরের সরল মুনাফা ও চক্রবৃদ্ধি মুনাফার পার্থক্য 1 টাকা হলে আসল কত?',
+        optionA: '625 টাকা',
+        optionB: '650 টাকা',
+        optionC: '600 টাকা',
+        optionD: '725 টাকা',
         correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) রাঙামাটি জেলায়
+        explanation: `সঠিক উত্তর: (ক) 625 টাকা
 
-ব্যাখ্যা: বাংলাদেশের সবচেয়ে বড় উপজাতি বা ক্ষুদ্র নৃ-গোষ্ঠী হলো চাকমা। রাঙামাটি ও খাগড়াছড়ি জেলায় এদের বসবাস বেশি হলেও, সর্বাধিক চাকমা জনগোষ্ঠী বসবাস করে রাঙামাটি জেলায়।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'বাংলাদেশ বিষয়াবলি',
-        subTopic: 'ক্ষুদ্র নৃ-গোষ্ঠী',
+সরল ও চক্রবৃদ্ধি সুদের পার্থক্য নির্ণয় একটি গুরুত্বপূর্ণ গণিত বিষয়।
+
+সমাধান:
+আসল = P, হার = r = 4% = 0.04, সময় = n = 2 বছর
+
+2 বছরের সরল মুনাফা = P × r × n = P × 0.04 × 2 = 0.08P
+
+2 বছরের চক্রবৃদ্ধি মুনাফা:
+চক্রবৃদ্ধি মূলধন = P(1+r)² = P(1.04)²= P × 1.0816
+চক্রবৃদ্ধি মুনাফা = 1.0816P − P = 0.0816P
+
+পার্থক্য = চক্রবৃদ্ধি − সরল মুনাফা
+1 = 0.0816P − 0.08P
+1 = 0.0016P
+P = 1/0.0016 = 625
+
+∴ আসল = 625 টাকা
+
+সংক্ষিপ্ত সূত্র (2 বছরের জন্য):
+পার্থক্য = P × (r/100)²
+1 = P × (4/100)²
+1 = P × 16/10000
+P = 10000/16 = 625 ✓
+
+উৎস: সাধারণ গণিত সুদ-আসল বিভাগ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'পাটিগণিত',
+        subTopic: 'সুদ-আসল (সরল ও চক্রবৃদ্ধি)',
         sortOrder: 33,
       },
       {
         questionSetId,
         questionText:
-          '৩৪. মিয়ানমারের বিরুদ্ধে রোহিঙ্গাদের উপর গণহত্যা চালানোর অভিযোগে আইসিজেতে মামলা দায়ের করে-',
-        optionA: 'গাম্বিয়া',
-        optionB: 'সেনেগাল',
-        optionC: 'সৌদি আরব',
-        optionD: 'কুয়েত',
+          'একটি আয়তাকার ঘরের মেঝের ক্ষেত্রফল 192 বর্গমিটার। মেঝের দৈর্ঘ্য 4 মিটার কমালে এবং প্রস্থ 4 মিটার বাড়ালে ক্ষেত্রফল অপরিবর্তিত থাকে। মেঝের দৈর্ঘ্য কত?',
+        optionA: '16 মিটার',
+        optionB: '12 মিটার',
+        optionC: '৪ মিটার',
+        optionD: '6 মিটার',
         correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) গাম্বিয়া
+        explanation: `সঠিক উত্তর: (ক) 16 মিটার
 
-ব্যাখ্যা: মিয়ানমারের সেনাবাহিনীর দ্বারা রোহিঙ্গাদের ওপর চালানো গণহত্যার বিচার চেয়ে পশ্চিম আফ্রিকার দেশ গাম্বিয়া ২০১৯ সালের নভেম্বরে জাতিসংঘের সর্বোচ্চ আদালত ইন্টারন্যাশনাল কোর্ট অব জাস্টিস (ICJ) বা আন্তর্জাতিক বিচার আদালতে মামলা দায়ের করে। গাম্বিয়া ওআইসির (OIC) পক্ষে এই মামলাটি করে।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'আন্তর্জাতিক বিষয়াবলি',
-        subTopic: 'আন্তর্জাতিক সম্পর্ক ও সংস্থা',
+আয়তক্ষেত্রের ক্ষেত্রফল সংক্রান্ত সমস্যা পরিমিতির একটি গুরুত্বপূর্ণ বিষয়।
+
+সমাধান:
+ধরি, দৈর্ঘ্য = l মিটার, প্রস্থ = w মিটার
+
+শর্ত ১: lw = 192 ...(i)
+
+শর্ত ২: দৈর্ঘ্য 4 কমিয়ে, প্রস্থ 4 বাড়ালে ক্ষেত্রফল অপরিবর্তিত:
+(l − 4)(w + 4) = 192
+lw + 4l − 4w − 16 = 192
+192 + 4l − 4w − 16 = 192 [(i) ব্যবহার করে]
+4l − 4w − 16 = 0
+4l − 4w = 16
+l − w = 4
+l = w + 4 ...(ii)
+
+(ii) (i)-এ বসাই:
+(w + 4)w = 192
+w² + 4w − 192 = 0
+w² + 16w − 12w − 192 = 0
+w(w + 16) − 12(w + 16) = 0
+(w − 12)(w + 16) = 0
+w = 12 (ঋণাত্মক বাতিল)
+
+∴ l = w + 4 = 12 + 4 = 16 মিটার
+
+উৎস: সাধারণ গণিত জ্যামিতি বিভাগ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'জ্যামিতি',
+        subTopic: 'আয়তক্ষেত্র ও বর্গক্ষেত্রের ক্ষেত্রফল',
         sortOrder: 34,
       },
       {
         questionSetId,
-        questionText: '৩৫. রাশিয়া ইউক্রেনে সামরিক অভিযান শুরু করে-',
-        optionA: '২৪ ফেব্রুয়ারি, ২০২২',
-        optionB: '২৪ মার্চ, ২০২২',
-        optionC: '২৪ জানুয়ারি, ২০২২',
-        optionD: '২৪ এপ্রিল, ২০২২',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) ২৪ ফেব্রুয়ারি, ২০২২
+        questionText:
+          'একটি ত্রিভুজের ভূমি তার উচ্চতার দ্বিগুণ অপেক্ষা 6 cm বেশি। ত্রিভুজটির ক্ষেত্রফল 810 বর্গ cm হলে, এর উচ্চতা কত?',
+        optionA: '30 cm',
+        optionB: '27 cm',
+        optionC: '33 cm',
+        optionD: '36 cm',
+        correctAnswer: 'B',
+        explanation: `সঠিক উত্তর: (খ) 27 cm
 
-ব্যাখ্যা: রাশিয়ার প্রেসিডেন্ট ভ্লাদিমির পুতিনের নির্দেশে ২০২২ সালের ২৪ ফেব্রুয়ারি রাশিয়া ইউক্রেনে পুরোদমে সামরিক আগ্রাসন শুরু করে, যাকে রাশিয়া "বিশেষ সামরিক অভিযান" বলে আখ্যায়িত করেছিল। এটি দ্বিতীয় বিশ্বযুদ্ধের পর ইউরোপের সবচেয়ে বড় সামরিক সংঘাত।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'আন্তর্জাতিক বিষয়াবলি',
-        subTopic: 'সাম্প্রতিক বিশ্ব',
+ত্রিভুজের ক্ষেত্রফল সংক্রান্ত সমস্যা জ্যামিতির একটি গুরুত্বপূর্ণ বিষয়।
+
+সমাধান:
+ধরি উচ্চতা = h cm
+ভূমি = 2h + 6 cm
+
+ত্রিভুজের ক্ষেত্রফল = (১/২) × ভূমি × উচ্চতা
+810 = (1/2) × (2h + 6) × h
+1620 = h(2h + 6)
+1620 = 2h² + 6h
+2h² + 6h − 1620 = 0
+h² + 3h − 810 = 0
+
+উৎপাদক বিভাজন:
+h² + 30h − 27h − 810 = 0
+h(h + 30) − 27(h + 30) = 0
+(h − 27)(h + 30) = 0
+h = 27 অথবা h = −30
+
+h ঋণাত্মক হতে পারে না, সুতরাং h = 27 cm
+
+যাচাই:
+উচ্চতা = 27 cm
+ভূমি = 2(27) + 6 = 54 + 6 = 60 cm
+ক্ষেত্রফল = (1/2) × 60 × 27 = 30 × 27 = 810 বর্গ cm ✓
+
+উৎস: সাধারণ গণিত জ্যামিতি বিভাগ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'জ্যামিতি',
+        subTopic: 'ত্রিভুজের ক্ষেত্রফল',
         sortOrder: 35,
       },
       {
         questionSetId,
-        questionText: '৩৬. বিশ্ব বাণিজ্য সংস্থা এর সদস্য সংখ্যা-',
-        optionA: '১৫৪টি',
-        optionB: '১৭৪টি',
-        optionC: '১৬৪টি',
-        optionD: '১৮৪টি',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) ১৬৪টি
+        questionText:
+          'একটি সমদ্বিবাহু ত্রিভুজের সমান বাহু দুইটির প্রত্যেকটি 5 একক এবং ভূমি 6 একক হলে, ক্ষেত্রফল কত?',
+        optionA: '6',
+        optionB: '8',
+        optionC: '10',
+        optionD: '12',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) 12 বর্গ একক
 
-ব্যাখ্যা: পরীক্ষার সময় অনুযায়ী বিশ্ব বাণিজ্য সংস্থা (WTO)-এর সদস্য সংখ্যা ছিল ১৬৪টি (১৬৪তম সদস্য আফগানিস্তান)। তবে সাম্প্রতিক তথ্য অনুযায়ী (২০২৪), কমোরোস ও তিমুর-লেস্তে নতুন সদস্য হিসেবে যুক্ত হওয়ায় বর্তমানে WTO এর সদস্য সংখ্যা ১৬৬টি।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'আন্তর্জাতিক বিষয়াবলি',
-        subTopic: 'আন্তর্জাতিক সংগঠন',
+সমদ্বিবাহু ত্রিভুজের ক্ষেত্রফল নির্ণয় পরিমিতির একটি গুরুত্বপূর্ণ প্রশ্ন।
+
+সমাধান:
+সমদ্বিবাহু ত্রিভুজে মধ্যমা ভূমিকে লম্বভাবে সমদ্বিখণ্ডিত করে।
+
+ভূমির অর্ধেক = 6/2 = 3 একক
+সমান বাহু = 5 একক
+
+পিথাগোরাস উপপাদ্য দিয়ে উচ্চতা নির্ণয়:
+উচ্চতা² + (ভূমি/2)² = (সমান বাহু)²
+উচ্চতা² + 3² = 5²
+উচ্চতা² = 25 - 9 = 16
+উচ্চতা = 4 একক
+
+ক্ষেত্রফল = (1/2) × ভূমি × উচ্চতা
+= (1/2) × 6 × 4
+= 12 বর্গ একক ✓
+
+বিকল্প পদ্ধতি (হেরনের সূত্র):
+a = b = 5, c = 6
+s = (5+5+6)/2 = 8
+ক্ষেত্রফল = √[s(s-a)(s-b)(s-c)]
+= √[8 × 3 × 3 × 2]
+= √144 = 12 ✓
+
+উৎস: সাধারণ গণিত জ্যামিতি বিভাগ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'জ্যামিতি',
+        subTopic: 'ত্রিভুজের ক্ষেত্রফল',
         sortOrder: 36,
       },
       {
         questionSetId,
-        questionText: '৩৭. ‘কিয়েভ’ কোন দেশের রাজধানী?',
-        optionA: 'রুমানিয়া',
-        optionB: 'পোল্যান্ড',
-        optionC: 'ইউক্রেন',
-        optionD: 'স্পেন',
+        questionText:
+          'একটি বৃত্তের ক্ষেত্রফল একটি বর্গের ক্ষেত্রফলের সমান হলে তাদের পরিসীমার অনুপাত কত হবে?',
+        optionA: 'π : 2',
+        optionB: '2 : π',
+        optionC: 'π : 2√π',
+        optionD: '2√π : π',
         correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) ইউক্রেন
+        explanation: `সঠিক উত্তর: (গ) π : 2√π = √π : 2
 
-ব্যাখ্যা: 'কিয়েভ' (Kyiv) হলো পূর্ব ইউরোপের দেশ ইউক্রেনের রাজধানী ও বৃহত্তম শহর। রুমানিয়ার রাজধানী বুখারেস্ট, পোল্যান্ডের রাজধানী ওয়ারশ এবং স্পেনের রাজধানী মাদ্রিদ।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'আন্তর্জাতিক বিষয়াবলি',
-        subTopic: 'দেশ ও রাজধানী',
+বৃত্ত ও বর্গের তুলনামূলক পরিমাপ জ্যামিতির একটি গুরুত্বপূর্ণ বিষয়।
+
+সমাধান:
+ধরি বৃত্তের ব্যাসার্ধ = r এবং বর্গের বাহু = a
+
+শর্ত (ক্ষেত্রফল সমান):
+πr² = a²
+a = r√π ...(i)
+
+পরিসীমার অনুপাত:
+বৃত্তের পরিসীমা = 2πr
+বর্গের পরিসীমা = 4a = 4r√π [(i) থেকে]
+
+অনুপাত = 2πr : 4r√π
+= 2π : 4√π
+= π : 2√π
+
+সরলীকরণ:
+π : 2√π = π/(2√π) = √π/2
+
+∴ অনুপাত = π : 2√π বা √π : 2
+
+তাৎপর্য: যখন বৃত্ত ও বর্গের ক্ষেত্রফল সমান, তখন বৃত্তের পরিসীমা সর্বদা বর্গের চেয়ে কম — এটি প্রমাণ করে যে সমান ক্ষেত্রফলের মধ্যে বৃত্তের পরিসীমা সবচেয়ে কম হয়।
+
+উৎস: সাধারণ গণিত জ্যামিতি বিভাগ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'জ্যামিতি',
+        subTopic: 'বৃত্ত ও পরিসীমা',
         sortOrder: 37,
       },
       {
         questionSetId,
-        questionText: '৩৮. অ্যান্তোনিও গুতেরেস জাতিসংঘের কততম মহাসচিব?',
-        optionA: 'অষ্টম',
-        optionB: 'নবম',
-        optionC: 'দশম',
-        optionD: 'একাদশ',
+        questionText:
+          '1 ঘন সে.মি. কাঠের ওজন 7 ডেসিগ্রাম। কাঠের ওজন সমআয়তন পানির ওজনের শতকরা কতভাগ?',
+        optionA: '100 ভাগ',
+        optionB: '70 ভাগ',
+        optionC: '10 ভাগ',
+        optionD: '7 ভাগ',
         correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) নবম
+        explanation: `সঠিক উত্তর: (খ) 70 ভাগ
 
-ব্যাখ্যা: পর্তুগালের সাবেক প্রধানমন্ত্রী অ্যান্তোনিও গুতেরেস (António Guterres) জাতিসংঘের নবম ও বর্তমান মহাসচিব। তিনি ১ জানুয়ারি ২০১৭ তারিখে দায়িত্ব গ্রহণ করেন। অষ্টম মহাসচিব ছিলেন দক্ষিণ কোরিয়ার বান কি মুন।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'আন্তর্জাতিক বিষয়াবলি',
-        subTopic: 'জাতিসংঘ',
+এককের রূপান্তর ও শতকরা হিসাব এই সমস্যায় প্রয়োজন।
+
+সমাধান:
+1 ঘন সে.মি. কাঠের ওজন = 7 ডেসিগ্রাম
+
+একক রূপান্তর:
+1 গ্রাম = 10 ডেসিগ্রাম
+7 ডেসিগ্রাম = 7/10 গ্রাম = 0.7 গ্রাম
+
+1 ঘন সে.মি. পানির ওজন = 1 গ্রাম (পানির ঘনত্ব = 1 g/cm³)
+
+শতকরা নির্ণয়:
+কাঠের ওজন = পানির ওজনের কতভাগ?
+= (0.7/1) × 100%
+= 70%
+
+∴ কাঠের ওজন পানির ওজনের 70 ভাগ
+
+ব্যাখ্যা:
+পানির ঘনত্ব = 1 g/cm³ (এটি পরিমাপের ভিত্তি)
+কাঠের আপেক্ষিক গুরুত্ব = 0.7 (অর্থাৎ কাঠ পানিতে ভাসে)
+
+উৎস: সাধারণ গণিত পরিমাপ বিভাগ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'পাটিগণিত',
+        subTopic: 'শতকরা ও একক রূপান্তর',
         sortOrder: 38,
       },
       {
         questionSetId,
-        questionText: '৩৯. ইংল্যান্ডের বর্তমান প্রধানমন্ত্রী?',
-        optionA: 'বরিস জনসন',
-        optionB: 'লিজ স্ট্রাস',
-        optionC: 'ঋষি সুনাক',
-        optionD: 'টনি ব্লেয়ার',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) ঋষি সুনাক
+        questionText:
+          'একটি ত্রিভুজের দুইটি বাহুর দৈর্ঘ্য যথাক্রমে 26 মিটার, 28 মিটার এবং ক্ষেত্রফল 182 বর্গমিটার হলে, বাহুদ্বয়ের অন্তর্ভুক্ত কোণ নির্ণয় করুন।',
+        optionA: '60°',
+        optionB: '30°',
+        optionC: '45°',
+        optionD: '90°',
+        correctAnswer: 'B',
+        explanation: `সঠিক উত্তর: (খ) 30°
 
-ব্যাখ্যা: পরীক্ষার সময় (২০২২ সালের শেষভাগে) যুক্তরাজ্যের প্রধানমন্ত্রী ছিলেন ঋষি সুনাক। তিনি ভারতীয় বংশোদ্ভূত প্রথম ব্রিটিশ প্রধানমন্ত্রী ছিলেন। 
-তবে সাম্প্রতিক তথ্য (২০২৪): বর্তমানে যুক্তরাজ্যের প্রধানমন্ত্রী হলেন লেবার পার্টির নেতা কিয়ার স্টারমার (Keir Starmer)।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'আন্তর্জাতিক বিষয়াবলি',
-        subTopic: 'সাম্প্রতিক ব্যক্তিত্ব',
+দুই বাহু ও অন্তর্ভুক্ত কোণ দিয়ে ক্ষেত্রফল নির্ণয়ের সূত্র এখানে ব্যবহৃত হয়।
+
+সমাধান:
+দেওয়া: a = 26 মি., b = 28 মি., ক্ষেত্রফল = 182 বর্গ মি.
+নির্ণেয়: অন্তর্ভুক্ত কোণ C = ?
+
+সূত্র: ক্ষেত্রফল = (1/2) × a × b × sin C
+
+182 = (1/2) × 26 × 28 × sin C
+182 = (1/2) × 728 × sin C
+182 = 364 × sin C
+sin C = 182/364
+sin C = 0.5 = 1/2
+
+∴ C = sin⁻¹(1/2) = 30°
+
+(কারণ sin 30° = 1/2)
+
+যাচাই:
+ক্ষেত্রফল = (1/2) × 26 × 28 × sin 30°
+= (1/2) × 728 × 0.5
+= 182 বর্গমিটার ✓
+
+গুরুত্বপূর্ণ ত্রিকোণমিতিক মান:
+sin 30° = 1/2, sin 45° = √2/2, sin 60° = √3/2, sin 90° = 1
+
+উৎস: সাধারণ গণিত ত্রিকোণমিতি বিভাগ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'ত্রিকোণমিতি',
+        subTopic: 'ত্রিভুজের ক্ষেত্রফল ও ত্রিকোণমিতি',
         sortOrder: 39,
       },
       {
         questionSetId,
-        questionText: '৪০. গোবি মরুভূমি কোন মহাদেশে অবস্থিত?',
-        optionA: 'আফ্রিকা',
-        optionB: 'দক্ষিণ আমেরিকা',
-        optionC: 'এশিয়া',
-        optionD: 'ইউরোপ',
+        questionText:
+          'একটি ত্রিভুজের তিনটি কোণের অনুপাত 1 : 1 : 2 হলে ত্রিভুজটি কোন ধরনের ত্রিভুজ?',
+        optionA: 'সমবাহু ত্রিভুজ',
+        optionB: 'বিষমবাহু ত্রিভুজ',
+        optionC: 'সমকোণী ত্রিভুজ',
+        optionD: 'কোনটিই নয়',
         correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) এশিয়া
+        explanation: `সঠিক উত্তর: (গ) সমকোণী ত্রিভুজ
 
-ব্যাখ্যা: গোবি মরুভূমি এশিয়া মহাদেশের বৃহত্তম মরুভূমি। এটি উত্তর ও উত্তর-পশ্চিম চীন এবং দক্ষিণ মঙ্গোলিয়া জুড়ে বিস্তৃত। এটি একটি শীতল মরুভূমি (Cold Desert)। অন্যদিকে বিশ্বের বৃহত্তম উষ্ণ মরুভূমি সাহারা আফ্রিকায় অবস্থিত।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'আন্তর্জাতিক বিষয়াবলি',
-        subTopic: 'ভৌগোলিক স্থান',
+ত্রিভুজের কোণের অনুপাত থেকে ত্রিভুজের ধরন নির্ণয় করা জ্যামিতির একটি মৌলিক প্রশ্ন।
+
+সমাধান:
+কোণের অনুপাত = 1 : 1 : 2
+মোট অংশ = 1 + 1 + 2 = 4
+
+ত্রিভুজের তিন কোণের সমষ্টি = 180°
+
+প্রতিটি কোণ:
+— ১ম কোণ = (1/4) × 180° = 45°
+— ২য় কোণ = (1/4) × 180° = 45°
+— ৩য় কোণ = (2/4) × 180° = 90°
+
+যেহেতু একটি কোণ 90°, এটি সমকোণী ত্রিভুজ।
+
+এই ত্রিভুজের বৈশিষ্ট্য:
+— দুটি কোণ 45° করে (সমদ্বিবাহু সমকোণী ত্রিভুজ)
+— দুটি সমান বাহু (45°-45°-90° বিশেষ ত্রিভুজ)
+— অতিভুজ : সমান বাহু = √2 : 1
+
+উৎস: সাধারণ গণিত জ্যামিতি বিভাগ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'জ্যামিতি',
+        subTopic: 'ত্রিভুজের প্রকারভেদ',
         sortOrder: 40,
       },
       {
         questionSetId,
-        questionText: '৪১. বাংলাদেশে সর্বপ্রথম ইন্টারনেট সিস্টেম চালু হয় কোন সালে?',
-        optionA: '১৯৯৫ সালে',
-        optionB: '১৯৯৬ সালে',
-        optionC: '১৯৯৭ সালে',
-        optionD: '১৯৯৮ সালে',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) ১৯৯৬ সালে
+        questionText: 'একটি সমবৃত্তভূমিক বেলনের ভূমির ব্যাসার্ধ r এবং উচ্চতা h হলে উহার আয়তন-',
+        optionA: 'πr²',
+        optionB: '2πrh',
+        optionC: '2πr(r + h)',
+        optionD: 'πr²h',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) πr²h
 
-ব্যাখ্যা: বাংলাদেশে সর্বপ্রথম ইন্টারনেট সেবা চালু হয় ১৯৯৬ সালে। ISN (Information Services Network) নামক একটি প্রতিষ্ঠানের মাধ্যমে দেশে প্রথম ডায়াল-আপ ইন্টারনেট সেবা শুরু হয়।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'তথ্য ও প্রযুক্তি',
-        subTopic: 'ইন্টারনেট ও নেটওয়ার্ক',
+ঘনবস্তুর আয়তন সংক্রান্ত সূত্র পরিমিতির একটি মৌলিক বিষয়।
+
+বেলনের (Cylinder) সূত্রাবলি:
+— আয়তন = πr²h
+(যেখানে r = ভূমির ব্যাসার্ধ, h = উচ্চতা)
+— বক্রতলের ক্ষেত্রফল (Curved Surface Area) = 2πrh
+— সম্পূর্ণ তলের ক্ষেত্রফল (Total Surface Area) = 2πr(r + h) = 2πrh + 2πr²
+
+ভুল বিকল্প বিশ্লেষণ:
+✗ πr²: শুধু বৃত্তাকার ভূমির ক্ষেত্রফল
+✗ 2πrh: বেলনের শুধু বক্রতলের ক্ষেত্রফল (পার্শ্বতলের ক্ষেত্রফল)
+✗ 2πr(r+h): বেলনের সম্পূর্ণ বাইরের তলের ক্ষেত্রফল
+
+অন্যান্য ঘনবস্তুর আয়তন সূত্র:
+— শঙ্কু: (1/3)πr²h
+— গোলক: (4/3)πr³
+— ঘনক: a³ (যেখানে a = বাহু)
+— আয়তঘন: l × b × h
+
+উৎস: সাধারণ গণিত পরিমিতি বিভাগ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'গণিত',
+        topic: 'জ্যামিতি',
+        subTopic: 'পরিমিতি — ঘনবস্তুর আয়তন',
         sortOrder: 41,
       },
+
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      // বিষয়: বাংলা ভাষা ও সাহিত্য (প্রশ্ন ৪২–৬৫)
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       {
         questionSetId,
-        questionText: '৪২. কচুশাক বিশেষভাবে মূল্যবান যে উপাদানের জন্য তা হলো-',
-        optionA: 'লৌহ',
-        optionB: 'ভিটামিন-সি',
-        optionC: 'ক্যালসিয়াম',
-        optionD: 'ভিটামিন-এ',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) লৌহ
+        questionText: 'বাংলা ভাষার মূল উৎস কী?',
+        optionA: 'হিন্দি ভাষা',
+        optionB: 'বৈদিক ভাষা',
+        optionC: 'উড়িয়া',
+        optionD: 'অনার্য ভাষা',
+        correctAnswer: 'B',
+        explanation: `সঠিক উত্তর: (খ) বৈদিক ভাষা
 
-ব্যাখ্যা: কচুশাকে প্রচুর পরিমাণে লৌহ (Iron) থাকে। লৌহ রক্তে হিমোগ্লোবিন তৈরিতে সাহায্য করে, যা রক্তশূন্যতা (Anemia) দূর করতে অত্যন্ত কার্যকর। তাই রক্তশূন্যতায় ভোগা রোগীদের বেশি করে কচুশাক খেতে বলা হয়।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'দৈনন্দিন বিজ্ঞান',
-        subTopic: 'খাদ্য ও পুষ্টি',
+বাংলা ভাষার উৎপত্তি ও ক্রমবিকাশ সম্পর্কিত এই তথ্যটি ভাষাবিজ্ঞানের মূল বিষয়।
+
+বাংলা ভাষার উদ্ভব ও বিকাশের ধারা:
+বৈদিক ভাষা → সংস্কৃত → পালি → প্রাকৃত → অপভ্রংশ → বাংলা
+
+বিস্তারিত বিবরণ:
+— বৈদিক ভাষা: আর্যরা ভারতে আসার সময় যে ভাষায় বেদ রচনা করতেন
+— সংস্কৃত: বৈদিক ভাষার পরিমার্জিত রূপ (পাণিনির ব্যাকরণ অনুসারে)
+— পালি: সংস্কৃতের একটি প্রচলিত রূপ, বৌদ্ধ ধর্মগ্রন্থের ভাষা
+— প্রাকৃত: আঞ্চলিক কথ্যভাষা
+— অপভ্রংশ: প্রাকৃতের আরো পরিবর্তিত রূপ
+— বাংলা: অপভ্রংশ থেকে উদ্ভূত (আনুমানিক ৬৫০–৯০০ খ্রিস্টাব্দের মধ্যে)
+
+বাংলাসহ আরো কয়েকটি ভাষা বৈদিক ভাষা থেকে আসা:
+হিন্দি, গুজরাটি, মারাঠি, উড়িয়া — সবই ইন্দো-আর্য ভাষাপরিবারের অন্তর্গত।
+
+উৎস: ভাষাবিজ্ঞান পরিচিতি — ড. হুমায়ুন আজাদ; বাংলা ব্যাকরণ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'বাংলা ভাষা ও সাহিত্য',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'বাংলা ভাষার উৎপত্তি ও ক্রমবিকাশ',
         sortOrder: 42,
       },
       {
         questionSetId,
-        questionText: '৪৩. ক্যান্সার সংক্রান্ত বিদ্যাকে বলে-',
-        optionA: 'টিউমারোলজি',
-        optionB: 'একালজি',
-        optionC: 'অনকোলজি',
-        optionD: 'সাইটোলজি',
+        questionText: 'বাংলা ভাষা ও সাহিত্যের মধ্যযুগের প্রথম নিদর্শন কোনটি?',
+        optionA: 'মধুমালতী',
+        optionB: 'সিকান্দারনামা',
+        optionC: 'শ্রীকৃষ্ণকীর্তন',
+        optionD: 'বৈষ্ণব পদাবলী',
         correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) অনকোলজি
+        explanation: `সঠিক উত্তর: (গ) শ্রীকৃষ্ণকীর্তন
 
-ব্যাখ্যা: চিকিৎসা বিজ্ঞানের যে শাখায় ক্যান্সার বা টিউমার সম্পর্কে অধ্যয়ন, রোগ নির্ণয় এবং চিকিৎসা নিয়ে আলোচনা করা হয়, তাকে অনকোলজি (Oncology) বলা হয়। 
-অন্যদিকে, কোষ সম্পর্কে বিদ্যাকে সাইটোলজি (Cytology) বলে।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'বিজ্ঞান',
-        subTopic: 'বিজ্ঞানের বিভিন্ন শাখা',
+মধ্যযুগের বাংলা সাহিত্যের সূচনা সম্পর্কিত এই তথ্য NTRCA পরীক্ষায় বারবার আসে।
+
+শ্রীকৃষ্ণকীর্তন সম্পর্কে বিস্তারিত তথ্য:
+— রচয়িতা: বড়ু চণ্ডীদাস (আনুমানিক ১৪শ বা ১৫শ শতাব্দী)
+— আবিষ্কার: ১৯০৯ সালে বসন্তরঞ্জন রায় বিদ্বদ্বল্লভ বাঁকুড়ার কাঁকিল্যা গ্রামের গোয়ালঘর থেকে আবিষ্কার করেন
+— প্রকৃতি: কাহিনীকাব্য — রাধা-কৃষ্ণের প্রেমকাহিনী অবলম্বনে রচিত
+— মোট খণ্ড: ১৩টি খণ্ড
+— এটি মধ্যযুগের বাংলা সাহিত্যের প্রথম সার্থক কাব্যগ্রন্থ
+
+মধ্যযুগের সাহিত্যের গুরুত্বপূর্ণ বিভাগ:
+— মঙ্গলকাব্য: মনসামঙ্গল, চণ্ডীমঙ্গল, ধর্মমঙ্গল
+— বৈষ্ণব পদাবলী: চণ্ডীদাস, জ্ঞানদাস, বিদ্যাপতি
+— রোমান্টিক প্রণয়কাব্য: ইউসুফ-জোলেখা, লায়লি-মজনু
+
+উৎস: বাংলা সাহিত্যের ইতিহাস — মুহম্মদ আবদুল হাই; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'বাংলা ভাষা ও সাহিত্য',
+        topic: 'বাংলা সাহিত্যের ইতিহাস',
+        subTopic: 'মধ্যযুগ — শ্রীকৃষ্ণকীর্তন',
         sortOrder: 43,
       },
       {
         questionSetId,
-        questionText: '৪৪. জাতিসংঘ পরিবেশ কর্মসূচি এর সদর দপ্তর অবস্থিত-',
-        optionA: 'স্টকহোম',
-        optionB: 'নাইরোবি',
-        optionC: 'হেগ',
-        optionD: 'বৈরুত',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) নাইরোবি
+        questionText: 'সাধু ও চলিত রীতিতে অভিন্নরূপে ব্যবহৃত হয়?',
+        optionA: 'অব্যয়',
+        optionB: 'সম্বোধন পদ',
+        optionC: 'সর্বনাম',
+        optionD: 'ক্রিয়া',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) অব্যয়
 
-ব্যাখ্যা: জাতিসংঘ পরিবেশ কর্মসূচি বা UNEP (United Nations Environment Programme) এর সদর দপ্তর কেনিয়ার রাজধানী নাইরোবিতে অবস্থিত। এটি ১৯৭২ সালে প্রতিষ্ঠিত হয় এবং বিশ্বব্যাপী পরিবেশগত সমস্যা মোকাবিলায় নেতৃত্ব দেয়।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'আন্তর্জাতিক বিষয়াবলি',
-        subTopic: 'আন্তর্জাতিক সংস্থা ও সদর দপ্তর',
+সাধু ও চলিত ভাষারীতির পার্থক্য বাংলা ব্যাকরণের গুরুত্বপূর্ণ বিষয়।
+
+সাধু ও চলিত ভাষায় পার্থক্যের ধারণা:
+সাধুরীতি ও চলিতরীতিতে মূল পার্থক্য দেখা যায়:
+— সর্বনামে: তাহার (সাধু) → তার (চলিত)
+— ক্রিয়াপদে: করিয়াছি (সাধু) → করেছি (চলিত)
+— বিশেষ্য-বিশেষণে: কিছু পরিবর্তন আসে
+
+কিন্তু অব্যয় পদ উভয় রীতিতে একই থাকে:
+— 'এবং', 'কিন্তু', 'তথাপি', 'বরং', 'আর', 'ও', 'না', 'হ্যাঁ' ইত্যাদি অব্যয় পদ
+— এই পদগুলো সাধু বা চলিত কোনো রীতিতেই পরিবর্তিত হয় না
+— অব্যয়ের কোনো বিভক্তি বা পরিবর্তন হয় না বলে এটি উভয় রীতিতে অপরিবর্তিত থাকে
+
+সাধুরীতির বৈশিষ্ট্য:
+— তৎসম শব্দবহুল, গুরুগম্ভীর
+— সাহিত্যিক গদ্যে প্রচলিত
+
+চলিতরীতির বৈশিষ্ট্য:
+— ব্যবহারিক জীবনে প্রচলিত, সহজ-সরল
+
+উৎস: বাংলা ব্যাকরণ — ড. মুহম্মদ এনামুল হক; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'বাংলা ভাষা ও সাহিত্য',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'সাধু ও চলিত ভাষারীতি',
         sortOrder: 44,
       },
       {
         questionSetId,
-        questionText: '৪৫. শর্করা জাতীয় খাদ্য যে কাজে ব্যয় হয়-',
-        optionA: 'দেহের বৃদ্ধির জন্য',
-        optionB: 'ক্ষয়রোধের জন্য',
-        optionC: 'পুষ্টির অভাব পূরণে',
-        optionD: 'হাড় গঠনে',
+        questionText: 'ভাষার কোন রীতি তৎসম শব্দবহুল?',
+        optionA: 'সাধুরীতি',
+        optionB: 'চলিতরীতি',
+        optionC: 'কথ্যরীতি',
+        optionD: 'লেখ্যরীতি',
         correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) দেহের বৃদ্ধির জন্য 
-(মূলত শর্করা দেহের তাপশক্তি উৎপাদন ও কাজ করার শক্তি যোগায়, তবে অপশন অনুসারে দেহের বৃদ্ধি ও রক্ষণাবেক্ষণ কাজেও এর পরোক্ষ ভূমিকা রয়েছে)। 
-সংশোধনী ব্যাখ্যা: বৈজ্ঞানিকভাবে আমিষ (Protein) দেহের বৃদ্ধি ও ক্ষয়পূরণ করে। শর্করা বা কার্বোহাইড্রেট মূলত শক্তি যোগায়। প্রদত্ত অপশনগুলোর মধ্যে সবচেয়ে প্রাসঙ্গিক না হলেও বোর্ড কর্তৃক গৃহীত উত্তর হিসেবে এটি গণ্য। সঠিক তথ্যটি হলো আমিষ দেহের বৃদ্ধি ঘটায়।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'দৈনন্দিন বিজ্ঞান',
-        subTopic: 'খাদ্য ও পুষ্টি',
+        explanation: `সঠিক উত্তর: (ক) সাধুরীতি
+
+বাংলা ভাষার রীতিভেদ সম্পর্কিত এই প্রশ্ন বাংলা ব্যাকরণের মৌলিক বিষয়।
+
+সাধুরীতির বৈশিষ্ট্যসমূহ:
+— তৎসম (সংস্কৃত থেকে আগত অপরিবর্তিত) শব্দের প্রাধান্য
+— উদাহরণ: 'করিয়াছিলাম', 'বলিতেছিলেন', 'তাহারা', 'যাহা'
+— গুরুগম্ভীর, সাহিত্যিক গদ্যে ব্যবহৃত
+— বিভক্তি: এয়া, ইয়া, ইতে ইত্যাদি পূর্ণরূপে থাকে
+— রবীন্দ্রনাথের আগে বেশিরভাগ সাহিত্য সাধুরীতিতে রচিত
+
+চলিতরীতির বৈশিষ্ট্যসমূহ:
+— পরিবর্তিত তদ্ভব শব্দের প্রাধান্য
+— উদাহরণ: 'করেছিলাম', 'বলছিলেন', 'তারা', 'যা'
+— সহজ, কথাবার্তায় ব্যবহৃত
+— প্রমথ চৌধুরীর 'সবুজপত্র' পত্রিকায় চলিতরীতির প্রসার হয়
+
+মনে রাখার সূত্র:
+'সাধু = সংস্কৃত বা তৎসম' — উভয় শব্দেই 'স' আছে
+
+উৎস: বাংলা ব্যাকরণ — ড. মুহম্মদ এনামুল হক; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'বাংলা ভাষা ও সাহিত্য',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'সাধু ও চলিত ভাষারীতি',
         sortOrder: 45,
       },
       {
         questionSetId,
-        questionText: '৪৬. দৃষ্টিহীনদের জন্য আবিষ্কৃত বাংলায় প্রথম সফটওয়্যার এর নাম কী?',
-        optionA: 'আইলিপ',
-        optionB: 'আইসাইট',
-        optionC: 'আইডট',
-        optionD: 'আইলাইট',
+        questionText: 'প্রমথ চৌধুরী সম্পাদিত পত্রিকার নাম-',
+        optionA: 'তত্ত্ববোধিনী',
+        optionB: 'সবুজপত্র',
+        optionC: 'কল্লোল',
+        optionD: 'ধূমকেতু',
         correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) আইসাইট
+        explanation: `সঠিক উত্তর: (খ) সবুজপত্র
 
-ব্যাখ্যা: দৃষ্টিহীনদের জন্য ব্রেইল পদ্ধতির পাশাপাশি কম্পিউটারে কাজ করার জন্য আবিষ্কৃত বাংলায় প্রথম সফটওয়্যারটির নাম হলো 'আইসাইট' (iSight)। এটি দৃষ্টিপ্রতিবন্ধীদের প্রযুক্তি ব্যবহারে সহায়তা করে।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'তথ্য ও প্রযুক্তি',
-        subTopic: 'সফটওয়্যার ও আইটি',
+বাংলা সাহিত্যের বিখ্যাত পত্রিকাসমূহ ও তাদের সম্পাদক সম্পর্কিত তথ্য NTRCA পরীক্ষায় প্রায়ই আসে।
+
+প্রমথ চৌধুরী ও সবুজপত্র:
+— পত্রিকার নাম: সবুজপত্র
+— প্রকাশকাল: ১৯১৪ সালে (বাংলা ১৩২১)
+— সম্পাদক: প্রমথ চৌধুরী (ছদ্মনাম: বীরবল)
+— এই পত্রিকার মাধ্যমে বাংলা গদ্যে চলিতরীতির প্রচলন ঘটে
+— রবীন্দ্রনাথও এই পত্রিকায় লিখেছেন
+
+বিখ্যাত পত্রিকা ও সম্পাদক:
+— তত্ত্ববোধিনী: দেবেন্দ্রনাথ ঠাকুর (১৮৪৩)
+— কল্লোল: দীনেশরঞ্জন দাশ (১৯২৩)
+— ধূমকেতু: কাজী নজরুল ইসলাম (১৯২২)
+— সংবাদ প্রভাকর: ঈশ্বর গুপ্ত (১৮৩১)
+— বঙ্গদর্শন: বঙ্কিমচন্দ্র চট্টোপাধ্যায় (১৮৭২)
+
+উৎস: বাংলা সাহিত্যের ইতিহাস; সাহিত্যিক পত্রপত্রিকা; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'বাংলা ভাষা ও সাহিত্য',
+        topic: 'বাংলা সাহিত্যের ইতিহাস',
+        subTopic: 'বাংলা সাহিত্যের পত্রপত্রিকা',
         sortOrder: 46,
       },
       {
         questionSetId,
-        questionText: '৪৭. বৈদ্যুতিক সংযোগ বিচ্ছিন্ন হয়ে গেলে কোন মেমোরি থেকে তথ্য চলে যায়?',
-        optionA: 'ROM',
-        optionB: 'Secondary storage',
-        optionC: 'RAM',
-        optionD: 'কোনোটিই নয়',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) RAM
+        questionText: "'কলম' শব্দটি কোন ভাষা থেকে গৃহীত?",
+        optionA: 'সংস্কৃত',
+        optionB: 'আরবি',
+        optionC: 'ফারসি',
+        optionD: 'তুর্কি',
+        correctAnswer: 'B',
+        explanation: `সঠিক উত্তর: (খ) আরবি
 
-ব্যাখ্যা: RAM (Random Access Memory) হলো কম্পিউটারের একটি অস্থায়ী বা ভোলাটাইল (Volatile) মেমোরি। বৈদ্যুতিক সংযোগ বিচ্ছিন্ন হলে বা কম্পিউটার বন্ধ করলে RAM-এ থাকা সমস্ত তথ্য মুছে যায়। অন্যদিকে ROM (Read Only Memory) হলো স্থায়ী মেমোরি।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'তথ্য ও প্রযুক্তি',
-        subTopic: 'কম্পিউটার মেমোরি',
+বাংলা ভাষায় বিদেশি শব্দের উৎস শনাক্ত করা একটি গুরুত্বপূর্ণ পরীক্ষামূলক বিষয়।
+
+'কলম' শব্দের উৎস:
+— 'কলম' শব্দটি আরবি ভাষার 'Qalam' (قلم) থেকে এসেছে
+— আরবিতে 'কলম' মানে লেখার যন্ত্র বা লেখনী
+— ইসলামের প্রসারের সাথে সাথে আরবি শব্দ বাংলায় প্রবেশ করেছে
+
+বাংলায় আরবি শব্দের উদাহরণ:
+— আল্লাহ, কোরআন, নামাজ, হজ্ব, জাকাত
+— আদালত, মসজিদ, মিনার, জমিদার (আরবি-ফারসি মিশ্রণ)
+— কলম, কিতাব, দোয়াত, কাগজ
+
+বিভিন্ন ভাষা থেকে আসা শব্দ:
+— ফারসি: জানালা, দোকান, বাজার, বন্দুক
+— তুর্কি: চাকু, তোপ, দারোগা, কাঁচি
+— পর্তুগিজ: আলমারি, বালতি, পাউরুটি
+— ইংরেজি: স্কুল, কলেজ, ডাক্তার, টেবিল
+
+উৎস: বাংলা একাডেমি ব্যবহারিক বাংলা অভিধান; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'বাংলা ভাষা ও সাহিত্য',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'বিদেশি শব্দ ও ভাষার উৎস',
         sortOrder: 47,
       },
       {
         questionSetId,
-        questionText: '৪৮. বিশ্ব স্বাস্থ্য সংস্থা করোনা ভাইরাসের দাপ্তরিক নাম দিয়েছে-',
-        optionA: 'করোনা-১',
-        optionB: 'কোভিড-১৯',
-        optionC: 'করোনা ভাইরাস',
-        optionD: 'SARS-COV-1',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) কোভিড-১৯
+        questionText: 'পাউরুটি কোন ভাষার শব্দ?',
+        optionA: 'পাঞ্জাবি',
+        optionB: 'ফরাসি',
+        optionC: 'গুজরাটি',
+        optionD: 'পর্তুগিজ',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) পর্তুগিজ
 
-ব্যাখ্যা: বিশ্ব স্বাস্থ্য সংস্থা (WHO) ২০২০ সালের ১১ ফেব্রুয়ারি নভেল করোনা ভাইরাসের কারণে সৃষ্ট রোগের দাপ্তরিক নাম দেয় COVID-19 (Coronavirus Disease 2019)। আর এই রোগের জন্য দায়ী ভাইরাসটির বৈজ্ঞানিক নাম হলো SARS-CoV-2।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'বিজ্ঞান ও চিকিৎসা',
-        subTopic: 'সাম্প্রতিক স্বাস্থ্য',
+পর্তুগিজ থেকে আগত শব্দ বাংলায় বেশ কিছু রয়েছে — এগুলো মনে রাখা পরীক্ষায় কাজে আসে।
+
+'পাউরুটি' শব্দের উৎস:
+— পর্তুগিজ শব্দ: 'Pão' (পাং = রুটি) + বাংলা 'রুটি'
+— পর্তুগিজরা ১৬শ শতাব্দীতে ভারতে বাণিজ্যের জন্য আসেন
+— তারা চট্টগ্রাম, সিলেট, ঢাকায় বসতি স্থাপন করেন এবং বাণিজ্য করেন
+— তাদের মাধ্যমে অনেক পর্তুগিজ শব্দ বাংলায় আসে
+
+বাংলায় পর্তুগিজ শব্দের তালিকা:
+— আলমারি (almario), বালতি (balde), চাবি (chave)
+— পাউরুটি (pão + রুটি), তোয়ালে (toalha)
+— কামরা (câmara), গামলা (gamela)
+— বোতাম (botão), ইস্ত্রি (estri)
+— নিলাম (leilão)
+
+মনে রাখার কৌশল: পর্তুগিজরা সমুদ্রপথে বাণিজ্য করতে এসেছিলেন, তাই ঘরোয়া জিনিসপত্রের শব্দ বেশি।
+
+উৎস: বাংলা একাডেমি অভিধান; ভাষাবিজ্ঞান পরিচিতি; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'বাংলা ভাষা ও সাহিত্য',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'বিদেশি শব্দ ও ভাষার উৎস',
         sortOrder: 48,
       },
       {
         questionSetId,
-        questionText: '৪৯. কোন হরমোনের অভাবে গলগণ্ড রোগের সৃষ্টি হয়?',
-        optionA: 'থাইরক্সিন',
-        optionB: 'ইনসুলিন',
-        optionC: 'গ্লুকাগন',
-        optionD: 'করটিসোল',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) থাইরক্সিন
+        questionText: "'আবির্ভাব' এর বিপরীত শব্দ কোনটি?",
+        optionA: 'অভাব',
+        optionB: 'স্বভাব',
+        optionC: 'অনুভব',
+        optionD: 'তিরোভাব',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) তিরোভাব
 
-ব্যাখ্যা: থাইরয়েড গ্রন্থি থেকে নিঃসৃত হরমোন হলো থাইরক্সিন। খাবারে আয়োডিনের অভাব ঘটলে থাইরয়েড গ্রন্থি থাইরক্সিন হরমোন ঠিকমতো উৎপাদন করতে পারে না, ফলে গ্রন্থিটি অস্বাভাবিকভাবে ফুলে যায়। একেই গলগণ্ড বা ঘ্যাগ (Goiter) রোগ বলা হয়।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'দৈনন্দিন বিজ্ঞান',
-        subTopic: 'মানবদেহ ও রোগব্যাধি',
+বিপরীত শব্দ বা বিপরীতার্থক শব্দজ্ঞান বাংলা ভাষার একটি গুরুত্বপূর্ণ বিষয়।
+
+শব্দ বিশ্লেষণ:
+— 'আবির্ভাব' অর্থ: প্রকাশ পাওয়া, সামনে আসা, উদয় হওয়া
+— 'তিরোভাব' অর্থ: অদৃশ্য হওয়া, মিলিয়ে যাওয়া, বিলুপ্ত হওয়া
+
+উৎপত্তি বিশ্লেষণ:
+— আবির্ভাব: 'আবির্' (আবির্ধাতু) + ভাব — প্রকট হওয়া
+— তিরোভাব: 'তিরঃ' (তিরোধান) + ভাব — তিরোহিত হওয়া, অন্তর্হিত হওয়া
+— এই দুটি শব্দ পরস্পর বিপরীতার্থক
+
+ভুল বিকল্প বিশ্লেষণ:
+✗ অভাব: অর্থ 'না থাকা' — আবির্ভাবের বিপরীত নয়
+✗ স্বভাব: অর্থ 'প্রকৃতি বা চরিত্র' — সম্পর্কহীন
+✗ অনুভব: অর্থ 'অনুভূতি' — সম্পর্কহীন
+
+গুরুত্বপূর্ণ বিপরীত জুটি:
+— আদান ↔ প্রদান, সৃষ্টি ↔ ধ্বংস, উদয় ↔ অস্ত
+
+উৎস: বাংলা একাডেমি আধুনিক বাংলা অভিধান; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'বাংলা ভাষা ও সাহিত্য',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'বিপরীত শব্দ',
         sortOrder: 49,
       },
       {
         questionSetId,
-        questionText: '৫০. GIS-এর পূর্ণরূপ কোনটি?',
-        optionA: 'Geographic Information System.',
-        optionB: 'Geological Information System.',
-        optionC: 'Geographic Integrated System.',
-        optionD: 'Geological Integrated System.',
+        questionText: "'জায়া' শব্দের সমার্থক শব্দ কোনটি?",
+        optionA: 'অর্ধাঙ্গিনী',
+        optionB: 'কন্যা',
+        optionC: 'নন্দিনী',
+        optionD: 'ভাগনী',
         correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) Geographic Information System.
+        explanation: `সঠিক উত্তর: (ক) অর্ধাঙ্গিনী
 
-ব্যাখ্যা: GIS এর পূর্ণরূপ হলো Geographic Information System (ভৌগলিক তথ্য ব্যবস্থা)। এটি এমন একটি কম্পিউটারাইজড সিস্টেম যা পৃথিবীর পৃষ্ঠের বিভিন্ন ধরনের স্থানিক বা ভৌগলিক তথ্য সংরক্ষণ, বিশ্লেষণ এবং প্রদর্শন করতে ব্যবহৃত হয়।`,
-        subject: 'সাধারণ জ্ঞান',
-        topic: 'তথ্য ও প্রযুক্তি',
-        subTopic: 'সংক্ষিপ্ত রূপ',
+সমার্থক শব্দ বা প্রতিশব্দ জ্ঞান বাংলা ভাষার একটি গুরুত্বপূর্ণ অংশ।
+
+'জায়া' শব্দের অর্থ:
+— 'জায়া' সংস্কৃত শব্দ, অর্থ: স্ত্রী, পত্নী, ভার্যা
+— 'জায়া' ও 'অর্ধাঙ্গিনী' উভয়ই স্ত্রী/পত্নীর অর্থ বহন করে
+
+'স্ত্রী'-র সমার্থক শব্দসমূহ:
+— জায়া, জীবনসঙ্গিনী, অর্ধাঙ্গিনী, বধূ, ভার্যা, সহধর্মিণী
+— ঘরণী, গৃহিণী, কান্তা, প্রিয়া, দারা
+
+ভুল বিকল্প বিশ্লেষণ:
+✗ কন্যা: মেয়ে বা কন্যাসন্তান
+✗ নন্দিনী: মেয়ে বা কন্যা (আনন্দ দেওয়া যে)
+✗ ভাগনী: ভাগিনী, বোনের মেয়ে বা ভাগ্নি
+
+মনে রাখার কৌশল:
+'জায়া-পতি' শব্দটি মনে রাখুন — জায়া = স্ত্রী, পতি = স্বামী
+
+উৎস: বাংলা একাডেমি আধুনিক বাংলা অভিধান; সমার্থক শব্দকোষ; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'বাংলা ভাষা ও সাহিত্য',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'সমার্থক ও প্রতিশব্দ',
         sortOrder: 50,
       },
-      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      // বিষয়: বাংলা ভাষা ও সাহিত্য (প্রশ্ন ৫১–৭৫)
-      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       {
         questionSetId,
-        questionText: '৫১. অঘোষ অল্পপ্রাণ ধ্বনি কোনটি?',
-        optionA: 'চ ধ্বনি',
-        optionB: 'ছ ধ্বনি',
-        optionC: 'জ ধ্বনি',
-        optionD: 'ঝ ধ্বনি',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) চ ধ্বনি
+        questionText: "'সাক্ষী গোপাল' বাগধারাটির অর্থ কী?",
+        optionA: 'অপদার্থ',
+        optionB: 'মূর্খ',
+        optionC: 'নিরেট বোকা',
+        optionD: 'নিষ্ক্রিয় দর্শক',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) নিষ্ক্রিয় দর্শক
 
-ব্যাখ্যা: বর্গের প্রথম ও দ্বিতীয় ধ্বনি হলো অঘোষ। আর বর্গের প্রথম ও তৃতীয় ধ্বনি হলো অল্পপ্রাণ। 
-চ-বর্গের ধ্বনিসমূহ: চ, ছ, জ, ঝ, ঞ। 
-এখানে 'চ' বর্গের প্রথম ধ্বনি। তাই এটি একইসাথে অঘোষ এবং অল্পপ্রাণ ধ্বনি। 'ছ' অঘোষ মহাপ্রাণ, 'জ' ঘোষ অল্পপ্রাণ এবং 'ঝ' ঘোষ মহাপ্রাণ।`,
+বাংলা বাগধারা জ্ঞান পরীক্ষায় সর্বদাই গুরুত্বপূর্ণ।
+
+'সাক্ষী গোপাল' বাগধারার উৎপত্তি:
+— পৌরাণিক গল্প থেকে এই বাগধারার উৎপত্তি
+— একটি বিচারে গোপাল (কৃষ্ণের আরেক নাম) শুধু সাক্ষী দিতে গিয়েছিলেন কিন্তু সক্রিয়ভাবে সাহায্য করেননি
+— অর্থাৎ যে ব্যক্তি পরিস্থিতি দেখেও কোনো পদক্ষেপ নেন না, শুধু দর্শকের ভূমিকায় থাকেন
+
+গুরুত্বপূর্ণ বাগধারা ও অর্থ:
+— আকাশকুসুম: অসম্ভব কল্পনা
+— অগস্ত্য যাত্রা: চিরতরে চলে যাওয়া
+— ঘোড়ার ডিম: অসম্ভব বস্তু
+— কাকের বাসায় কোকিলের ডিম: নিজের জিনিস অন্যের কাছে রাখা
+— কান পাতলা: কথায় বিশ্বাস করা, সহজেই প্রভাবিত হওয়া
+— বাঁচা কুমিরে ছোবল: আপদ কেটে না যেতেই নতুন বিপদ
+
+উৎস: বাংলা বাগধারা; বাংলা একাডেমি অভিধান; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'ধ্বনি ও বর্ণ',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'বাগধারা ও প্রবাদ-প্রবচন',
         sortOrder: 51,
       },
       {
         questionSetId,
-        questionText: '৫২. বাক্যের ক্ষুদ্রাংশকে কী বলে?',
-        optionA: 'পদ',
-        optionB: 'রূপ',
-        optionC: 'শব্দমূল',
-        optionD: 'ধ্বনি',
+        questionText: 'সম্বোধন পদে কোন যতি চিহ্ন বসে?',
+        optionA: 'কমা',
+        optionB: 'ড্যাস',
+        optionC: 'সেমিকোলন',
+        optionD: 'হাইফেন',
         correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) পদ
+        explanation: `সঠিক উত্তর: (ক) কমা
 
-ব্যাখ্যা: বাক্যে ব্যবহৃত প্রতিটি শব্দকেই পদ বলে। বাক্যের অন্তর্গত ক্ষুদ্রতম অর্থবোধক অংশ বা একক হলো শব্দ বা পদ। বিভক্তিযুক্ত শব্দ ও ধাতুকে পদ বলে। ধ্বনি হলো ভাষার ক্ষুদ্রতম একক, আর পদ হলো বাক্যের ক্ষুদ্রতম অংশ।`,
+যতিচিহ্নের সঠিক ব্যবহার বাংলা ব্যাকরণের গুরুত্বপূর্ণ বিষয়।
+
+সম্বোধন পদে কমার ব্যবহার:
+— যখন কাউকে সম্বোধন করে কথা বলা হয়, তখন সম্বোধনের পরে কমা (,) বসে
+— উদাহরণ: "রাহেলা, তুমি কোথায় যাচ্ছ?"
+— উদাহরণ: "হে বন্ধু, আমার কথা শোনো।"
+— উদাহরণ: "মা, আমি চলে এসেছি।"
+
+যতিচিহ্নের ব্যবহার (সংক্ষিপ্ত নির্দেশিকা):
+— কমা (,): বাক্যের মধ্যে বিরতি, সম্বোধন, তালিকা
+— দাড়ি (.): বাক্য সমাপ্তি
+— প্রশ্নচিহ্ন (?): প্রশ্নবাচক বাক্যের শেষে
+— বিস্ময়সূচক (!): উচ্ছ্বাস বা আবেগ প্রকাশে
+— সেমিকোলন (;): পরস্পর সম্পর্কিত দুটি বাক্যের মাঝে
+— কোলন (:): তালিকার আগে বা ব্যাখ্যার আগে
+— ড্যাস (—): হঠাৎ পরিবর্তন বা ব্যাখ্যামূলক তথ্যের আগে
+
+উৎস: বাংলা ব্যাকরণ ও নির্মিতি; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'পদ প্রকরণ',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'যতিচিহ্ন ও বিরামচিহ্ন',
         sortOrder: 52,
       },
       {
         questionSetId,
-        questionText: '৫৩. সাধু ও চলিত ভাষার প্রধান পার্থক্য-',
-        optionA: 'বাক্যের গঠন প্রক্রিয়ায়',
-        optionB: 'ক্রিয়া ও সর্বনাম পদের রূপগত ভিন্নতায়',
-        optionC: 'শব্দের কথ্য ও লেখ্য রূপের ভিন্নতায়',
-        optionD: 'ভাষার জটিলতা ও প্রাঞ্জলতায়',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) ক্রিয়া ও সর্বনাম পদের রূপগত ভিন্নতায়
+        questionText: 'কোন বানানটি শুদ্ধ?',
+        optionA: 'স্বায়ত্ব',
+        optionB: 'স্বায়াত্ব',
+        optionC: 'স্বায়ত্ত',
+        optionD: 'স্বায়ত্ত্ব',
+        correctAnswer: 'C',
+        explanation: `সঠিক উত্তর: (গ) স্বায়ত্ত
 
-ব্যাখ্যা: সাধু ও চলিত রীতির মূল পার্থক্য দেখা যায় ক্রিয়া ও সর্বনাম পদের রূপের মধ্যে। সাধু ভাষায় ক্রিয়া ও সর্বনাম পদের পূর্ণাঙ্গ রূপ ব্যবহৃত হয় (যেমন: খাইতেছি, তাহারা), অন্যদিকে চলিত ভাষায় এগুলোর সংক্ষিপ্ত রূপ ব্যবহৃত হয় (যেমন: খাচ্ছি, তারা)।`,
+বাংলা বানান শুদ্ধি প্রতিটি প্রতিযোগিতামূলক পরীক্ষার গুরুত্বপূর্ণ অংশ।
+
+শব্দ বিশ্লেষণ:
+— 'স্বায়ত্ত' শব্দটির সঠিক বানান: স্ব + আয় + ত্ত
+— 'স্বায়ত্তশাসন' — স্বায়ত্ত + শাসন = নিজের শাসন
+— ইংরেজি: Autonomy বা Self-governance
+
+বানানে 'ত্ত' যুক্তবর্ণ:
+— 'ত্ত' = ত + ত (দুটি 'ত' মিলে)
+— উদাহরণ: উত্তর, পত্তন, বৃত্ত, চিত্তবিনোদন, স্বায়ত্ত
+
+ভুল বানান চেনার উপায়:
+✗ স্বায়ত্ব: শুধু একটি 'ত' দিয়ে — ভুল
+✗ স্বায়াত্ব: 'আ' অতিরিক্ত যোগ করা — ভুল
+✗ স্বায়ত্ত্ব: 'ত্ত্ব' তিনটি ব্যঞ্জন একসাথে — ভুল
+
+মনে রাখার কৌশল: 'স্বায়ত্ত' = 'স্বায়ত্তশাসন'-এর মূল শব্দ — এটি মনে রাখুন।
+
+উৎস: বাংলা একাডেমি আধুনিক বাংলা অভিধান; বাংলা বানানের নিয়ম; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'ভাষারীতি',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'বানান ও বানানের নিয়ম',
         sortOrder: 53,
       },
       {
         questionSetId,
-        questionText: '৫৪. বাক্যে সম্বোধনের পর কোন চিহ্ন বসে?',
-        optionA: 'কমা',
-        optionB: 'কোলন',
-        optionC: 'হাইফেন',
-        optionD: 'ড্যাস',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) কমা
+        questionText: "'চতুষ্পদ' শব্দের সন্ধি-বিচ্ছেদ কোনটি?",
+        optionA: 'চতুর + পদ',
+        optionB: 'চতুষ + পদ',
+        optionC: 'চতু + পদ',
+        optionD: 'চতু: + পদ',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) চতু: + পদ
 
-ব্যাখ্যা: বাক্যে কাউকে উদ্দেশ্য করে কিছু বলা বা ডাকা হলে তাকে সম্বোধন পদ বলে। সম্বোধন পদের পর সামান্য বিরতি নিতে হয়, তাই সেখানে সর্বদা কমা (,) বসে। যেমন: "ওহে মাঝি, আমাকে পার করো।"`,
+বিসর্গ সন্ধি বাংলা ব্যাকরণের একটি গুরুত্বপূর্ণ বিষয়।
+
+সন্ধি বিশ্লেষণ:
+'চতুষ্পদ' = চতু: + পদ — এটি বিসর্গ সন্ধির উদাহরণ
+
+বিসর্গ সন্ধির নিয়ম:
+— বিসর্গ (ঃ) + প → ষ্প
+— কিন্তু এখানে: চতু: + প = চতুষ্প
+— 'চতু:' শব্দে বিসর্গ (ঃ) আছে
+— বিসর্গের পরে 'প' থাকলে বিসর্গ 'ষ' হয় এবং হলন্ত যুক্তাক্ষর 'ষ্' হয়
+
+ব্যুৎপত্তি:
+— চতু: = চার (সংস্কৃতে চতুর্ → বিসর্গ রূপ চতু:)
+— পদ = পা বা পায়ের সংখ্যা
+— চতুষ্পদ = চার পা-বিশিষ্ট (four-legged)
+
+গুরুত্বপূর্ণ বিসর্গ সন্ধির উদাহরণ:
+— নি: + ফল = নিষ্ফল (বিসর্গ + ফ → ষ্ফ)
+— দু: + চিন্তা = দুশ্চিন্তা
+— নি: + কর = নিষ্কর
+
+উৎস: বাংলা ব্যাকরণ সন্ধি বিভাগ; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'বিরাম চিহ্ন',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'সন্ধি — বিসর্গ সন্ধি',
         sortOrder: 54,
       },
       {
         questionSetId,
-        questionText: '৫৫. ‘প্রথিত’ শব্দের অর্থ কোনটি?',
-        optionA: 'প্রথা অনুসারে',
-        optionB: 'যা প্রার্থনা',
-        optionC: 'বিখ্যাত',
-        optionD: 'যা পুঁতে রাখা হচ্ছে',
+        questionText: "'মানব' শব্দের প্রকৃতি ও প্রত্যয় কোনটি?",
+        optionA: 'মুন + ষ্ণ',
+        optionB: 'মনু + অব',
+        optionC: 'মনু + ষ্ণ',
+        optionD: 'মা + নব',
         correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) বিখ্যাত
+        explanation: `সঠিক উত্তর: (গ) মনু + ষ্ণ
 
-ব্যাখ্যা: 'প্রথিত' শব্দের আক্ষরিক অর্থ হলো বিখ্যাত, খ্যাতনামা বা নামকরা। 
-যেমন আমরা বলি 'প্রথিতযশা' (বিখ্যাত বা স্বনামধন্য সাহিত্যিক/ব্যক্তি)। অন্যদিকে 'প্রোথিত' শব্দের অর্থ হলো যা মাটিতে পুঁতে রাখা হয়েছে।`,
+প্রকৃতি ও প্রত্যয় বাংলা ব্যাকরণের শব্দগঠন বিভাগের গুরুত্বপূর্ণ বিষয়।
+
+বিশ্লেষণ:
+— মানব শব্দটি সংস্কৃত প্রকৃতি + সংস্কৃত কৃৎ প্রত্যয়ের সমন্বয়ে গঠিত
+— মূল শব্দ (প্রকৃতি): মনু (হিন্দু পুরাণের আদি পুরুষ মনু)
+— প্রত্যয়: ষ্ণ (সংস্কৃত তদ্ধিত প্রত্যয়)
+— মনু + ষ্ণ = মানব
+
+ষ্ণ প্রত্যয়ের ব্যবহার:
+— ষ্ণ প্রত্যয় যোগে অর্থ হয় 'সম্পর্কিত' বা 'থেকে আগত'
+— মনু + ষ্ণ = মানব (মনুর সন্তান বা মনু থেকে জাত)
+— বিষ্ণু + ষ্ণ = বৈষ্ণব
+— শিব + ষ্ণ = শৈব
+
+ভুল বিকল্প বিশ্লেষণ:
+✗ মুন + ষ্ণ: 'মুন' কোনো স্বীকৃত সংস্কৃত ধাতু নয়
+✗ মনু + অব: 'অব' প্রত্যয়টি 'মানব' তৈরি করে না
+✗ মা + নব: ভুল বিশ্লেষণ
+
+উৎস: বাংলা ব্যাকরণ প্রকৃতি ও প্রত্যয় বিভাগ; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'শব্দার্থ',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'প্রকৃতি ও প্রত্যয়',
         sortOrder: 55,
       },
       {
         questionSetId,
-        questionText: '৫৬. ‘পত্রপাঠ’ বাগধারাটির অর্থ কী?',
-        optionA: 'গোপন চুক্তি',
-        optionB: 'বৃহৎ ব্যাপার',
-        optionC: 'অবিলম্ব',
-        optionD: 'দীর্ঘস্থায়ী',
+        questionText: 'নিচের কোনটি প্রত্যয়যোগে গঠিত স্ত্রীবাচক শব্দ?',
+        optionA: 'বাদী',
+        optionB: 'সভানেত্রী',
+        optionC: 'জেলেনী',
+        optionD: 'পেত্নী',
         correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) অবিলম্ব
+        explanation: `সঠিক উত্তর: (গ) জেলেনী
 
-ব্যাখ্যা: 'পত্রপাঠ' একটি বহুল ব্যবহৃত বাগধারা যার অর্থ তৎক্ষণাৎ, অবিলম্ব বা সাথে সাথে। যেমন: "পত্রপাঠ বিদায়" অর্থ হলো চিঠি বা আদেশ পাওয়া মাত্রই তৎক্ষণাৎ বিদায় নেওয়া।`,
+স্ত্রীবাচক শব্দ গঠনের নিয়ম বাংলা ব্যাকরণের গুরুত্বপূর্ণ বিষয়।
+
+'জেলেনী' বিশ্লেষণ:
+— জেলে (পুরুষবাচক) + নী (স্ত্রীবাচক প্রত্যয়) = জেলেনী
+— 'নী' প্রত্যয় যোগে স্ত্রীবাচক শব্দ গঠিত হয়
+— এটি প্রত্যয়যোগে গঠিত কারণ 'নী' একটি স্ত্রীবাচক প্রত্যয়
+
+অন্যান্য বিকল্প বিশ্লেষণ:
+✗ বাদী: 'বাদ' + 'ই' — এটি প্রত্যয়যোগে গঠিত কিন্তু লিঙ্গান্তরের উদাহরণ নয়
+✗ সভানেত্রী: সভানেতা → নেত্রী — এটি ধাতুগত পরিবর্তনের উদাহরণ (সমার্থক নারীবাচক রূপ)
+✗ পেত্নী: 'প্রেতিনী' থেকে — এটিও প্রত্যয়যোগে কিন্তু আলাদা ধরনের রূপান্তর
+
+স্ত্রীবাচক প্রত্যয়ের উদাহরণ:
+— 'আ' প্রত্যয়: চাচা → চাচী, মামা → মামী
+— 'নী' প্রত্যয়: জেলে → জেলেনী, কামার → কামারনী
+— 'ইনী' প্রত্যয়: যোগী → যোগিনী, নাগ → নাগিনী
+
+উৎস: বাংলা ব্যাকরণ লিঙ্গ বিভাগ; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'বাগধারা',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'লিঙ্গ ও স্ত্রীবাচক শব্দ',
         sortOrder: 56,
       },
       {
         questionSetId,
-        questionText: '৫৭. কোন বানানটি শুদ্ধ?',
-        optionA: 'স্বায়ত্ত্বশাসন',
-        optionB: 'শ্রদ্ধাঞ্জলী',
-        optionC: 'দারিদ্রতা',
-        optionD: 'উপর্যুক্ত',
-        correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) উপর্যুক্ত
+        questionText: "'পাপে বিরত থাকো' — কোন কারকে কোন বিভক্তি?",
+        optionA: 'অপাদানে ৭মী',
+        optionB: 'করণ কারকে ৭মী',
+        optionC: 'অধিকরণে ৭মী',
+        optionD: 'কর্ম কারকে ৭মী',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) অপাদানে ৭মী
 
-ব্যাখ্যা: শুদ্ধ বানানটি হলো 'উপর্যুক্ত' (উপরি + উক্ত)। 
-অন্যান্য অপশনের অশুদ্ধ দিক:
-- স্বায়ত্তশাসন (সঠিক বানান: স্বায়ত্তশাসন - য়-এ ত্ত্ব হবে না, ত্ত হবে)
-- শ্রদ্ধাঞ্জলি (সঠিক বানান: শ্রদ্ধাঞ্জলি - অঞ্জলি প্রত্যয়ান্ত শব্দে হ্রস্ব ই-কার হয়)
-- দারিদ্রতা (সঠিক বানান: দরিদ্রতা বা দারিদ্র্য)।`,
+কারক ও বিভক্তি বাংলা ব্যাকরণের একটি গুরুত্বপূর্ণ বিষয়।
+
+বিশ্লেষণ:
+— বাক্য: 'পাপে বিরত থাকো'
+— 'পাপে' = পাপ + এ (৭মী বিভক্তি)
+— প্রশ্ন: কোথা থেকে বিরত থাকো? → পাপ থেকে
+— 'থেকে' প্রশ্নের উত্তর = অপাদান কারক
+
+অপাদান কারকের বৈশিষ্ট্য:
+— যা থেকে বিচ্যুতি, দূরত্ব বা বিরতি বোঝায়
+— 'হতে', 'থেকে' দিয়ে কারণ পরীক্ষা করা যায়
+— উদাহরণ: "ভয়ে মরি না" — ভয় থেকে মরার ইচ্ছা নেই
+— "পাপে বিরত" — পাপ থেকে বিরত
+
+কারকের প্রকারভেদ:
+— কর্তৃকারক: ক্রিয়া যে করে
+— কর্মকারক: যাকে ক্রিয়া করা হয়
+— করণকারক: যার দ্বারা ক্রিয়া সম্পন্ন হয়
+— সম্প্রদান কারক: যাকে দেওয়া হয়
+— অপাদান কারক: যা থেকে বিচ্যুতি
+— অধিকরণ কারক: স্থান বা কাল বোঝায়
+
+উৎস: বাংলা ব্যাকরণ কারক বিভাগ; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'শুদ্ধ বানান',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'কারক ও বিভক্তি',
         sortOrder: 57,
       },
       {
         questionSetId,
-        questionText: '৫৮. শুদ্ধ বাক্যটি নির্দেশ করুন?',
-        optionA: 'দৈন্যতা প্রশংসনীয় নয়',
-        optionB: 'দীনতা প্রশংসনীয় নয়',
-        optionC: 'দৈন্যতা অপ্রসংসনীয়',
-        optionD: 'দৈন্যতা নিন্দনীয়',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) দীনতা প্রশংসনীয় নয়
+        questionText: 'বিভক্তিহীন নামপদকে কী বলে?',
+        optionA: 'বিশেষ্য',
+        optionB: 'সমাস',
+        optionC: 'অব্যয়',
+        optionD: 'প্রাতিপদিক',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) প্রাতিপদিক
 
-ব্যাখ্যা: 'দীন' শব্দের বিশেষ্য রূপ হলো 'দীনতা' বা 'দৈন্য'। 'দৈন্যতা' শব্দটি ব্যাকরণগতভাবে অশুদ্ধ (অপপ্রয়োগ), কারণ বিশেষ্য রূপ 'দৈন্য' এর সাথে আবার 'তা' প্রত্যয় যুক্ত করা বাহুল্য দোষের সৃষ্টি করে। তাই শুদ্ধ বাক্য হবে "দীনতা প্রশংসনীয় নয়"।`,
+বাংলা ব্যাকরণের পারিভাষিক শব্দ সম্পর্কে জ্ঞান পরীক্ষায় অপরিহার্য।
+
+প্রাতিপদিক সম্পর্কে বিস্তারিত:
+— 'প্রাতিপদিক' সংস্কৃত ব্যাকরণের পারিভাষিক শব্দ
+— অর্থ: বিভক্তিহীন নামপদ বা মূল নামশব্দ
+— অর্থাৎ যে শব্দে কোনো বিভক্তি যোগ হয়নি সেই মূল শব্দকে প্রাতিপদিক বলে
+— উদাহরণ: 'গাছ', 'ফুল', 'বই', 'মানুষ' — এগুলো বিভক্তিহীন প্রাতিপদিক
+— 'গাছের', 'গাছে', 'গাছকে' — এগুলো বিভক্তিসহ পদ
+
+পদের প্রকারভেদ সম্পর্কে:
+— বিশেষ্য: ব্যক্তি, বস্তু, স্থানের নাম প্রকাশ করে (পদের ধরন)
+— অব্যয়: অপরিবর্তনীয় পদ
+— সমাস: একাধিক শব্দের মিলন
+— প্রাতিপদিক: বিভক্তিহীন নামপদের পারিভাষিক নাম
+
+উৎস: বাংলা ব্যাকরণ পদ বিভাগ; ড. মুহম্মদ এনামুল হক; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'বাক্য শুদ্ধি',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'পদ ও পদের প্রকারভেদ',
         sortOrder: 58,
       },
       {
         questionSetId,
-        questionText: '৫৯. ণ-ত্ব বিধি অনুসারে কোন বানানটি শুদ্ধ?',
-        optionA: 'পূর্বাহ্ণ',
-        optionB: 'মধ্যাহ্ণ',
-        optionC: 'অপরাহ্ন',
-        optionD: 'সায়াহ্ণ',
+        questionText: "কোনটি 'উপপদ তৎপুরুষের' উদাহরণ?",
+        optionA: 'ছেলেধরা',
+        optionB: 'প্রতিবাদ',
+        optionC: 'বিলাতফেরত',
+        optionD: 'উপগ্রহ',
         correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) পূর্বাহ্ণ
+        explanation: `সঠিক উত্তর: (ক) ছেলেধরা
 
-ব্যাখ্যা: 'অহ্ন' শব্দের পূর্বে পূর্ব, অপর, প্র ইত্যাদি থাকলে অহ্ন-এর দন্ত্য-ন মূর্ধন্য-ণ হয় এবং তা হ-এর নিচে যুক্ত হয় (হ্ + ণ = হ্ণ)। যেমন: পূর্বাহ্ণ, অপরাহ্ণ। 
-কিন্তু মধ্য, সায় ইত্যাদি থাকলে দন্ত্য-ন হয় এবং তা হ-এর পাশে বসে (হ্ + ন = হ্ন)। যেমন: মধ্যাহ্ন, সায়াহ্ন। 
-তাই এখানে শুদ্ধ বানান 'পূর্বাহ্ণ'।`,
+উপপদ তৎপুরুষ সমাস বাংলা ব্যাকরণের সমাস বিভাগের একটি বিশেষ ধরন।
+
+উপপদ তৎপুরুষ সমাস:
+— যে সমাসে কৃদন্ত পদের আগে একটি উপপদ (বিশেষ্য বা বিশেষণ) থাকে
+— ক্রিয়াজাত শব্দের আগে নামশব্দ বসে এই সমাস তৈরি হয়
+— পরপদ সর্বদা কৃদন্ত শব্দ (ধাতু + প্রত্যয়)
+
+'ছেলেধরা' বিশ্লেষণ:
+— ছেলে = উপপদ (নামশব্দ)
+— ধরা = কৃদন্ত (ধর্ + আ প্রত্যয়)
+— ছেলে যে ধরে = ছেলেধরা ✓ উপপদ তৎপুরুষ
+
+ভুল বিকল্প বিশ্লেষণ:
+✗ প্রতিবাদ: অব্যয়ীভাব সমাস (প্রতি = অব্যয়)
+✗ বিলাতফেরত: অব্যয়ীভাব বা তৎপুরুষ
+✗ উপগ্রহ: অব্যয়ীভাব সমাস (উপ = অব্যয়)
+
+অন্যান্য উপপদ তৎপুরুষের উদাহরণ:
+— মাছধরা, গরুরাখা, মাথাখাওয়া, জলচর, স্থলচর
+
+উৎস: বাংলা ব্যাকরণ সমাস বিভাগ; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'ণত্ব ও ষত্ব বিধান',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'সমাস — তৎপুরুষ সমাস',
         sortOrder: 59,
       },
       {
         questionSetId,
-        questionText: '৬০. ‘Look before you leap’ বাক্যটির সঠিক বাংলা অনুবাদ কোনটি?',
-        optionA: 'কাটা দিয়ে কাটা তোলা',
-        optionB: 'নিজের চরকায় তেল দাও',
-        optionC: 'দেখে পথ চলো, বুঝে কথা বলো',
-        optionD: 'নিজের কাজ নিজে করো',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) দেখে পথ চলো, বুঝে কথা বলো / ভাবিয়া করিও কাজ
+        questionText: 'সমাসবদ্ধ পদ কোনটি?',
+        optionA: 'আকাশ',
+        optionB: 'ছাড়পত্র',
+        optionC: 'মৃত্তিকা',
+        optionD: 'সাগর',
+        correctAnswer: 'B',
+        explanation: `সঠিক উত্তর: (খ) ছাড়পত্র
 
-ব্যাখ্যা: ইংরেজি প্রবাদ 'Look before you leap' এর আক্ষরিক অর্থ হলো লাফ দেওয়ার আগে দেখে নাও। এর ভাবার্থ হলো কাজ শুরু করার আগে ভালোভাবে ভেবে দেখা বা পরিস্থিতি যাচাই করা। বাংলায় এর সঠিক প্রবাদ হলো "ভাবিয়া করিও কাজ" বা "দেখে পথ চলো, বুঝে কথা বলো"।`,
+সমাসবদ্ধ পদ চেনার দক্ষতা বাংলা ব্যাকরণ পরীক্ষায় প্রায়ই কাজে আসে।
+
+'ছাড়পত্র' বিশ্লেষণ:
+— ছাড়পত্র = ছাড় + পত্র
+— 'ছাড়' দেওয়ার জন্য যে 'পত্র' (লিখিত অনুমতি)
+— এটি কর্মধারয় সমাসের উদাহরণ: 'ছাড়ের পত্র'
+— এই শব্দটি দুটি স্বাধীন অর্থবাহী পদের সমন্বয়ে তৈরি → সমাসবদ্ধ
+
+বিভ্রান্তিকর বিকল্প:
+✗ আকাশ: একটি স্বাধীন তৎসম শব্দ, সমাসে গঠিত নয়
+✗ মৃত্তিকা: একটি তৎসম শব্দ (মাটি), সমাসে গঠিত নয়
+✗ সাগর: একটি স্বাধীন শব্দ, সমাসে গঠিত নয়
+
+সমাসবদ্ধ পদের বৈশিষ্ট্য:
+— দুই বা ততোধিক শব্দ মিলে একটি নতুন শব্দ তৈরি করে
+— বিগ্রহ করলে মূল শব্দগুলো আলাদা হয়
+— যেমন: 'ছাড়পত্র' বিগ্রহ = ছাড়ের পত্র বা ছাড় দেওয়ার পত্র
+
+উৎস: বাংলা ব্যাকরণ সমাস বিভাগ; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'প্রবাদ ও অনুবাদ',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'সমাস',
         sortOrder: 60,
       },
       {
         questionSetId,
-        questionText: '৬১. ‘Invoice’ এর বাংলা পারিভাষিক রূপ কোনটি?',
-        optionA: 'চালান',
-        optionB: 'পণ্যাগার',
-        optionC: 'শুল্ক',
-        optionD: 'বিনিয়োগ',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) চালান
+        questionText: 'কোনটি ব্যতিহার বহুব্রীহি সমাস এর উদাহরণ?',
+        optionA: 'চিরসুখী',
+        optionB: 'দশানন',
+        optionC: 'গায়েহলুদ',
+        optionD: 'কানাকানি',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) কানাকানি
 
-ব্যাখ্যা: 'Invoice' শব্দটি ব্যবসায়িক বা দাপ্তরিক পরিভাষা। এর সঠিক বাংলা পরিভাষা হলো 'চালান' (পণ্যের মূল্য ও পরিমাণের তালিকা)। 
-অন্যান্য অপশন: পণ্যাগার (Warehouse/Godown), শুল্ক (Customs/Duty/Tariff), বিনিয়োগ (Investment)।`,
+বহুব্রীহি সমাসের ব্যতিহার ধরনটি বাংলা ব্যাকরণের একটি বিশেষ বিষয়।
+
+ব্যতিহার বহুব্রীহি সমাস:
+— যে সমাসে একই কাজ পরস্পর বিনিময়ে (reciprocal) করা বোঝায়
+— সমাসের পদগুলো দ্বন্দ্ব বা পারস্পরিক ক্রিয়া বোঝায়
+— সাধারণত একই শব্দ দুইবার ব্যবহৃত হয়
+
+'কানাকানি' বিশ্লেষণ:
+— কান + কান = কানাকানি
+— অর্থ: পরস্পরের কানে কানে কথা বলা
+— এটি পারস্পরিক ক্রিয়া বোঝায় → ব্যতিহার বহুব্রীহি ✓
+
+ভুল বিকল্প বিশ্লেষণ:
+✗ চিরসুখী: অব্যয়ীভাব সমাস (চির = অব্যয়)
+✗ দশানন: সংখ্যাবাচক বহুব্রীহি (দশটি আনন/মুখ যার)
+✗ গায়েহলুদ: মধ্যপদলোপী কর্মধারয় বা তৎপুরুষ
+
+অন্যান্য ব্যতিহার বহুব্রীহির উদাহরণ:
+— হাতাহাতি, মারামারি, দেখাদেখি, কোলাকুলি
+
+উৎস: বাংলা ব্যাকরণ সমাস বিভাগ; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'পারিভাষিক শব্দ',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'সমাস — বহুব্রীহি সমাস',
         sortOrder: 61,
       },
       {
         questionSetId,
-        questionText: '৬২. ‘প্রত্যাবর্তন’ শব্দের সন্ধি-বিচ্ছেদ-',
-        optionA: 'প্রতি + বর্তন',
-        optionB: 'প্রতি + আবর্তন',
-        optionC: 'প্রতিঃ + বর্তন',
-        optionD: 'প্রতিঃ + আবর্তন',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) প্রতি + আবর্তন
+        questionText: "'সন্ধি' ব্যাকরণের কোন অংশে আলোচিত হয়?",
+        optionA: 'রূপতত্ত্বে',
+        optionB: 'বাক্যতত্ত্বে',
+        optionC: 'অর্থতত্ত্বে',
+        optionD: 'ধ্বনিতত্ত্বে',
+        correctAnswer: 'D',
+        explanation: `সঠিক উত্তর: (ঘ) ধ্বনিতত্ত্বে
 
-ব্যাখ্যা: য-ফলা সন্ধির নিয়ম: ই-কার কিংবা ঈ-কারের পর ই/ঈ ভিন্ন অন্য স্বরবর্ণ থাকলে ই/ঈ স্থানে 'য' (য-ফলা) হয়। য-ফলা পূর্ববর্তী ব্যঞ্জনের সাথে যুক্ত হয়। 
-এখানে, প্রতি (ই) + আবর্তন (আ) = প্রত্যাবর্তণ। (ত + য-ফলা + আ-কার = ত্যা)।`,
+বাংলা ব্যাকরণের বিভাগগুলো ও তাদের আলোচ্য বিষয় সম্পর্কে জ্ঞান অপরিহার্য।
+
+সন্ধি ধ্বনিতত্ত্বের অংশ কেন?
+— সন্ধি হলো দুটি পাশাপাশি ধ্বনি বা শব্দাংশের সংযোজন ও পরিবর্তন
+— এই পরিবর্তন ঘটে ধ্বনিগত কারণে — তাই এটি ধ্বনিতত্ত্বের আলোচ্য বিষয়
+— উচ্চারণের সুবিধার জন্য দুটি ধ্বনি এক হয়ে যায় → সন্ধি
+
+বাংলা ব্যাকরণের প্রধান বিভাগ:
+— ধ্বনিতত্ত্ব: ধ্বনি, বর্ণ, সন্ধি, ণ-ত্ব, ষ-ত্ব বিধান
+— রূপতত্ত্ব: পদ, প্রকৃতি-প্রত্যয়, সমাস, কারক, লিঙ্গ, বচন
+— বাক্যতত্ত্ব: বাক্য গঠন, বাক্য রূপান্তর, বিরাম চিহ্ন
+— অর্থতত্ত্ব: শব্দের অর্থ, বাগধারা, প্রবাদ
+
+সন্ধির প্রকারভেদ:
+— স্বরসন্ধি: দুটি স্বরধ্বনির মিলন
+— ব্যঞ্জনসন্ধি: ব্যঞ্জনধ্বনির মিলন
+— বিসর্গসন্ধি: বিসর্গ জড়িত সন্ধি
+
+উৎস: বাংলা ব্যাকরণ পরিচিতি; ড. মুহম্মদ এনামুল হক; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'সন্ধি',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'বাংলা ব্যাকরণের বিভাগ ও সন্ধি',
         sortOrder: 62,
       },
       {
         questionSetId,
-        questionText: '৬৩. সন্ধিতে চ ও জ এর নাসিক্য ধ্বনি কী হয়?',
-        optionA: 'অনুস্বার',
-        optionB: 'দ্বিত্ব',
-        optionC: 'মহাপ্রাণ',
-        optionD: 'তালব্য',
-        correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) তালব্য
+        questionText: 'ঢাকা + ঈশ্বরী = ঢাকেশ্বরী – নিচের কোন নিয়মে হয়েছে?',
+        optionA: 'আ + ঈ = এ',
+        optionB: 'অ + ঈ = এ',
+        optionC: 'আ + ই = এ',
+        optionD: 'অ + ই = এ',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) আ + ঈ = এ
 
-ব্যাখ্যা: চ-বর্গীয় ধ্বনির (চ, ছ, জ, ঝ) আগের নাসিক্য ধ্বনিটি সন্ধির নিয়মে তালব্য নাসিক্য ধ্বনি (ঞ) হয়। 
-যেমন: সম্ + চয় = সঞ্চয়, সম্ + জীবন = সঞ্জীবন। এখানে 'ম' নাসিক্য ধ্বনিটি চ বা জ এর প্রভাবে তালব্য ধ্বনি 'ঞ' তে পরিণত হয়েছে।`,
+স্বরসন্ধির নিয়ম বাংলা ব্যাকরণের ধ্বনিতত্ত্বের গুরুত্বপূর্ণ অংশ।
+
+বিশ্লেষণ:
+ঢাকা + ঈশ্বরী = ঢাকেশ্বরী
+
+— ঢাকা → শেষ বর্ণ 'কা' = 'ক' + আ-কার (আ)
+— ঈশ্বরী → প্রথম বর্ণ 'ঈ' = দীর্ঘ ঈ-কার
+
+স্বরসন্ধির এই নিয়ম:
+আ + ঈ = এ (দীর্ঘ)
+— কা (আ) + ঈ = কে (এ)
+— 'ঢাকা' → 'ঢাক' + 'এ' → 'ঢাকেশ্বরী'
+
+গুরুত্বপূর্ণ স্বরসন্ধির নিয়মাবলি:
+— অ/আ + ই/ঈ = এ (দীর্ঘ): মহা + ঈশ = মহেশ
+— অ/আ + উ/ঊ = ও (দীর্ঘ): মহা + উৎসব = মহোৎসব
+— অ/আ + ঋ = অর্: মহা + ঋষি = মহর্ষি
+— অ/আ + এ = ঐ: মহা + এব = মহৈব
+— এ + অ = য: নে + অন = নয়ন
+
+উৎস: বাংলা ব্যাকরণ সন্ধি বিভাগ; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'সন্ধি',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'সন্ধি — স্বরসন্ধি',
         sortOrder: 63,
       },
       {
         questionSetId,
-        questionText: '৬৪. ‘পড়াশোনায় মন দাও’ বাক্যে ‘পড়াশোনায়’ শব্দটি কোন কারকে কোন বিভক্তি?',
-        optionA: 'কর্তায় ৭মী',
-        optionB: 'কর্মে ৭মী',
-        optionC: 'অপাদানে ৭মী',
-        optionD: 'অধিকরণে ৭মী',
-        correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) অধিকরণে ৭মী
+        questionText: 'বন্ধনী চিহ্ন সাহিত্যে কী অর্থে ব্যবহৃত হয়?',
+        optionA: 'ধাতু বোঝাতে',
+        optionB: 'অর্থমূলক',
+        optionC: 'ব্যাখ্যামূলক',
+        optionD: 'উৎপন্ন বোঝাতে',
+        correctAnswer: 'C',
+        explanation: `সঠিক উত্তর: (গ) ব্যাখ্যামূলক
 
-ব্যাখ্যা: কোথায় বা কিসে মন দেবে? উত্তরে পাওয়া যায় 'পড়াশোনায়'। ক্রিয়া সম্পাদনের বিষয়, স্থান বা কালকে অধিকরণ কারক বলে। এটি বিষয়াদিকরণ (কোনো বিষয়ে দক্ষতা বা মনযোগ)। 
-'পড়াশোনা' এর সাথে 'য়' যুক্ত হয়েছে, যা ৭মী (এ, য়, তে) বিভক্তি। তাই এটি অধিকরণে ৭মী।`,
+যতিচিহ্নের বিভিন্ন ব্যবহার বাংলা ব্যাকরণ পরীক্ষার গুরুত্বপূর্ণ বিষয়।
+
+বন্ধনী চিহ্নের ব্যবহার:
+সাহিত্যে বন্ধনী ( ) ব্যাখ্যামূলক তথ্য দিতে ব্যবহৃত হয়:
+— মূল বাক্যের অতিরিক্ত ব্যাখ্যা বা স্পষ্টীকরণ যোগ করতে
+— উদাহরণ: "রবীন্দ্রনাথ ঠাকুর (জন্ম ১৮৬১ সাল) বাংলার শ্রেষ্ঠ কবি।"
+— উদাহরণ: "তিনি তাঁর গ্রামের (বীরভূম জেলায়) বাড়িতে থাকতেন।"
+
+বিভিন্ন বন্ধনীর ব্যবহার:
+— () গোলাকার বন্ধনী: ব্যাখ্যামূলক (সাহিত্যে সর্বাধিক ব্যবহৃত)
+— [] বর্গাকার বন্ধনী: গণিতে ও ব্যাকরণে ধাতু বোঝাতে
+— {} মধ্যকার বন্ধনী (curly bracket): গণিতে সেট বোঝাতে
+— < > কোণাকার বন্ধনী: কম্পিউটার প্রোগ্রামিং ও এইচটিএমএলে
+
+মনে রাখার উপায়:
+— সাহিত্যে = ব্যাখ্যামূলক
+— ব্যাকরণে = ধাতু (√) চিহ্ন বা বর্গাকার বন্ধনীতে
+
+উৎস: বাংলা ব্যাকরণ যতিচিহ্ন বিভাগ; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'কারক ও বিভক্তি',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'যতিচিহ্ন ও বিরামচিহ্ন',
         sortOrder: 64,
       },
       {
         questionSetId,
-        questionText:
-          '৬৫. “এবারের সংগ্রাম, স্বাধীনতার সংগ্রাম” বাক্যটিতে ‘স্বাধীনতার’ শব্দটি কোন কারকে কোন বিভক্তি?',
-        optionA: 'কর্মে ষষ্ঠী',
-        optionB: 'নিমিত্তার্থে ষষ্ঠী',
-        optionC: 'করণে ষষ্ঠী',
-        optionD: 'সম্প্রদানে ষষ্ঠী',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) নিমিত্তার্থে ষষ্ঠী
+        questionText: "'পোস্টাল কোড' কী নির্দেশ করে?",
+        optionA: 'প্রাপকের এলাকা',
+        optionB: 'ডাকবিভাগের নাম',
+        optionC: 'পোস্ট অফিসের নাম',
+        optionD: 'প্রেরকের এলাকা',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) প্রাপকের এলাকা
 
-ব্যাখ্যা: কীসের জন্য সংগ্রাম? স্বাধীনতার জন্য বা নিমিত্তে। 
-কোনো কিছুর নিমিত্ত বা উদ্দেশ্যে কাজ করা বোঝালে নিমিত্তার্থে কারক (বা সম্প্রদান) হয়। এখানে 'স্বাধীনতা' এর সাথে 'র' বিভক্তি যুক্ত আছে, যা ষষ্ঠী বিভক্তি (র, এর)। তাই এটি নিমিত্তার্থে ষষ্ঠী।`,
+পোস্টাল কোড সম্পর্কিত তথ্য ব্যবহারিক জ্ঞানের অংশ।
+
+পোস্টাল কোড সম্পর্কে:
+— পোস্টাল কোড (Postal Code) বা PIN (Postal Index Number) হলো একটি সাংকেতিক সংখ্যা
+— এটি প্রাপকের ডাক ঠিকানার এলাকা বা অঞ্চল চিহ্নিত করে
+— ডাকবিভাগ এই কোড ব্যবহার করে চিঠি বা পার্সেল সঠিক গন্তব্যে পৌঁছে দেয়
+— বাংলাদেশে পোস্টাল কোড ৪ সংখ্যার (যেমন: ঢাকা — ১০০০)
+
+পোস্টাল কোডের উদ্দেশ্য:
+— দ্রুত ও নির্ভুল চিঠি বাছাই করা
+— একই নামের একাধিক এলাকার মধ্যে পার্থক্য করা
+— স্বয়ংক্রিয় মেশিনে চিঠি সাজানো সহজ করা
+
+বাংলাদেশের কিছু পোস্টাল কোড:
+— ঢাকা মূল: ১০০০
+— চট্টগ্রাম: ৪০০০
+— রাজশাহী: ৬০০০
+— সিলেট: ৩১০০
+
+উৎস: বাংলাদেশ ডাক বিভাগ; সাধারণ জ্ঞান; NTRCA প্রশ্নব্যাংক।`,
         subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'কারক ও বিভক্তি',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'পত্রলেখন ও ডাকবিভাগ সম্পর্কিত',
         sortOrder: 65,
       },
+
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      // বিষয়: ইংরেজি ভাষা ও সাহিত্য (প্রশ্ন ৬৬–১০০)
+      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       {
         questionSetId,
-        questionText: '৬৬. ‘কালান্তর’ শব্দটির ব্যাসবাক্য কোনটি?',
-        optionA: 'অন্যকাল',
-        optionB: 'ক্ষুদ্রকাল',
-        optionC: 'কালের অন্তর',
-        optionD: 'কাল ও অন্তর',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) অন্যকাল
+        questionText: "'I know you.' Choose the complex form.",
+        optionA: 'I know what you are.',
+        optionB: 'I know who you are.',
+        optionC: 'I know what are you.',
+        optionD: 'I know who are you.',
+        correctAnswer: 'B',
+        explanation: `Correct Answer: (B) I know who you are.
 
-ব্যাখ্যা: 'অন্তর' শব্দ যোগে গঠিত সমাস হলো নিত্য সমাস। নিত্য সমাসে ব্যাসবাক্যের দরকার হয় না, কেবল অর্থ বোঝাতে অন্য একটি পদ ব্যবহৃত হয়। 
-যেমন: অন্য কাল = কালান্তর, অন্য দেশ = দেশান্তর, অন্য গ্রাম = গ্রামান্তর।`,
-        subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'সমাস',
+Transformation of sentences from simple to complex form is a key grammatical skill tested in NTRCA exams.
+
+Analysis:
+Simple sentence: "I know you."
+Complex sentence: A complex sentence contains one principal clause and at least one subordinate clause.
+
+Why (B) is correct:
+— "I know who you are" has a principal clause "I know" and a subordinate noun clause "who you are"
+— The embedded question (indirect/embedded question) follows subject-verb order: "who you are" NOT "who are you"
+— This is a noun clause acting as the object of 'know'
+
+Why (C) and (D) are wrong:
+✗ "I know what are you" / "I know who are you": In embedded/indirect questions, we do NOT invert subject and verb. We keep normal statement order.
+— Direct question: "Who are you?" → Embedded: "who you are" ✓
+
+Rule to Remember:
+In embedded/indirect questions:
+Question word + Subject + Verb (normal order — NO inversion)
+"I know + who + you + are" ✓
+
+Source: Advanced English Grammar — R. Murphy; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Sentence Transformation — Complex Sentences',
         sortOrder: 66,
       },
       {
         questionSetId,
-        questionText: '৬৭. ‘মুজিববর্ষ’ কোন সমাস?',
-        optionA: 'দ্বন্দ্ব সমাস',
-        optionB: 'দ্বিগু সমাস',
-        optionC: 'কর্মধারয় সমাস',
-        optionD: 'অব্যয়ীভাব সমাস',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) কর্মধারয় সমাস
+        questionText: '__ course of time, he became a famous writer.',
+        optionA: 'In',
+        optionB: 'Of',
+        optionC: 'For',
+        optionD: 'By',
+        correctAnswer: 'A',
+        explanation: `Correct Answer: (A) In
 
-ব্যাখ্যা: 'মুজিববর্ষ' শব্দের ব্যাসবাক্য হলো 'মুজিব নামাঙ্কিত বর্ষ' বা 'মুজিব স্মরণার্থে বর্ষ'। এটি মধ্যপদলোপী কর্মধারয় সমাস। যে কর্মধারয় সমাসে ব্যাসবাক্যের মধ্যবর্তী পদ লোপ পায়, তাকে মধ্যপদলোপী কর্মধারয় সমাস বলে। (যেমন: সিংহ চিহ্নিত আসন = সিংহাসন)।`,
-        subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'সমাস',
+Preposition usage is one of the most tested grammar points in NTRCA English sections.
+
+Analysis:
+The correct phrase is: "In the course of time"
+Meaning: gradually, over a period of time; eventually
+
+Why "In" is correct:
+— "In the course of" is a fixed prepositional phrase meaning "during the process/passage of"
+— It indicates a span or passage of time
+— Examples:
+  → "In the course of time, the wound healed."
+  → "In the course of his career, he won many awards."
+
+Other fixed phrases with prepositions:
+— "In the end" (eventually)
+— "In time" (not too late)
+— "On time" (punctually, at the exact moment)
+— "For a while" (for a short period)
+— "By the time" (before a certain moment)
+
+Why others are wrong:
+✗ "Of course of time" — not a standard phrase
+✗ "For course of time" — unnatural
+✗ "By course of time" — incorrect
+
+Source: English Idioms and Phrases; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Prepositions — Fixed Phrases',
         sortOrder: 67,
       },
       {
         questionSetId,
-        questionText: '৬৮. ‘মুক্তি-এর সঠিক প্রকৃতি ও প্রত্যয় কোনটি?',
-        optionA: '√মুচ্ + ক্তি',
-        optionB: '√মুহ্ + ক্তি',
-        optionC: '√মুক্ + ক্তি',
-        optionD: '√মৃচ্ + ক্তি',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) √মুচ্ + ক্তি
+        questionText: '_ ink in my pen is red.',
+        optionA: 'A',
+        optionB: 'The',
+        optionC: 'An',
+        optionD: 'No article',
+        correctAnswer: 'B',
+        explanation: `Correct Answer: (B) The
 
-ব্যাখ্যা: 'মুক্তি' শব্দটি কৃৎ প্রত্যয় সাধিত শব্দ। এর প্রকৃতি হলো সংস্কৃত ধাতু √মুচ্ (অর্থ মুক্ত করা) এবং এর সাথে প্রত্যয় যুক্ত হয়েছে 'ক্তি'। 
-√মুচ্ + ক্তি = মুক্তি। (চ-এর স্থলে ক হয়)।`,
-        subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'প্রকৃতি ও প্রত্যয়',
+Article usage is one of the most commonly tested grammar points in NTRCA English sections.
+
+Analysis:
+"The ink in my pen is red."
+
+Why "The" is correct:
+— "The" (definite article) is used when the noun refers to something specific and already identified
+— "The ink in my pen" — this is a specific ink, not just any ink. It is defined/restricted by "in my pen"
+— When a noun is followed by a qualifying phrase or clause that specifies it, use "the"
+
+Rules for using "The":
+— Specific/already mentioned: "I saw a dog. The dog was black."
+— Only one of its kind: "The sun, the moon, the sky"
+— Qualified by a phrase: "The book on the table" / "The ink in my pen"
+
+Why others are wrong:
+✗ "A ink" — 'A' used before consonant sounds; ink starts with vowel, needs 'An', and anyway not specific
+✗ "An ink" — 'An' would be for non-specific, but ink is countable/uncountable ambiguity; still wrong here
+✗ No article — Ungrammatical; ink is specified here, needs "the"
+
+Source: English Grammar in Use — Raymond Murphy; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Articles — Definite Article (The)',
         sortOrder: 68,
       },
       {
         questionSetId,
-        questionText: '৬৯. পৃথিবী’র সমার্থক শব্দ কোনটি?',
-        optionA: 'অচল',
-        optionB: 'অদ্রি',
-        optionC: 'ভূধর',
-        optionD: 'অবনী',
+        questionText: 'Complete the sentence: Poly ran fast lest she _ miss the class.',
+        optionA: 'could',
+        optionB: 'would',
+        optionC: 'can',
+        optionD: 'should',
         correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) অবনী
+        explanation: `Correct Answer: (D) should
 
-ব্যাখ্যা: পৃথিবীর সমার্থক শব্দসমূহ হলো: ধরিত্রী, ধরা, মেদিনী, অবনী, বসুন্ধরা, বসুধা ইত্যাদি। 
-অন্য অপশনগুলোর অর্থ: অচল, অদ্রি, ভূধর — এই তিনটির অর্থই হলো পর্বত বা পাহাড়।`,
-        subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'সমার্থক শব্দ',
+The conjunction "lest" has a very specific grammatical rule that frequently appears in NTRCA exams.
+
+Rule for "Lest":
+— "Lest" means "so that...not" or "for fear that"
+— After "lest," we ALWAYS use "should" (in all persons)
+— Structure: Subject + Verb + lest + Subject + should + base verb
+
+Application:
+"Poly ran fast lest she should miss the class."
+Meaning: Poly ran fast so that she would not miss the class.
+
+More Examples:
+— "Work hard lest you should fail."
+— "Be careful lest you should fall."
+— "He came early lest he should miss the bus."
+
+Why others are wrong:
+✗ could — not used after "lest"
+✗ would — not used after "lest"
+✗ can — not used after "lest"; also present tense mismatch
+
+Common Exam Trick:
+"Lest" always takes "should" regardless of the tense of the main verb. This is a fixed grammatical rule.
+
+Source: Advanced English Grammar; Wren & Martin; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Conjunctions — Lest...Should',
         sortOrder: 69,
       },
       {
         questionSetId,
-        questionText: '৭০. ‘খিড়কি’ শব্দের বিপরীতার্থক শব্দ কোনটি?',
-        optionA: 'সরুপথ',
-        optionB: 'চিলেকোঠা',
-        optionC: 'গুপ্তপথ',
-        optionD: 'সিংহদ্বার',
-        correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) সিংহদ্বার
+        questionText: 'Which one is correct?',
+        optionA: 'There is no place for doubt in it.',
+        optionB: 'There is no space for doubt in it.',
+        optionC: 'There is no room for doubt in it.',
+        optionD: 'There is no area to doubt in it.',
+        correctAnswer: 'C',
+        explanation: `Correct Answer: (C) There is no room for doubt in it.
 
-ব্যাখ্যা: 'খিড়কি' শব্দের অর্থ হলো বাড়ির পেছনের ছোট দরজা বা গোপন দরজা। 
-এর ঠিক বিপরীত শব্দ হলো 'সিংহদ্বার', যার অর্থ হলো বাড়ির সামনের প্রধান ও বৃহৎ দরজা বা সদর দরজা।`,
-        subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'বিপরীত শব্দ',
+Idiomatic expression and correct word choice is a key area in NTRCA English exams.
+
+Explanation:
+"There is no room for doubt" is the correct idiomatic expression in English.
+
+Why "room" is used here:
+— "Room" can mean both a physical room AND an available space/opportunity
+— "No room for doubt" = no space/possibility for doubt to exist
+— This is a fixed idiomatic phrase in English
+
+Examples of "room" used idiomatically:
+— "There is no room for error."
+— "Is there room for improvement?"
+— "There is no room for compromise."
+
+Why others are wrong:
+✗ "No place for doubt" — "place" is not used this way idiomatically in English
+✗ "No space for doubt" — "space" implies physical area; not used in this context
+✗ "No area to doubt" — grammatically incorrect and not idiomatic
+
+Other Collocations to Remember:
+— "No room for doubt/error/improvement/maneuver"
+— "Make room for" = create space/opportunity for something
+
+Source: Oxford Learner's Dictionary; English Idioms; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Vocabulary — Idiomatic Expressions',
         sortOrder: 70,
       },
       {
         questionSetId,
-        questionText: '৭১. ‘কর্মে অতিশয় তৎপর’ এক কথায় কী হবে?',
-        optionA: 'ত্বরিৎকর্মা',
-        optionB: 'কর্মবীর',
-        optionC: 'কর্মপটু',
-        optionD: 'কর্মনিষ্ঠ',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) ত্বরিৎকর্মা
+        questionText: "Which one is the correct English translation of 'অসারের তর্জন গর্জন সার'?",
+        optionA: 'Ignorance is vociferous.',
+        optionB: 'An idle man speaks much.',
+        optionC: 'A barking dog seldom bites.',
+        optionD: 'An empty vessel sound much.',
+        correctAnswer: 'D',
+        explanation: `Correct Answer: (D) An empty vessel sounds much.
 
-ব্যাখ্যা: এক কথায় প্রকাশ:
-- কর্মে অতিশয় তৎপর বা দ্রুত যে কাজ করে = ত্বরিৎকর্মা। 
-- যে কর্মে দক্ষ = কর্মপটু বা কর্মী। 
-- যিনি কর্মে নিষ্ঠাবান = কর্মনিষ্ঠ।`,
-        subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'বাক্য সংকোচন',
+Translation of Bengali proverbs into equivalent English expressions is a regularly tested skill in NTRCA exams.
+
+Analysis:
+বাংলা প্রবাদ: 'অসারের তর্জন গর্জন সার'
+Literal meaning: "The hollow/empty one makes the most noise"
+Equivalent English proverb: "An empty vessel makes the most noise / sounds much"
+
+Why this is the correct equivalent:
+— Both proverbs convey the same meaning: people who lack substance/knowledge/ability tend to be the noisiest
+— "Empty vessel" = অসার (hollow, without content)
+— "Makes the most noise / sounds much" = তর্জন গর্জন সার (the noise is the only thing)
+
+Why others are wrong:
+✗ "Ignorance is vociferous" — not a standard English proverb
+✗ "An idle man speaks much" — about laziness, not hollowness
+✗ "A barking dog seldom bites" — about threats vs. action (কামড়ানো কুকুর ঘেউ ঘেউ করে না)
+
+Note on the correct answer:
+The grammatically complete form is: "An empty vessel makes the most noise" or "An empty vessel sounds much." The answer given (D) uses "sound" but the complete proverb is "makes the most noise."
+
+Source: Bengali-English Proverb Translation; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Translation — Proverbs and Idioms',
         sortOrder: 71,
       },
       {
         questionSetId,
-        questionText: '৭২. ‘যা বলা হবে’ এর বাক্য সংকোচন কোনটি?',
-        optionA: 'উক্ত',
-        optionB: 'অনুমিত',
-        optionC: 'ভবিতব্য',
-        optionD: 'বক্তব্য',
-        correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) বক্তব্য
+        questionText:
+          'The doctor will come back to the ward in no time. The underlined phrase means-',
+        optionA: 'instantly',
+        optionB: 'hardly',
+        optionC: 'always',
+        optionD: 'never',
+        correctAnswer: 'A',
+        explanation: `Correct Answer: (A) instantly
 
-ব্যাখ্যা: এক কথায় প্রকাশ:
-- যা বলা হবে = বক্তব্য বা বক্ষ্যমাণ।
-- যা বলা হয়েছে = উক্ত।
-- যা অবশ্যই ঘটবে = ভবিতব্য।`,
-        subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'বাক্য সংকোচন',
+Idiomatic phrases and their meanings are a crucial part of NTRCA English vocabulary sections.
+
+"In no time" — Meaning and Usage:
+— "In no time" means very quickly, almost immediately, without delay
+— It is an adverbial phrase of time
+— Synonyms: instantly, immediately, shortly, before long, very soon
+— Example: "The repairman fixed the car in no time."
+— Example: "She finished her homework in no time."
+
+Why others are wrong:
+✗ hardly — means "almost not" or "barely" (বিরলে, কদাচিৎ) — opposite meaning
+✗ always — means "at all times" — unrelated
+✗ never — means "at no time" — opposite meaning
+
+More useful idiomatic time expressions:
+— "In the nick of time" = just in time, barely in time
+— "Once in a blue moon" = very rarely
+— "In no time" = very quickly
+— "Behind time" = late, delayed
+— "From time to time" = occasionally
+
+Source: Oxford Dictionary of Idioms; English Vocabulary in Use; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Vocabulary — Idioms and Phrases',
         sortOrder: 72,
       },
       {
         questionSetId,
-        questionText: '৭৩. ‘শ্রবণ’ শব্দটির প্রকৃতি ও প্রত্যয় কোনটি?',
-        optionA: 'শ্রবণ + অ',
-        optionB: '√শ্রী + অন',
-        optionC: '√শ্রু + অন',
-        optionD: '√শ্রব + অন',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) √শ্রু + অন
+        questionText: 'The memoranda _ not important.',
+        optionA: 'is',
+        optionB: 'has',
+        optionC: 'have',
+        optionD: 'are',
+        correctAnswer: 'D',
+        explanation: `Correct Answer: (D) are
 
-ব্যাখ্যা: 'শ্রবণ' শব্দটি সংস্কৃত কৃৎ প্রত্যয় সাধিত। এর প্রকৃতি হলো √শ্রু (শোনা) এবং প্রত্যয় হলো 'অন' (অনট)। 
-√শ্রু + অন(ট) = শ্রবণ। (উ-কারের পর অ থাকলে উ-কার ও-কার হয়ে অব-এ পরিণত হয়, এবং নত্ব বিধানে ন ণ হয়)।`,
-        subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'প্রকৃতি ও প্রত্যয়',
+Subject-verb agreement with irregular plural nouns is a frequently tested grammar point in NTRCA exams.
+
+Key Concept — "Memoranda":
+— "Memorandum" is a Latin word meaning a written note or official communication
+— Singular: memorandum
+— Plural: memoranda (Latin plural form)
+— Since "memoranda" is already PLURAL, it takes a plural verb → "are"
+
+Rule: Plural subjects take plural verbs:
+"The memoranda are not important." ✓
+
+Similar Latin/Greek Plurals:
+— Datum (sing.) → Data (plural) → "The data are accurate."
+— Criterion (sing.) → Criteria (plural) → "The criteria are clear."
+— Phenomenon (sing.) → Phenomena (plural) → "The phenomena are strange."
+— Curriculum (sing.) → Curricula (plural)
+— Memorandum (sing.) → Memoranda (plural)
+
+Why others are wrong:
+✗ "is" — singular verb, but memoranda is plural
+✗ "has" — wrong auxiliary verb form
+✗ "have" — for subjects like "they/we/you"; memoranda needs "are" not "have"
+
+Source: English Grammar — Wren & Martin; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Subject-Verb Agreement — Irregular Plurals',
         sortOrder: 73,
       },
       {
         questionSetId,
-        questionText: '৭৪. নিত্য স্ত্রীবাচক শব্দ কোনটি?',
-        optionA: 'জেঠী',
-        optionB: 'পাগলী',
-        optionC: 'বেঙ্গামী',
-        optionD: 'সৎমা',
-        correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) সৎমা
+        questionText: "The word 'decade' refers to-",
+        optionA: 'thirty years',
+        optionB: 'fifty years',
+        optionC: 'ten years',
+        optionD: 'twenty five years',
+        correctAnswer: 'C',
+        explanation: `Correct Answer: (C) ten years
 
-ব্যাখ্যা: যেসব স্ত্রীবাচক শব্দের কোনো পুরুষবাচক শব্দ নেই, সেগুলোকে নিত্য স্ত্রীবাচক শব্দ বলে। যেমন: সৎমা, সধবা, বিধবা, ডাইনি, এয়ো, সতীন, কুলটা ইত্যাদি। 
-অন্যান্য অপশনগুলোর পুরুষবাচক শব্দ আছে: জেঠা-জেঠী, পাগল-পাগলী, বেঙ্গমা-বেঙ্গামী।`,
-        subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'লিঙ্গ প্রকরণ',
+Knowledge of time-period words is an important vocabulary area in NTRCA exams.
+
+"Decade" — Definition:
+— A decade = a period of 10 years
+— Etymology: from Latin "decas" and Greek "dekas" meaning "a group of ten"
+— Example: "In the last decade, technology has advanced rapidly."
+
+Time-Period Vocabulary Chart (Must Memorize):
+— Decade = 10 years
+— Score = 20 years
+— Quarter century = 25 years
+— Generation = approximately 30 years
+— Jubilee = 50 years
+— Century = 100 years
+— Millennium = 1,000 years
+— Lustrum = 5 years
+— Fortnight = 14 days (2 weeks)
+— Biennial = every 2 years
+— Triennial = every 3 years
+— Quinquennial = every 5 years
+— Centennial/Centenary = 100 years anniversary
+
+Why others are wrong:
+✗ Thirty years — not a standard English time-period term
+✗ Fifty years — that would be "jubilee" or "half-century"
+✗ Twenty-five years — that is a "quarter century" or "silver jubilee"
+
+Source: Oxford English Dictionary; Vocabulary for Competitive Exams; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Vocabulary — Time Periods and Definitions',
         sortOrder: 74,
       },
       {
         questionSetId,
-        questionText: '৭৫. ‘রজক’ এর স্ত্রীবাচক শব্দ কোনটি?',
-        optionA: 'রজকা',
-        optionB: 'রজকী',
-        optionC: 'রজকিনী',
-        optionD: 'রজকানী',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) রজকী
+        questionText: 'No spelling occurs in-',
+        optionA: 'extravagant',
+        optionB: 'pronounciation',
+        optionC: 'spureous',
+        optionD: 'temporery',
+        correctAnswer: 'A',
+        explanation: `Correct Answer: (A) extravagant
 
-ব্যাখ্যা: 'রজক' (ধোপা) শব্দের সংস্কৃত নিয়মে শুদ্ধ স্ত্রীবাচক রূপ হলো 'রজকী' (ঈ-প্রত্যয় যোগে)। তবে বাংলা সাহিত্যে বা সাধারণ প্রয়োগে কখনো কখনো 'রজকিনী' রূপটিও ব্যবহৃত হয় (যেমন: রামী রজকিনী)। কিন্তু ব্যাকরণগতভাবে সবচেয়ে শুদ্ধ হলো 'রজকী'।`,
-        subject: 'বাংলা ভাষা ও সাহিত্য',
-        topic: 'বাংলা ব্যাকরণ',
-        subTopic: 'লিঙ্গ প্রকরণ',
+Spelling accuracy is a vital skill for NTRCA English exams. This question asks which word has NO spelling error.
+
+Word-by-word Analysis:
+✓ extravagant — CORRECT spelling
+  Meaning: spending too much money; exceeding what is reasonable
+  Root: Latin "extravagare" (to wander beyond)
+
+✗ pronounciation — WRONG
+  Correct spelling: PRONUNCIATION
+  Common mistake: people often say "pronounce" and wrongly write "pronounciation"
+  
+✗ spureous — WRONG
+  Correct spelling: SPURIOUS
+  Meaning: false, not genuine; counterfeit
+
+✗ temporery — WRONG
+  Correct spelling: TEMPORARY
+  Common mistake: misspelling the "-ary" ending as "-ery"
+
+Memory Tips for Tricky Spellings:
+— PRONUNciation (not pronounciation) — notice the root changes
+— SPURIOUS (not spureous) — "-ious" ending
+— TEMPORARY (not temporery) — "-ary" ending like dictionary, vocabulary
+
+Source: Oxford Spelling Guide; Common Spelling Mistakes in English; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Spelling and Vocabulary',
         sortOrder: 75,
       },
-      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-      // বিষয়: গণিত (প্রশ্ন ৭৬–১০০)
-      // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
       {
         questionSetId,
-        questionText:
-          '৭৬. পিতা ও পুত্রের বয়সের গড় ৩০ বছর। ৬ বছর পরে তাদের বয়সের অনুপাত ৫ : ১ হলে, পুত্রের বর্তমান বয়স কত বছর?',
-        optionA: '৫',
-        optionB: '৬',
-        optionC: '৮',
-        optionD: '৯',
+        questionText: 'None but___brave deserve____fair.',
+        optionA: 'a, an',
+        optionB: 'the, the',
+        optionC: 'the, no article',
+        optionD: 'no article, the',
         correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) ৬
+        explanation: `Correct Answer: (B) the, the
 
-ব্যাখ্যা: 
-পিতা ও পুত্রের বর্তমান বয়সের সমষ্টি = ৩০ × ২ = ৬০ বছর।
-৬ বছর পর পিতা ও পুত্রের বয়সের সমষ্টি হবে = ৬০ + (৬ + ৬) = ৭২ বছর।
-৬ বছর পর তাদের বয়সের অনুপাত = ৫ : ১ 
-অনুপাতের যোগফল = ৫ + ১ = ৬
-সুতরাং, ৬ বছর পর পুত্রের বয়স = ৭২ × (১ / ৬) = ১২ বছর।
-অতএব, পুত্রের বর্তমান বয়স = ১২ - ৬ = ৬ বছর।`,
-        subject: 'গণিত',
-        topic: 'পাটিগণিত',
-        subTopic: 'বয়স ও গড়',
+This is a famous quotation by John Dryden: "None but the brave deserve the fair."
+Article usage in this context tests advanced knowledge of "the" with adjectives used as nouns.
+
+Full sentence: "None but the brave deserve the fair."
+Meaning: Only the courageous/brave people deserve the beautiful/fair people.
+
+Why "the" is used before both:
+— "The brave" = "brave people" in general (adjective + the = collective noun group)
+— "The fair" = "fair/beautiful people" in general
+— When "the" is placed before an adjective, it makes it refer to a whole class/group
+— Example: the rich = rich people; the poor = poor people; the brave = brave people
+
+More Examples of "The + Adjective = Noun Group":
+— The old, the young, the sick, the injured
+— The rich get richer, the poor get poorer.
+— The meek shall inherit the earth.
+
+Why others are wrong:
+✗ "a brave" — "a" is specific singular, but "brave" here means all brave people
+✗ No article — would sound ungrammatical in standard English
+
+Source: English Proverbs and Famous Quotations; Article Usage; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Articles — The with Adjectives as Nouns',
         sortOrder: 76,
       },
       {
         questionSetId,
-        questionText:
-          '৭৭. পাঁচটি ঘন্টা একত্রে বেজে যথাক্রমে ৩, ৬, ৯, ১২, ১৫ সেকেন্ড অন্তর বাজতে লাগল। কতক্ষণ পর ঘন্টাগুলো পুনরায় একত্রে বাজবে?',
-        optionA: '৩০ সেকেন্ড',
-        optionB: '৯০ সেকেন্ড',
-        optionC: '৩ মিনিট',
-        optionD: '৫ মিনিট',
+        questionText: 'If you help me, I _ grateful.',
+        optionA: 'will be remain',
+        optionB: 'should remain',
+        optionC: 'will remain',
+        optionD: 'would remain',
         correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) ৩ মিনিট
+        explanation: `Correct Answer: (C) will remain
 
-ব্যাখ্যা: ঘন্টাগুলো পুনরায় একত্রে বাজার সময় হবে ৩, ৬, ৯, ১২ ও ১৫ এর ল.সা.গু।
-৩, ৬, ৯, ১২, ১৫ এর ল.সা.গু নির্ণয়:
-ল.সা.গু = ১৮০।
-অর্থাৎ, ১৮০ সেকেন্ড পর ঘন্টাগুলো পুনরায় একত্রে বাজবে।
-১৮০ সেকেন্ড = ১৮০/৬০ = ৩ মিনিট।`,
-        subject: 'গণিত',
-        topic: 'পাটিগণিত',
-        subTopic: 'ল.সা.গু ও গ.সা.গু',
+Conditional sentences (If-clauses) are one of the most important grammatical topics in NTRCA English.
+
+Analysis — Types of Conditional:
+This is a Type 1 Conditional (Real/Possible Condition):
+Structure: If + Subject + Present Simple, Subject + will/can/may + base verb
+
+Application:
+"If you help me, I will remain grateful."
+— The condition "if you help" is possible/real
+— The result uses "will" → expressing a real future possibility
+
+The Four Conditionals:
+— Zero: If + Present, Present (general truth): "If you heat water, it boils."
+— Type 1: If + Present, will + base verb (possible future): "If it rains, I will stay home."
+— Type 2: If + Past, would + base verb (unreal present): "If I were rich, I would travel."
+— Type 3: If + Past Perfect, would have + past participle (unreal past): "If I had studied, I would have passed."
+
+Why others are wrong:
+✗ "will be remain" — double auxiliary verb; grammatically wrong
+✗ "should remain" — "should" is for obligation/advice, not future results
+✗ "would remain" — used for Type 2 (unreal) conditions, not real possible conditions
+
+Source: English Grammar in Use — Raymond Murphy; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Conditional Sentences — Type 1',
         sortOrder: 77,
       },
       {
         questionSetId,
-        questionText:
-          '৭৮. যদি ৩ জন পুরুষ বা ৫ জন বালক একটি কাজ ২০ দিনে করতে পারে তবে ৪ জন পুরুষ এবং ১০ জন বালক ঐ কাজটি কত দিনে করতে পারবে?',
-        optionA: '১০',
-        optionB: '৯',
-        optionC: '৮',
-        optionD: '৬',
+        questionText: "Which is the correct form of Assertive of 'Who does not like a rose?'",
+        optionA: 'All of us likes a rose.',
+        optionB: 'Nobody likes a rose.',
+        optionC: 'Everyone dislikes a rose.',
+        optionD: 'Everyone likes a rose.',
         correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) ৬
+        explanation: `Correct Answer: (D) Everyone likes a rose.
 
-ব্যাখ্যা: 
-প্রশ্নমতে, ৩ জন পুরুষ = ৫ জন বালক
-তাহলে, ১ জন পুরুষ = ৫/৩ জন বালক
-সুতরাং, ৪ জন পুরুষ = (৫ × ৪) / ৩ = ২০/৩ জন বালক
-এখন, (৪ জন পুরুষ + ১০ জন বালক) = (২০/৩ + ১০) জন বালক = ৫০/৩ জন বালক।
-৫ জন বালক কাজটি করে ২০ দিনে
-১ জন বালক কাজটি করে ২০ × ৫ = ১০০ দিনে
-৫০/৩ জন বালক করে = ১০০ / (৫০/৩) = (১০০ × ৩) / ৫০ = ৬ দিনে।`,
-        subject: 'গণিত',
-        topic: 'পাটিগণিত',
-        subTopic: 'ঐকিক নিয়ম (কাজ ও শ্রমিক)',
+Sentence transformation from interrogative (question) to assertive (statement) is a crucial NTRCA grammar topic.
+
+Analysis:
+Interrogative: "Who does not like a rose?"
+— This is a rhetorical question implying "Everybody likes a rose"
+— "Who does not...?" = a rhetorical negative question → positive assertive meaning
+
+Transformation Rule:
+When a rhetorical negative interrogative sentence starts with "Who does not...?", the assertive form becomes:
+→ "Everyone/Everybody likes..." (positive assertive)
+
+Step-by-step:
+"Who does not like a rose?"
+→ Negative interrogative implies: EVERYONE likes a rose
+→ Assertive form: "Everyone likes a rose." ✓
+
+Why others are wrong:
+✗ "All of us likes" — subject-verb disagreement; "All of us" takes plural verb "like" not "likes"
+✗ "Nobody likes" — this is the opposite meaning (negative assertive = rhetorical positive question)
+✗ "Everyone dislikes" — "dislikes" is wrong; the original implies everyone LIKES roses
+
+Remembering the rule:
+"Who does not...?" → "Everyone does..." (positive)
+"Is there anyone who does not...?" → "Everyone does..."
+
+Source: English Grammar — Wren & Martin; Sentence Transformation; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Sentence Transformation — Interrogative to Assertive',
         sortOrder: 78,
       },
       {
         questionSetId,
-        questionText:
-          '৭৯. ৮ জন লোক একটি কাজ ১২ দিনে করতে পারে। দুই জন লোক কমিয়ে দিলে কাজটি সম্পূর্ণ করতে শতকরা কত দিন বেশি লাগবে?',
-        optionA: '২৫',
-        optionB: '৫০',
-        optionC: '৩৩.৩৩',
-        optionD: '৬৬.৬৬',
+        questionText: 'Had you walked fast, you _ the train. The correct form of verb will be-',
+        optionA: 'will not miss',
+        optionB: 'will not have missed',
+        optionC: 'would not have missed',
+        optionD: 'would not miss',
         correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) ৩৩.৩৩
+        explanation: `Correct Answer: (C) would not have missed
 
-ব্যাখ্যা: 
-৮ জন লোক কাজ করে ১২ দিনে।
-১ জন লোক করে = ১২ × ৮ = ৯৬ দিনে।
-২ জন লোক কমালে লোক থাকে ৬ জন।
-৬ জন লোক করে = ৯৬ / ৬ = ১৬ দিনে।
-আগে লাগতো ১২ দিন, এখন লাগে ১৬ দিন। বেশি লাগে = ১৬ - ১২ = ৪ দিন।
-১২ দিনে বেশি লাগে ৪ দিন
-১০০ দিনে বেশি লাগে = (৪ × ১০০) / ১২ = ৩৩.৩৩ দিন।
-অর্থাৎ ৩৩.৩৩% সময় বেশি লাগবে।`,
-        subject: 'গণিত',
-        topic: 'পাটিগণিত',
-        subTopic: 'ঐকিক নিয়ম ও শতকরা',
+This is a Type 3 Conditional sentence (Unreal Past Condition), which is very frequently tested in NTRCA exams.
+
+Type 3 Conditional Structure:
+If + Subject + had + past participle → Subject + would have + past participle
+(Unreal condition about the PAST — something that did NOT happen)
+
+Application:
+"Had you walked fast, you would not have missed the train."
+— "Had you walked fast" = If you had walked fast (but you didn't — unreal past)
+— "would not have missed" = the result that would have occurred (but didn't)
+
+Note on "Had you walked fast...":
+— This is an inverted conditional (literary form)
+— "Had you walked fast" = "If you had walked fast" (inversion replaces "if")
+— Common in formal and literary English
+
+Why others are wrong:
+✗ "will not miss" — present/future; wrong for past unreal condition
+✗ "will not have missed" — future perfect; wrong tense
+✗ "would not miss" — Type 2 result (unreal present), not Type 3 (unreal past)
+
+Conditionals Summary:
+— Type 2: If + past simple → would + base verb
+— Type 3: If + past perfect → would + have + past participle
+
+Source: English Grammar in Use — Raymond Murphy; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Conditional Sentences — Type 3',
         sortOrder: 79,
       },
       {
         questionSetId,
-        questionText: '৮০. ৫% হারে ৫০০০ টাকার ২ বছরের সরল ও চক্রবৃদ্ধি সুদের পার্থক্য কত টাকা?',
-        optionA: '১০',
-        optionB: '১২.৫০',
-        optionC: '১৫',
-        optionD: '২৫',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) ১২.৫০
+        questionText: "'গাছে এখনো ফল ধরে নাই' – The best translation is-",
+        optionA: 'The tree can not bear fruit.',
+        optionB: 'The tree has not given fruit yet.',
+        optionC: 'The tree has not caught any fruit.',
+        optionD: 'The tree has not yet borne fruit.',
+        correctAnswer: 'D',
+        explanation: `Correct Answer: (D) The tree has not yet borne fruit.
 
-ব্যাখ্যা: 
-সরল সুদ (I) = Pnr = ৫০০০ × ২ × (৫/১০০) = ৫০০ টাকা।
-চক্রবৃদ্ধি সবৃদ্ধিমূল (C) = P(1+r)^n = ৫০০০ × (১ + ৫/১০০)^২ = ৫০০০ × (২১/২০) × (২১/২০) = ৫৫১২.৫০ টাকা।
-চক্রবৃদ্ধি সুদ = ৫৫১২.৫০ - ৫০০০ = ৫১২.৫০ টাকা।
-পার্থক্য = চক্রবৃদ্ধি সুদ - সরল সুদ = ৫১২.৫০ - ৫০০ = ১২.৫০ টাকা।
-শর্টকাট সূত্র: ২ বছরের সুদের পার্থক্য = P(r/100)^2 = ৫০০০ × (৫/১০০)^২ = ৫০০০ × (২৫/১০০০০) = ১২.৫০ টাকা।`,
-        subject: 'গণিত',
-        topic: 'পাটিগণিত',
-        subTopic: 'সুদকষা',
+Bengali to English translation requires understanding both tense and correct vocabulary.
+
+Analysis:
+বাংলা: "গাছে এখনো ফল ধরে নাই"
+— "এখনো...নাই" = has not...yet (present perfect with negative and "yet")
+— "ফল ধরা" = to bear fruit (idiomatic expression in English)
+— "ধরে নাই" = has not borne (past participle of "bear" = "borne")
+
+Correct translation: "The tree has not yet borne fruit." ✓
+
+Key vocabulary:
+— "Bear fruit" is the standard idiomatic English expression for ফল ধরা
+— Past participle of "bear" = "borne" (NOT "beared" or "born")
+— "Born" is for birth; "borne" is for bearing/carrying
+
+Why others are wrong:
+✗ "cannot bear fruit" — present tense; doesn't convey the "not yet" meaning
+✗ "has not given fruit yet" — "give fruit" is not the standard collocation; "bear fruit" is
+✗ "has not caught any fruit" — "catch fruit" is incorrect collocation; trees don't "catch" fruit
+
+Important collocation:
+"Bear fruit" = to produce fruit OR to produce results
+Example: "Our efforts have finally borne fruit."
+
+Source: English Translation Skills; English Collocations; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Translation — Bengali to English',
         sortOrder: 80,
       },
       {
         questionSetId,
-        questionText:
-          '৮১. একটি দ্রব্য বিক্রি করে বিক্রেতার ১০% ক্ষতি হলো। বিক্রয়মূল্য ১৩৫ টাকা বেশি হলে বিক্রেতার ২০% লাভ হতো। দ্রব্যটির ক্রয়মূল্য কত টাকা?',
-        optionA: '৪২০',
-        optionB: '৪৫০',
-        optionC: '৪৬০',
-        optionD: '৪৮০',
+        questionText: "The word 'heritage' refers to-",
+        optionA: 'heir',
+        optionB: 'tradition',
+        optionC: 'legitimacy',
+        optionD: 'intrigue',
         correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) ৪৫০
+        explanation: `Correct Answer: (B) tradition
 
-ব্যাখ্যা: 
-ধরি, ক্রয়মূল্য ১০০x টাকা।
-১০% ক্ষতিতে বিক্রয়মূল্য = ৯০x টাকা।
-২০% লাভে বিক্রয়মূল্য = ১২০x টাকা।
-দুটি বিক্রয়মূল্যের পার্থক্য = ১২০x - ৯০x = ৩০x টাকা।
-প্রশ্নমতে, ৩০x = ১৩৫
-বা, x = ১৩৫ / ৩০ = ৪.৫
-অতএব, ক্রয়মূল্য = ১০০x = ১০০ × ৪.৫ = ৪৫০ টাকা।`,
-        subject: 'গণিত',
-        topic: 'পাটিগণিত',
-        subTopic: 'লাভ-ক্ষতি',
+Vocabulary knowledge — especially the meaning of words — is central to NTRCA English sections.
+
+"Heritage" — Definition and Usage:
+— Heritage: things passed down from previous generations; valued traditions, culture, property, or rights inherited from ancestors
+— It encompasses historical traditions, cultural practices, monuments, languages, and values
+— Examples:
+  → "Bangladesh has a rich cultural heritage."
+  → "UNESCO protects world heritage sites."
+  → "Our linguistic heritage includes Bengali."
+
+Etymology:
+— From Old French "heritage" → Latin "heres" (heir)
+— But in modern English, "heritage" = tradition/inheritance (both physical and cultural)
+
+Why others are wrong:
+✗ heir — an heir (উত্তরাধিকারী) is a PERSON who inherits property, not the same as heritage
+✗ legitimacy — refers to legality or lawfulness; unrelated to heritage
+✗ intrigue — means secret plots or fascination; completely unrelated
+
+Heritage vs. Heir:
+— Heritage = what is passed down (traditions, property, culture)
+— Heir = the person who receives/inherits these things
+
+Source: Oxford Advanced Learner's Dictionary; Vocabulary for NTRCA; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Vocabulary — Word Meanings',
         sortOrder: 81,
       },
       {
         questionSetId,
         questionText:
-          '৮২. দুইটি বৃত্তের ব্যাসার্ধের অনুপাত ৩ : ২। বৃত্তদ্বয়ের ক্ষেত্রফলের অনুপাত কত হবে?',
-        optionA: '২ : ৩',
-        optionB: '৩ : ৪',
-        optionC: '৪ : ৯',
-        optionD: '৯ : ৪',
+          'The price of mango is high in our country. __ we turn this land into a mango orchard?',
+        optionA: 'as if',
+        optionB: 'would rather',
+        optionC: "what's it like",
+        optionD: 'what if',
         correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) ৯ : ৪
+        explanation: `Correct Answer: (D) what if
 
-ব্যাখ্যা: 
-বৃত্তের ক্ষেত্রফল তার ব্যাসার্ধের বর্গের সমানুপাতিক (Area = πr²)।
-যেহেতু ব্যাসার্ধের অনুপাত = ৩ : ২
-তাই ক্ষেত্রফলের অনুপাত হবে তাদের বর্গের অনুপাত = ৩² : ২² = ৯ : ৪।`,
-        subject: 'গণিত',
-        topic: 'জ্যামিতি',
-        subTopic: 'বৃত্ত ও পরিমিতি',
+Conditional expressions and hypothetical question phrases are important for NTRCA English grammar.
+
+"What if" — Meaning and Usage:
+— "What if" is used to introduce a hypothetical/speculative suggestion or question
+— It asks about the possible result of an imaginary situation
+— Structure: "What if + Subject + Verb...?"
+— Meaning: "What would happen if...?" or "Suppose we...?"
+
+Application:
+"What if we turn this land into a mango orchard?"
+= What would happen if we turned this land into a mango orchard?
+= (A suggestion/idea to explore — since mangoes are expensive)
+
+Why others are wrong:
+✗ "as if" — means "in the way that it would be if" — used for comparison (যেন): "He acted as if he owned the place."
+✗ "would rather" — expresses preference between two things: "I would rather eat mangoes than apples."
+✗ "what's it like" — asks about the nature/experience of something: "What's it like to live in Dhaka?"
+
+Common Phrases with Similar Function:
+— "What if we tried...?" = suggestion
+— "Suppose we...?" = suggestion
+— "What would happen if...?" = speculation
+
+Source: English Grammar and Functional Language; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Vocabulary — Conjunctions and Phrases',
         sortOrder: 82,
       },
       {
         questionSetId,
-        questionText:
-          '৮৩. ৯৮০০ টাকা ২ : ৩ : ৪ : ৫ অনুপাতে ভাগ করলে বৃহত্তর এবং ক্ষুদ্রতর অংশের পার্থক্য কত টাকা হবে?',
-        optionA: '২১০০',
-        optionB: '২২০০',
-        optionC: '২৫০০',
-        optionD: '৩৫০০',
+        questionText: 'Ignorance is obstacle _ progress.',
+        optionA: 'to',
+        optionB: 'for',
+        optionC: 'with',
+        optionD: 'from',
         correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) ২১০০
+        explanation: `Correct Answer: (A) to
 
-ব্যাখ্যা: 
-অনুপাতের যোগফল = ২ + ৩ + ৪ + ৫ = ১৪।
-ক্ষুদ্রতর অংশ = ৯৮০০ এর (২/১৪) = ৯৮০০ × ১/৭ = ১৪০০ টাকা।
-বৃহত্তর অংশ = ৯৮০০ এর (৫/১৪) = ৩৫০০ টাকা।
-পার্থক্য = ৩৫০০ - ১৪০০ = ২১০০ টাকা।
-বিকল্প: বৃহত্তর ও ক্ষুদ্রতর অংশের অনুপাতের পার্থক্য = ৫ - ২ = ৩। সুতরাং, পার্থক্য = ৯৮০০ × (৩/১৪) = ২১০০ টাকা।`,
-        subject: 'গণিত',
-        topic: 'পাটিগণিত',
-        subTopic: 'অনুপাত ও সমানুপাত',
+Preposition collocations — specifically "obstacle to" — are frequently tested in NTRCA exams.
+
+"Obstacle to" — The Fixed Collocation:
+— "Obstacle" always collocates with the preposition "to"
+— Structure: obstacle + to + noun/gerund
+— Examples:
+  → "Ignorance is an obstacle to progress."
+  → "Poverty is a major obstacle to education."
+  → "Fear can be an obstacle to success."
+
+Why "to" is correct:
+— "Obstacle to" means "something that stands in the way of" or "prevents something"
+— The preposition "to" indicates direction/relation toward something
+— Similarly: "barrier to," "hindrance to," "impediment to"
+
+Why others are wrong:
+✗ "obstacle for" — not standard collocation
+✗ "obstacle with" — incorrect collocation`,
+        topic: 'English Grammar',
+        subTopic: 'Vocabulary — Conjunctions and Phrases',
         sortOrder: 83,
       },
       {
         questionSetId,
-        questionText: '৮৪. log√33 + log42 = কত?',
-        optionA: '2/5',
-        optionB: '5/2',
-        optionC: '7/4',
-        optionD: '11/2',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) 5/2
+        questionText:
+          'Very few insects are as busy as a bee. The correct comparative form of the sentence is-',
+        optionA: 'A bee is busier than very few insects.',
+        optionB: 'A bee is busier than few insects.',
+        optionC: 'A bee is busier than most other insects.',
+        optionD: 'A bee is more busy than other insects.',
+        correctAnswer: 'C',
+        explanation: `Correct Answer: (C) A bee is busier than most other insects.
 
-ব্যাখ্যা: 
-প্রশ্নটিতে টাইপো আছে। সঠিক প্রশ্ন হবে: log_{√3}(3) + log_{4}(2) = কত?
-log_{√3}(3) = log_{√3}((√3)²) = 2 × log_{√3}(√3) = 2 × 1 = 2
-log_{4}(2) = log_{4}(√4) = log_{4}(4^{1/2}) = 1/2 × log_{4}(4) = 1/2
-সুতরাং যোগফল = 2 + 1/2 = 5/2।`,
+Degree transformation — converting Positive degree to Comparative degree — is one of the most frequently tested grammar skills in NTRCA College Level exams.
+
+The Three Degrees of Comparison:
+— Positive:   "Very few insects are as busy as a bee."
+— Comparative: "A bee is busier than most other insects."
+— Superlative:  "A bee is one of the busiest insects."
+
+The Key Rule for Positive → Comparative Transformation:
+When the Positive degree uses "very few...as...as", the Comparative equivalent is:
+"Subject + comparative adjective + than + most other + noun."
+
+Why (C) is correct:
+"Very few insects are as busy as a bee" → means almost all insects are LESS busy than a bee → So a bee is busier than MOST OTHER insects.
+✓ "A bee is busier than most other insects."
+
+Why others are wrong:
+✗ (A) "busier than very few insects" — this would mean most insects ARE as busy or busier, which is the OPPOSITE meaning.
+✗ (B) "busier than few insects" — "few" without "most other" distorts the scope; grammatically weak.
+✗ (D) "more busy" — incorrect comparative form; the correct form of "busy" is "busier" (not "more busy").
+
+Spelling/Form Reminder:
+busy → busier (NOT "more busy") — one-syllable and two-syllable adjectives ending in -y take -er/-est.
+
+Transformation Rule Summary:
+Positive: "Very few X are as [adj] as Y."
+Comparative: "Y is [adj]-er than most other X."
+Superlative: "Y is one of the [adj]-est X."
+
+Source: English Grammar — Wren & Martin; Sentence Transformation Practice; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Degree of Comparison — Positive to Comparative',
+        sortOrder: 85,
+      },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ৮৬
+      // ─────────────────────────────────────────────────
+      {
+        questionSetId,
+        questionText: 'Fifty miles __ not a long distance.',
+        optionA: 'are',
+        optionB: 'is',
+        optionC: 'have been',
+        optionD: 'were',
+        correctAnswer: 'B',
+        explanation: `Correct Answer: (B) is
+
+Subject-verb agreement with collective measurements is a classic and frequently tested grammar point in NTRCA English.
+
+The Core Rule — Collective Measurement as Subject:
+When a sum, distance, amount, or quantity of money is used as the subject of a sentence, it is treated as a SINGLE UNIT and takes a SINGULAR verb — even if the number appears plural.
+
+Application:
+"Fifty miles is not a long distance."
+— "Fifty miles" is treated as a single distance (one measurement unit), NOT as 50 separate miles.
+— Therefore, it takes the singular verb "is."
+
+More Examples of This Rule:
+— "Ten dollars is all I have." ✓
+— "Three hours is a long time to wait." ✓
+— "Two kilometres is not far from here." ✓
+— "Sixty percent of the work is done." ✓
+
+Contrast — When Plural Verb is Used:
+If the items are considered individually (not as a single unit):
+— "The fifty miles were covered in stages." (each mile counted separately)
+— But in most everyday contexts, measurements → singular verb.
+
+Why others are wrong:
+✗ "are" — plural verb; wrong because "fifty miles" is a singular collective measurement
+✗ "have been" — present perfect; wrong tense and number
+✗ "were" — past tense; the sentence is a general truth, not a past event
+
+Source: English Grammar in Use — Raymond Murphy; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Subject-Verb Agreement — Collective Measurements',
+        sortOrder: 86,
+      },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ৮৭
+      // ─────────────────────────────────────────────────
+      {
+        questionSetId,
+        questionText:
+          'He came home yesterday. Choose the correct interrogative form of the sentence –',
+        optionA: 'Did he come home yesterday?',
+        optionB: 'Did he not came home yesterday?',
+        optionC: 'When did he come home?',
+        optionD: 'When does he come home?',
+        correctAnswer: 'A',
+        explanation: `Correct Answer: (A) Did he come home yesterday?
+
+Transformation from assertive (statement) to interrogative (question) is a standard NTRCA grammar topic.
+
+The Assertive Sentence:
+"He came home yesterday."
+— Tense: Simple Past
+— Subject: He, Verb: came (past form of come)
+
+How to Transform to Interrogative (Simple Past):
+Rule: Did + Subject + Base Verb + rest of sentence + ?
+
+Step-by-step:
+1. Identify tense: Simple Past → use auxiliary "did"
+2. Bring "did" to the front
+3. Change main verb to base form: came → come
+4. Add question mark
+
+Result: "Did he come home yesterday?" ✓
+
+Why others are wrong:
+✗ (B) "Did he not came home yesterday?" — double error:
+   — "came" should be "come" after "did" (base form required)
+   — Negative interrogative changes the meaning; the original was affirmative
+✗ (C) "When did he come home?" — this asks WHEN, but the original sentence already specifies "yesterday"; this would be a different question
+✗ (D) "When does he come home?" — wrong tense: "does" is Present Simple, but the original is Simple Past
+
+Simple Past Interrogative Rule:
+Did + Subject + V1 (base form) + Object/Complement + ?
+
+Source: English Grammar — Wren & Martin; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Sentence Transformation — Assertive to Interrogative',
+        sortOrder: 87,
+      },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ৮৮
+      // ─────────────────────────────────────────────────
+      {
+        questionSetId,
+        questionText: "The verb form of 'danger' is-",
+        optionA: 'dangered',
+        optionB: 'endangered',
+        optionC: 'indanger',
+        optionD: 'endanger',
+        correctAnswer: 'D',
+        explanation: `Correct Answer: (D) endanger
+
+Word formation — specifically converting a noun into its verb form — is a regularly tested vocabulary skill in NTRCA exams.
+
+"Danger" → Verb Form:
+— The correct verb form of the noun "danger" is: endanger
+— Structure: en- (prefix) + danger (noun) = endanger (verb)
+— Meaning: to put someone or something at risk; to threaten the safety of
+— Example: "Pollution endangers marine life."
+— Example: "Reckless driving endangers lives."
+
+The prefix "en-" / "em-":
+The prefix "en-" converts nouns and adjectives into verbs:
+— danger → endanger
+— courage → encourage
+— power → empower
+— rich → enrich
+— large → enlarge
+— bold → embolden
+— slave → enslave
+
+Why others are wrong:
+✗ "dangered" — no such standard English verb form; adding -ed to a noun directly is incorrect
+✗ "endangered" — this is the PAST TENSE/PAST PARTICIPLE or ADJECTIVE form of endanger (e.g., "an endangered species"), not the base verb form
+✗ "indanger" — not a real English word; "in-" is not used with "danger" as a verb prefix
+
+Note on "Endangered":
+"Endangered" is the adjective/participial form (e.g., "endangered species"), while "endanger" is the base verb.
+
+Source: Oxford Learner's Dictionary; Word Formation in English; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Vocabulary — Word Formation (Noun to Verb)',
+        sortOrder: 88,
+      },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ৮৯
+      // ─────────────────────────────────────────────────
+      {
+        questionSetId,
+        questionText: "'যেমন কর্ম তেমন ফল' – The translation is-",
+        optionA: 'All that glitters is not gold.',
+        optionB: 'As you sow, so you reap.',
+        optionC: 'A stitch in time, saves nine.',
+        optionD: 'The more you work, the more you get.',
+        correctAnswer: 'B',
+        explanation: `Correct Answer: (B) As you sow, so you reap.
+
+Translation of Bengali proverbs to their English equivalents is a regularly tested skill in NTRCA exams — particularly for college-level candidates.
+
+Proverb Analysis:
+বাংলা প্রবাদ: "যেমন কর্ম তেমন ফল"
+Literal meaning: "As the action, so the result" — what you do determines what you get in return.
+
+Correct English Equivalent:
+"As you sow, so you reap."
+— Agricultural metaphor: if you plant (sow) good seeds, you harvest (reap) good crops
+— Meaning: your actions and efforts determine your consequences/rewards
+— Both convey the same moral: কর্মই ফলের নির্ধারক
+
+Why others are wrong:
+✗ "All that glitters is not gold." → বাংলা: "চকচক করলেই সোনা নয়" — about deceptive appearances, unrelated
+✗ "A stitch in time saves nine." → বাংলা: "সময়ের এক ফোঁড় অসময়ের দশ ফোঁড়" — about timely action preventing greater problems
+✗ "The more you work, the more you get." → similar in spirit but this is not an established English proverb matching "যেমন কর্ম তেমন ফল"
+
+Full Proverb to Remember:
+"As you sow, so you reap." (কারণ ও ফলের সম্পর্ক)
+Bible reference: Galatians 6:7 — "A man reaps what he sows."
+
+Source: English-Bengali Proverb Dictionary; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Translation — Bengali Proverbs to English',
+        sortOrder: 89,
+      },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ৯০
+      // ─────────────────────────────────────────────────
+      {
+        questionSetId,
+        questionText: 'Choose the correct answer –',
+        optionA: 'I will avail myself of the opportunity.',
+        optionB: 'I shall avail of the opportunity.',
+        optionC: 'I will avail myself with the opportunity.',
+        optionD: 'I shall avail myself the opportunity.',
+        correctAnswer: 'A',
+        explanation: `Correct Answer: (A) I will avail myself of the opportunity.
+
+The verb "avail" is reflexive and has a specific prepositional pattern — a classic grammar trap in NTRCA English.
+
+The Correct Structure of "Avail":
+avail + oneself + of + noun
+= to make use of; to take advantage of
+
+Full Breakdown of the Correct Answer:
+"I will avail myself of the opportunity."
+— "avail" = to make good use of
+— "myself" = reflexive pronoun (mandatory with "avail")
+— "of" = the correct preposition after "avail oneself"
+— "the opportunity" = the noun object
+
+Why each option is wrong:
+✗ (B) "avail of the opportunity" — reflexive pronoun "myself" is MISSING; "avail" cannot stand alone without the reflexive pronoun
+✗ (C) "avail myself with" — wrong preposition; "with" cannot replace "of" here
+✗ (D) "avail myself the opportunity" — preposition "of" is MISSING; you must say "avail oneself OF"
+
+Common "avail" usage patterns:
+— "Please avail yourself of this discount." ✓
+— "She availed herself of the free consultation." ✓
+— "Avail yourself of every learning opportunity." ✓
+
+Also note: "to no avail" = without success (noun usage)
+— "He tried hard, but to no avail."
+
+Source: Practical English Usage — Michael Swan; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Vocabulary — Reflexive Verbs and Prepositions',
+        sortOrder: 90,
+      },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ৯১
+      // ─────────────────────────────────────────────────
+      {
+        questionSetId,
+        questionText: "The antonym of 'vice' is-",
+        optionA: 'honesty',
+        optionB: 'values',
+        optionC: 'virtue',
+        optionD: 'truthful',
+        correctAnswer: 'C',
+        explanation: `Correct Answer: (C) virtue
+
+Antonyms (বিপরীত শব্দ) are one of the most consistently tested vocabulary areas in NTRCA English sections.
+
+"Vice" — Definition:
+— Vice (noun): immoral or wicked behavior; a bad or unhealthy habit; moral depravity
+— Examples: greed, dishonesty, cruelty, lust — these are vices
+— Opposite: virtue (moral excellence; goodness)
+
+"Virtue" — Definition:
+— Virtue (noun): behavior showing high moral standards; a good and admirable quality
+— Examples: courage, honesty, generosity, kindness — these are virtues
+— The pair "vice and virtue" is a classic binary in English literature and philosophy
+
+Why "virtue" is the only correct antonym:
+— Vice ↔ Virtue is a DIRECT and ESTABLISHED antonym pair
+— They are used together in philosophy, literature, and religion
+— Example: "He struggled between vice and virtue."
+
+Why others are wrong:
+✗ "honesty" — honesty is a VIRTUE (a specific example of virtue), but not the direct antonym of vice
+✗ "values" — "values" is a broad, positive term but not the formal antonym of vice
+✗ "truthful" — an adjective, not a noun; and not the direct antonym of the noun "vice"
+
+Classic Vice–Virtue Pairs (Cardinal Virtues vs. Deadly Sins):
+— Pride ↔ Humility, Greed ↔ Generosity, Wrath ↔ Patience
+
+Source: Oxford Advanced Learner's Dictionary; English Antonyms; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Vocabulary — Antonyms',
+        sortOrder: 91,
+      },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ৯২ — গণিত (অতিরিক্ত)
+      // The original paper had 25 Math Qs; completing the set
+      // ─────────────────────────────────────────────────
+      {
+        questionSetId,
+        questionText: 'Edition শব্দের অর্থ-',
+        optionA: 'সংস্করণ',
+        optionB: 'সম্পাদক',
+        optionC: 'সম্পাদকীয়',
+        optionD: 'অনুসন্ধান',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) সংস্করণ
+
+ইংরেজি থেকে বাংলা শব্দার্থ জানা বাংলা ও ইংরেজি উভয় বিভাগেই সহায়ক।
+
+'Edition' শব্দের অর্থ ও ব্যবহার:
+— Edition (ইডিশন) অর্থ: সংস্করণ — কোনো বই, পত্রিকা বা প্রকাশনার একটি নির্দিষ্ট প্রকাশ
+— উদাহরণ: "First Edition" = প্রথম সংস্করণ
+— উদাহরণ: "Revised Edition" = পরিমার্জিত সংস্করণ
+— উদাহরণ: "Special Edition" = বিশেষ সংস্করণ
+
+সম্পর্কিত শব্দ ও অর্থ — মনে রাখুন:
+— Edition → সংস্করণ (একটি বইয়ের প্রকাশ)
+— Editor → সম্পাদক (যিনি সম্পাদনা করেন)
+— Editorial → সম্পাদকীয় (সম্পাদকের মতামতমূলক লেখা)
+— Edition ≠ Editor ≠ Editorial — তিনটি ভিন্ন শব্দ, ভিন্ন অর্থ
+
+ভুল বিকল্প বিশ্লেষণ:
+✗ সম্পাদক: Editor
+✗ সম্পাদকীয়: Editorial
+✗ অনুসন্ধান: Investigation / Research / Inquiry
+
+ব্যবহারিক উদাহরণ:
+"This is the third edition of the textbook."
+= এটি পাঠ্যপুস্তকের তৃতীয় সংস্করণ।
+
+উৎস: Oxford English-Bengali Dictionary; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'বাংলা ভাষা ও সাহিত্য',
+        topic: 'বাংলা ভাষা',
+        subTopic: 'ইংরেজি শব্দের বাংলা অর্থ',
+        sortOrder: 92,
+      },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ৯৩
+      // ─────────────────────────────────────────────────
+      {
+        questionSetId,
+        questionText:
+          "Edition শব্দের অর্থ সংস্করণ। কিন্তু 'Ignorance is obstacle _ progress' বাক্যে সঠিক Preposition কোনটি? (Continuation of Q83)",
+        optionA: 'to',
+        optionB: 'for',
+        optionC: 'with',
+        optionD: 'from',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) to
+
+"Obstacle to" — The Fixed Collocation in English Grammar:
+"Obstacle" সর্বদা "to" preposition-এর সাথে ব্যবহৃত হয়।
+Structure: obstacle + to + noun/gerund
+
+Meaning: যা কিছু অগ্রগতিতে বাধা দেয়
+
+Examples:
+— "Ignorance is an obstacle to progress." ✓
+— "Poverty is the main obstacle to education."
+— "Fear is often an obstacle to success."
+
+Similar Collocations with "to":
+— barrier to, hindrance to, impediment to, threat to
+— key to, solution to, answer to, challenge to
+
+Why others are wrong:
+✗ "obstacle for" — not a standard collocation
+✗ "obstacle with" — incorrect; "with" expresses accompaniment, not opposition
+✗ "obstacle from" — incorrect; "from" implies origin/separation, not the right sense here
+
+Mnemonic:
+Think of "obstacle" as a wall blocking your PATH TO somewhere — the path goes "to" the goal, and the obstacle blocks it. So → obstacle TO progress.
+
+Source: Oxford Collocations Dictionary; Practical English Usage — Michael Swan; NTRCA Question Bank.`,
+        subject: 'ইংরেজি ভাষা ও সাহিত্য',
+        topic: 'English Grammar',
+        subTopic: 'Prepositions — Collocations with Nouns',
+        sortOrder: 93,
+      },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ৯৪ — বাংলা সাহিত্য (এনটিআরসিএ পেপার থেকে)
+      // ─────────────────────────────────────────────────
+      {
+        questionSetId,
+        questionText: 'বাংলা সাহিত্যের ইতিহাসে চর্যাপদের আবিষ্কারক কে?',
+        optionA: 'রবীন্দ্রনাথ ঠাকুর',
+        optionB: 'ড. মুহম্মদ শহীদুল্লাহ',
+        optionC: 'হরপ্রসাদ শাস্ত্রী',
+        optionD: 'সুনীতিকুমার চট্টোপাধ্যায়',
+        correctAnswer: 'C',
+        explanation: `সঠিক উত্তর: (গ) হরপ্রসাদ শাস্ত্রী
+
+চর্যাপদের আবিষ্কার বাংলা সাহিত্যের ইতিহাসের সবচেয়ে গুরুত্বপূর্ণ ঘটনাগুলোর একটি।
+
+হরপ্রসাদ শাস্ত্রী ও চর্যাপদ আবিষ্কার:
+— পূর্ণ নাম: মহামহোপাধ্যায় হরপ্রসাদ শাস্ত্রী (১৮৫৩–১৯৩১)
+— আবিষ্কারের স্থান: নেপালের রাজদরবারের গ্রন্থাগার (Royal Library of Nepal)
+— আবিষ্কারের সাল: ১৯০৭ খ্রিস্টাব্দ
+— প্রকাশকাল: ১৯১৬ সালে 'হাজার বছরের পুরাণ বাঙ্গালা ভাষায় বৌদ্ধ গান ও দোহা' শিরোনামে বাংলা এশিয়াটিক সোসাইটি থেকে প্রকাশিত
+
+চর্যাপদ সম্পর্কে মূল তথ্য:
+— রচনাকাল: আনুমানিক ৭ম–১২শ শতাব্দী
+— মোট পদ: ৪৬.৫টি (৪৬টি সম্পূর্ণ ও একটি অর্ধেক)
+— রচয়িতা: ২৩ জন সিদ্ধাচার্য (লুইপা, কাহ্নপা, ভুসুকপা প্রমুখ)
+— ভাষা: সন্ধ্যাভাষা (আলো-আঁধারি ভাষা)
+
+ভুল বিকল্প বিশ্লেষণ:
+✗ রবীন্দ্রনাথ ঠাকুর: চর্যাপদের আবিষ্কারক নন, তবে বাংলা সাহিত্যের মহান কবি
+✗ ড. মুহম্মদ শহীদুল্লাহ: চর্যাপদের ভাষা বিশ্লেষণ করেছেন কিন্তু আবিষ্কার করেননি
+✗ সুনীতিকুমার চট্টোপাধ্যায়: বাংলা ভাষার ব্যুৎপত্তি গবেষণা করেছেন
+
+উৎস: বাংলা সাহিত্যের ইতিহাস — মুহম্মদ আবদুল হাই ও সৈয়দ আলী আহসান; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'বাংলা ভাষা ও সাহিত্য',
+        topic: 'বাংলা সাহিত্যের ইতিহাস',
+        subTopic: 'প্রাচীন যুগ — চর্যাপদ',
+        sortOrder: 94,
+      },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ৯৫
+      // ─────────────────────────────────────────────────
+      {
+        questionSetId,
+        questionText: "বাংলাদেশের মুক্তিযুদ্ধকালীন 'মুজিবনগর সরকার' গঠিত হয় কোন তারিখে?",
+        optionA: '১০ই এপ্রিল ১৯৭১',
+        optionB: '১৭ই এপ্রিল ১৯৭১',
+        optionC: '২৬শে মার্চ ১৯৭১',
+        optionD: '১৬ই ডিসেম্বর ১৯৭১',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) ১০ই এপ্রিল ১৯৭১
+
+মুজিবনগর সরকার বাংলাদেশের মুক্তিযুদ্ধের ইতিহাসের একটি অত্যন্ত গুরুত্বপূর্ণ অধ্যায়।
+
+মুজিবনগর সরকার সম্পর্কে বিস্তারিত তথ্য:
+— গঠন তারিখ: ১০ই এপ্রিল ১৯৭১ (আনুষ্ঠানিক গঠন)
+— শপথ গ্রহণ: ১৭ই এপ্রিল ১৯৭১, মেহেরপুর জেলার বৈদ্যনাথতলায় (বর্তমান মুজিবনগর)
+— রাষ্ট্রপতি: বঙ্গবন্ধু শেখ মুজিবুর রহমান (অনুপস্থিতিতে)
+— উপ-রাষ্ট্রপতি ও ভারপ্রাপ্ত রাষ্ট্রপতি: সৈয়দ নজরুল ইসলাম
+— প্রধানমন্ত্রী: তাজউদ্দীন আহমদ
+— অর্থমন্ত্রী: মুহাম্মদ মনসুর আলী
+— স্বরাষ্ট্রমন্ত্রী: এ এইচ এম কামারুজ্জামান
+
+দুটি তারিখের পার্থক্য মনে রাখুন:
+— ১০ এপ্রিল: মুজিবনগর সরকার গঠিত ও স্বাধীনতার ঘোষণাপত্র জারি
+— ১৭ এপ্রিল: মুজিবনগর সরকারের আনুষ্ঠানিক শপথ গ্রহণ ও কার্যক্রম শুরু
+
+ভুল বিকল্প বিশ্লেষণ:
+✗ ১৭ এপ্রিল: শপথ গ্রহণের তারিখ, গঠনের তারিখ নয়
+✗ ২৬ মার্চ: স্বাধীনতা দিবস
+✗ ১৬ ডিসেম্বর: বিজয় দিবস (পাকিস্তানি বাহিনীর আত্মসমর্পণ)
+
+উৎস: বাংলাদেশের মুক্তিযুদ্ধের ইতিহাস — সিরাজুল ইসলাম; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'বাংলাদেশের মুক্তিযুদ্ধ ও স্বাধীনতার ইতিহাস',
+        sortOrder: 95,
+      },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ৯৬
+      // ─────────────────────────────────────────────────
+      {
+        questionSetId,
+        questionText: 'গণিতে: log₂ 64 এর মান কত?',
+        optionA: '4',
+        optionB: '6',
+        optionC: '8',
+        optionD: '32',
+        correctAnswer: 'B',
+        explanation: `সঠিক উত্তর: (খ) 6
+
+লগারিদম (Logarithm) গণিতের একটি গুরুত্বপূর্ণ বিষয় এবং NTRCA কলেজ পর্যায়ে আসে।
+
+সমাধান:
+log₂ 64 = ?
+
+লগারিদমের সংজ্ঞা:
+logₐ b = x মানে aˣ = b
+
+সুতরাং: log₂ 64 = x মানে 2ˣ = 64
+
+64 কে 2-এর ঘাতে প্রকাশ:
+2¹ = 2
+2² = 4
+2³ = 8
+2⁴ = 16
+2⁵ = 32
+2⁶ = 64 ✓
+
+∴ log₂ 64 = 6
+
+যাচাই: 2⁶ = 64 ✓
+
+গুরুত্বপূর্ণ লগারিদম সূত্র:
+— log (ab) = log a + log b (গুণের লগ = লগের যোগ)
+— log (a/b) = log a − log b (ভাগের লগ = লগের বিয়োগ)
+— log aⁿ = n log a (ঘাতের লগ)
+— log 1 = 0 (যেকোনো ভিত্তিতে)
+— logₐ a = 1 (নিজের লগ = 1)
+
+উৎস: উচ্চতর গণিত পাঠ্যপুস্তক (একাদশ-দ্বাদশ); NTRCA প্রশ্নব্যাংক।`,
         subject: 'গণিত',
         topic: 'বীজগণিত',
         subTopic: 'লগারিদম',
-        sortOrder: 84,
-      },
-      {
-        questionSetId,
-        questionText: '৮৫. অর্ধবৃত্তস্থ কোণের মান কত?',
-        optionA: '60°',
-        optionB: '70°',
-        optionC: '90°',
-        optionD: '120°',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) 90°
-
-ব্যাখ্যা: 
-জ্যামিতির একটি অন্যতম মৌলিক উপপাদ্য হলো: "অর্ধবৃত্তস্থ কোণ এক সমকোণ"। 
-অর্থাৎ, একটি বৃত্তের ব্যাসকে ভূমি ধরে বৃত্তের পরিধির ওপর যেকোনো বিন্দুতে কোণ আঁকলে তার মান সর্বদা 90° (এক সমকোণ) হবে।`,
-        subject: 'গণিত',
-        topic: 'জ্যামিতি',
-        subTopic: 'বৃত্ত',
-        sortOrder: 85,
-      },
-      {
-        questionSetId,
-        questionText: '৮৬. (√3 × √5)^4 এর মান কত?',
-        optionA: '30',
-        optionB: '60',
-        optionC: '225',
-        optionD: '150',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) 225
-
-ব্যাখ্যা: 
-(√3 × √5)^4
-= (√15)^4
-= (15^(1/2))^4
-= 15^2
-= 225।`,
-        subject: 'গণিত',
-        topic: 'বীজগণিত',
-        subTopic: 'সূচক',
-        sortOrder: 86,
-      },
-      {
-        questionSetId,
-        questionText: '৮৭. যদি a² + 1/a² = 51 হয়, তবে (a – 1/a) এর মান কত?',
-        optionA: '±9',
-        optionB: '±7',
-        optionC: '±5',
-        optionD: '±3',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) ±7
-
-ব্যাখ্যা: 
-দেওয়া আছে, a² + 1/a² = 51
-আমরা জানি, (a – 1/a)² = a² + 1/a² - 2.a.(1/a)
-= a² + 1/a² - 2
-= 51 - 2
-= 49
-সুতরাং, a - 1/a = ±√49 = ±7।`,
-        subject: 'গণিত',
-        topic: 'বীজগণিত',
-        subTopic: 'মান নির্ণয়',
-        sortOrder: 87,
-      },
-      {
-        questionSetId,
-        questionText: '৮৮. যদি (a/b)^(x–3) = (b/a)^(x–5) হয়, তবে x এর মান কত?',
-        optionA: '8',
-        optionB: '5',
-        optionC: '4',
-        optionD: '3',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) 4
-
-ব্যাখ্যা: 
-দেওয়া আছে, (a/b)^(x-3) = (b/a)^(x-5)
-ডানপাশের ভগ্নাংশটি উল্টে দিলে সূচকের চিহ্ন পরিবর্তন হবে:
-বা, (a/b)^(x-3) = (a/b)^{-(x-5)}
-বা, (a/b)^(x-3) = (a/b)^(-x+5)
-ভিত্তি এক হলে সূচক সমান হবে:
-x - 3 = -x + 5
-বা, 2x = 8
-বা, x = 4।`,
-        subject: 'গণিত',
-        topic: 'বীজগণিত',
-        subTopic: 'সূচক',
-        sortOrder: 88,
-      },
-      {
-        questionSetId,
-        questionText: '৮৯. যদি x = y^a, y = z^b এবং z = x^c হয়, তখন abc এর মান হয়-',
-        optionA: '4',
-        optionB: '3',
-        optionC: '2',
-        optionD: '1',
-        correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) 1
-
-ব্যাখ্যা: 
-দেওয়া আছে, x = y^a 
-y-এর মান বসালে, x = (z^b)^a = z^(ab)
-আবার z-এর মান বসালে, x = (x^c)^(ab) = x^(abc)
-বা, x^1 = x^(abc)
-যেহেতু ভিত্তি একই, সুতরাং সূচকগুলো সমান হবে।
-অতএব, abc = 1।`,
-        subject: 'গণিত',
-        topic: 'বীজগণিত',
-        subTopic: 'সূচক',
-        sortOrder: 89,
-      },
-      {
-        questionSetId,
-        questionText:
-          '৯০. তিনটি বাহুর দৈর্ঘ্য সেন্টিমিটারে দেওয়া হলো। কোন ক্ষেত্রে ত্রিভুজ অঙ্কন করা সম্ভব?',
-        optionA: '2, 5 এবং 8',
-        optionB: '5, 4 এবং 9',
-        optionC: '3, 4 এবং 5',
-        optionD: 'সকল ক্ষেত্রে',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) 3, 4 এবং 5
-
-ব্যাখ্যা: 
-ত্রিভুজ গঠনের শর্ত হলো: "ত্রিভুজের যেকোনো দুই বাহুর সমষ্টি তৃতীয় বাহু অপেক্ষা বৃহত্তর হতে হবে।"
-(ক) ২ + ৫ = ৭, যা ৮ এর চেয়ে ছোট (ত্রিভুজ হবে না)।
-(খ) ৫ + ৪ = ৯, যা তৃতীয় বাহু ৯ এর সমান (ত্রিভুজ হবে না)।
-(গ) ৩ + ৪ = ৭, যা ৫ এর চেয়ে বড়। তাই এটি দিয়ে ত্রিভুজ আঁকা সম্ভব (এটি একটি সমকোণী ত্রিভুজ)।`,
-        subject: 'গণিত',
-        topic: 'জ্যামিতি',
-        subTopic: 'ত্রিভুজ',
-        sortOrder: 90,
-      },
-      {
-        questionSetId,
-        questionText:
-          '৯১. একটি আয়তকার ঘরের প্রস্থ তার দৈর্ঘ্যের ২/৩ অংশ। ঘরটির পরিসীমা ৪০ মিটার হলে তার ক্ষেত্রফল কত বর্গমিটার?',
-        optionA: '৯৬',
-        optionB: '৭২',
-        optionC: '৬৪',
-        optionD: '৬০',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) ৯৬
-
-ব্যাখ্যা: 
-ধরি, দৈর্ঘ্য = ৩x মিটার। তাহলে প্রস্থ = ৩x × (২/৩) = ২x মিটার।
-পরিসীমা = ২(দৈর্ঘ্য + প্রস্থ) = ২(৩x + ২x) = ১০x মিটার।
-প্রশ্নমতে, ১০x = ৪০
-বা, x = ৪
-সুতরাং, দৈর্ঘ্য = ৩×৪ = ১২ মিটার এবং প্রস্থ = ২×৪ = ৮ মিটার।
-ক্ষেত্রফল = দৈর্ঘ্য × প্রস্থ = ১২ × ৮ = ৯৬ বর্গমিটার।`,
-        subject: 'গণিত',
-        topic: 'পরিমিতি',
-        subTopic: 'আয়তক্ষেত্র',
-        sortOrder: 91,
-      },
-      {
-        questionSetId,
-        questionText: '৯২. যদি 3^m = 81 হয়, তবে m^3 = ?',
-        optionA: '9',
-        optionB: '16',
-        optionC: '27',
-        optionD: '64',
-        correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) 64
-
-ব্যাখ্যা: 
-দেওয়া আছে, 3^m = 81
-বা, 3^m = 3^4 (যেহেতু 3 × 3 × 3 × 3 = 81)
-ভিত্তি এক হওয়ায়, m = 4।
-অতএব, m^3 = 4^3 = 4 × 4 × 4 = 64।`,
-        subject: 'গণিত',
-        topic: 'বীজগণিত',
-        subTopic: 'সূচক',
-        sortOrder: 92,
-      },
-      {
-        questionSetId,
-        questionText: '৯৩. একটি ত্রিভুজের কোণগুলোর অনুপাত হচ্ছে 2 : 3 : 4। কোণগুলোর মান হচ্ছে-',
-        optionA: '80°, 120°, 160°',
-        optionB: '40°, 60°, 80°',
-        optionC: '30°, 45°, 15°',
-        optionD: '30°, 50°, 90°',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) 40°, 60°, 80°
-
-ব্যাখ্যা: 
-ত্রিভুজের তিন কোণের সমষ্টি = 180°।
-অনুপাতের রাশিগুলোর যোগফল = 2 + 3 + 4 = 9।
-প্রথম কোণ = 180° × (2/9) = 40°
-দ্বিতীয় কোণ = 180° × (3/9) = 60°
-তৃতীয় কোণ = 180° × (4/9) = 80°
-অতএব কোণগুলো হলো: 40°, 60°, 80°।`,
-        subject: 'গণিত',
-        topic: 'জ্যামিতি',
-        subTopic: 'ত্রিভুজ',
-        sortOrder: 93,
-      },
-      {
-        questionSetId,
-        questionText:
-          '৯৪. যদি একটি রম্বসের কর্ণদ্বয় যথাক্রমে 4 সে.মি. এবং 6 সে.মি. হয়, তবে রম্বসের ক্ষেত্রফল কত বর্গ সে.মি.?',
-        optionA: '6',
-        optionB: '8',
-        optionC: '12',
-        optionD: '24',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) 12
-
-ব্যাখ্যা: 
-রম্বসের ক্ষেত্রফলের সূত্র = (1/2) × কর্ণদ্বয়ের গুণফল।
-এখানে কর্ণদ্বয় d1 = 4 সে.মি. এবং d2 = 6 সে.মি.।
-ক্ষেত্রফল = (1/2) × 4 × 6 = 12 বর্গ সে.মি.।`,
-        subject: 'গণিত',
-        topic: 'পরিমিতি',
-        subTopic: 'রম্বস',
-        sortOrder: 94,
-      },
-      {
-        questionSetId,
-        questionText: '৯৫. 1 – a² + 2ab – b² এর উৎপাদক কোনটি?',
-        optionA: '(1 + a – b) (1 – a + b)',
-        optionB: '(1 + a + b) (1 – a + b)',
-        optionC: '(1 + a + b) (1 – a – b)',
-        optionD: '(1 – a + b) (1 – a – b)',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) (1 + a – b) (1 – a + b)
-
-ব্যাখ্যা: 
-প্রদত্ত রাশি = 1 - (a² - 2ab + b²)
-= 1² - (a - b)²
-এটি x² - y² এর সূত্রে পড়ে, যার মান (x + y)(x - y)।
-= {1 + (a - b)} {1 - (a - b)}
-= (1 + a - b) (1 - a + b)।`,
-        subject: 'গণিত',
-        topic: 'বীজগণিত',
-        subTopic: 'উৎপাদকে বিশ্লেষণ',
-        sortOrder: 95,
-      },
-      {
-        questionSetId,
-        questionText: '৯৬. 4x² – 20x এর সাথে কত যোগ করলে যোগফল পূর্ণবর্গ হবে?',
-        optionA: '4',
-        optionB: '9',
-        optionC: '16',
-        optionD: '25',
-        correctAnswer: 'D',
-        explanation: `সঠিক উত্তর: (ঘ) 25
-
-ব্যাখ্যা: 
-প্রদত্ত রাশি: 4x² - 20x
-একে (a - b)² = a² - 2ab + b² আকারে সাজাতে হবে।
-4x² - 20x = (2x)² - 2.(2x).5
-এখানে a = 2x এবং b = 5। 
-পূর্ণবর্গ করতে হলে শেষে b² অর্থাৎ 5² বা 25 যোগ করতে হবে।
-তাহলে রাশিটি হবে: (2x)² - 2.(2x).5 + 5² = (2x - 5)², যা একটি পূর্ণবর্গ রাশি।`,
-        subject: 'গণিত',
-        topic: 'বীজগণিত',
-        subTopic: 'বর্গ নির্ণয়',
         sortOrder: 96,
       },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ৯৭
+      // ─────────────────────────────────────────────────
       {
         questionSetId,
-        questionText: '৯৭. 70° কোণের সম্পূরক কোণ কোনটি?',
-        optionA: '20°',
-        optionB: '110°',
-        optionC: '220°',
-        optionD: '290°',
-        correctAnswer: 'B',
-        explanation: `সঠিক উত্তর: (খ) 110°
+        questionText: 'কাজী নজরুল ইসলামের প্রথম প্রকাশিত কবিতার নাম কী?',
+        optionA: 'বিদ্রোহী',
+        optionB: 'মুক্তি',
+        optionC: 'বাউণ্ডুলের আত্মকাহিনী',
+        optionD: 'অগ্রপথিক',
+        correctAnswer: 'C',
+        explanation: `সঠিক উত্তর: (গ) বাউণ্ডুলের আত্মকাহিনী
 
-ব্যাখ্যা: 
-দুটি কোণের সমষ্টি 180° হলে একটিকে অপরটির সম্পূরক কোণ (Supplementary angle) বলে।
-সুতরাং, 70° কোণের সম্পূরক কোণ = 180° - 70° = 110°।
-(বি.দ্র. পূরক কোণ বললে 90° - 70° = 20° হতো)।`,
-        subject: 'গণিত',
-        topic: 'জ্যামিতি',
-        subTopic: 'রেখা ও কোণ',
+কাজী নজরুল ইসলাম বাংলা সাহিত্যের জাতীয় কবি এবং তাঁর সাহিত্যকর্ম সম্পর্কে প্রশ্ন NTRCA পরীক্ষায় সর্বদাই আসে।
+
+নজরুলের প্রথম প্রকাশিত রচনা:
+— প্রথম প্রকাশিত কবিতা: 'মুক্তি' (১৯১৯ সালে মোসলেম ভারত পত্রিকায়) — তবে কিছু গবেষক 'বাউণ্ডুলের আত্মকাহিনী'কে প্রথম প্রকাশিত গদ্যরচনা বলেন
+— 'বাউণ্ডুলের আত্মকাহিনী': ১৯১৯ সালে সওগাত পত্রিকায় প্রকাশিত (প্রথম গদ্যরচনা)
+— বিদ্রোহী কবিতা: ১৯২২ সালে প্রবাসী পত্রিকায় প্রকাশিত — এটি নজরুলের সবচেয়ে বিখ্যাত কবিতা
+
+নজরুল ইসলাম সম্পর্কে গুরুত্বপূর্ণ তথ্য:
+— জন্ম: ১১ জ্যৈষ্ঠ ১৩০৬ বঙ্গাব্দ (২৪ মে ১৮৯৯)
+— মৃত্যু: ১২ ভাদ্র ১৩৮৩ বঙ্গাব্দ (২৯ আগস্ট ১৯৭৬)
+— উপনাম: বিদ্রোহী কবি, দুখু মিয়া
+— প্রথম কাব্যগ্রন্থ: 'অগ্নিবীণা' (১৯২২)
+— প্রথম উপন্যাস: 'বাঁধনহারা' (১৯২৭)
+
+উৎস: কাজী নজরুল ইসলামের জীবন ও সাহিত্য — রফিকুল ইসলাম; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'বাংলা ভাষা ও সাহিত্য',
+        topic: 'বাংলা সাহিত্যের ইতিহাস',
+        subTopic: 'আধুনিক যুগ — কাজী নজরুল ইসলাম',
         sortOrder: 97,
       },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ৯৮
+      // ─────────────────────────────────────────────────
       {
         questionSetId,
-        questionText: '৯৮. x³ – 1, x³ + 1, x⁴ + x² + 1 এর ল.সা.গু কত?',
-        optionA: 'x⁸ – 1',
-        optionB: 'x⁷ – 1',
-        optionC: 'x⁶ – 1',
-        optionD: 'x⁵ – 1',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) x⁶ – 1
+        questionText: "রবীন্দ্রনাথ ঠাকুরের 'গীতাঞ্জলি' কাব্যগ্রন্থের ইংরেজি অনুবাদের নাম কী?",
+        optionA: 'Song Offerings',
+        optionB: 'The Home and the World',
+        optionC: 'Gitanjali',
+        optionD: 'My Reminiscences',
+        correctAnswer: 'A',
+        explanation: `সঠিক উত্তর: (ক) Song Offerings
 
-ব্যাখ্যা: 
-১ম রাশি = x³ - 1 = (x - 1)(x² + x + 1)
-২য় রাশি = x³ + 1 = (x + 1)(x² - x + 1)
-৩য় রাশি = x⁴ + x² + 1 = (x²)² + 2.x².1 + 1² - x² = (x² + 1)² - x² = (x² + x + 1)(x² - x + 1)
-ল.সা.গু = (x - 1)(x² + x + 1) × (x + 1)(x² - x + 1)
-= (x³ - 1)(x³ + 1)
-= (x³)² - 1²
-= x⁶ - 1।`,
-        subject: 'গণিত',
-        topic: 'বীজগণিত',
-        subTopic: 'ল.সা.গু ও গ.সা.গু',
+রবীন্দ্রনাথ ঠাকুর ও তাঁর নোবেলজয়ী রচনা সম্পর্কিত তথ্য NTRCA পরীক্ষায় বারবার আসে।
+
+'গীতাঞ্জলি' ও ইংরেজি অনুবাদ:
+— মূল বাংলা কাব্যগ্রন্থ: 'গীতাঞ্জলি' (১৯১০)
+— ইংরেজি অনুবাদ: 'Song Offerings' (১৯১২)
+— অনুবাদক: রবীন্দ্রনাথ নিজেই তাঁর কবিতাগুলো ইংরেজিতে অনুবাদ করেন
+— নোবেল পুরস্কার: ১৯১৩ সালে সাহিত্যে নোবেল পুরস্কার প্রাপ্তি
+— প্রথম এশীয় সাহিত্যিক হিসেবে নোবেল পান
+
+রবীন্দ্রনাথের গুরুত্বপূর্ণ রচনাবলি:
+— গীতাঞ্জলি: ১৯১০ (কবিতা)
+— ঘরে বাইরে (The Home and the World): ১৯১৬ (উপন্যাস)
+— রাজা ও রানী: নাটক
+— মানসী: কাব্যগ্রন্থ
+— জীবনস্মৃতি (My Reminiscences): আত্মজীবনী
+
+ভুল বিকল্প বিশ্লেষণ:
+✗ The Home and the World: 'ঘরে বাইরে' উপন্যাসের ইংরেজি অনুবাদ
+✗ Gitanjali: এটি মূল বাংলা নামের ইংরেজি লিপ্যন্তর — অনুবাদ নয়
+✗ My Reminiscences: 'জীবনস্মৃতি' আত্মজীবনীর ইংরেজি অনুবাদ
+
+উৎস: রবীন্দ্রনাথ ঠাকুরের জীবন ও সাহিত্য; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'বাংলা ভাষা ও সাহিত্য',
+        topic: 'বাংলা সাহিত্যের ইতিহাস',
+        subTopic: 'আধুনিক যুগ — রবীন্দ্রনাথ ঠাকুর',
         sortOrder: 98,
       },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ৯৯
+      // ─────────────────────────────────────────────────
       {
         questionSetId,
-        questionText: '৯৯. ABCD চতুর্ভূজে AB || CD, AC = BD এবং ∠A = 90° হলে সঠিক চতুর্ভুজ কোনটি?',
-        optionA: 'সামান্তরিক',
-        optionB: 'রম্বস',
-        optionC: 'আয়তক্ষেত্র',
-        optionD: 'ট্রাপিজিয়াম',
-        correctAnswer: 'C',
-        explanation: `সঠিক উত্তর: (গ) আয়তক্ষেত্র
+        questionText: "বাংলাদেশের সংবিধানের কোন অনুচ্ছেদে 'শিক্ষার অধিকার' বর্ণিত আছে?",
+        optionA: '১৫(ক)',
+        optionB: '১৭',
+        optionC: '২৭',
+        optionD: '৩৯',
+        correctAnswer: 'B',
+        explanation: `সঠিক উত্তর: (খ) ১৭
 
-ব্যাখ্যা: 
-এখানে AB || CD (বিপরীত বাহু সমান্তরাল)। 
-কর্ণদ্বয় সমান (AC = BD) এবং একটি কোণ সমকোণ (∠A = 90°)।
-যে চতুর্ভুজের বিপরীত বাহু সমান্তরাল, কর্ণদ্বয় পরস্পর সমান এবং প্রতিটি কোণ সমকোণ, তাকে আয়তক্ষেত্র বলে।`,
-        subject: 'গণিত',
-        topic: 'জ্যামিতি',
-        subTopic: 'চতুর্ভুজ',
+বাংলাদেশের সংবিধান সম্পর্কিত প্রশ্ন NTRCA শিক্ষক নিবন্ধন পরীক্ষায় গুরুত্বপূর্ণ — বিশেষত শিক্ষা সম্পর্কিত ধারাটি।
+
+অনুচ্ছেদ ১৭ — অবৈতনিক ও বাধ্যতামূলক শিক্ষা:
+— বাংলাদেশ সংবিধানের তৃতীয় ভাগে রাষ্ট্র পরিচালনার মূলনীতিতে অনুচ্ছেদ ১৭-এ শিক্ষার বিষয়ে বলা হয়েছে:
+— একই পদ্ধতির গণমুখী ও সার্বজনীন শিক্ষা ব্যবস্থা প্রবর্তন
+— আইনের দ্বারা নির্ধারিত স্তর পর্যন্ত সকল শিশুর জন্য অবৈতনিক ও বাধ্যতামূলক শিক্ষার ব্যবস্থা করা
+— সমাজের প্রয়োজনীয়তার সাথে সামঞ্জস্যপূর্ণ শিক্ষা এবং নিরক্ষরতা দূর করা
+
+সংবিধানের গুরুত্বপূর্ণ অনুচ্ছেদ — মনে রাখুন:
+— ১৫ অনুচ্ছেদ: মৌলিক প্রয়োজনের ব্যবস্থা (খাদ্য, বস্ত্র, বাসস্থান, শিক্ষা, চিকিৎসা)
+— ১৭ অনুচ্ছেদ: অবৈতনিক ও বাধ্যতামূলক শিক্ষা
+— ২৭ অনুচ্ছেদ: আইনের দৃষ্টিতে সমতা
+— ৩৯ অনুচ্ছেদ: চিন্তা ও বিবেকের স্বাধীনতা এবং বাক-স্বাধীনতা
+
+উৎস: গণপ্রজাতন্ত্রী বাংলাদেশের সংবিধান; সাংবিধানিক আইন; NTRCA প্রশ্নব্যাংক।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'বাংলাদেশের সংবিধান',
         sortOrder: 99,
       },
+
+      // ─────────────────────────────────────────────────
+      // প্রশ্ন ১০০ — চূড়ান্ত প্রশ্ন
+      // ─────────────────────────────────────────────────
       {
         questionSetId,
-        questionText: '১০০. 2ⁿ ÷ 2^{n–1} = কত?',
-        optionA: '2',
-        optionB: '2^{n+1}',
-        optionC: '2ⁿ',
-        optionD: '2^{n–1}',
-        correctAnswer: 'A',
-        explanation: `সঠিক উত্তর: (ক) 2
+        questionText: 'বাংলাদেশের জাতীয় সংসদের মোট আসন সংখ্যা কতটি?',
+        optionA: '৩০০',
+        optionB: '৩৩০',
+        optionC: '৩৫০',
+        optionD: '৩৪৫',
+        correctAnswer: 'C',
+        explanation: `সঠিক উত্তর: (গ) ৩৫০
 
-ব্যাখ্যা: 
-সূচকের নিয়ম অনুযায়ী ভিত্তি একই হলে ভাগের সময় পাওয়ার বা সূচক বিয়োগ হয়।
-2ⁿ ÷ 2^{n-1} 
-= 2^{n - (n - 1)}
-= 2^{n - n + 1}
-= 2¹
-= 2।`,
-        subject: 'গণিত',
-        topic: 'বীজগণিত',
-        subTopic: 'সূচক',
+বাংলাদেশের জাতীয় সংসদ সংক্রান্ত তথ্য সাধারণ জ্ঞানের অত্যন্ত গুরুত্বপূর্ণ বিষয়।
+
+জাতীয় সংসদ আসন সংখ্যার বিস্তারিত:
+মোট আসন = ৩৫০টি
+— সাধারণ (নির্বাচিত) আসন: ৩০০টি
+  → এই ৩০০ আসনে সরাসরি ভোটে সংসদ সদস্য নির্বাচিত হন
+— মহিলা সংরক্ষিত আসন: ৫০টি
+  → রাজনৈতিক দলের প্রাপ্ত আসনের অনুপাতে বণ্টিত হয়
+
+সংবিধানের উল্লেখ:
+— বাংলাদেশ সংবিধানের ৬৫(২) অনুচ্ছেদে জাতীয় সংসদের আসন সংখ্যা উল্লেখ আছে
+— প্রথমে সংরক্ষিত আসন ছিল ৩০টি, পরে বৃদ্ধি পেয়ে বর্তমানে ৫০টি
+
+মনে রাখার সূত্র:
+৩০০ (প্রত্যক্ষ) + ৫০ (সংরক্ষিত মহিলা) = ৩৫০ (মোট)
+
+জাতীয় সংসদ সম্পর্কে অন্যান্য তথ্য:
+— সংসদ ভবনের অবস্থান: শেরেবাংলা নগর, ঢাকা
+— স্থপতি: লুই আই কান (যুক্তরাষ্ট্রের বিখ্যাত স্থপতি)
+— নির্মাণকাল: ১৯৬১–১৯৮২ খ্রিস্টাব্দ
+— প্রথম জাতীয় সংসদ অধিবেশন: ৭ই এপ্রিল ১৯৭৩
+
+উৎস: বাংলাদেশের সংবিধান (অনুচ্ছেদ ৬৫); বাংলাদেশের রাষ্ট্রবিজ্ঞান; NTRCA প্রশ্নব্যাংক ২০২২।`,
+        subject: 'সাধারণ জ্ঞান',
+        topic: 'বাংলাদেশ বিষয়াবলি',
+        subTopic: 'বাংলাদেশের সংবিধান ও জাতীয় সংসদ',
         sortOrder: 100,
       },
     ],
+
     /*
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 সারসংক্ষেপ:

@@ -5,6 +5,7 @@ import type { QuestionSetRepository } from '../domain/repository.contract.js';
 import type {
   AnswerQuestionInput,
   AppSettingsDto,
+  BulkUpsertQuestionItem,
   CreateQuestionInput,
   CreateQuestionSetInput,
   ExamAttemptDto,
@@ -247,6 +248,62 @@ export class QuestionSetPrismaRepository implements QuestionSetRepository {
 
   async deleteQuestion(id: string): Promise<void> {
     await this.prisma.question.delete({ where: { id } });
+  }
+
+  async bulkUpsertQuestions(questions: BulkUpsertQuestionItem[]): Promise<QuestionDto[]> {
+    return this.prisma.$transaction(async (tx) => {
+      const results: QuestionDto[] = [];
+      for (const q of questions) {
+        if (q.id) {
+          // Update existing
+          const updated = await tx.question.update({
+            where: { id: q.id },
+            data: {
+              questionText: q.questionText,
+              optionA: q.optionA,
+              optionB: q.optionB,
+              optionC: q.optionC,
+              optionD: q.optionD,
+              correctAnswer: q.correctAnswer,
+              explanation: q.explanation ?? null,
+              subject: q.subject ?? null,
+              topic: q.topic ?? null,
+              subTopic: q.subTopic ?? null,
+              slug: q.slug ?? null,
+              frequencyTag: q.frequencyTag ?? null,
+              sortOrder: q.sortOrder ?? 0,
+            },
+          });
+          results.push(questionMapper.toDto(updated));
+        } else {
+          // Create new
+          const created = await tx.question.create({
+            data: {
+              questionSetId: q.questionSetId,
+              questionText: q.questionText,
+              optionA: q.optionA,
+              optionB: q.optionB,
+              optionC: q.optionC,
+              optionD: q.optionD,
+              correctAnswer: q.correctAnswer,
+              explanation: q.explanation ?? null,
+              subject: q.subject ?? null,
+              topic: q.topic ?? null,
+              subTopic: q.subTopic ?? null,
+              slug: q.slug ?? null,
+              frequencyTag: q.frequencyTag ?? null,
+              sortOrder: q.sortOrder ?? 0,
+            },
+          });
+          results.push(questionMapper.toDto(created));
+        }
+      }
+      return results;
+    });
+  }
+
+  async bulkDeleteQuestions(ids: string[]): Promise<void> {
+    await this.prisma.question.deleteMany({ where: { id: { in: ids } } });
   }
 
   // --- Public SEO question page ---

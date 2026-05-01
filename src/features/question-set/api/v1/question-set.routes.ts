@@ -10,6 +10,8 @@ import { QuestionSetService } from '../../domain/question-set.service.js';
 import { QuestionSetPrismaRepository } from '../../infra/question-set.prisma-repository.js';
 import {
   answerQuestionSchema,
+  bulkDeleteQuestionsSchema,
+  bulkUpsertQuestionsSchema,
   createQuestionSchema,
   createQuestionSetSchema,
   startExamSchema,
@@ -134,6 +136,24 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     asyncHandler((req, res) => controller.deleteQuestion(req, res)),
+  );
+
+  // Admin: Bulk upsert (create + update) questions in one call
+  router.post(
+    '/questions/bulk-upsert',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: bulkUpsertQuestionsSchema }),
+    asyncHandler((req, res) => controller.bulkUpsertQuestions(req, res)),
+  );
+
+  // Admin: Bulk delete questions by IDs
+  router.delete(
+    '/questions/bulk-delete',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: bulkDeleteQuestionsSchema }),
+    asyncHandler((req, res) => controller.bulkDeleteQuestions(req, res)),
   );
 
   // --- Exam flow ---
