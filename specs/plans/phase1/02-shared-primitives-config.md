@@ -8,6 +8,7 @@
 ### Task 6: Shared Constants & Types
 
 **Files:**
+
 - Create: `src/shared/constants/http-status.ts`
 - Create: `src/shared/constants/app.constants.ts`
 - Create: `src/shared/types/common.types.ts`
@@ -117,6 +118,7 @@ git commit -m "feat: add shared constants and types"
 ### Task 7: Shared Error Classes + Unit Tests
 
 **Files:**
+
 - Create: `src/shared/errors/error-codes.ts`
 - Create: `src/shared/errors/app-error.contract.ts`
 - Create: `src/shared/errors/app-error.ts`
@@ -364,7 +366,11 @@ export class ValidationError extends AppError {
 
 export class RateLimitError extends AppError {
   constructor(message = 'Too many requests') {
-    super({ code: ErrorCode.RATE_LIMIT_EXCEEDED, message, statusCode: HttpStatus.TOO_MANY_REQUESTS });
+    super({
+      code: ErrorCode.RATE_LIMIT_EXCEEDED,
+      message,
+      statusCode: HttpStatus.TOO_MANY_REQUESTS,
+    });
   }
 }
 
@@ -397,6 +403,7 @@ git commit -m "feat: add shared error class hierarchy with unit tests"
 ### Task 8: Shared Utils
 
 **Files:**
+
 - Create: `src/shared/utils/async-handler.ts`
 - Create: `src/shared/utils/correlation-id.ts`
 
@@ -446,6 +453,7 @@ git commit -m "feat: add async-handler and correlation-id utils"
 ### Task 9: Environment Schema & Config Modules + Unit Tests
 
 **Files:**
+
 - Create: `src/config/env.schema.ts`
 - Create: `src/config/index.ts`
 - Create: `src/config/database.ts`

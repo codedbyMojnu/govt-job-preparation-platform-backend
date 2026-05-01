@@ -10,6 +10,7 @@
 ### Task 10: Pino Logger
 
 **Files:**
+
 - Create: `src/infrastructure/observability/__tests__/logger.test.ts`
 - Create: `src/infrastructure/observability/logger.ts`
 
@@ -160,6 +161,7 @@ git commit -m "feat: add Pino logger factory with tests"
 ### Task 11: OpenTelemetry Tracing & Metrics Stubs
 
 **Files:**
+
 - Create: `src/infrastructure/observability/__tests__/tracing.test.ts`
 - Create: `src/infrastructure/observability/tracing.ts`
 - Create: `src/infrastructure/observability/metrics.ts`
@@ -192,7 +194,7 @@ vi.mock('@opentelemetry/auto-instrumentations-node', () => ({
   getNodeAutoInstrumentations: vi.fn(() => 'mock-instrumentation'),
 }));
 
-let initTracing: typeof import('../tracing.js')['initTracing'];
+let initTracing: (typeof import('../tracing.js'))['initTracing'];
 
 beforeAll(async () => {
   // Module loads; module-level initTracing() runs with mocks (harmless).
@@ -286,6 +288,7 @@ git commit -m "feat: add OpenTelemetry tracing and metrics stubs with tests"
 ### Task 12: Prisma Setup
 
 **Files:**
+
 - Create: `prisma/schema/base.prisma`
 - Create: `prisma/seed.ts`
 - Create: `src/infrastructure/database/__tests__/prisma-client.test.ts`
@@ -338,7 +341,7 @@ import { describe, it, expect, vi, beforeAll, beforeEach } from 'vitest';
 const MockPrismaClient = vi.fn();
 vi.mock('@prisma/client', () => ({ PrismaClient: MockPrismaClient }));
 
-let createPrismaClient: typeof import('../prisma-client.js')['createPrismaClient'];
+let createPrismaClient: (typeof import('../prisma-client.js'))['createPrismaClient'];
 
 beforeAll(async () => {
   const mod = await import('../prisma-client.js');
@@ -405,6 +408,7 @@ git commit -m "feat: add Prisma base schema, seed scaffold, and client factory w
 ### Task 13: Redis Client, Cache Service Stub & BullMQ Connection
 
 **Files:**
+
 - Create: `src/infrastructure/cache/__tests__/redis-client.test.ts`
 - Create: `src/infrastructure/cache/__tests__/cache.service.test.ts`
 - Create: `src/infrastructure/queue/__tests__/bullmq-client.test.ts`
@@ -431,7 +435,7 @@ import { describe, it, expect, vi, beforeAll, beforeEach } from 'vitest';
 const MockRedis = vi.fn();
 vi.mock('ioredis', () => ({ default: MockRedis }));
 
-let createRedisClient: typeof import('../redis-client.js')['createRedisClient'];
+let createRedisClient: (typeof import('../redis-client.js'))['createRedisClient'];
 
 beforeAll(async () => {
   const mod = await import('../redis-client.js');
@@ -568,7 +572,7 @@ import { describe, it, expect, vi, beforeAll, beforeEach } from 'vitest';
 const MockRedis = vi.fn();
 vi.mock('ioredis', () => ({ default: MockRedis }));
 
-let createBullMQClient: typeof import('../bullmq-client.js')['createBullMQClient'];
+let createBullMQClient: (typeof import('../bullmq-client.js'))['createBullMQClient'];
 
 beforeAll(async () => {
   const mod = await import('../bullmq-client.js');
@@ -652,7 +656,9 @@ git commit -m "feat: add Redis client, cache service stub, and BullMQ connection
 ## Files Produced
 
 ### Source files (9)
+
 `src/infrastructure/observability/logger.ts` · `src/infrastructure/observability/tracing.ts` · `src/infrastructure/observability/metrics.ts` · `src/infrastructure/database/prisma-client.ts` · `src/infrastructure/cache/redis-client.ts` · `src/infrastructure/cache/cache.service.ts` · `src/infrastructure/queue/bullmq-client.ts` · `prisma/schema/base.prisma` · `prisma/seed.ts`
 
 ### Test files (6)
+
 `src/infrastructure/observability/__tests__/logger.test.ts` · `src/infrastructure/observability/__tests__/tracing.test.ts` · `src/infrastructure/database/__tests__/prisma-client.test.ts` · `src/infrastructure/cache/__tests__/redis-client.test.ts` · `src/infrastructure/cache/__tests__/cache.service.test.ts` · `src/infrastructure/queue/__tests__/bullmq-client.test.ts`

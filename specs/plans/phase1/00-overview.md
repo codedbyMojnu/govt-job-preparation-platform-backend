@@ -14,14 +14,14 @@
 
 ## Chunk Index
 
-| File | Chunk | Tasks | Description |
-|------|-------|-------|-------------|
-| [`01-project-initialization.md`](./01-project-initialization.md) | 1 | 1–5 | package.json, TypeScript, ESLint, Vitest, Docker Compose |
-| [`02-shared-primitives-config.md`](./02-shared-primitives-config.md) | 2 | 6–9 | Constants, types, error classes, utils, env config |
-| [`03-infrastructure-observability.md`](./03-infrastructure-observability.md) | 3 | 10–13 | Pino logger, OpenTelemetry, Prisma, Redis, BullMQ |
-| [`04-di-container-middleware.md`](./04-di-container-middleware.md) | 4 | 14–18 | Awilix DI, core middleware, stubs, validate, error handler |
-| [`05-app-assembly-verification.md`](./05-app-assembly-verification.md) | 5 | 19–22 | Health endpoint, app factory, server, integration tests |
-| [`06-acceptance-checklist.md`](./06-acceptance-checklist.md) | — | — | Final verification checklist |
+| File                                                                         | Chunk | Tasks | Description                                                |
+| ---------------------------------------------------------------------------- | ----- | ----- | ---------------------------------------------------------- |
+| [`01-project-initialization.md`](./01-project-initialization.md)             | 1     | 1–5   | package.json, TypeScript, ESLint, Vitest, Docker Compose   |
+| [`02-shared-primitives-config.md`](./02-shared-primitives-config.md)         | 2     | 6–9   | Constants, types, error classes, utils, env config         |
+| [`03-infrastructure-observability.md`](./03-infrastructure-observability.md) | 3     | 10–13 | Pino logger, OpenTelemetry, Prisma, Redis, BullMQ          |
+| [`04-di-container-middleware.md`](./04-di-container-middleware.md)           | 4     | 14–18 | Awilix DI, core middleware, stubs, validate, error handler |
+| [`05-app-assembly-verification.md`](./05-app-assembly-verification.md)       | 5     | 19–22 | Health endpoint, app factory, server, integration tests    |
+| [`06-acceptance-checklist.md`](./06-acceptance-checklist.md)                 | —     | —     | Final verification checklist                               |
 
 **Execution order:** Chunks must be executed sequentially (1 → 2 → 3 → 4 → 5 → 6). Each chunk depends on the previous.
 
@@ -114,10 +114,10 @@ project-root/
 
 **Test files:**
 
-| File | Type | Tests |
-|------|------|-------|
-| `src/shared/errors/__tests__/errors.test.ts` | Unit | AppError hierarchy, defaults, instanceof |
-| `src/config/__tests__/env-schema.test.ts` | Unit | Env schema validation, defaults, rejections |
-| `src/infrastructure/http/middleware/__tests__/validate.test.ts` | Unit | Zod validation, stripping, error shaping |
-| `src/infrastructure/http/middleware/__tests__/error-handler.test.ts` | Unit | Error formatting, operational vs programmer |
-| `src/features/health/__tests__/integration/routes.test.ts` | Integration | Health endpoint returns 200 with expected shape |
+| File                                                                 | Type        | Tests                                           |
+| -------------------------------------------------------------------- | ----------- | ----------------------------------------------- |
+| `src/shared/errors/__tests__/errors.test.ts`                         | Unit        | AppError hierarchy, defaults, instanceof        |
+| `src/config/__tests__/env-schema.test.ts`                            | Unit        | Env schema validation, defaults, rejections     |
+| `src/infrastructure/http/middleware/__tests__/validate.test.ts`      | Unit        | Zod validation, stripping, error shaping        |
+| `src/infrastructure/http/middleware/__tests__/error-handler.test.ts` | Unit        | Error formatting, operational vs programmer     |
+| `src/features/health/__tests__/integration/routes.test.ts`           | Integration | Health endpoint returns 200 with expected shape |

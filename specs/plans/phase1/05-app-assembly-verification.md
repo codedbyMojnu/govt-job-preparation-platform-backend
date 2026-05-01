@@ -8,6 +8,7 @@
 ### Task 19: Health Endpoint
 
 **Files:**
+
 - Create: `src/features/health/controller.ts`
 - Create: `src/features/health/routes.ts`
 - Create: `src/features/health/index.ts`
@@ -56,6 +57,7 @@ git commit -m "feat: add health endpoint"
 ### Task 20: Version Router & App Factory
 
 **Files:**
+
 - Create: `src/infrastructure/http/routes/v1.ts`
 - Create: `src/app.ts`
 
@@ -140,6 +142,7 @@ git commit -m "feat: add version router and Express app factory"
 ### Task 21: Server Bootstrap & Graceful Shutdown
 
 **Files:**
+
 - Modify: `src/server.ts` (replace placeholder)
 
 - [ ] **Step 1: Replace src/server.ts with full implementation**
@@ -248,6 +251,7 @@ git commit -m "feat: add server bootstrap with graceful shutdown"
 ### Task 22: Vitest Integration Config, Testcontainers & Verification Tests
 
 **Files:**
+
 - Create: `vitest.config.integration.ts`
 - Create: `tests/setup.ts`
 - Create: `tests/helpers/request.helper.ts`
@@ -294,7 +298,8 @@ export default async function setup() {
   // Set env vars for config validation (must happen before any app import)
   process.env['NODE_ENV'] = 'test';
   process.env['DATABASE_URL'] = pgContainer.getConnectionUri();
-  process.env['REDIS_URL'] = `redis://${redisContainer.getHost()}:${redisContainer.getMappedPort(6379)}`;
+  process.env['REDIS_URL'] =
+    `redis://${redisContainer.getHost()}:${redisContainer.getMappedPort(6379)}`;
   process.env['JWT_SECRET'] = 'integration-test-secret-key-at-least-32-characters';
   process.env['LOG_LEVEL'] = 'error';
 
@@ -355,9 +360,7 @@ describe('GET /health', () => {
 
   it('echoes provided x-correlation-id', async () => {
     const client = createTestClient();
-    const response = await client
-      .get('/health')
-      .set('x-correlation-id', 'my-custom-id');
+    const response = await client.get('/health').set('x-correlation-id', 'my-custom-id');
 
     expect(response.headers['x-correlation-id']).toBe('my-custom-id');
   });

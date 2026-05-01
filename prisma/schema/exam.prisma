@@ -26,7 +26,7 @@ model SubExamCategory {
   createdAt      DateTime @default(now()) @map("created_at")
   updatedAt      DateTime @updatedAt @map("updated_at")
 
-  examCategory ExamCategory  @relation(fields: [examCategoryId], references: [id])
+  examCategory ExamCategory  @relation(fields: [examCategoryId], references: [id], onDelete: Cascade)
   questionSets QuestionSet[]
   routines     Routine[]
   syllabuses   Syllabus[]
@@ -53,7 +53,7 @@ model QuestionSet {
   createdAt         DateTime @default(now()) @map("created_at")
   updatedAt         DateTime @updatedAt @map("updated_at")
 
-  subExamCategory SubExamCategory @relation(fields: [subExamCategoryId], references: [id])
+  subExamCategory SubExamCategory @relation(fields: [subExamCategoryId], references: [id], onDelete: Cascade)
   questions       Question[]
   examAttempts    ExamAttempt[]
 
@@ -73,6 +73,8 @@ model Question {
   correctAnswer String   @map("correct_answer") @db.VarChar(1)
   explanation   String?  @db.Text
   subject       String?  @db.VarChar(200)
+  topic         String?  @db.VarChar(200)
+  subTopic      String?  @map("sub_topic") @db.VarChar(200)
   sortOrder     Int      @default(0) @map("sort_order")
   createdAt     DateTime @default(now()) @map("created_at")
   updatedAt     DateTime @updatedAt @map("updated_at")
@@ -116,7 +118,7 @@ model UserAnswer {
   selectedAnswer String? @map("selected_answer") @db.VarChar(1)
   isCorrect      Boolean @default(false) @map("is_correct")
 
-  examAttempt ExamAttempt @relation(fields: [examAttemptId], references: [id],onDelete: Cascade)
+  examAttempt ExamAttempt @relation(fields: [examAttemptId], references: [id], onDelete: Cascade)
   question    Question    @relation(fields: [questionId], references: [id], onDelete: Cascade)
 
   @@unique([examAttemptId, questionId])
@@ -153,7 +155,7 @@ model Routine {
   createdAt         DateTime @default(now()) @map("created_at")
   updatedAt         DateTime @updatedAt @map("updated_at")
 
-  subExamCategory SubExamCategory @relation(fields: [subExamCategoryId], references: [id])
+  subExamCategory SubExamCategory @relation(fields: [subExamCategoryId], references: [id], onDelete: Cascade)
 
   @@index([subExamCategoryId])
   @@index([date])
@@ -171,7 +173,7 @@ model Syllabus {
   createdAt         DateTime @default(now()) @map("created_at")
   updatedAt         DateTime @updatedAt @map("updated_at")
 
-  subExamCategory SubExamCategory @relation(fields: [subExamCategoryId], references: [id])
+  subExamCategory SubExamCategory @relation(fields: [subExamCategoryId], references: [id], onDelete: Cascade)
 
   @@index([subExamCategoryId])
   @@map("syllabuses")

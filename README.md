@@ -1,6 +1,6 @@
 # Express API Starter
 
-**version: 1.1.0** 
+**version: 1.1.0**
 
 Production-grade Express.js + TypeScript API starter template with Prisma, Redis, and OpenTelemetry.
 
@@ -28,24 +28,24 @@ npm start
 
 ## Available Scripts
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Run in development with hot reload |
-| `npm run build` | Build for production using tsup |
-| `npm run start` | Start production server |
-| `npm run typecheck` | Run TypeScript type check |
-| `npm run lint` | Run ESLint |
-| `npm run lint:fix` | Fix ESLint issues |
-| `npm run format` | Format code with Prettier |
-| `npm run test` | Run all tests |
-| `npm run test:unit` | Run unit tests |
-| `npm run test:integration` | Run integration tests |
-| `npm run test:coverage` | Run tests with coverage |
-| `npm run db:generate` | Generate Prisma client |
-| `npm run db:migrate` | Run Prisma migrations |
-| `npm run db:push` | Push schema to database |
-| `npm run db:seed` | Seed database |
-| `npm run db:studio` | Open Prisma Studio |
+| Script                     | Description                        |
+| -------------------------- | ---------------------------------- |
+| `npm run dev`              | Run in development with hot reload |
+| `npm run build`            | Build for production using tsup    |
+| `npm run start`            | Start production server            |
+| `npm run typecheck`        | Run TypeScript type check          |
+| `npm run lint`             | Run ESLint                         |
+| `npm run lint:fix`         | Fix ESLint issues                  |
+| `npm run format`           | Format code with Prettier          |
+| `npm run test`             | Run all tests                      |
+| `npm run test:unit`        | Run unit tests                     |
+| `npm run test:integration` | Run integration tests              |
+| `npm run test:coverage`    | Run tests with coverage            |
+| `npm run db:generate`      | Generate Prisma client             |
+| `npm run db:migrate`       | Run Prisma migrations              |
+| `npm run db:push`          | Push schema to database            |
+| `npm run db:seed`          | Seed database                      |
+| `npm run db:studio`        | Open Prisma Studio                 |
 
 ## Environment Variables
 
@@ -77,15 +77,15 @@ src/
 
 `src/infrastructure/` holds **factories** for external systems so features stay testable and wiring stays in one place:
 
-| Area | Role |
-|------|------|
+| Area                        | Role                                                                                                                       |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | `database/prisma-client.ts` | Builds `PrismaClient` from `DATABASE_URL`. Prefer importing the client only from here (or feature infra) per file comment. |
-| `cache/redis-client.ts` | ioredis client for cache; logs connection errors to stderr. |
-| `cache/cache.service.ts` | Cache port + stub implementation (real Redis-backed logic planned in later phases). |
-| `queue/bullmq-client.ts` | Dedicated Redis connection for BullMQ (`maxRetriesPerRequest: null`). |
-| `observability/logger.ts` | Pino options and `createLogger`; redaction paths are assembled in `src/config/logger.ts` from env-backed settings. |
-| `observability/tracing.ts` | OpenTelemetry Node SDK with auto-instrumentations; import early in `server.ts` for correct hook order. |
-| `observability/metrics.ts` | Placeholder for future metrics. |
+| `cache/redis-client.ts`     | ioredis client for cache; logs connection errors to stderr.                                                                |
+| `cache/cache.service.ts`    | Cache port + stub implementation (real Redis-backed logic planned in later phases).                                        |
+| `queue/bullmq-client.ts`    | Dedicated Redis connection for BullMQ (`maxRetriesPerRequest: null`).                                                      |
+| `observability/logger.ts`   | Pino options and `createLogger`; redaction paths are assembled in `src/config/logger.ts` from env-backed settings.         |
+| `observability/tracing.ts`  | OpenTelemetry Node SDK with auto-instrumentations; import early in `server.ts` for correct hook order.                     |
+| `observability/metrics.ts`  | Placeholder for future metrics.                                                                                            |
 
 Integration tests and local development expect **PostgreSQL** and **Redis** (see Docker Compose and `REDIS_URL` / `DATABASE_URL`).
 

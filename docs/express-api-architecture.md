@@ -8,13 +8,13 @@
 
 ## Guiding Principles (Summary)
 
-| # | Principle |
-|---|-----------|
-| 1 | Domain logic never knows about transport (no Express in `domain/`) |
-| 2 | Infrastructure is an implementation detail (interfaces in `domain/`, implementations in `infra/`) |
-| 3 | Features are the primary organisational axis (not technical layers) |
-| 4 | Layers flow in one direction: `api/` → `domain/` ← `infra/` |
-| 5 | Fail fast, validate early (env at startup, requests at middleware) |
+| #   | Principle                                                                                         |
+| --- | ------------------------------------------------------------------------------------------------- |
+| 1   | Domain logic never knows about transport (no Express in `domain/`)                                |
+| 2   | Infrastructure is an implementation detail (interfaces in `domain/`, implementations in `infra/`) |
+| 3   | Features are the primary organisational axis (not technical layers)                               |
+| 4   | Layers flow in one direction: `api/` → `domain/` ← `infra/`                                       |
+| 5   | Fail fast, validate early (env at startup, requests at middleware)                                |
 
 ---
 
@@ -54,31 +54,31 @@
 
 ### Inside Feature Directories
 
-| Pattern | Example | Purpose |
-|---------|---------|---------|
-| `*.service.ts` | `user.service.ts` | Business logic |
-| `*.controller.ts` | `order.controller.ts` | HTTP request handling |
-| `*.routes.ts` | `product.routes.ts` | Express route definitions |
-| `*.repository.ts` | `user.repository.ts` | Repository interface |
-| `*.prisma-repository.ts` | `user.prisma-repository.ts` | Prisma implementation |
-| `*.types.ts` | `order.types.ts` | Domain types, DTOs |
-| `*.errors.ts` | `user.errors.ts` | Feature-specific errors |
-| `*.mapper.ts` | `product.mapper.ts` | Entity ↔ DTO transformation |
-| `*.validation.ts` | `auth.validation.ts` | Zod request schemas |
-| `*.test.ts` | `user.service.test.ts` | Unit tests |
-| `*.integration.test.ts` | `order.routes.integration.test.ts` | Integration tests |
+| Pattern                  | Example                            | Purpose                     |
+| ------------------------ | ---------------------------------- | --------------------------- |
+| `*.service.ts`           | `user.service.ts`                  | Business logic              |
+| `*.controller.ts`        | `order.controller.ts`              | HTTP request handling       |
+| `*.routes.ts`            | `product.routes.ts`                | Express route definitions   |
+| `*.repository.ts`        | `user.repository.ts`               | Repository interface        |
+| `*.prisma-repository.ts` | `user.prisma-repository.ts`        | Prisma implementation       |
+| `*.types.ts`             | `order.types.ts`                   | Domain types, DTOs          |
+| `*.errors.ts`            | `user.errors.ts`                   | Feature-specific errors     |
+| `*.mapper.ts`            | `product.mapper.ts`                | Entity ↔ DTO transformation |
+| `*.validation.ts`        | `auth.validation.ts`               | Zod request schemas         |
+| `*.test.ts`              | `user.service.test.ts`             | Unit tests                  |
+| `*.integration.test.ts`  | `order.routes.integration.test.ts` | Integration tests           |
 
 ### Outside Features (Shared/Infrastructure)
 
-| Pattern | Example | Purpose |
-|---------|---------|---------|
-| `*.middleware.ts` | `authenticate.middleware.ts` | Express middleware |
-| `*.client.ts` | `redis-client.ts`, `prisma-client.ts` | Infrastructure clients |
-| `*.provider.ts` | `jwt.provider.ts`, `oauth.provider.ts` | External service adapters |
-| `*.sender.ts` | `email.sender.ts` | Outbound integrations |
-| `*.service.ts` | `cache.service.ts` | Shared services |
-| `*.fixture.ts` | `users.fixture.ts` | Static test data |
-| `*.factory.ts` | `user.factory.ts` | Test object builders |
+| Pattern           | Example                                | Purpose                   |
+| ----------------- | -------------------------------------- | ------------------------- |
+| `*.middleware.ts` | `authenticate.middleware.ts`           | Express middleware        |
+| `*.client.ts`     | `redis-client.ts`, `prisma-client.ts`  | Infrastructure clients    |
+| `*.provider.ts`   | `jwt.provider.ts`, `oauth.provider.ts` | External service adapters |
+| `*.sender.ts`     | `email.sender.ts`                      | Outbound integrations     |
+| `*.service.ts`    | `cache.service.ts`                     | Shared services           |
+| `*.fixture.ts`    | `users.fixture.ts`                     | Static test data          |
+| `*.factory.ts`    | `user.factory.ts`                      | Test object builders      |
 
 ---
 
@@ -100,16 +100,16 @@
 
 ## Environment Variables
 
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `NODE_ENV` | Yes | `development` | Environment mode |
-| `PORT` | Yes | `3000` | HTTP server port |
-| `DATABASE_URL` | Yes | — | PostgreSQL connection string |
-| `REDIS_URL` | Yes | — | Redis/Valkey connection string |
-| `JWT_SECRET` | Yes | — | Secret key (min 32 chars) |
-| `JWT_EXPIRES_IN` | No | `15m` | Token expiration |
-| `LOG_LEVEL` | No | `info` | Pino log level |
-| `CORS_ORIGINS` | No | `*` | Allowed origins (comma-separated) |
+| Variable         | Required | Default       | Description                       |
+| ---------------- | -------- | ------------- | --------------------------------- |
+| `NODE_ENV`       | Yes      | `development` | Environment mode                  |
+| `PORT`           | Yes      | `3000`        | HTTP server port                  |
+| `DATABASE_URL`   | Yes      | —             | PostgreSQL connection string      |
+| `REDIS_URL`      | Yes      | —             | Redis/Valkey connection string    |
+| `JWT_SECRET`     | Yes      | —             | Secret key (min 32 chars)         |
+| `JWT_EXPIRES_IN` | No       | `15m`         | Token expiration                  |
+| `LOG_LEVEL`      | No       | `info`        | Pino log level                    |
+| `CORS_ORIGINS`   | No       | `*`           | Allowed origins (comma-separated) |
 
 ### Example `.env`
 
@@ -128,9 +128,9 @@ CORS_ORIGINS=http://localhost:3000,http://localhost:5173
 
 ## Docker Services
 
-| Service | Port | Purpose |
-|---------|------|---------|
-| PostgreSQL | 5432 | Primary database |
+| Service      | Port | Purpose                                 |
+| ------------ | ---- | --------------------------------------- |
+| PostgreSQL   | 5432 | Primary database                        |
 | Redis/Valkey | 6379 | Caching + rate limiting + queue backend |
 
 ```bash
@@ -176,13 +176,13 @@ npm run typecheck        # Run TypeScript type check
 
 ## When to Create a New Feature
 
-| ✅ Create New Feature | ❌ Extend Existing |
-|----------------------|-------------------|
-| Distinct domain noun (`User`, `Order`) | Same noun (`UserProfile`, `UserSettings`) |
-| Independent lifecycle | Shared lifecycle |
-| Separate API routes (`/users`, `/orders`) | Same prefix (`/users/profile`) |
-| Unique business rules | Shared business context |
-| Different persistence (own table) | Same primary table |
+| ✅ Create New Feature                     | ❌ Extend Existing                        |
+| ----------------------------------------- | ----------------------------------------- |
+| Distinct domain noun (`User`, `Order`)    | Same noun (`UserProfile`, `UserSettings`) |
+| Independent lifecycle                     | Shared lifecycle                          |
+| Separate API routes (`/users`, `/orders`) | Same prefix (`/users/profile`)            |
+| Unique business rules                     | Shared business context                   |
+| Different persistence (own table)         | Same primary table                        |
 
 ---
 
@@ -204,8 +204,8 @@ npm run typecheck        # Run TypeScript type check
 
 ## Further Reading
 
-| Document | Purpose |
-|----------|---------|
-| [`express-api-architecture-reference.md`](./express-api-architecture-reference.md) | Comprehensive architectural theory |
-| [`folder-structure.md`](./folder-structure.md) | Complete folder structure reference |
-| [`docs/adr/`](./docs/adr/) | Architecture Decision Records |
+| Document                                                                           | Purpose                             |
+| ---------------------------------------------------------------------------------- | ----------------------------------- |
+| [`express-api-architecture-reference.md`](./express-api-architecture-reference.md) | Comprehensive architectural theory  |
+| [`folder-structure.md`](./folder-structure.md)                                     | Complete folder structure reference |
+| [`docs/adr/`](./docs/adr/)                                                         | Architecture Decision Records       |

@@ -13,7 +13,7 @@ vi.mock('@opentelemetry/auto-instrumentations-node', () => ({
   getNodeAutoInstrumentations: vi.fn(() => 'mock-instrumentation'),
 }));
 
-let initTracing: typeof import('../tracing.js')['initTracing'];
+let initTracing: (typeof import('../tracing.js'))['initTracing'];
 
 beforeAll(async () => {
   // Module loads; module-level initTracing() runs with mocks (harmless).

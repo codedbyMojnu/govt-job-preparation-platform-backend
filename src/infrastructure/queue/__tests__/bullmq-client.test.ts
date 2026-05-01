@@ -5,7 +5,7 @@ const mockRedisInstance = { on: mockOn };
 const MockRedis = vi.fn(() => mockRedisInstance);
 vi.mock('ioredis', () => ({ Redis: MockRedis }));
 
-let createBullMQClient: typeof import('../bullmq-client.js')['createBullMQClient'];
+let createBullMQClient: (typeof import('../bullmq-client.js'))['createBullMQClient'];
 
 beforeAll(async () => {
   const mod = await import('../bullmq-client.js');

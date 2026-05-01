@@ -47,12 +47,12 @@ Establish the complete project skeleton for a production-grade Express.js + Type
 
 **Toolchain:**
 
-| Concern | Tool |
-|---------|------|
-| Dev server | `tsx --watch src/server.ts` |
-| Type checking | `tsc --noEmit` |
+| Concern          | Tool                           |
+| ---------------- | ------------------------------ |
+| Dev server       | `tsx --watch src/server.ts`    |
+| Type checking    | `tsc --noEmit`                 |
 | Production build | `tsup` → ESM output to `dist/` |
-| Production run | `node dist/server.js` |
+| Production run   | `node dist/server.js`          |
 
 **tsconfig.json:**
 
@@ -67,19 +67,19 @@ Establish the complete project skeleton for a production-grade Express.js + Type
 
 **npm scripts:**
 
-| Script | Command |
-|--------|---------|
-| `dev` | `tsx --watch src/server.ts` |
-| `build` | `tsup` |
-| `start` | `node dist/server.js` |
-| `typecheck` | `tsc --noEmit` |
-| `lint` | `eslint .` |
-| `lint:fix` | `eslint . --fix` |
-| `format` | `prettier --write .` |
-| `test` | `vitest run` |
-| `test:unit` | `vitest run --config vitest.config.unit.ts` |
+| Script             | Command                                            |
+| ------------------ | -------------------------------------------------- |
+| `dev`              | `tsx --watch src/server.ts`                        |
+| `build`            | `tsup`                                             |
+| `start`            | `node dist/server.js`                              |
+| `typecheck`        | `tsc --noEmit`                                     |
+| `lint`             | `eslint .`                                         |
+| `lint:fix`         | `eslint . --fix`                                   |
+| `format`           | `prettier --write .`                               |
+| `test`             | `vitest run`                                       |
+| `test:unit`        | `vitest run --config vitest.config.unit.ts`        |
 | `test:integration` | `vitest run --config vitest.config.integration.ts` |
-| `test:coverage` | `vitest run --coverage` |
+| `test:coverage`    | `vitest run --coverage`                            |
 
 ### 2. ESLint & Prettier
 
@@ -116,16 +116,16 @@ Establish the complete project skeleton for a production-grade Express.js + Type
 
 **Environment variables (Phase 1):**
 
-| Variable | Required | Default | Validation |
-|----------|----------|---------|------------|
-| `NODE_ENV` | Yes | `development` | Enum: `development`, `production`, `test` |
-| `PORT` | Yes | `3000` | Positive integer |
-| `DATABASE_URL` | Yes | — | Valid URL format |
-| `REDIS_URL` | Yes | — | Valid URL format |
-| `JWT_SECRET` | Yes | — | Min 32 characters |
-| `JWT_EXPIRES_IN` | No | `15m` | String |
-| `LOG_LEVEL` | No | `info` | Enum: `fatal`, `error`, `warn`, `info`, `debug`, `trace` |
-| `CORS_ORIGINS` | No | `*` | Comma-separated string |
+| Variable         | Required | Default       | Validation                                               |
+| ---------------- | -------- | ------------- | -------------------------------------------------------- |
+| `NODE_ENV`       | Yes      | `development` | Enum: `development`, `production`, `test`                |
+| `PORT`           | Yes      | `3000`        | Positive integer                                         |
+| `DATABASE_URL`   | Yes      | —             | Valid URL format                                         |
+| `REDIS_URL`      | Yes      | —             | Valid URL format                                         |
+| `JWT_SECRET`     | Yes      | —             | Min 32 characters                                        |
+| `JWT_EXPIRES_IN` | No       | `15m`         | String                                                   |
+| `LOG_LEVEL`      | No       | `info`        | Enum: `fatal`, `error`, `warn`, `info`, `debug`, `trace` |
+| `CORS_ORIGINS`   | No       | `*`           | Comma-separated string                                   |
 
 **Behavior:**
 
@@ -135,12 +135,12 @@ Establish the complete project skeleton for a production-grade Express.js + Type
 
 **Error Scenarios:**
 
-| Condition | Expected Behavior |
-|-----------|-------------------|
-| Missing `DATABASE_URL` | Clear error message naming the variable, process exits code 1 |
-| `JWT_SECRET` is 10 chars | Zod rejects with min-length error, process exits code 1 |
-| `LOG_LEVEL` is `verbose` | Zod rejects with enum error, process exits code 1 |
-| All vars valid | Config object created, startup continues |
+| Condition                | Expected Behavior                                             |
+| ------------------------ | ------------------------------------------------------------- |
+| Missing `DATABASE_URL`   | Clear error message naming the variable, process exits code 1 |
+| `JWT_SECRET` is 10 chars | Zod rejects with min-length error, process exits code 1       |
+| `LOG_LEVEL` is `verbose` | Zod rejects with enum error, process exits code 1             |
+| All vars valid           | Config object created, startup continues                      |
 
 ### 4. Infrastructure Clients
 
@@ -251,6 +251,7 @@ On failure: throws `ValidationError` with structured per-field details.
 #### Stub Middleware Contract
 
 Stub middleware files (`authenticate`, `authorize`, `rate-limiter`) must:
+
 - Export the same function signature as their real implementation will
 - Call `next()` unconditionally
 - Include a `// TODO: implement in Phase 2/7` comment
@@ -262,12 +263,12 @@ Stub middleware files (`authenticate`, `authorize`, `rate-limiter`) must:
 
 **Contents:**
 
-| Field | Set By | Available To |
-|-------|--------|-------------|
-| `correlationId` | correlation-id middleware | Everything via AsyncLocalStorage |
-| `logger` | request-logger middleware | Controllers, services (child logger with correlationId bound) |
-| `userId` | authenticate middleware (Phase 2) | Controllers, services |
-| `scope` (Awilix container) | request-context middleware | Route handlers, controllers |
+| Field                      | Set By                            | Available To                                                  |
+| -------------------------- | --------------------------------- | ------------------------------------------------------------- |
+| `correlationId`            | correlation-id middleware         | Everything via AsyncLocalStorage                              |
+| `logger`                   | request-logger middleware         | Controllers, services (child logger with correlationId bound) |
+| `userId`                   | authenticate middleware (Phase 2) | Controllers, services                                         |
+| `scope` (Awilix container) | request-context middleware        | Route handlers, controllers                                   |
 
 ### 8. Shared Error Classes
 
@@ -275,12 +276,12 @@ Stub middleware files (`authenticate`, `authorize`, `rate-limiter`) must:
 
 **Files in `shared/errors/`:**
 
-| File | Contents |
-|------|----------|
-| `app-error.contract.ts` | Interface/abstract type for AppError |
-| `app-error.ts` | Base `AppError` class with `code`, `statusCode`, `message`, `isOperational` |
-| `http-errors.ts` | `BadRequestError` (400), `UnauthorizedError` (401), `ForbiddenError` (403), `NotFoundError` (404), `ConflictError` (409), `ValidationError` (422), `RateLimitError` (429), `InternalError` (500) |
-| `error-codes.ts` | Enum/const of machine-readable error codes |
+| File                    | Contents                                                                                                                                                                                         |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `app-error.contract.ts` | Interface/abstract type for AppError                                                                                                                                                             |
+| `app-error.ts`          | Base `AppError` class with `code`, `statusCode`, `message`, `isOperational`                                                                                                                      |
+| `http-errors.ts`        | `BadRequestError` (400), `UnauthorizedError` (401), `ForbiddenError` (403), `NotFoundError` (404), `ConflictError` (409), `ValidationError` (422), `RateLimitError` (429), `InternalError` (500) |
+| `error-codes.ts`        | Enum/const of machine-readable error codes                                                                                                                                                       |
 
 **Error response shape:**
 
@@ -306,9 +307,7 @@ Validation error response includes additional `details`:
     "statusCode": 422,
     "correlationId": "abc-123-def",
     "timestamp": "2026-03-15T10:00:00.000Z",
-    "details": [
-      { "field": "email", "message": "Invalid email format" }
-    ]
+    "details": [{ "field": "email", "message": "Invalid email format" }]
   }
 }
 ```
@@ -321,14 +320,14 @@ Validation error response includes additional `details`:
 
 **Phase 1 registrations:**
 
-| Registration | Scope | Resolves To |
-|-------------|-------|-------------|
-| `config` | Singleton | Validated config object |
-| `logger` | Singleton | Pino instance |
-| `prismaClient` | Singleton | PrismaClient instance |
-| `redisClient` | Singleton | Redis/ioredis instance |
-| `cacheService` | Singleton | Cache service (stub) |
-| `bullmqClient` | Singleton | BullMQ connection |
+| Registration   | Scope     | Resolves To             |
+| -------------- | --------- | ----------------------- |
+| `config`       | Singleton | Validated config object |
+| `logger`       | Singleton | Pino instance           |
+| `prismaClient` | Singleton | PrismaClient instance   |
+| `redisClient`  | Singleton | Redis/ioredis instance  |
+| `cacheService` | Singleton | Cache service (stub)    |
+| `bullmqClient` | Singleton | BullMQ connection       |
 
 Request-scoped registrations will be added in Phase 2+ as features are built.
 
@@ -403,11 +402,11 @@ Request-scoped registrations will be added in Phase 2+ as features are built.
 
 **Edge cases:**
 
-| Scenario | Behavior |
-|----------|----------|
-| Second SIGTERM/SIGINT during shutdown | Force-exit immediately (`process.exit(1)`) |
-| In-flight requests still active after 5s | Force-exit (`process.exit(1)`) |
-| All connections closed before 5s | Exit immediately with code 0 |
+| Scenario                                 | Behavior                                   |
+| ---------------------------------------- | ------------------------------------------ |
+| Second SIGTERM/SIGINT during shutdown    | Force-exit immediately (`process.exit(1)`) |
+| In-flight requests still active after 5s | Force-exit (`process.exit(1)`)             |
+| All connections closed before 5s         | Exit immediately with code 0               |
 
 ### 13. Docker Compose
 
@@ -415,10 +414,10 @@ Request-scoped registrations will be added in Phase 2+ as features are built.
 
 **Services:**
 
-| Service | Image | Port | Purpose |
-|---------|-------|------|---------|
-| PostgreSQL | `postgres:17` (latest) | 5432 | Primary database |
-| Redis/Valkey | `redis:7` (latest) | 6379 | Cache, rate limiting, queue backend |
+| Service      | Image                  | Port | Purpose                             |
+| ------------ | ---------------------- | ---- | ----------------------------------- |
+| PostgreSQL   | `postgres:17` (latest) | 5432 | Primary database                    |
+| Redis/Valkey | `redis:7` (latest)     | 6379 | Cache, rate limiting, queue backend |
 
 **Notes:**
 
@@ -467,11 +466,13 @@ Request-scoped registrations will be added in Phase 2+ as features are built.
 #### Verification Tests (Phase 1)
 
 **Unit test** — `src/config/__tests__/env-schema.test.ts`:
+
 - Verify env schema rejects missing `DATABASE_URL`
 - Verify env schema rejects `JWT_SECRET` shorter than 32 chars
 - Verify env schema accepts valid config
 
 **Integration test** — `src/features/health/__tests__/integration/routes.test.ts`:
+
 - `GET /health` returns `200` with `{ status: "ok", timestamp: "..." }`
 - Verify timestamp is a valid ISO-8601 string
 
@@ -576,42 +577,42 @@ project-root/
 
 ## Edge Cases & Failure Modes
 
-| Scenario | Decision | Rationale |
-|----------|----------|-----------|
-| Missing required env variable | Crash at startup with Zod error naming the variable | Fail fast — running without config leads to worse failures later |
-| Valid env vars but database unreachable | Crash at startup with connection error | No point accepting requests if DB is down |
-| Valid env vars but Redis unreachable | Crash at startup with connection error | Redis is required for cache, rate limiting, and queue |
-| SIGTERM received during request processing | Drain in-flight requests up to 5s, then force exit | Standard production pattern — avoid dropped requests during deploys |
-| Second SIGTERM during shutdown | Force-exit immediately (`process.exit(1)`) | Orchestrator is impatient — respect the kill signal |
-| Request to undefined route | Return structured 404 via not-found middleware | Consistent error shape for all error types |
-| Unhandled exception in controller/service | Caught by error-handler middleware, logged with stack trace, generic 500 returned | Never expose internal details to clients |
-| Zod validation failure on request body | Return 422 with per-field error details | Client needs to know which fields failed and why |
-| ESM + path alias mismatch in Vitest | Mirror aliases in vitest config via `resolve.alias` | Known gotcha — must be handled explicitly |
-| Prisma client import in wrong layer | Blocked by ESLint `no-restricted-imports` rule | Architectural boundary enforcement at lint time |
+| Scenario                                   | Decision                                                                          | Rationale                                                           |
+| ------------------------------------------ | --------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| Missing required env variable              | Crash at startup with Zod error naming the variable                               | Fail fast — running without config leads to worse failures later    |
+| Valid env vars but database unreachable    | Crash at startup with connection error                                            | No point accepting requests if DB is down                           |
+| Valid env vars but Redis unreachable       | Crash at startup with connection error                                            | Redis is required for cache, rate limiting, and queue               |
+| SIGTERM received during request processing | Drain in-flight requests up to 5s, then force exit                                | Standard production pattern — avoid dropped requests during deploys |
+| Second SIGTERM during shutdown             | Force-exit immediately (`process.exit(1)`)                                        | Orchestrator is impatient — respect the kill signal                 |
+| Request to undefined route                 | Return structured 404 via not-found middleware                                    | Consistent error shape for all error types                          |
+| Unhandled exception in controller/service  | Caught by error-handler middleware, logged with stack trace, generic 500 returned | Never expose internal details to clients                            |
+| Zod validation failure on request body     | Return 422 with per-field error details                                           | Client needs to know which fields failed and why                    |
+| ESM + path alias mismatch in Vitest        | Mirror aliases in vitest config via `resolve.alias`                               | Known gotcha — must be handled explicitly                           |
+| Prisma client import in wrong layer        | Blocked by ESLint `no-restricted-imports` rule                                    | Architectural boundary enforcement at lint time                     |
 
 ## Decisions Log
 
-| # | Decision | Alternatives Considered | Chosen Because |
-|---|----------|------------------------|----------------|
-| 1 | ESM (`"type": "module"`) | CommonJS | Modern standard, native in Node.js, future-proof |
-| 2 | Single path alias `@/` → `src/` | Multiple aliases (`@shared/`, `@features/`) | Matches architecture reference, simpler config, one convention to learn |
-| 3 | TypeScript strict + extra flags | Strict only | `noUncheckedIndexedAccess` and `exactOptionalPropertyTypes` catch real bugs |
-| 4 | `tsx` for dev | `ts-node`, `nodemon` | Wraps esbuild, fastest TS execution, native ESM |
-| 5 | `tsup` for production build | `tsc`, raw `esbuild` | esbuild speed with sensible defaults, less config than raw esbuild |
-| 6 | `tsc --noEmit` for type checking | Bundler-integrated type checking | Authoritative type checking, separate from fast compilation |
-| 7 | Full middleware pipeline in Phase 1 (stubs where needed) | Only implement middleware as needed per phase | Prevents middleware from being forgotten; stubs are trivial |
-| 8 | Simplified health endpoint (`200 + timestamp`) | Full dependency health checks | Pragmatic for Phase 1; can be enhanced later if needed |
-| 9 | Fail fast on startup (bad env or unreachable services) | Lazy connect, retry loop | Simplest, most predictable; Docker Compose handles service readiness |
-| 10 | Force-exit on second SIGTERM | Ignore duplicate signals | Respects orchestrator kill semantics |
-| 11 | Drain in-flight requests up to 5s on shutdown | Kill immediately | Standard production pattern; 5s timeout is the safety net |
-| 12 | Separate Vitest configs for unit/integration | Single config with filters | Clean separation; unit tests never accidentally hit DB |
-| 13 | Testcontainers for integration tests | Docker Compose for tests | Self-contained tests; CI needs no external `docker compose up` |
-| 14 | OTel stub in Phase 1 (no-op exporter) | Defer OTel entirely | Must be first import — retrofitting later means restructuring entry point |
-| 15 | Shared error classes in Phase 1 | Build per-feature as needed | Error handler middleware needs the full hierarchy from day one |
-| 16 | Prisma base schema only (no models) | Minimal User model to prove migrations | No fake models; migrations proven when real models arrive in Phase 2 |
-| 17 | ESLint import boundaries in Phase 1 | Defer to Phase 7 | Violations caught as written; no Phase 7 cleanup debt |
-| 18 | AsyncLocalStorage for correlation IDs | Pass correlationId through function arguments | Available anywhere in the async chain without threading through params |
-| 19 | Verification tests in Phase 1 | Trust that test config works | Proves entire pipeline (Vitest + TS + aliases + Testcontainers + Supertest) |
+| #   | Decision                                                 | Alternatives Considered                       | Chosen Because                                                              |
+| --- | -------------------------------------------------------- | --------------------------------------------- | --------------------------------------------------------------------------- |
+| 1   | ESM (`"type": "module"`)                                 | CommonJS                                      | Modern standard, native in Node.js, future-proof                            |
+| 2   | Single path alias `@/` → `src/`                          | Multiple aliases (`@shared/`, `@features/`)   | Matches architecture reference, simpler config, one convention to learn     |
+| 3   | TypeScript strict + extra flags                          | Strict only                                   | `noUncheckedIndexedAccess` and `exactOptionalPropertyTypes` catch real bugs |
+| 4   | `tsx` for dev                                            | `ts-node`, `nodemon`                          | Wraps esbuild, fastest TS execution, native ESM                             |
+| 5   | `tsup` for production build                              | `tsc`, raw `esbuild`                          | esbuild speed with sensible defaults, less config than raw esbuild          |
+| 6   | `tsc --noEmit` for type checking                         | Bundler-integrated type checking              | Authoritative type checking, separate from fast compilation                 |
+| 7   | Full middleware pipeline in Phase 1 (stubs where needed) | Only implement middleware as needed per phase | Prevents middleware from being forgotten; stubs are trivial                 |
+| 8   | Simplified health endpoint (`200 + timestamp`)           | Full dependency health checks                 | Pragmatic for Phase 1; can be enhanced later if needed                      |
+| 9   | Fail fast on startup (bad env or unreachable services)   | Lazy connect, retry loop                      | Simplest, most predictable; Docker Compose handles service readiness        |
+| 10  | Force-exit on second SIGTERM                             | Ignore duplicate signals                      | Respects orchestrator kill semantics                                        |
+| 11  | Drain in-flight requests up to 5s on shutdown            | Kill immediately                              | Standard production pattern; 5s timeout is the safety net                   |
+| 12  | Separate Vitest configs for unit/integration             | Single config with filters                    | Clean separation; unit tests never accidentally hit DB                      |
+| 13  | Testcontainers for integration tests                     | Docker Compose for tests                      | Self-contained tests; CI needs no external `docker compose up`              |
+| 14  | OTel stub in Phase 1 (no-op exporter)                    | Defer OTel entirely                           | Must be first import — retrofitting later means restructuring entry point   |
+| 15  | Shared error classes in Phase 1                          | Build per-feature as needed                   | Error handler middleware needs the full hierarchy from day one              |
+| 16  | Prisma base schema only (no models)                      | Minimal User model to prove migrations        | No fake models; migrations proven when real models arrive in Phase 2        |
+| 17  | ESLint import boundaries in Phase 1                      | Defer to Phase 7                              | Violations caught as written; no Phase 7 cleanup debt                       |
+| 18  | AsyncLocalStorage for correlation IDs                    | Pass correlationId through function arguments | Available anywhere in the async chain without threading through params      |
+| 19  | Verification tests in Phase 1                            | Trust that test config works                  | Proves entire pipeline (Vitest + TS + aliases + Testcontainers + Supertest) |
 
 ## Scope Boundaries
 
@@ -676,35 +677,36 @@ src/server.ts
 
 ### Key Packages (Phase 1)
 
-| Package | Purpose |
-|---------|---------|
-| `express` | HTTP framework |
-| `awilix` | Dependency injection |
-| `zod` | Schema validation (env + request) |
-| `pino` | Structured logging |
-| `pino-pretty` | Dev-mode log formatting |
-| `@prisma/client` + `prisma` | Database ORM |
-| `ioredis` | Redis client |
-| `bullmq` | Job queue (connection only in Phase 1) |
-| `@opentelemetry/sdk-node` | OTel SDK |
-| `@opentelemetry/auto-instrumentations-node` | Auto-instrumentation |
-| `helmet` | Security headers |
-| `cors` | CORS middleware |
-| `tsx` | Dev runtime |
-| `tsup` | Production build |
-| `typescript` | Type checking |
-| `eslint` | Linting |
-| `prettier` | Formatting |
-| `vitest` | Test runner |
-| `supertest` | HTTP testing |
-| `testcontainers` | Ephemeral test containers |
-| `@testcontainers/postgresql` | PostgreSQL test container |
-| `eslint-plugin-boundaries` | Import boundary enforcement |
+| Package                                     | Purpose                                |
+| ------------------------------------------- | -------------------------------------- |
+| `express`                                   | HTTP framework                         |
+| `awilix`                                    | Dependency injection                   |
+| `zod`                                       | Schema validation (env + request)      |
+| `pino`                                      | Structured logging                     |
+| `pino-pretty`                               | Dev-mode log formatting                |
+| `@prisma/client` + `prisma`                 | Database ORM                           |
+| `ioredis`                                   | Redis client                           |
+| `bullmq`                                    | Job queue (connection only in Phase 1) |
+| `@opentelemetry/sdk-node`                   | OTel SDK                               |
+| `@opentelemetry/auto-instrumentations-node` | Auto-instrumentation                   |
+| `helmet`                                    | Security headers                       |
+| `cors`                                      | CORS middleware                        |
+| `tsx`                                       | Dev runtime                            |
+| `tsup`                                      | Production build                       |
+| `typescript`                                | Type checking                          |
+| `eslint`                                    | Linting                                |
+| `prettier`                                  | Formatting                             |
+| `vitest`                                    | Test runner                            |
+| `supertest`                                 | HTTP testing                           |
+| `testcontainers`                            | Ephemeral test containers              |
+| `@testcontainers/postgresql`                | PostgreSQL test container              |
+| `eslint-plugin-boundaries`                  | Import boundary enforcement            |
 
 ## Open Questions
 
 - None — all decisions resolved in planning session.
 
 ---
+
 _This plan artifact is the input for /taskgen._
 _Review this document, then run: "/taskgen specs/plans/PLAN-phase1-scaffold-infrastructure.md"_

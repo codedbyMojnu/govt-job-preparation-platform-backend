@@ -8,6 +8,7 @@
 ### Task 14: Awilix DI Container
 
 **Files:**
+
 - Create: `src/container.ts`
 
 - [ ] **Step 1: Create container.ts**
@@ -51,7 +52,9 @@ container.register({
   ).singleton(),
   prismaClient: asFunction(() => createPrismaClient(databaseConfig.url)).singleton(),
   redisClient: asFunction(() => createRedisClient(redisConfig.url)).singleton(),
-  cacheService: asFunction(({ redisClient }: Cradle) => createCacheService(redisClient)).singleton(),
+  cacheService: asFunction(({ redisClient }: Cradle) =>
+    createCacheService(redisClient),
+  ).singleton(),
   bullmqClient: asFunction(() => createBullMQClient(redisConfig.url)).singleton(),
 });
 
@@ -75,6 +78,7 @@ git commit -m "feat: add Awilix DI container with all Phase 1 registrations"
 ### Task 15: Core Middleware (Correlation ID, Request Logger, Request Context)
 
 **Files:**
+
 - Create: `src/infrastructure/http/middleware/correlation-id.middleware.ts`
 - Create: `src/infrastructure/http/middleware/request-logger.middleware.ts`
 - Create: `src/infrastructure/http/middleware/request-context.middleware.ts`
@@ -161,6 +165,7 @@ git commit -m "feat: add correlation-id, request-logger, and request-context mid
 ### Task 16: Stub Middleware (Rate Limiter, Authenticate, Authorize)
 
 **Files:**
+
 - Create: `src/infrastructure/http/middleware/rate-limiter.middleware.ts`
 - Create: `src/infrastructure/http/middleware/authenticate.middleware.ts`
 - Create: `src/infrastructure/http/middleware/authorize.middleware.ts`
@@ -214,6 +219,7 @@ git commit -m "feat: add stub middleware for rate-limiter, authenticate, authori
 ### Task 17: Validate Middleware + Unit Test
 
 **Files:**
+
 - Create: `src/infrastructure/http/middleware/validate.middleware.ts`
 - Test: `src/infrastructure/http/middleware/__tests__/validate.test.ts`
 
@@ -377,6 +383,7 @@ git commit -m "feat: add validate middleware with Zod schema support"
 ### Task 18: Not-Found & Error Handler Middleware + Unit Tests
 
 **Files:**
+
 - Create: `src/infrastructure/http/middleware/not-found.middleware.ts`
 - Create: `src/infrastructure/http/middleware/error-handler.middleware.ts`
 - Test: `src/infrastructure/http/middleware/__tests__/error-handler.test.ts`
@@ -388,11 +395,7 @@ Create `src/infrastructure/http/middleware/__tests__/error-handler.test.ts`:
 ```typescript
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { createErrorHandlerMiddleware } from '../error-handler.middleware.js';
-import {
-  NotFoundError,
-  ValidationError,
-  InternalError,
-} from '@/shared/errors/http-errors.js';
+import { NotFoundError, ValidationError, InternalError } from '@/shared/errors/http-errors.js';
 import type { Request, Response, NextFunction } from 'express';
 
 describe('errorHandlerMiddleware', () => {

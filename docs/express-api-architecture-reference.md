@@ -57,15 +57,15 @@ The architecture is governed by five non-negotiable principles that inform every
 
 ### Key Directories
 
-| Directory | Purpose |
-|-----------|---------|
-| `prisma/` | Database schema (split by domain), migrations, seed scripts |
-| `src/config/` | Environment validation, typed configuration objects |
-| `src/features/` | Business domain modules (one folder per domain) |
+| Directory             | Purpose                                                                   |
+| --------------------- | ------------------------------------------------------------------------- |
+| `prisma/`             | Database schema (split by domain), migrations, seed scripts               |
+| `src/config/`         | Environment validation, typed configuration objects                       |
+| `src/features/`       | Business domain modules (one folder per domain)                           |
 | `src/infrastructure/` | Cross-cutting technical concerns (HTTP, DB, cache, queues, observability) |
-| `src/shared/` | Pure TypeScript utilities (no external dependencies) |
-| `tests/` | Global test infrastructure (helpers, fixtures, factories) |
-| `docs/adr/` | Architecture Decision Records |
+| `src/shared/`         | Pure TypeScript utilities (no external dependencies)                      |
+| `tests/`              | Global test infrastructure (helpers, fixtures, factories)                 |
+| `docs/adr/`           | Architecture Decision Records                                             |
 
 ---
 
@@ -137,7 +137,7 @@ The `infra/` directory contains the concrete implementations. The primary file i
 
 Additional adapter files may live here for feature-specific external service integrations — email sending, payment processing, file storage, etc.
 
-### __tests__/ — Co-located Tests
+### **tests**/ — Co-located Tests
 
 Tests are co-located with the feature they test, not separated into a parallel test directory. This means when a developer opens a feature folder, they see everything: the code and its tests. The testing approach is detailed in Section 22.
 

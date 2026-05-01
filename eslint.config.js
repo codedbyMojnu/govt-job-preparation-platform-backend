@@ -84,7 +84,10 @@ export default tseslint.config(
   },
   // Framework adapter utilities — allowed to import Express types
   {
-    files: ['src/shared/utils/async-handler.ts', 'src/shared/utils/__tests__/async-handler.test.ts'],
+    files: [
+      'src/shared/utils/async-handler.ts',
+      'src/shared/utils/__tests__/async-handler.test.ts',
+    ],
     rules: {
       'no-restricted-imports': 'off',
     },

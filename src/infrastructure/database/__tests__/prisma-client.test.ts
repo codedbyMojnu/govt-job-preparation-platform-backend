@@ -3,7 +3,7 @@ import { describe, it, expect, vi, beforeAll, beforeEach } from 'vitest';
 const MockPrismaClient = vi.fn();
 vi.mock('@prisma/client', () => ({ PrismaClient: MockPrismaClient }));
 
-let createPrismaClient: typeof import('../prisma-client.js')['createPrismaClient'];
+let createPrismaClient: (typeof import('../prisma-client.js'))['createPrismaClient'];
 
 beforeAll(async () => {
   const mod = await import('../prisma-client.js');

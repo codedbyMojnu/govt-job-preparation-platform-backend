@@ -63,7 +63,10 @@ describe('envSchema', () => {
   });
 
   it('rejects JWT_SECRET shorter than 32 characters', () => {
-    const result = envSchema.safeParse({ ...validEnv, JWT_SECRET: 'abcdefghijklmnopqrstuvwxyzABCDE' }); // 31 chars
+    const result = envSchema.safeParse({
+      ...validEnv,
+      JWT_SECRET: 'abcdefghijklmnopqrstuvwxyzABCDE',
+    }); // 31 chars
     expect(result.success).toBe(false);
     if (!result.success) {
       expect(result.error.flatten().fieldErrors).toHaveProperty('JWT_SECRET');
@@ -71,7 +74,10 @@ describe('envSchema', () => {
   });
 
   it('accepts JWT_SECRET of exactly 32 characters with sufficient diversity', () => {
-    const result = envSchema.safeParse({ ...validEnv, JWT_SECRET: 'abcdefghijklmnopqrstuvwxyzABCDEF' }); // 32 chars
+    const result = envSchema.safeParse({
+      ...validEnv,
+      JWT_SECRET: 'abcdefghijklmnopqrstuvwxyzABCDEF',
+    }); // 32 chars
     expect(result.success).toBe(true);
   });
 

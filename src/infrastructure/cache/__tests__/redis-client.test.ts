@@ -5,7 +5,7 @@ const mockRedisInstance = { on: mockOn };
 const MockRedis = vi.fn(() => mockRedisInstance);
 vi.mock('ioredis', () => ({ Redis: MockRedis }));
 
-let createRedisClient: typeof import('../redis-client.js')['createRedisClient'];
+let createRedisClient: (typeof import('../redis-client.js'))['createRedisClient'];
 
 beforeAll(async () => {
   const mod = await import('../redis-client.js');

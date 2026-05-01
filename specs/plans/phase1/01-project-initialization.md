@@ -8,6 +8,7 @@
 ### Task 1: Create package.json
 
 **Files:**
+
 - Create: `package.json`
 
 - [ ] **Step 1: Create package.json**
@@ -91,6 +92,7 @@ git commit -m "chore: initialize package.json with all Phase 1 dependencies"
 ### Task 2: TypeScript & Build Config
 
 **Files:**
+
 - Create: `tsconfig.json`
 - Create: `tsup.config.ts`
 
@@ -167,6 +169,7 @@ git commit -m "chore: add TypeScript and tsup build config"
 ### Task 3: ESLint & Prettier Config
 
 **Files:**
+
 - Create: `eslint.config.js`
 - Create: `.prettierrc`
 
@@ -283,6 +286,7 @@ git commit -m "chore: add ESLint flat config and Prettier"
 ### Task 4: Vitest Unit Test Config
 
 **Files:**
+
 - Create: `vitest.config.unit.ts`
 
 - [ ] **Step 1: Create vitest.config.unit.ts**
@@ -336,6 +340,7 @@ git commit -m "chore: add Vitest unit test config"
 ### Task 5: Docker Compose, .env.example, .gitignore
 
 **Files:**
+
 - Create: `docker-compose.yml`
 - Create: `.env.example`
 - Create: `.gitignore`

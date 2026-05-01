@@ -99,13 +99,13 @@ project-root/
 
 **Test files:**
 
-| File | Type | Tests |
-|------|------|-------|
-| `src/shared/errors/__tests__/errors.test.ts` | Unit | AppError hierarchy, defaults, instanceof |
-| `src/config/__tests__/env-schema.test.ts` | Unit | Env schema validation, defaults, rejections |
-| `src/infrastructure/http/middleware/__tests__/validate.test.ts` | Unit | Zod validation, stripping, error shaping |
-| `src/infrastructure/http/middleware/__tests__/error-handler.test.ts` | Unit | Error formatting, operational vs programmer |
-| `src/features/health/__tests__/integration/routes.test.ts` | Integration | Health endpoint returns 200 with expected shape |
+| File                                                                 | Type        | Tests                                           |
+| -------------------------------------------------------------------- | ----------- | ----------------------------------------------- |
+| `src/shared/errors/__tests__/errors.test.ts`                         | Unit        | AppError hierarchy, defaults, instanceof        |
+| `src/config/__tests__/env-schema.test.ts`                            | Unit        | Env schema validation, defaults, rejections     |
+| `src/infrastructure/http/middleware/__tests__/validate.test.ts`      | Unit        | Zod validation, stripping, error shaping        |
+| `src/infrastructure/http/middleware/__tests__/error-handler.test.ts` | Unit        | Error formatting, operational vs programmer     |
+| `src/features/health/__tests__/integration/routes.test.ts`           | Integration | Health endpoint returns 200 with expected shape |
 
 ---
 
@@ -114,6 +114,7 @@ project-root/
 ### Task 1: Create package.json
 
 **Files:**
+
 - Create: `package.json`
 
 - [ ] **Step 1: Create package.json**
@@ -197,6 +198,7 @@ git commit -m "chore: initialize package.json with all Phase 1 dependencies"
 ### Task 2: TypeScript & Build Config
 
 **Files:**
+
 - Create: `tsconfig.json`
 - Create: `tsup.config.ts`
 
@@ -273,6 +275,7 @@ git commit -m "chore: add TypeScript and tsup build config"
 ### Task 3: ESLint & Prettier Config
 
 **Files:**
+
 - Create: `eslint.config.js`
 - Create: `.prettierrc`
 
@@ -389,6 +392,7 @@ git commit -m "chore: add ESLint flat config and Prettier"
 ### Task 4: Vitest Unit Test Config
 
 **Files:**
+
 - Create: `vitest.config.unit.ts`
 
 - [ ] **Step 1: Create vitest.config.unit.ts**
@@ -442,6 +446,7 @@ git commit -m "chore: add Vitest unit test config"
 ### Task 5: Docker Compose, .env.example, .gitignore
 
 **Files:**
+
 - Create: `docker-compose.yml`
 - Create: `.env.example`
 - Create: `.gitignore`
@@ -522,6 +527,7 @@ git commit -m "chore: add Docker Compose, env example, and gitignore"
 ### Task 6: Shared Constants & Types
 
 **Files:**
+
 - Create: `src/shared/constants/http-status.ts`
 - Create: `src/shared/constants/app.constants.ts`
 - Create: `src/shared/types/common.types.ts`
@@ -631,6 +637,7 @@ git commit -m "feat: add shared constants and types"
 ### Task 7: Shared Error Classes + Unit Tests
 
 **Files:**
+
 - Create: `src/shared/errors/error-codes.ts`
 - Create: `src/shared/errors/app-error.contract.ts`
 - Create: `src/shared/errors/app-error.ts`
@@ -878,7 +885,11 @@ export class ValidationError extends AppError {
 
 export class RateLimitError extends AppError {
   constructor(message = 'Too many requests') {
-    super({ code: ErrorCode.RATE_LIMIT_EXCEEDED, message, statusCode: HttpStatus.TOO_MANY_REQUESTS });
+    super({
+      code: ErrorCode.RATE_LIMIT_EXCEEDED,
+      message,
+      statusCode: HttpStatus.TOO_MANY_REQUESTS,
+    });
   }
 }
 
@@ -911,6 +922,7 @@ git commit -m "feat: add shared error class hierarchy with unit tests"
 ### Task 8: Shared Utils
 
 **Files:**
+
 - Create: `src/shared/utils/async-handler.ts`
 - Create: `src/shared/utils/correlation-id.ts`
 
@@ -960,6 +972,7 @@ git commit -m "feat: add async-handler and correlation-id utils"
 ### Task 9: Environment Schema & Config Modules + Unit Tests
 
 **Files:**
+
 - Create: `src/config/env.schema.ts`
 - Create: `src/config/index.ts`
 - Create: `src/config/database.ts`
@@ -1168,6 +1181,7 @@ git commit -m "feat: add env schema validation and config modules"
 ### Task 10: Pino Logger
 
 **Files:**
+
 - Create: `src/infrastructure/observability/logger.ts`
 
 - [ ] **Step 1: Create logger.ts**
@@ -1209,6 +1223,7 @@ git commit -m "feat: add Pino logger factory"
 ### Task 11: OpenTelemetry Tracing & Metrics Stubs
 
 **Files:**
+
 - Create: `src/infrastructure/observability/tracing.ts`
 - Create: `src/infrastructure/observability/metrics.ts`
 
@@ -1257,6 +1272,7 @@ git commit -m "feat: add OpenTelemetry tracing and metrics stubs"
 ### Task 12: Prisma Setup
 
 **Files:**
+
 - Create: `prisma/schema/base.prisma`
 - Create: `src/infrastructure/database/prisma-client.ts`
 
@@ -1326,6 +1342,7 @@ git commit -m "feat: add Prisma base schema, seed scaffold, and client factory"
 ### Task 13: Redis Client, Cache Service Stub & BullMQ Connection
 
 **Files:**
+
 - Create: `src/infrastructure/cache/redis-client.ts`
 - Create: `src/infrastructure/cache/cache.service.ts`
 - Create: `src/infrastructure/queue/bullmq-client.ts`
@@ -1404,6 +1421,7 @@ git commit -m "feat: add Redis client, cache service stub, and BullMQ connection
 ### Task 14: Awilix DI Container
 
 **Files:**
+
 - Create: `src/container.ts`
 
 - [ ] **Step 1: Create container.ts**
@@ -1447,7 +1465,9 @@ container.register({
   ).singleton(),
   prismaClient: asFunction(() => createPrismaClient(databaseConfig.url)).singleton(),
   redisClient: asFunction(() => createRedisClient(redisConfig.url)).singleton(),
-  cacheService: asFunction(({ redisClient }: Cradle) => createCacheService(redisClient)).singleton(),
+  cacheService: asFunction(({ redisClient }: Cradle) =>
+    createCacheService(redisClient),
+  ).singleton(),
   bullmqClient: asFunction(() => createBullMQClient(redisConfig.url)).singleton(),
 });
 
@@ -1471,6 +1491,7 @@ git commit -m "feat: add Awilix DI container with all Phase 1 registrations"
 ### Task 15: Core Middleware (Correlation ID, Request Logger, Request Context)
 
 **Files:**
+
 - Create: `src/infrastructure/http/middleware/correlation-id.middleware.ts`
 - Create: `src/infrastructure/http/middleware/request-logger.middleware.ts`
 - Create: `src/infrastructure/http/middleware/request-context.middleware.ts`
@@ -1557,6 +1578,7 @@ git commit -m "feat: add correlation-id, request-logger, and request-context mid
 ### Task 16: Stub Middleware (Rate Limiter, Authenticate, Authorize)
 
 **Files:**
+
 - Create: `src/infrastructure/http/middleware/rate-limiter.middleware.ts`
 - Create: `src/infrastructure/http/middleware/authenticate.middleware.ts`
 - Create: `src/infrastructure/http/middleware/authorize.middleware.ts`
@@ -1610,6 +1632,7 @@ git commit -m "feat: add stub middleware for rate-limiter, authenticate, authori
 ### Task 17: Validate Middleware + Unit Test
 
 **Files:**
+
 - Create: `src/infrastructure/http/middleware/validate.middleware.ts`
 - Test: `src/infrastructure/http/middleware/__tests__/validate.test.ts`
 
@@ -1773,6 +1796,7 @@ git commit -m "feat: add validate middleware with Zod schema support"
 ### Task 18: Not-Found & Error Handler Middleware + Unit Tests
 
 **Files:**
+
 - Create: `src/infrastructure/http/middleware/not-found.middleware.ts`
 - Create: `src/infrastructure/http/middleware/error-handler.middleware.ts`
 - Test: `src/infrastructure/http/middleware/__tests__/error-handler.test.ts`
@@ -1784,11 +1808,7 @@ Create `src/infrastructure/http/middleware/__tests__/error-handler.test.ts`:
 ```typescript
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { createErrorHandlerMiddleware } from '../error-handler.middleware.js';
-import {
-  NotFoundError,
-  ValidationError,
-  InternalError,
-} from '@/shared/errors/http-errors.js';
+import { NotFoundError, ValidationError, InternalError } from '@/shared/errors/http-errors.js';
 import type { Request, Response, NextFunction } from 'express';
 
 describe('errorHandlerMiddleware', () => {
@@ -1959,6 +1979,7 @@ git commit -m "feat: add not-found and error-handler middleware with unit tests"
 ### Task 19: Health Endpoint
 
 **Files:**
+
 - Create: `src/features/health/controller.ts`
 - Create: `src/features/health/routes.ts`
 - Create: `src/features/health/index.ts`
@@ -2007,6 +2028,7 @@ git commit -m "feat: add health endpoint"
 ### Task 20: Version Router & App Factory
 
 **Files:**
+
 - Create: `src/infrastructure/http/routes/v1.ts`
 - Create: `src/app.ts`
 
@@ -2091,6 +2113,7 @@ git commit -m "feat: add version router and Express app factory"
 ### Task 21: Server Bootstrap & Graceful Shutdown
 
 **Files:**
+
 - Modify: `src/server.ts` (replace placeholder)
 
 - [ ] **Step 1: Replace src/server.ts with full implementation**
@@ -2199,6 +2222,7 @@ git commit -m "feat: add server bootstrap with graceful shutdown"
 ### Task 22: Vitest Integration Config, Testcontainers & Verification Tests
 
 **Files:**
+
 - Create: `vitest.config.integration.ts`
 - Create: `tests/setup.ts`
 - Create: `tests/helpers/request.helper.ts`
@@ -2245,7 +2269,8 @@ export default async function setup() {
   // Set env vars for config validation (must happen before any app import)
   process.env['NODE_ENV'] = 'test';
   process.env['DATABASE_URL'] = pgContainer.getConnectionUri();
-  process.env['REDIS_URL'] = `redis://${redisContainer.getHost()}:${redisContainer.getMappedPort(6379)}`;
+  process.env['REDIS_URL'] =
+    `redis://${redisContainer.getHost()}:${redisContainer.getMappedPort(6379)}`;
   process.env['JWT_SECRET'] = 'integration-test-secret-key-at-least-32-characters';
   process.env['LOG_LEVEL'] = 'error';
 
@@ -2306,9 +2331,7 @@ describe('GET /health', () => {
 
   it('echoes provided x-correlation-id', async () => {
     const client = createTestClient();
-    const response = await client
-      .get('/health')
-      .set('x-correlation-id', 'my-custom-id');
+    const response = await client.get('/health').set('x-correlation-id', 'my-custom-id');
 
     expect(response.headers['x-correlation-id']).toBe('my-custom-id');
   });
@@ -2358,23 +2381,27 @@ git commit -m "feat: add integration test infrastructure and health endpoint ver
 After all 22 tasks are complete, verify every Phase 1 acceptance criterion:
 
 **Build & Quality:**
+
 - [ ] `npm run typecheck` exits clean
 - [ ] `npm run lint` exits clean
 - [ ] `npm run test:unit` passes all unit tests
 - [ ] `npm run test:integration` passes all integration tests (Docker must be running)
 
 **Runtime:**
+
 - [ ] `GET /health` returns `200 { status: "ok", timestamp: "..." }`
 - [ ] Unknown routes return `404` with structured error body including `code`, `correlationId`, `timestamp`
 - [ ] `x-correlation-id` header is echoed when provided, generated when absent
 - [ ] Server starts cleanly against Docker Compose stack (`docker compose up -d && npm run dev`)
 
 **Fail-fast Behavior:**
+
 - [ ] Starting with missing required env var (e.g., unset `DATABASE_URL`) logs clear error naming the variable and exits non-zero
 - [ ] Starting with `JWT_SECRET` shorter than 32 chars logs a Zod validation error and exits non-zero
 - [ ] Starting with unreachable database (wrong `DATABASE_URL`) crashes with a clear connection error
 - [ ] Starting with unreachable Redis (wrong `REDIS_URL`) crashes with a clear connection error
 
 **Graceful Shutdown:**
+
 - [ ] Server exits cleanly within 5 seconds when sent SIGTERM (`kill -TERM <pid>`)
 - [ ] A second SIGTERM during shutdown forces immediate exit
