@@ -3,6 +3,7 @@ import type { PrismaClient } from '@prisma/client';
 import { subExamCategoryMapper } from '../domain/mapper.js';
 import type { SubExamCategoryRepository } from '../domain/repository.contract.js';
 import type {
+  BulkUpsertSubExamCategoryItem,
   CreateSubExamCategoryInput,
   MeritListEntry,
   SubExamCategoryDto,
@@ -143,5 +144,44 @@ export class SubExamCategoryPrismaRepository implements SubExamCategoryRepositor
       totalWrong: r._sum.totalWrong ?? 0,
       examsTaken: r._count,
     }));
+  }
+
+  async bulkUpsert(items: BulkUpsertSubExamCategoryItem[]): Promise<SubExamCategoryDto[]> {
+    return this.prisma.$transaction(async (tx) => {
+      const results: SubExamCategoryDto[] = [];
+      for (const item of items) {
+        if (item.id) {
+          const updated = await tx.subExamCategory.update({
+            where: { id: item.id },
+            data: {
+              examCategoryId: item.examCategoryId,
+              name: item.name,
+              slug: item.slug,
+              description: item.description ?? null,
+              sortOrder: item.sortOrder ?? 0,
+              isActive: item.isActive ?? true,
+            },
+          });
+          results.push(subExamCategoryMapper.toDto(updated));
+        } else {
+          const created = await tx.subExamCategory.create({
+            data: {
+              examCategoryId: item.examCategoryId,
+              name: item.name,
+              slug: item.slug,
+              description: item.description ?? null,
+              sortOrder: item.sortOrder ?? 0,
+              isActive: item.isActive ?? true,
+            },
+          });
+          results.push(subExamCategoryMapper.toDto(created));
+        }
+      }
+      return results;
+    });
+  }
+
+  async bulkDelete(ids: string[]): Promise<void> {
+    await this.prisma.subExamCategory.deleteMany({ where: { id: { in: ids } } });
   }
 }

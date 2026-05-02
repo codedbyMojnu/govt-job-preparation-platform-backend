@@ -1,7 +1,12 @@
 import { NotFoundError } from '../../../shared/errors/http-errors.js';
 
 import type { NotificationRepository } from './repository.contract.js';
-import type { CreateNotificationInput, NotificationDto, UpdateNotificationInput } from './types.js';
+import type {
+  BulkUpsertNotificationItem,
+  CreateNotificationInput,
+  NotificationDto,
+  UpdateNotificationInput,
+} from './types.js';
 
 export class NotificationService {
   constructor(private readonly repository: NotificationRepository) {}
@@ -48,5 +53,13 @@ export class NotificationService {
 
   async getUnreadCount(userId: string): Promise<number> {
     return this.repository.getUnreadCount(userId);
+  }
+
+  async bulkUpsert(items: BulkUpsertNotificationItem[]): Promise<NotificationDto[]> {
+    return this.repository.bulkUpsert(items);
+  }
+
+  async bulkDelete(ids: string[]): Promise<void> {
+    return this.repository.bulkDelete(ids);
   }
 }

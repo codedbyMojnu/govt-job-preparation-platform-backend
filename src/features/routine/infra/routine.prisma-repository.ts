@@ -2,7 +2,7 @@ import type { PrismaClient } from '@prisma/client';
 
 import { routineMapper } from '../domain/mapper.js';
 import type { RoutineRepository } from '../domain/repository.contract.js';
-import type { CreateRoutineInput, RoutineDto, UpdateRoutineInput } from '../domain/types.js';
+import type { BulkUpsertRoutineItem, CreateRoutineInput, RoutineDto, UpdateRoutineInput } from '../domain/types.js';
 
 export class RoutinePrismaRepository implements RoutineRepository {
   constructor(private readonly prisma: PrismaClient) {}
@@ -60,5 +60,51 @@ export class RoutinePrismaRepository implements RoutineRepository {
 
   async delete(id: string): Promise<void> {
     await this.prisma.routine.delete({ where: { id } });
+  }
+
+  async bulkUpsert(items: BulkUpsertRoutineItem[]): Promise<RoutineDto[]> {
+    const results: RoutineDto[] = [];
+    await this.prisma.$transaction(async (tx) => {
+      for (const item of items) {
+        if (item.id) {
+          const updated = await tx.routine.update({
+            where: { id: item.id },
+            data: {
+              date: new Date(item.date),
+              title: item.title,
+              totalMarks: item.totalMarks,
+              duration: item.duration,
+              subject: item.subject,
+              topics: item.topics ?? null,
+              sourceMaterial: item.sourceMaterial ?? null,
+              description: item.description ?? null,
+              ...(item.isActive !== undefined && { isActive: item.isActive }),
+            },
+          });
+          results.push(routineMapper.toDto(updated));
+        } else {
+          const created = await tx.routine.create({
+            data: {
+              subExamCategoryId: item.subExamCategoryId,
+              date: new Date(item.date),
+              title: item.title,
+              totalMarks: item.totalMarks,
+              duration: item.duration,
+              subject: item.subject,
+              topics: item.topics ?? null,
+              sourceMaterial: item.sourceMaterial ?? null,
+              description: item.description ?? null,
+              isActive: item.isActive ?? true,
+            },
+          });
+          results.push(routineMapper.toDto(created));
+        }
+      }
+    });
+    return results;
+  }
+
+  async bulkDelete(ids: string[]): Promise<void> {
+    await this.prisma.routine.deleteMany({ where: { id: { in: ids } } });
   }
 }

@@ -2,6 +2,7 @@ import { BadRequestError, NotFoundError } from '../../../shared/errors/http-erro
 
 import type { PackageRepository } from './repository.contract.js';
 import type {
+  BulkUpsertPackageItem,
   CreatePackageInput,
   PackageDto,
   PaymentTransactionDto,
@@ -140,5 +141,13 @@ export class PackageService {
 
   async updateUserProfile(userId: string, input: UpdateProfileInput): Promise<UserProfileDto> {
     return this.repository.updateUserProfile(userId, input);
+  }
+
+  async bulkUpsertPackages(items: BulkUpsertPackageItem[]): Promise<PackageDto[]> {
+    return this.repository.bulkUpsertPackages(items);
+  }
+
+  async bulkDeletePackages(ids: string[]): Promise<void> {
+    return this.repository.bulkDeletePackages(ids);
   }
 }

@@ -2,7 +2,11 @@ import type { Request, Response } from 'express';
 
 import { HttpStatus } from '../../../../shared/constants/http-status.js';
 import type { ExamCategoryService } from '../../domain/exam-category.service.js';
-import type { CreateExamCategoryInput, UpdateExamCategoryInput } from '../../domain/types.js';
+import type {
+  BulkUpsertExamCategoryItem,
+  CreateExamCategoryInput,
+  UpdateExamCategoryInput,
+} from '../../domain/types.js';
 
 export class ExamCategoryController {
   constructor(private readonly service: ExamCategoryService) {}
@@ -32,6 +36,18 @@ export class ExamCategoryController {
 
   async delete(req: Request, res: Response): Promise<void> {
     await this.service.delete(req.params.id!);
+    res.status(HttpStatus.NO_CONTENT).send();
+  }
+
+  async bulkUpsert(req: Request, res: Response): Promise<void> {
+    const items: BulkUpsertExamCategoryItem[] = req.body.items;
+    const result = await this.service.bulkUpsert(items);
+    res.status(HttpStatus.OK).json({ data: result });
+  }
+
+  async bulkDelete(req: Request, res: Response): Promise<void> {
+    const ids: string[] = req.body.ids;
+    await this.service.bulkDelete(ids);
     res.status(HttpStatus.NO_CONTENT).send();
   }
 }

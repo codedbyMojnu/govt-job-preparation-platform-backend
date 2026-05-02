@@ -5,6 +5,7 @@ import type {
   AnswerQuestionInput,
   AppSettingsDto,
   BulkUpsertQuestionItem,
+  BulkUpsertQuestionSetItem,
   CreateQuestionInput,
   CreateQuestionSetInput,
   ExamAttemptDto,
@@ -259,5 +260,13 @@ export class QuestionSetService {
 
   async updateAppSettings(input: UpdateAppSettingsInput): Promise<AppSettingsDto> {
     return this.repository.updateAppSettings(input);
+  }
+
+  async bulkUpsertSets(items: BulkUpsertQuestionSetItem[]): Promise<QuestionSetDto[]> {
+    return this.repository.bulkUpsertSets(items);
+  }
+
+  async bulkDeleteSets(ids: string[]): Promise<void> {
+    return this.repository.bulkDeleteSets(ids);
   }
 }

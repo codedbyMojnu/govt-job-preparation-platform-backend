@@ -1,4 +1,9 @@
-import type { CreateNotificationInput, NotificationDto, UpdateNotificationInput } from './types.js';
+import type {
+  BulkUpsertNotificationItem,
+  CreateNotificationInput,
+  NotificationDto,
+  UpdateNotificationInput,
+} from './types.js';
 
 export interface NotificationRepository {
   findForUser(userId: string, limit: number): Promise<NotificationDto[]>;
@@ -9,4 +14,6 @@ export interface NotificationRepository {
   delete(id: string): Promise<void>;
   markAsRead(userId: string, notificationId: string): Promise<void>;
   getUnreadCount(userId: string): Promise<number>;
+  bulkUpsert(items: BulkUpsertNotificationItem[]): Promise<NotificationDto[]>;
+  bulkDelete(ids: string[]): Promise<void>;
 }

@@ -2,7 +2,11 @@ import type { Request, Response } from 'express';
 
 import { HttpStatus } from '../../../../shared/constants/http-status.js';
 import type { NotificationService } from '../../domain/notification.service.js';
-import type { CreateNotificationInput, UpdateNotificationInput } from '../../domain/types.js';
+import type {
+  BulkUpsertNotificationItem,
+  CreateNotificationInput,
+  UpdateNotificationInput,
+} from '../../domain/types.js';
 
 export class NotificationController {
   constructor(private readonly service: NotificationService) {}
@@ -48,6 +52,18 @@ export class NotificationController {
 
   async delete(req: Request, res: Response): Promise<void> {
     await this.service.delete(req.params.id!);
+    res.status(HttpStatus.NO_CONTENT).send();
+  }
+
+  async bulkUpsert(req: Request, res: Response): Promise<void> {
+    const items: BulkUpsertNotificationItem[] = req.body.items;
+    const result = await this.service.bulkUpsert(items);
+    res.status(HttpStatus.OK).json({ data: result });
+  }
+
+  async bulkDelete(req: Request, res: Response): Promise<void> {
+    const ids: string[] = req.body.ids;
+    await this.service.bulkDelete(ids);
     res.status(HttpStatus.NO_CONTENT).send();
   }
 }

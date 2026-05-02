@@ -2,6 +2,7 @@ import { ConflictError, NotFoundError } from '../../../shared/errors/http-errors
 
 import type { SubExamCategoryRepository } from './repository.contract.js';
 import type {
+  BulkUpsertSubExamCategoryItem,
   CreateSubExamCategoryInput,
   MeritListEntry,
   SubExamCategoryDto,
@@ -65,5 +66,13 @@ export class SubExamCategoryService {
 
   async getMeritList(subExamCategoryId: string): Promise<MeritListEntry[]> {
     return this.repository.getMeritList(subExamCategoryId);
+  }
+
+  async bulkUpsert(items: BulkUpsertSubExamCategoryItem[]): Promise<SubExamCategoryDto[]> {
+    return this.repository.bulkUpsert(items);
+  }
+
+  async bulkDelete(ids: string[]): Promise<void> {
+    return this.repository.bulkDelete(ids);
   }
 }

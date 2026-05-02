@@ -2,6 +2,7 @@ import type { PrismaClient } from '@prisma/client';
 
 import type { NotificationRepository } from '../domain/repository.contract.js';
 import type {
+  BulkUpsertNotificationItem,
   CreateNotificationInput,
   NotificationDto,
   UpdateNotificationInput,
@@ -128,5 +129,57 @@ export class NotificationPrismaRepository implements NotificationRepository {
       },
     });
     return count;
+  }
+
+  async bulkUpsert(items: BulkUpsertNotificationItem[]): Promise<NotificationDto[]> {
+    const results: NotificationDto[] = [];
+    await this.prisma.$transaction(async (tx) => {
+      for (const item of items) {
+        if (item.id) {
+          const updated = await tx.notification.update({
+            where: { id: item.id },
+            data: {
+              title: item.title,
+              content: item.content,
+              type: item.type,
+              targetUserId: item.targetUserId ?? null,
+              ...(item.isActive !== undefined && { isActive: item.isActive }),
+            },
+          });
+          results.push({
+            id: updated.id,
+            title: updated.title,
+            content: updated.content,
+            type: updated.type,
+            targetUserId: updated.targetUserId,
+            isActive: updated.isActive,
+            createdAt: updated.createdAt,
+          });
+        } else {
+          const created = await tx.notification.create({
+            data: {
+              title: item.title,
+              content: item.content,
+              type: item.type,
+              targetUserId: item.targetUserId ?? null,
+            },
+          });
+          results.push({
+            id: created.id,
+            title: created.title,
+            content: created.content,
+            type: created.type,
+            targetUserId: created.targetUserId,
+            isActive: created.isActive,
+            createdAt: created.createdAt,
+          });
+        }
+      }
+    });
+    return results;
+  }
+
+  async bulkDelete(ids: string[]): Promise<void> {
+    await this.prisma.notification.deleteMany({ where: { id: { in: ids } } });
   }
 }

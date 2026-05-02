@@ -8,6 +8,8 @@ import { asyncHandler } from '../../../../shared/utils/async-handler.js';
 import { PackageService } from '../../domain/package.service.js';
 import { PackagePrismaRepository } from '../../infra/package.prisma-repository.js';
 import {
+  bulkDeletePackagesSchema,
+  bulkUpsertPackagesSchema,
   createPackageSchema,
   reviewTransactionSchema,
   submitPaymentSchema,
@@ -134,6 +136,22 @@ export function createPackageRoutes(container: AwilixContainer): Router {
     authorize('ADMIN'),
     validate({ body: reviewTransactionSchema }),
     asyncHandler((req, res) => controller.rejectTransaction(req, res)),
+  );
+
+  router.post(
+    '/admin/bulk-upsert',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: bulkUpsertPackagesSchema }),
+    asyncHandler((req, res) => controller.bulkUpsertPackages(req, res)),
+  );
+
+  router.delete(
+    '/admin/bulk-delete',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: bulkDeletePackagesSchema }),
+    asyncHandler((req, res) => controller.bulkDeletePackages(req, res)),
   );
 
   return router;

@@ -8,7 +8,12 @@ import { NotFoundError } from '../../../../shared/errors/http-errors.js';
 import { asyncHandler } from '../../../../shared/utils/async-handler.js';
 import { RoutineService } from '../../domain/routine.service.js';
 import { RoutinePrismaRepository } from '../../infra/routine.prisma-repository.js';
-import { createRoutineSchema, updateRoutineSchema } from '../validation.js';
+import {
+  bulkDeleteRoutinesSchema,
+  bulkUpsertRoutinesSchema,
+  createRoutineSchema,
+  updateRoutineSchema,
+} from '../validation.js';
 
 import { RoutineController } from './routine.controller.js';
 
@@ -58,6 +63,23 @@ export function createRoutineRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     asyncHandler((req, res) => controller.delete(req, res)),
+  );
+
+  // Admin: Bulk operations
+  router.post(
+    '/bulk-upsert',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: bulkUpsertRoutinesSchema }),
+    asyncHandler((req, res) => controller.bulkUpsert(req, res)),
+  );
+
+  router.delete(
+    '/bulk-delete',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: bulkDeleteRoutinesSchema }),
+    asyncHandler((req, res) => controller.bulkDelete(req, res)),
   );
 
   return router;

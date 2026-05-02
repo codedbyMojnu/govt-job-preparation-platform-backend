@@ -2,6 +2,7 @@ import type {
   AnswerQuestionInput,
   AppSettingsDto,
   BulkUpsertQuestionItem,
+  BulkUpsertQuestionSetItem,
   CreateQuestionInput,
   CreateQuestionSetInput,
   ExamAttemptDto,
@@ -75,4 +76,8 @@ export interface QuestionSetRepository {
   // Favorites
   toggleFavorite(userId: string, questionId: string): Promise<boolean>;
   isFavorite(userId: string, questionId: string): Promise<boolean>;
+
+  // Bulk operations (question-set level)
+  bulkUpsertSets(items: BulkUpsertQuestionSetItem[]): Promise<QuestionSetDto[]>;
+  bulkDeleteSets(ids: string[]): Promise<void>;
 }

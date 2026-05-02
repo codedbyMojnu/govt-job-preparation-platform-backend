@@ -7,7 +7,12 @@ import { validate } from '../../../../infrastructure/middleware/validate.js';
 import { asyncHandler } from '../../../../shared/utils/async-handler.js';
 import { ExamCategoryService } from '../../domain/exam-category.service.js';
 import { ExamCategoryPrismaRepository } from '../../infra/exam-category.prisma-repository.js';
-import { createExamCategorySchema, updateExamCategorySchema } from '../validation.js';
+import {
+  bulkDeleteExamCategoriesSchema,
+  bulkUpsertExamCategoriesSchema,
+  createExamCategorySchema,
+  updateExamCategorySchema,
+} from '../validation.js';
 
 import { ExamCategoryController } from './exam-category.controller.js';
 
@@ -31,6 +36,22 @@ export function createExamCategoryRoutes(container: AwilixContainer): Router {
   );
 
   // Admin routes
+  router.post(
+    '/bulk-upsert',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: bulkUpsertExamCategoriesSchema }),
+    asyncHandler((req, res) => controller.bulkUpsert(req, res)),
+  );
+
+  router.delete(
+    '/bulk-delete',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: bulkDeleteExamCategoriesSchema }),
+    asyncHandler((req, res) => controller.bulkDelete(req, res)),
+  );
+
   router.post(
     '/',
     authenticate,

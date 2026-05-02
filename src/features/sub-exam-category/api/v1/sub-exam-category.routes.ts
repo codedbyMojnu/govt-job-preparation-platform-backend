@@ -8,7 +8,12 @@ import { NotFoundError } from '../../../../shared/errors/http-errors.js';
 import { asyncHandler } from '../../../../shared/utils/async-handler.js';
 import { SubExamCategoryService } from '../../domain/sub-exam-category.service.js';
 import { SubExamCategoryPrismaRepository } from '../../infra/sub-exam-category.prisma-repository.js';
-import { createSubExamCategorySchema, updateSubExamCategorySchema } from '../validation.js';
+import {
+  bulkDeleteSubExamCategoriesSchema,
+  bulkUpsertSubExamCategoriesSchema,
+  createSubExamCategorySchema,
+  updateSubExamCategorySchema,
+} from '../validation.js';
 
 import { SubExamCategoryController } from './sub-exam-category.controller.js';
 
@@ -51,6 +56,23 @@ export function createSubExamCategoryRoutes(container: AwilixContainer): Router 
       req.params.categoryId = category.id;
       return controller.getUserSummary(req, res);
     }),
+  );
+
+  // Admin: Bulk operations (must be before /:id)
+  router.post(
+    '/bulk-upsert',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: bulkUpsertSubExamCategoriesSchema }),
+    asyncHandler((req, res) => controller.bulkUpsert(req, res)),
+  );
+
+  router.delete(
+    '/bulk-delete',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: bulkDeleteSubExamCategoriesSchema }),
+    asyncHandler((req, res) => controller.bulkDelete(req, res)),
   );
 
   // Admin: CRUD

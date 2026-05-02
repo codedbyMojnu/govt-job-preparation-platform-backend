@@ -23,3 +23,25 @@ export const updateRoutineSchema = z.object({
   description: z.string().max(5000).optional(),
   isActive: z.boolean().optional(),
 });
+
+const bulkUpsertRoutineItemSchema = z.object({
+  id: z.string().optional(),
+  subExamCategoryId: z.string().min(1),
+  date: z.string().min(1),
+  title: z.string().min(1).max(500),
+  totalMarks: z.number().positive(),
+  duration: z.number().int().positive(),
+  subject: z.string().min(1).max(200),
+  topics: z.string().max(2000).optional(),
+  sourceMaterial: z.string().max(500).optional(),
+  description: z.string().max(5000).optional(),
+  isActive: z.boolean().optional(),
+});
+
+export const bulkUpsertRoutinesSchema = z.object({
+  routines: z.array(bulkUpsertRoutineItemSchema).min(1).max(200),
+});
+
+export const bulkDeleteRoutinesSchema = z.object({
+  ids: z.array(z.string().min(1)).min(1).max(200),
+});

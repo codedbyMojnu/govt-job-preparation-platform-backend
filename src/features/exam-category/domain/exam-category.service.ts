@@ -1,7 +1,12 @@
 import { ConflictError, NotFoundError } from '../../../shared/errors/http-errors.js';
 
 import type { ExamCategoryRepository } from './repository.contract.js';
-import type { CreateExamCategoryInput, ExamCategoryDto, UpdateExamCategoryInput } from './types.js';
+import type {
+  BulkUpsertExamCategoryItem,
+  CreateExamCategoryInput,
+  ExamCategoryDto,
+  UpdateExamCategoryInput,
+} from './types.js';
 
 export class ExamCategoryService {
   constructor(private readonly repository: ExamCategoryRepository) {}
@@ -54,5 +59,13 @@ export class ExamCategoryService {
       throw new NotFoundError('Exam category not found');
     }
     return this.repository.delete(id);
+  }
+
+  async bulkUpsert(items: BulkUpsertExamCategoryItem[]): Promise<ExamCategoryDto[]> {
+    return this.repository.bulkUpsert(items);
+  }
+
+  async bulkDelete(ids: string[]): Promise<void> {
+    return this.repository.bulkDelete(ids);
   }
 }

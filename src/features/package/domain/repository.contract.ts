@@ -1,4 +1,5 @@
 import type {
+  BulkUpsertPackageItem,
   CreatePackageInput,
   PackageDto,
   PaymentTransactionDto,
@@ -42,4 +43,8 @@ export interface PackageRepository {
   // Profile
   getUserProfile(userId: string): Promise<UserProfileDto | null>;
   updateUserProfile(userId: string, input: UpdateProfileInput): Promise<UserProfileDto>;
+
+  // Bulk operations
+  bulkUpsertPackages(items: BulkUpsertPackageItem[]): Promise<PackageDto[]>;
+  bulkDeletePackages(ids: string[]): Promise<void>;
 }

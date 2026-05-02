@@ -5,6 +5,7 @@ import type { QuestionSetService } from '../../domain/question-set.service.js';
 import type {
   AnswerQuestionInput,
   BulkUpsertQuestionItem,
+  BulkUpsertQuestionSetItem,
   CreateQuestionInput,
   CreateQuestionSetInput,
   UpdateAppSettingsInput,
@@ -196,5 +197,17 @@ export class QuestionSetController {
     const set = await this.service.getById(req.params.id!);
     const updated = await this.service.update(req.params.id!, { isFree: !set.isFree });
     res.status(HttpStatus.OK).json({ data: updated });
+  }
+
+  async bulkUpsertSets(req: Request, res: Response): Promise<void> {
+    const items: BulkUpsertQuestionSetItem[] = req.body.items;
+    const result = await this.service.bulkUpsertSets(items);
+    res.status(HttpStatus.OK).json({ data: result });
+  }
+
+  async bulkDeleteSets(req: Request, res: Response): Promise<void> {
+    const ids: string[] = req.body.ids;
+    await this.service.bulkDeleteSets(ids);
+    res.status(HttpStatus.NO_CONTENT).send();
   }
 }

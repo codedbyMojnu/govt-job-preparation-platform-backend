@@ -1,7 +1,12 @@
 import { NotFoundError } from '../../../shared/errors/http-errors.js';
 
 import type { RoutineRepository } from './repository.contract.js';
-import type { CreateRoutineInput, RoutineDto, UpdateRoutineInput } from './types.js';
+import type {
+  BulkUpsertRoutineItem,
+  CreateRoutineInput,
+  RoutineDto,
+  UpdateRoutineInput,
+} from './types.js';
 
 export class RoutineService {
   constructor(private readonly repository: RoutineRepository) {}
@@ -30,5 +35,13 @@ export class RoutineService {
   async delete(id: string): Promise<void> {
     await this.getById(id);
     return this.repository.delete(id);
+  }
+
+  async bulkUpsert(items: BulkUpsertRoutineItem[]): Promise<RoutineDto[]> {
+    return this.repository.bulkUpsert(items);
+  }
+
+  async bulkDelete(ids: string[]): Promise<void> {
+    return this.repository.bulkDelete(ids);
   }
 }

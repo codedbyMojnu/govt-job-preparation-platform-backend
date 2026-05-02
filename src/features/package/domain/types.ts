@@ -35,6 +35,19 @@ export interface UpdatePackageInput {
   isActive?: boolean;
 }
 
+export interface BulkUpsertPackageItem {
+  id?: string;
+  name: string;
+  durationDays: number;
+  price: number;
+  discount?: number;
+  description?: string;
+  liveQuota?: number | null;
+  archiveQuota?: number | null;
+  sortOrder?: number;
+  isActive?: boolean;
+}
+
 // --- Payment Transaction types ---
 
 export interface PaymentTransactionDto {

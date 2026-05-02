@@ -3,6 +3,7 @@ import type { PrismaClient } from '@prisma/client';
 import { examCategoryMapper } from '../domain/mapper.js';
 import type { ExamCategoryRepository } from '../domain/repository.contract.js';
 import type {
+  BulkUpsertExamCategoryItem,
   CreateExamCategoryInput,
   ExamCategoryDto,
   UpdateExamCategoryInput,
@@ -51,5 +52,41 @@ export class ExamCategoryPrismaRepository implements ExamCategoryRepository {
 
   async delete(id: string): Promise<void> {
     await this.prisma.examCategory.delete({ where: { id } });
+  }
+
+  async bulkUpsert(items: BulkUpsertExamCategoryItem[]): Promise<ExamCategoryDto[]> {
+    const results: ExamCategoryDto[] = [];
+    await this.prisma.$transaction(async (tx) => {
+      for (const item of items) {
+        if (item.id) {
+          const updated = await tx.examCategory.update({
+            where: { id: item.id },
+            data: {
+              name: item.name,
+              slug: item.slug,
+              icon: item.icon ?? null,
+              sortOrder: item.sortOrder ?? 0,
+              ...(item.isActive !== undefined && { isActive: item.isActive }),
+            },
+          });
+          results.push(examCategoryMapper.toDto(updated));
+        } else {
+          const created = await tx.examCategory.create({
+            data: {
+              name: item.name,
+              slug: item.slug,
+              icon: item.icon ?? null,
+              sortOrder: item.sortOrder ?? 0,
+            },
+          });
+          results.push(examCategoryMapper.toDto(created));
+        }
+      }
+    });
+    return results;
+  }
+
+  async bulkDelete(ids: string[]): Promise<void> {
+    await this.prisma.examCategory.deleteMany({ where: { id: { in: ids } } });
   }
 }

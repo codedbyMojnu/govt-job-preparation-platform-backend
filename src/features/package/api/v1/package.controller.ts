@@ -3,6 +3,7 @@ import type { Request, Response } from 'express';
 import { HttpStatus } from '../../../../shared/constants/http-status.js';
 import type { PackageService } from '../../domain/package.service.js';
 import type {
+  BulkUpsertPackageItem,
   CreatePackageInput,
   ReviewTransactionInput,
   SubmitPaymentInput,
@@ -113,5 +114,17 @@ export class PackageController {
     const input: UpdateProfileInput = req.body;
     const profile = await this.service.updateUserProfile(userId, input);
     res.status(HttpStatus.OK).json({ data: profile });
+  }
+
+  async bulkUpsertPackages(req: Request, res: Response): Promise<void> {
+    const items: BulkUpsertPackageItem[] = req.body.items;
+    const result = await this.service.bulkUpsertPackages(items);
+    res.status(HttpStatus.OK).json({ data: result });
+  }
+
+  async bulkDeletePackages(req: Request, res: Response): Promise<void> {
+    const ids: string[] = req.body.ids;
+    await this.service.bulkDeletePackages(ids);
+    res.status(HttpStatus.NO_CONTENT).send();
   }
 }

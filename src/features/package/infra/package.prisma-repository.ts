@@ -3,6 +3,7 @@ import type { PaymentMethod, PrismaClient } from '@prisma/client';
 import { packageMapper } from '../domain/mapper.js';
 import type { PackageRepository } from '../domain/repository.contract.js';
 import type {
+  BulkUpsertPackageItem,
   CreatePackageInput,
   PackageDto,
   PaymentTransactionDto,
@@ -68,6 +69,50 @@ export class PackagePrismaRepository implements PackageRepository {
 
   async deletePackage(id: string): Promise<void> {
     await this.prisma.package.delete({ where: { id } });
+  }
+
+  async bulkUpsertPackages(items: BulkUpsertPackageItem[]): Promise<PackageDto[]> {
+    const results: PackageDto[] = [];
+    await this.prisma.$transaction(async (tx) => {
+      for (const item of items) {
+        if (item.id) {
+          const updated = await tx.package.update({
+            where: { id: item.id },
+            data: {
+              name: item.name,
+              durationDays: item.durationDays,
+              price: item.price,
+              discount: item.discount ?? 0,
+              description: item.description ?? null,
+              liveQuota: item.liveQuota ?? null,
+              archiveQuota: item.archiveQuota ?? null,
+              sortOrder: item.sortOrder ?? 0,
+              ...(item.isActive !== undefined && { isActive: item.isActive }),
+            },
+          });
+          results.push(packageMapper.toDto(updated));
+        } else {
+          const created = await tx.package.create({
+            data: {
+              name: item.name,
+              durationDays: item.durationDays,
+              price: item.price,
+              discount: item.discount ?? 0,
+              description: item.description ?? null,
+              liveQuota: item.liveQuota ?? null,
+              archiveQuota: item.archiveQuota ?? null,
+              sortOrder: item.sortOrder ?? 0,
+            },
+          });
+          results.push(packageMapper.toDto(created));
+        }
+      }
+    });
+    return results;
+  }
+
+  async bulkDeletePackages(ids: string[]): Promise<void> {
+    await this.prisma.package.deleteMany({ where: { id: { in: ids } } });
   }
 
   // --- Payment transactions ---

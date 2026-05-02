@@ -24,3 +24,25 @@ export const updateSubExamCategorySchema = z.object({
   sortOrder: z.number().int().min(0).optional(),
   isActive: z.boolean().optional(),
 });
+
+const bulkUpsertSubExamCategoryItemSchema = z.object({
+  id: z.string().optional(),
+  examCategoryId: z.string().min(1),
+  name: z.string().min(1).max(300),
+  slug: z
+    .string()
+    .min(1)
+    .max(300)
+    .regex(/^[a-z0-9-]+$/, 'Slug must contain only lowercase letters, numbers, and hyphens'),
+  description: z.string().max(2000).optional(),
+  sortOrder: z.number().int().min(0).optional(),
+  isActive: z.boolean().optional(),
+});
+
+export const bulkUpsertSubExamCategoriesSchema = z.object({
+  items: z.array(bulkUpsertSubExamCategoryItemSchema).min(1),
+});
+
+export const bulkDeleteSubExamCategoriesSchema = z.object({
+  ids: z.array(z.string()).min(1),
+});

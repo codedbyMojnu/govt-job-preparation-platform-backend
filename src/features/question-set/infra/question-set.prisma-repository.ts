@@ -6,6 +6,7 @@ import type {
   AnswerQuestionInput,
   AppSettingsDto,
   BulkUpsertQuestionItem,
+  BulkUpsertQuestionSetItem,
   CreateQuestionInput,
   CreateQuestionSetInput,
   ExamAttemptDto,
@@ -304,6 +305,58 @@ export class QuestionSetPrismaRepository implements QuestionSetRepository {
 
   async bulkDeleteQuestions(ids: string[]): Promise<void> {
     await this.prisma.question.deleteMany({ where: { id: { in: ids } } });
+  }
+
+  async bulkUpsertSets(items: BulkUpsertQuestionSetItem[]): Promise<QuestionSetDto[]> {
+    const results: QuestionSetDto[] = [];
+    await this.prisma.$transaction(async (tx) => {
+      for (const item of items) {
+        if (item.id) {
+          const updated = await tx.questionSet.update({
+            where: { id: item.id },
+            data: {
+              subExamCategoryId: item.subExamCategoryId,
+              title: item.title,
+              date: new Date(item.date),
+              totalMarks: item.totalMarks,
+              duration: item.duration,
+              subject: item.subject,
+              topics: item.topics ?? null,
+              sourceMaterial: item.sourceMaterial ?? null,
+              markPerQuestion: item.markPerQuestion ?? 1,
+              negativeMark: item.negativeMark ?? 0,
+              isFree: item.isFree ?? false,
+              isLive: item.isLive ?? false,
+              ...(item.isActive !== undefined && { isActive: item.isActive }),
+            },
+          });
+          results.push(questionSetMapper.toDto(updated));
+        } else {
+          const created = await tx.questionSet.create({
+            data: {
+              subExamCategoryId: item.subExamCategoryId,
+              title: item.title,
+              date: new Date(item.date),
+              totalMarks: item.totalMarks,
+              duration: item.duration,
+              subject: item.subject,
+              topics: item.topics ?? null,
+              sourceMaterial: item.sourceMaterial ?? null,
+              markPerQuestion: item.markPerQuestion ?? 1,
+              negativeMark: item.negativeMark ?? 0,
+              isFree: item.isFree ?? false,
+              isLive: item.isLive ?? false,
+            },
+          });
+          results.push(questionSetMapper.toDto(created));
+        }
+      }
+    });
+    return results;
+  }
+
+  async bulkDeleteSets(ids: string[]): Promise<void> {
+    await this.prisma.questionSet.deleteMany({ where: { id: { in: ids } } });
   }
 
   // --- Public SEO question page ---

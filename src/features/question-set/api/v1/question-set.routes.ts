@@ -11,7 +11,9 @@ import { QuestionSetPrismaRepository } from '../../infra/question-set.prisma-rep
 import {
   answerQuestionSchema,
   bulkDeleteQuestionsSchema,
+  bulkDeleteSetsSchema,
   bulkUpsertQuestionsSchema,
+  bulkUpsertSetsSchema,
   createQuestionSchema,
   createQuestionSetSchema,
   startExamSchema,
@@ -286,6 +288,24 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     asyncHandler((req, res) => controller.delete(req, res)),
+  );
+
+  // Admin: Bulk upsert question sets
+  router.post(
+    '/bulk-upsert-sets',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: bulkUpsertSetsSchema }),
+    asyncHandler((req, res) => controller.bulkUpsertSets(req, res)),
+  );
+
+  // Admin: Bulk delete question sets
+  router.delete(
+    '/bulk-delete-sets',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: bulkDeleteSetsSchema }),
+    asyncHandler((req, res) => controller.bulkDeleteSets(req, res)),
   );
 
   return router;

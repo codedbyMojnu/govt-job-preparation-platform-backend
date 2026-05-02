@@ -104,3 +104,28 @@ export const bulkUpsertQuestionsSchema = z.object({
 export const bulkDeleteQuestionsSchema = z.object({
   ids: z.array(z.string().min(1)).min(1).max(500),
 });
+
+const bulkSetItem = z.object({
+  id: z.string().optional(),
+  subExamCategoryId: z.string().min(1),
+  title: z.string().min(1).max(500),
+  date: z.string().min(1),
+  totalMarks: z.number().positive(),
+  duration: z.number().int().positive(),
+  subject: z.string().min(1).max(200),
+  topics: z.string().max(2000).optional(),
+  sourceMaterial: z.string().max(500).optional(),
+  markPerQuestion: z.number().positive().optional(),
+  negativeMark: z.number().min(0).optional(),
+  isFree: z.boolean().optional(),
+  isLive: z.boolean().optional(),
+  isActive: z.boolean().optional(),
+});
+
+export const bulkUpsertSetsSchema = z.object({
+  items: z.array(bulkSetItem).min(1).max(200),
+});
+
+export const bulkDeleteSetsSchema = z.object({
+  ids: z.array(z.string().min(1)).min(1).max(200),
+});

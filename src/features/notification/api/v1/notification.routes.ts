@@ -7,7 +7,12 @@ import { validate } from '../../../../infrastructure/middleware/validate.js';
 import { asyncHandler } from '../../../../shared/utils/async-handler.js';
 import { NotificationService } from '../../domain/notification.service.js';
 import { NotificationPrismaRepository } from '../../infra/notification.prisma-repository.js';
-import { createNotificationSchema, updateNotificationSchema } from '../validation.js';
+import {
+  bulkDeleteNotificationsSchema,
+  bulkUpsertNotificationsSchema,
+  createNotificationSchema,
+  updateNotificationSchema,
+} from '../validation.js';
 
 import { NotificationController } from './notification.controller.js';
 
@@ -67,6 +72,22 @@ export function createNotificationRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     asyncHandler((req, res) => controller.delete(req, res)),
+  );
+
+  router.post(
+    '/admin/bulk-upsert',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: bulkUpsertNotificationsSchema }),
+    asyncHandler((req, res) => controller.bulkUpsert(req, res)),
+  );
+
+  router.delete(
+    '/admin/bulk-delete',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: bulkDeleteNotificationsSchema }),
+    asyncHandler((req, res) => controller.bulkDelete(req, res)),
   );
 
   return router;

@@ -39,3 +39,26 @@ export const updateProfileSchema = z.object({
   name: z.string().min(1).max(100).optional(),
   photo: z.string().max(500).optional(),
 });
+
+export const bulkUpsertPackagesSchema = z.object({
+  items: z
+    .array(
+      z.object({
+        id: z.string().optional(),
+        name: z.string().min(1).max(200),
+        durationDays: z.number().int().positive(),
+        price: z.number().min(0),
+        discount: z.number().min(0).optional(),
+        description: z.string().max(2000).optional(),
+        liveQuota: z.number().int().positive().nullable().optional(),
+        archiveQuota: z.number().int().positive().nullable().optional(),
+        sortOrder: z.number().int().min(0).optional(),
+        isActive: z.boolean().optional(),
+      }),
+    )
+    .min(1),
+});
+
+export const bulkDeletePackagesSchema = z.object({
+  ids: z.array(z.string().min(1)).min(1),
+});

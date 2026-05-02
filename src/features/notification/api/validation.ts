@@ -14,3 +14,22 @@ export const updateNotificationSchema = z.object({
   targetUserId: z.string().nullable().optional(),
   isActive: z.boolean().optional(),
 });
+
+export const bulkUpsertNotificationsSchema = z.object({
+  items: z
+    .array(
+      z.object({
+        id: z.string().optional(),
+        title: z.string().min(1).max(300),
+        content: z.string().min(1),
+        type: z.enum(['PUBLIC', 'SPECIFIC']),
+        targetUserId: z.string().optional(),
+        isActive: z.boolean().optional(),
+      }),
+    )
+    .min(1),
+});
+
+export const bulkDeleteNotificationsSchema = z.object({
+  ids: z.array(z.string().min(1)).min(1),
+});
