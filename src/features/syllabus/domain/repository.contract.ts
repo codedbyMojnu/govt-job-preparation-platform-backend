@@ -1,4 +1,9 @@
-import type { CreateSyllabusInput, SyllabusDto, SyllabusWithCategoryDto, UpdateSyllabusInput } from './types.js';
+import type {
+  CreateSyllabusInput,
+  SyllabusDto,
+  SyllabusWithCategoryDto,
+  UpdateSyllabusInput,
+} from './types.js';
 
 export interface SyllabusRepository {
   findAll(activeOnly: boolean): Promise<SyllabusWithCategoryDto[]>;

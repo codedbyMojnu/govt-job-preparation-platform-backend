@@ -2,7 +2,12 @@ import type { PrismaClient } from '@prisma/client';
 
 import { syllabusMapper } from '../domain/mapper.js';
 import type { SyllabusRepository } from '../domain/repository.contract.js';
-import type { CreateSyllabusInput, SyllabusDto, SyllabusWithCategoryDto, UpdateSyllabusInput } from '../domain/types.js';
+import type {
+  CreateSyllabusInput,
+  SyllabusDto,
+  SyllabusWithCategoryDto,
+  UpdateSyllabusInput,
+} from '../domain/types.js';
 
 export class SyllabusPrismaRepository implements SyllabusRepository {
   constructor(private readonly prisma: PrismaClient) {}

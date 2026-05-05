@@ -54,6 +54,53 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     }),
   );
 
+  // Public: Get a random question for Dream-Bot social media posting
+  router.get(
+    '/public/random',
+    asyncHandler(async (_req, res) => {
+      const count = await prisma.question.count({ where: { slug: { not: null } } });
+      if (count === 0) {
+        res.status(200).json({ data: null });
+        return;
+      }
+      const skip = Math.floor(Math.random() * count);
+      const question = await prisma.question.findFirst({
+        where: { slug: { not: null } },
+        skip,
+        include: {
+          questionSet: {
+            include: {
+              subExamCategory: {
+                include: { examCategory: true },
+              },
+            },
+          },
+        },
+      });
+      if (!question) {
+        res.status(200).json({ data: null });
+        return;
+      }
+      res.status(200).json({
+        data: {
+          id: question.id,
+          questionText: question.questionText,
+          optionA: question.optionA,
+          optionB: question.optionB,
+          optionC: question.optionC,
+          optionD: question.optionD,
+          correctAnswer: question.correctAnswer,
+          subject: question.subject,
+          topic: question.topic,
+          slug: question.slug,
+          subExamCategoryName: question.questionSet.subExamCategory.name,
+          subExamCategorySlug: question.questionSet.subExamCategory.slug,
+          examCategoryName: question.questionSet.subExamCategory.examCategory.name,
+        },
+      });
+    }),
+  );
+
   // Public: Get single question by slug (SEO page data)
   router.get(
     '/public/question/:slug',
