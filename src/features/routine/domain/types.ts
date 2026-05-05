@@ -13,6 +13,12 @@ export interface RoutineDto {
   createdAt: Date;
 }
 
+export interface RoutineWithCategoryDto extends RoutineDto {
+  subExamCategoryName: string;
+  subExamCategorySlug: string;
+  examCategorySlug: string;
+}
+
 export interface CreateRoutineInput {
   subExamCategoryId: string;
   date: string;

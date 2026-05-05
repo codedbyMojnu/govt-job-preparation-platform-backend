@@ -11,6 +11,12 @@ import type {
 export class RoutineController {
   constructor(private readonly service: RoutineService) {}
 
+  async getAll(req: Request, res: Response): Promise<void> {
+    const activeOnly = req.query.activeOnly !== 'false';
+    const routines = await this.service.getAll(activeOnly);
+    res.status(HttpStatus.OK).json({ data: routines });
+  }
+
   async getBySubCategory(req: Request, res: Response): Promise<void> {
     const subCategoryId = req.params.subCategoryId!;
     const activeOnly = req.query.activeOnly !== 'false';

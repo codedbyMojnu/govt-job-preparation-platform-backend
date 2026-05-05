@@ -20,6 +20,12 @@ export function createSyllabusRoutes(container: AwilixContainer): Router {
   const service = new SyllabusService(repository);
   const controller = new SyllabusController(service);
 
+  // Public: Get all syllabuses
+  router.get(
+    '/',
+    asyncHandler((req, res) => controller.getAll(req, res)),
+  );
+
   // Public: Get syllabuses by sub-category slug
   router.get(
     '/by-sub-category/:subCategorySlug',

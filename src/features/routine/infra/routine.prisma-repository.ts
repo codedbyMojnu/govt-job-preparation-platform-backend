@@ -2,10 +2,34 @@ import type { PrismaClient } from '@prisma/client';
 
 import { routineMapper } from '../domain/mapper.js';
 import type { RoutineRepository } from '../domain/repository.contract.js';
-import type { BulkUpsertRoutineItem, CreateRoutineInput, RoutineDto, UpdateRoutineInput } from '../domain/types.js';
+import type {
+  BulkUpsertRoutineItem,
+  CreateRoutineInput,
+  RoutineDto,
+  RoutineWithCategoryDto,
+  UpdateRoutineInput,
+} from '../domain/types.js';
 
 export class RoutinePrismaRepository implements RoutineRepository {
   constructor(private readonly prisma: PrismaClient) {}
+
+  async findAll(activeOnly: boolean): Promise<RoutineWithCategoryDto[]> {
+    const routines = await this.prisma.routine.findMany({
+      where: activeOnly ? { isActive: true } : undefined,
+      orderBy: { date: 'asc' },
+      include: {
+        subExamCategory: {
+          include: { examCategory: { select: { slug: true } } },
+        },
+      },
+    });
+    return routines.map((r) => ({
+      ...routineMapper.toDto(r),
+      subExamCategoryName: r.subExamCategory.name,
+      subExamCategorySlug: r.subExamCategory.slug,
+      examCategorySlug: r.subExamCategory.examCategory.slug,
+    }));
+  }
 
   async findBySubCategoryId(subCategoryId: string, activeOnly: boolean): Promise<RoutineDto[]> {
     const routines = await this.prisma.routine.findMany({

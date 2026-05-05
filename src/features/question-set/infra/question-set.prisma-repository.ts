@@ -676,6 +676,30 @@ export class QuestionSetPrismaRepository implements QuestionSetRepository {
 
   // --- Favorites ---
 
+  async getFavoriteQuestions(userId: string): Promise<ReviewQuestionDto[]> {
+    const userFavorites = await this.prisma.userFavorite.findMany({
+      where: { userId },
+      include: { question: true },
+      orderBy: { createdAt: 'asc' },
+    });
+
+    return userFavorites.map(({ question: q }) => ({
+      id: q.id,
+      questionText: q.questionText,
+      optionA: q.optionA,
+      optionB: q.optionB,
+      optionC: q.optionC,
+      optionD: q.optionD,
+      correctAnswer: q.correctAnswer,
+      explanation: q.explanation,
+      subject: q.subject,
+      sortOrder: q.sortOrder,
+      userAnswer: null,
+      isCorrect: false,
+      isFavorite: true,
+    }));
+  }
+
   async toggleFavorite(userId: string, questionId: string): Promise<boolean> {
     const existing = await this.prisma.userFavorite.findUnique({
       where: { userId_questionId: { userId, questionId } },

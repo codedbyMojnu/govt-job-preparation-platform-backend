@@ -2,23 +2,23 @@ import { BadRequestError, NotFoundError } from '../../../shared/errors/http-erro
 
 import type { QuestionSetRepository } from './repository.contract.js';
 import type {
-  AnswerQuestionInput,
-  AppSettingsDto,
-  BulkUpsertQuestionItem,
-  BulkUpsertQuestionSetItem,
-  CreateQuestionInput,
-  CreateQuestionSetInput,
-  ExamAttemptDto,
-  ExamQuestionDto,
-  MarksheetDto,
-  PublicQuestionDto,
-  QuestionDto,
-  QuestionSetDto,
-  QuestionStatsDto,
-  ReviewQuestionDto,
-  UpdateAppSettingsInput,
-  UpdateQuestionInput,
-  UpdateQuestionSetInput,
+    AnswerQuestionInput,
+    AppSettingsDto,
+    BulkUpsertQuestionItem,
+    BulkUpsertQuestionSetItem,
+    CreateQuestionInput,
+    CreateQuestionSetInput,
+    ExamAttemptDto,
+    ExamQuestionDto,
+    MarksheetDto,
+    PublicQuestionDto,
+    QuestionDto,
+    QuestionSetDto,
+    QuestionStatsDto,
+    ReviewQuestionDto,
+    UpdateAppSettingsInput,
+    UpdateQuestionInput,
+    UpdateQuestionSetInput,
 } from './types.js';
 
 export class QuestionSetService {
@@ -247,6 +247,10 @@ export class QuestionSetService {
   }
 
   // --- Favorites ---
+
+  async getFavoriteQuestions(userId: string): Promise<ReviewQuestionDto[]> {
+    return this.repository.getFavoriteQuestions(userId);
+  }
 
   async toggleFavorite(userId: string, questionId: string): Promise<boolean> {
     return this.repository.toggleFavorite(userId, questionId);

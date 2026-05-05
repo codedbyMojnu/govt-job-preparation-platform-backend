@@ -7,6 +7,12 @@ import type { CreateSyllabusInput, UpdateSyllabusInput } from '../../domain/type
 export class SyllabusController {
   constructor(private readonly service: SyllabusService) {}
 
+  async getAll(req: Request, res: Response): Promise<void> {
+    const activeOnly = req.query.activeOnly !== 'false';
+    const syllabuses = await this.service.getAll(activeOnly);
+    res.status(HttpStatus.OK).json({ data: syllabuses });
+  }
+
   async getBySubCategory(req: Request, res: Response): Promise<void> {
     const subCategoryId = req.params.subCategoryId!;
     const activeOnly = req.query.activeOnly !== 'false';

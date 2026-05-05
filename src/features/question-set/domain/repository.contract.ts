@@ -1,21 +1,21 @@
 import type {
-  AnswerQuestionInput,
-  AppSettingsDto,
-  BulkUpsertQuestionItem,
-  BulkUpsertQuestionSetItem,
-  CreateQuestionInput,
-  CreateQuestionSetInput,
-  ExamAttemptDto,
-  ExamQuestionDto,
-  MarksheetDto,
-  PublicQuestionDto,
-  QuestionDto,
-  QuestionSetDto,
-  QuestionStatsDto,
-  ReviewQuestionDto,
-  UpdateAppSettingsInput,
-  UpdateQuestionInput,
-  UpdateQuestionSetInput,
+    AnswerQuestionInput,
+    AppSettingsDto,
+    BulkUpsertQuestionItem,
+    BulkUpsertQuestionSetItem,
+    CreateQuestionInput,
+    CreateQuestionSetInput,
+    ExamAttemptDto,
+    ExamQuestionDto,
+    MarksheetDto,
+    PublicQuestionDto,
+    QuestionDto,
+    QuestionSetDto,
+    QuestionStatsDto,
+    ReviewQuestionDto,
+    UpdateAppSettingsInput,
+    UpdateQuestionInput,
+    UpdateQuestionSetInput,
 } from './types.js';
 
 export interface QuestionSetRepository {
@@ -74,6 +74,7 @@ export interface QuestionSetRepository {
   updateAppSettings(input: UpdateAppSettingsInput): Promise<AppSettingsDto>;
 
   // Favorites
+  getFavoriteQuestions(userId: string): Promise<ReviewQuestionDto[]>;
   toggleFavorite(userId: string, questionId: string): Promise<boolean>;
   isFavorite(userId: string, questionId: string): Promise<boolean>;
 

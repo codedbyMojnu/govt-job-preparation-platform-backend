@@ -4,7 +4,7 @@
  * (non-ASCII) slug.
  *
  * Slug format: first 5 romanised words, hyphen-joined.
- * Example: 'বালক' পত্রিকা প্রতিষ্ঠা কার কীর্তি  →  balok-potrika-protishtho-kar-kirti
+ * Example: 'বালক' পত্রিকা প্রতিষ্ঠা কার কীর্তি  →  balok-potrika-protishtha-kar-kirti
  *
  * Run with:
  *   npx tsx --env-file=.env prisma/backfill-question-slugs.ts
@@ -88,52 +88,242 @@ const HASANTA = '\u09CD'; // ্  virama – suppresses inherent vowel
 const NUKTA = '\u09BC'; // ় – handled via NFC normalisation
 
 /**
- * Transliterates Bengali Unicode text to ASCII Latin characters.
- * Rules:
- *   - Every consonant gets inherent vowel "o" unless followed by a matra or hasanta.
- *   - Hasanta (্) joins consonant clusters without a vowel.
- *   - NFC normalisation ensures ড়/ঢ়/য় are single code-points.
+ * Transliterates Bengali Unicode text to ASCII Latin (Avro-phonetic style).
+ *
+ * Conjunct rules applied via 2-char look-ahead (C + ্ + C2):
+ *   • যা-ফলা (্য) – word-initial: bends vowel → "e" (ব্যক্তি → bekti)
+ *                  – word-initial + matra: keeps "y" (ব্যাকরণ → byakoron)
+ *                  – elsewhere: doubles C, adds matra or "o" (সত্য → sotto, বিদ্যা → bidda)
+ *   • ব-ফলা  (্ব) – word-initial: phala is silent (দ্বীপ → dip)
+ *                  – elsewhere: doubles C (বিশ্বাস → bishshash, অন্বেষণ → onneshon)
+ *   • ম-ফলা  (্ম) – word-initial: keeps "m" sound
+ *                  – elsewhere: doubles C + inherent "o" (পদ্ম → poddo, গ্রীষ্ম → grissho)
+ *   • ক্ষ – word-initial → "kh" (ক্ষুধা → khudha)
+ *         – elsewhere  → "kkh" (শিক্ষক → shikkhok, পরীক্ষা → porikkha)
+ *   • হ + ্ম → "mmh"  (ব্রহ্মা → brommha)
+ *   • হ + ্ন → "nn"   (চিহ্ন → chinno)
+ *
+ * Other rules:
+ *   • Word-final consonants: inherent vowel elided ("balok" not "baloko")
+ *   • Chandrabindu (ঁ) → "n" (চাঁদ → chand, পাঁচ → panch)
+ *   • Bengali digits (০–৯) → ASCII (0–9)
+ *   • NFC normalisation resolves ড়/ঢ়/য় to single code-points
  */
 function transliterateBengali(text: string): string {
   text = text.normalize('NFC');
-  const chars = [...text]; // Unicode-aware array
+  const chars = [...text];
   let out = '';
+  let wordStart = true;
 
   for (let i = 0; i < chars.length; i++) {
     const ch = chars[i];
     const next = chars[i + 1] ?? '';
+    const c2 = chars[i + 2] ?? ''; // consonant that follows hasanta
+    const c3 = chars[i + 3] ?? ''; // char after c2 (potential matra or next Bengali)
+    const nextIsBengali = next >= '\u0980' && next <= '\u09FF';
 
+    // ── Consonant ─────────────────────────────────────────────────────────
     if (ch in CONSONANT) {
-      out += CONSONANT[ch];
+      const r1 = CONSONANT[ch];
+
+      // Two-consonant conjunct: ch + ্ + c2
+      if (next === HASANTA && c2 in CONSONANT) {
+        // ক্ষ – position-sensitive
+        if (ch === '\u0995' && c2 === '\u09B7') {
+          out += wordStart ? 'kh' : 'kkh';
+          i += 2;
+          if (c3 in MATRA) {
+            out += MATRA[c3];
+            i++;
+          } else if (c3 >= '\u0980' && c3 <= '\u09FF') out += 'o';
+          wordStart = false;
+          continue;
+        }
+
+        // হ + ্ম → mmh  (ব্রহ্মা → brommha)
+        if (ch === '\u09B9' && c2 === '\u09AE') {
+          out += 'mmh';
+          i += 2;
+          if (c3 in MATRA) {
+            out += MATRA[c3];
+            i++;
+          } else if (c3 >= '\u0980' && c3 <= '\u09FF') out += 'o';
+          wordStart = false;
+          continue;
+        }
+
+        // হ + ্ন → nn  (চিহ্ন → chinno)
+        if (ch === '\u09B9' && c2 === '\u09A8') {
+          out += 'nn';
+          i += 2;
+          if (c3 in MATRA) {
+            out += MATRA[c3];
+            i++;
+          } else if (c3 >= '\u0980' && c3 <= '\u09FF') out += 'o';
+          wordStart = false;
+          continue;
+        }
+
+        // হ + ্ব → bb  (জিহ্বা → jibba, গহ্বর → gobbor)
+        if (ch === '\u09B9' && c2 === '\u09AC') {
+          out += 'bb';
+          i += 2;
+          if (c3 in MATRA) {
+            out += MATRA[c3];
+            i++;
+          } else if (c3 >= '\u0980' && c3 <= '\u09FF') out += 'o';
+          wordStart = false;
+          continue;
+        }
+
+        // হ + ্ল → llh  (আহ্লাদ → allhad, প্রহ্লাদ → prollhad)
+        if (ch === '\u09B9' && c2 === '\u09B2') {
+          out += 'llh';
+          i += 2;
+          if (c3 in MATRA) {
+            out += MATRA[c3];
+            i++;
+          } else if (c3 >= '\u0980' && c3 <= '\u09FF') out += 'o';
+          wordStart = false;
+          continue;
+        }
+
+        // জ্ঞ – position-sensitive (জ্ঞান → gyan, বিজ্ঞান → biggan)
+        if (ch === '\u099C' && c2 === '\u099E') {
+          out += wordStart ? 'gy' : 'gg';
+          i += 2;
+          if (c3 in MATRA) {
+            out += MATRA[c3];
+            i++;
+          } else if (c3 >= '\u0980' && c3 <= '\u09FF') out += 'o';
+          wordStart = false;
+          continue;
+        }
+
+        // শ + ্র → sr  (শ্রম → srom, বিশ্রী → bisri)
+        if (ch === '\u09B6' && c2 === '\u09B0') {
+          out += 's'; // শ loses 'h' before র-ফলা; র processed next iteration
+          i++; // skip hasanta
+          wordStart = false;
+          continue;
+        }
+
+        // য-ফলা (্য) – doubles consonant or bends vowel
+        if (c2 === '\u09AF') {
+          if (wordStart) {
+            if (c3 in MATRA) {
+              out += r1 + 'y' + MATRA[c3]; // ব্যাকরণ → byakoron
+              i += 3;
+            } else {
+              out += r1 + 'e'; // ব্যক্তি → bekti
+              i += 2;
+            }
+          } else if (c3 in MATRA) {
+            out += r1 + r1 + MATRA[c3]; // বিদ্যা → bidda
+            i += 3;
+          } else {
+            out += r1 + r1 + 'o'; // সত্য → sotto
+            i += 2;
+          }
+          wordStart = false;
+          continue;
+        }
+
+        // ব-ফলা (্ব) – silent at word-start; doubles elsewhere
+        if (c2 === '\u09AC') {
+          out += wordStart ? r1 : r1 + r1;
+          i += 2;
+          if (c3 in MATRA) {
+            out += MATRA[c3];
+            i++;
+          } else if (c3 >= '\u0980' && c3 <= '\u09FF') out += 'o';
+          wordStart = false;
+          continue;
+        }
+
+        // ম-ফলা (্ম) – keeps 'm' at word-start; doubles + 'o' elsewhere
+        if (c2 === '\u09AE') {
+          if (wordStart) {
+            out += r1 + 'm';
+            i += 2;
+            if (c3 in MATRA) {
+              out += MATRA[c3];
+              i++;
+            } else if (c3 >= '\u0980' && c3 <= '\u09FF') out += 'o';
+          } else {
+            out += r1 + r1;
+            i += 2;
+            if (c3 in MATRA) {
+              out += MATRA[c3];
+              i++;
+            } else out += 'o'; // পদ্ম → poddo, গ্রীষ্ম → grissho
+          }
+          wordStart = false;
+          continue;
+        }
+
+        // Default conjunct: emit C1 without vowel; C2 processed next iteration
+        out += r1;
+        i++; // skip ্; C2 handled on the next loop turn
+        wordStart = false;
+        continue;
+      }
+
+      // Normal (non-conjunct) consonant
+      out += r1;
       if (next === HASANTA) {
-        i++; // conjunct cluster – no inherent vowel; skip hasanta
+        i++; // skip orphaned hasanta
       } else if (next in MATRA) {
         out += MATRA[next];
-        i++; // consume matra
-      } else {
-        out += 'o'; // inherent vowel
+        i++;
+      } else if (nextIsBengali) {
+        out += 'o'; // inherent vowel: more Bengali follows in this word
       }
+      // word-final: inherent vowel elided
+      wordStart = false;
+
+      // ── Independent vowel ────────────────────────────────────────────────
     } else if (ch in VOWEL) {
       out += VOWEL[ch];
+      wordStart = false;
+
+      // ── Orphaned matra ───────────────────────────────────────────────────
     } else if (ch in MATRA) {
-      out += MATRA[ch]; // orphaned matra (edge case)
+      out += MATRA[ch];
+      wordStart = false;
+
+      // ── Diacritics ───────────────────────────────────────────────────────
     } else if (ch === '\u0982') {
-      // ং anusvara
-      out += 'ng';
+      out += 'ng'; // ং anusvara
     } else if (ch === '\u0983') {
-      // ঃ visarga
-      out += 'h';
+      // Visarga: doubles the immediately following consonant
+      const nxt = chars[i + 1] ?? '';
+      if (nxt in CONSONANT) {
+        const rom = CONSONANT[nxt];
+        out += rom.length === 1 ? rom + rom : rom[0] + rom; // k→kk, kh→kkh, sh→ssh
+      } else {
+        out += 'h'; // fallback
+      }
     } else if (ch === '\u0981') {
-      // ঁ chandrabindu
-      out += 'n';
+      out += 'n'; // ঁ chandrabindu → nasalises
+
+      // ── Ignored marks ────────────────────────────────────────────────────
     } else if (ch === HASANTA || ch === NUKTA) {
-      // already consumed above, or orphaned – skip
+      /* skip */
+      // ── Bengali digits → ASCII 0-9 ───────────────────────────────────────
+    } else if (ch >= '\u09E6' && ch <= '\u09EF') {
+      out += String.fromCharCode(ch.charCodeAt(0) - 0x09e6 + 0x30);
+      wordStart = false;
+
+      // ── ASCII passthrough ─────────────────────────────────────────────────
     } else if (/[a-z0-9]/i.test(ch)) {
       out += ch.toLowerCase();
+      wordStart = false;
     } else if (ch === ' ' || ch === '\t' || ch === '\n') {
       out += ' ';
+      wordStart = true;
     }
-    // Punctuation, Bengali digits, etc. → skip
+    // Punctuation / other → skip
   }
 
   return out.trim();
@@ -166,7 +356,7 @@ function toSlug(questionText: string): string {
   return text
     .split(' ')
     .filter((w) => w.length > 0)
-    .slice(0, 5)
+    .slice(0, 4)
     .join('-')
     .toLowerCase();
 }
@@ -185,8 +375,8 @@ async function main() {
     orderBy: { createdAt: 'asc' },
   });
 
-  // Target: null slug, old q-N slug, or any existing Bengali (non-ASCII) slug
-  const questions = allQuestions.filter((q) => q.slug);
+  // Only target questions that have no slug yet.
+  const questions = allQuestions.filter((q) => q.slug === null);
 
   if (questions.length === 0) {
     console.log('No questions need slug updates. Nothing to do.');
@@ -195,15 +385,18 @@ async function main() {
 
   console.log(`Found ${questions.length} question(s) to update …`);
 
-  // Seed the uniqueness set with slugs of questions we are NOT touching
-  const updatingIds = new Set(questions.map((q) => q.id));
-  const usedSlugs = new Set(
-    allQuestions.filter((q) => q.slug && !updatingIds.has(q.id)).map((q) => q.slug!),
-  );
+  // Seed with ALL existing non-null slugs so new slugs never collide with
+  // un-updated rows still in the DB (avoids P2002 unique-constraint errors).
+  // Each question's own old slug is removed before its new slug is generated
+  // so it can naturally reuse its own slug without an unnecessary suffix.
+  const usedSlugs = new Set(allQuestions.filter((q) => q.slug !== null).map((q) => q.slug!));
 
   let updated = 0;
 
   for (const q of questions) {
+    // Free the question's own old slug so it can reclaim it if unchanged.
+    if (q.slug) usedSlugs.delete(q.slug);
+
     const base = toSlug(q.questionText);
 
     // Append -2, -3 … until unique

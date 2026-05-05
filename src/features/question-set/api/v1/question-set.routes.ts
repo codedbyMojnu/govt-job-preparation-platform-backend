@@ -215,6 +215,13 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
 
   // --- Favorites ---
 
+  // Auth: Get all favorite questions for current user
+  router.get(
+    '/favorites',
+    authenticate,
+    asyncHandler((req, res) => controller.getFavoriteQuestions(req, res)),
+  );
+
   // Auth: Toggle favorite
   router.post(
     '/favorite/:questionId',

@@ -5,11 +5,16 @@ import type {
   BulkUpsertRoutineItem,
   CreateRoutineInput,
   RoutineDto,
+  RoutineWithCategoryDto,
   UpdateRoutineInput,
 } from './types.js';
 
 export class RoutineService {
   constructor(private readonly repository: RoutineRepository) {}
+
+  async getAll(activeOnly = true): Promise<RoutineWithCategoryDto[]> {
+    return this.repository.findAll(activeOnly);
+  }
 
   async getBySubCategoryId(subCategoryId: string, activeOnly = true): Promise<RoutineDto[]> {
     return this.repository.findBySubCategoryId(subCategoryId, activeOnly);

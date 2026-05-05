@@ -1,6 +1,13 @@
-import type { BulkUpsertRoutineItem, CreateRoutineInput, RoutineDto, UpdateRoutineInput } from './types.js';
+import type {
+  BulkUpsertRoutineItem,
+  CreateRoutineInput,
+  RoutineDto,
+  RoutineWithCategoryDto,
+  UpdateRoutineInput,
+} from './types.js';
 
 export interface RoutineRepository {
+  findAll(activeOnly: boolean): Promise<RoutineWithCategoryDto[]>;
   findBySubCategoryId(subCategoryId: string, activeOnly: boolean): Promise<RoutineDto[]>;
   findById(id: string): Promise<RoutineDto | null>;
   create(input: CreateRoutineInput): Promise<RoutineDto>;

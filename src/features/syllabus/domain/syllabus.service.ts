@@ -6,6 +6,10 @@ import type { CreateSyllabusInput, SyllabusDto, UpdateSyllabusInput } from './ty
 export class SyllabusService {
   constructor(private readonly repository: SyllabusRepository) {}
 
+  async getAll(activeOnly = true): Promise<import('./types.js').SyllabusWithCategoryDto[]> {
+    return this.repository.findAll(activeOnly);
+  }
+
   async getBySubCategoryId(subCategoryId: string, activeOnly = true): Promise<SyllabusDto[]> {
     return this.repository.findBySubCategoryId(subCategoryId, activeOnly);
   }

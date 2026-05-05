@@ -2,10 +2,28 @@ import type { PrismaClient } from '@prisma/client';
 
 import { syllabusMapper } from '../domain/mapper.js';
 import type { SyllabusRepository } from '../domain/repository.contract.js';
-import type { CreateSyllabusInput, SyllabusDto, UpdateSyllabusInput } from '../domain/types.js';
+import type { CreateSyllabusInput, SyllabusDto, SyllabusWithCategoryDto, UpdateSyllabusInput } from '../domain/types.js';
 
 export class SyllabusPrismaRepository implements SyllabusRepository {
   constructor(private readonly prisma: PrismaClient) {}
+
+  async findAll(activeOnly: boolean): Promise<SyllabusWithCategoryDto[]> {
+    const syllabuses = await this.prisma.syllabus.findMany({
+      where: activeOnly ? { isActive: true } : undefined,
+      orderBy: [{ subExamCategoryId: 'asc' }, { sortOrder: 'asc' }],
+      include: {
+        subExamCategory: {
+          include: { examCategory: { select: { slug: true } } },
+        },
+      },
+    });
+    return syllabuses.map((s) => ({
+      ...syllabusMapper.toDto(s),
+      subExamCategoryName: s.subExamCategory.name,
+      subExamCategorySlug: s.subExamCategory.slug,
+      examCategorySlug: s.subExamCategory.examCategory.slug,
+    }));
+  }
 
   async findBySubCategoryId(subCategoryId: string, activeOnly: boolean): Promise<SyllabusDto[]> {
     const syllabuses = await this.prisma.syllabus.findMany({

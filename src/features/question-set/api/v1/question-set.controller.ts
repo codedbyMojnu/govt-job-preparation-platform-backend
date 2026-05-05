@@ -173,6 +173,12 @@ export class QuestionSetController {
 
   // --- Favorites ---
 
+  async getFavoriteQuestions(req: Request, res: Response): Promise<void> {
+    const userId = req.userId!;
+    const questions = await this.service.getFavoriteQuestions(userId);
+    res.status(HttpStatus.OK).json({ data: questions });
+  }
+
   async toggleFavorite(req: Request, res: Response): Promise<void> {
     const userId = req.userId!;
     const questionId = req.params.questionId!;

@@ -25,6 +25,12 @@ export function createRoutineRoutes(container: AwilixContainer): Router {
   const service = new RoutineService(repository);
   const controller = new RoutineController(service);
 
+  // Public: Get all active routines
+  router.get(
+    '/',
+    asyncHandler((req, res) => controller.getAll(req, res)),
+  );
+
   // Public: Get routines by sub-category slug
   router.get(
     '/by-sub-category/:subCategorySlug',
