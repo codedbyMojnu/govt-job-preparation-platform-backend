@@ -14,8 +14,9 @@ export class RoutinePrismaRepository implements RoutineRepository {
   constructor(private readonly prisma: PrismaClient) {}
 
   async findAll(activeOnly: boolean): Promise<RoutineWithCategoryDto[]> {
+    const where = activeOnly ? { isActive: true } : undefined;
     const routines = await this.prisma.routine.findMany({
-      where: activeOnly ? { isActive: true } : undefined,
+      ...(where ? { where } : {}),
       orderBy: { date: 'asc' },
       include: {
         subExamCategory: {
@@ -35,7 +36,18 @@ export class RoutinePrismaRepository implements RoutineRepository {
     const routines = await this.prisma.routine.findMany({
       where: {
         subExamCategoryId: subCategoryId,
-        ...(activeOnly && { isActive: true }),
+        ...(activeOnly ? { isActive: true } : {}),
+      },
+      orderBy: { date: 'asc' },
+    });
+    return routines.map(routineMapper.toDto);
+  }
+
+  async findByDate(date: string, activeOnly: boolean): Promise<RoutineDto[]> {
+    const routines = await this.prisma.routine.findMany({
+      where: {
+        date: new Date(date),
+        ...(activeOnly ? { isActive: true } : {}),
       },
       orderBy: { date: 'asc' },
     });

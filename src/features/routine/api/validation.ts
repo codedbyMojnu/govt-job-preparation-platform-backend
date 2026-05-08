@@ -38,6 +38,13 @@ const bulkUpsertRoutineItemSchema = z.object({
   isActive: z.boolean().optional(),
 });
 
+export const autoCreateQuestionSetsSchema = z.object({
+  date: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be YYYY-MM-DD')
+    .optional(),
+});
+
 export const bulkUpsertRoutinesSchema = z.object({
   routines: z.array(bulkUpsertRoutineItemSchema).min(1).max(200),
 });

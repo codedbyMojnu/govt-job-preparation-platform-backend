@@ -29,6 +29,7 @@ export interface CreateQuestionSetInput {
   negativeMark?: number;
   isFree?: boolean;
   isLive?: boolean;
+  isActive?: boolean;
 }
 
 export interface UpdateQuestionSetInput {

@@ -58,6 +58,21 @@ export class QuestionSetPrismaRepository implements QuestionSetRepository {
     return sets.map(questionSetMapper.toDto);
   }
 
+  async findBySubCategoryIdAndDate(
+    subExamCategoryId: string,
+    date: string,
+    title?: string,
+  ): Promise<QuestionSetDto | null> {
+    const set = await this.prisma.questionSet.findFirst({
+      where: {
+        subExamCategoryId,
+        date: new Date(date),
+        ...(title !== undefined && { title }),
+      },
+    });
+    return set ? questionSetMapper.toDto(set) : null;
+  }
+
   async create(input: CreateQuestionSetInput): Promise<QuestionSetDto> {
     const set = await this.prisma.questionSet.create({
       data: {
@@ -73,6 +88,7 @@ export class QuestionSetPrismaRepository implements QuestionSetRepository {
         negativeMark: input.negativeMark ?? 0.25,
         isFree: input.isFree ?? false,
         isLive: input.isLive ?? false,
+        isActive: input.isActive ?? true,
       },
     });
     return questionSetMapper.toDto(set);

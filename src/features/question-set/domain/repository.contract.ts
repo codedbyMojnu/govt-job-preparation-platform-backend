@@ -1,21 +1,21 @@
 import type {
-    AnswerQuestionInput,
-    AppSettingsDto,
-    BulkUpsertQuestionItem,
-    BulkUpsertQuestionSetItem,
-    CreateQuestionInput,
-    CreateQuestionSetInput,
-    ExamAttemptDto,
-    ExamQuestionDto,
-    MarksheetDto,
-    PublicQuestionDto,
-    QuestionDto,
-    QuestionSetDto,
-    QuestionStatsDto,
-    ReviewQuestionDto,
-    UpdateAppSettingsInput,
-    UpdateQuestionInput,
-    UpdateQuestionSetInput,
+  AnswerQuestionInput,
+  AppSettingsDto,
+  BulkUpsertQuestionItem,
+  BulkUpsertQuestionSetItem,
+  CreateQuestionInput,
+  CreateQuestionSetInput,
+  ExamAttemptDto,
+  ExamQuestionDto,
+  MarksheetDto,
+  PublicQuestionDto,
+  QuestionDto,
+  QuestionSetDto,
+  QuestionStatsDto,
+  ReviewQuestionDto,
+  UpdateAppSettingsInput,
+  UpdateQuestionInput,
+  UpdateQuestionSetInput,
 } from './types.js';
 
 export interface QuestionSetRepository {
@@ -23,6 +23,11 @@ export interface QuestionSetRepository {
   findArchiveBySubCategoryId(subCategoryId: string): Promise<QuestionSetDto[]>;
   findById(id: string): Promise<QuestionSetDto | null>;
   findAllBySubCategoryId(subCategoryId: string, isLive?: boolean): Promise<QuestionSetDto[]>;
+  findBySubCategoryIdAndDate(
+    subExamCategoryId: string,
+    date: string,
+    title?: string,
+  ): Promise<QuestionSetDto | null>;
   create(input: CreateQuestionSetInput): Promise<QuestionSetDto>;
   update(id: string, input: UpdateQuestionSetInput): Promise<QuestionSetDto>;
   delete(id: string): Promise<void>;

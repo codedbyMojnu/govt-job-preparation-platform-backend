@@ -9,6 +9,7 @@ import type {
 export interface RoutineRepository {
   findAll(activeOnly: boolean): Promise<RoutineWithCategoryDto[]>;
   findBySubCategoryId(subCategoryId: string, activeOnly: boolean): Promise<RoutineDto[]>;
+  findByDate(date: string, activeOnly: boolean): Promise<RoutineDto[]>;
   findById(id: string): Promise<RoutineDto | null>;
   create(input: CreateRoutineInput): Promise<RoutineDto>;
   update(id: string, input: UpdateRoutineInput): Promise<RoutineDto>;

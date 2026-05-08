@@ -4,11 +4,15 @@ import { Router } from 'express';
 
 import { authenticate, authorize } from '../../../../infrastructure/middleware/authenticate.js';
 import { validate } from '../../../../infrastructure/middleware/validate.js';
+import { HttpStatus } from '../../../../shared/constants/http-status.js';
 import { NotFoundError } from '../../../../shared/errors/http-errors.js';
 import { asyncHandler } from '../../../../shared/utils/async-handler.js';
+import { QuestionSetPrismaRepository } from '../../../question-set/infra/question-set.prisma-repository.js';
+import { RoutineQuestionSetService } from '../../domain/routine-question-set.service.js';
 import { RoutineService } from '../../domain/routine.service.js';
 import { RoutinePrismaRepository } from '../../infra/routine.prisma-repository.js';
 import {
+  autoCreateQuestionSetsSchema,
   bulkDeleteRoutinesSchema,
   bulkUpsertRoutinesSchema,
   createRoutineSchema,
@@ -22,6 +26,11 @@ export function createRoutineRoutes(container: AwilixContainer): Router {
 
   const prisma = container.resolve<PrismaClient>('prismaClient');
   const repository = new RoutinePrismaRepository(prisma);
+  const questionSetRepository = new QuestionSetPrismaRepository(prisma);
+  const routineQuestionSetService = new RoutineQuestionSetService(
+    repository,
+    questionSetRepository,
+  );
   const service = new RoutineService(repository);
   const controller = new RoutineController(service);
 
@@ -78,6 +87,17 @@ export function createRoutineRoutes(container: AwilixContainer): Router {
     authorize('ADMIN'),
     validate({ body: bulkUpsertRoutinesSchema }),
     asyncHandler((req, res) => controller.bulkUpsert(req, res)),
+  );
+
+  router.post(
+    '/auto-create-question-sets',
+    authenticate,
+    authorize('ADMIN'),
+    validate({ body: autoCreateQuestionSetsSchema }),
+    asyncHandler(async (req, res) => {
+      const createdSets = await routineQuestionSetService.createQuestionSetsForDate(req.body.date);
+      res.status(HttpStatus.OK).json({ data: createdSets });
+    }),
   );
 
   router.delete(
