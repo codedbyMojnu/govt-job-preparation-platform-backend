@@ -1,0 +1,1006 @@
+{
+  "post_url": "https://web.livemcq.com/23th-bcs-question-solution-pdf/",
+  "post_title": "২৩তম বিসিএস প্রশ্ন সমাধান PDF | 23th BCS Question Solution PDF",
+  "questions": [
+    {
+      "question_text": "কোন সংখ্যার ০.১˙ ভাগ এবং ০.১ ভাগের মধ্যে পার্থক্য ১.০ হলে, সংখ্যাটি কত?",
+      "option_a": "১০",
+      "option_b": "৯",
+      "option_c": "৯০",
+      "option_d": "১০০",
+      "correct_answer": "গ) ৯০",
+      "explanation": "ধরি,সংখ্যাটি ক। এখানে, ০.১˙ = ১/৯ এবং ০.১ = ১/১০\nপ্রশ্নমতে, ক/৯-ক/১০ = ১\nবা, (১০ক-৯ক)/৯০ = ১\n∴ ক = ৯০",
+      "subject": ""
+    },
+    {
+      "question_text": "একটি আয়তাকার কক্ষের ক্ষেত্রফল ১৯২ বর্গমিটার। এর দৈর্ঘ্য ৪ মিটার কমালে এবং প্রস্থ ৪ মিটার বাড়ালে ক্ষেত্রফল অপরিবর্তিত থাকে। আয়তাকার কক্ষের সমান পরিসীমাবিশিষ্ট বর্গাকার কক্ষের ক্ষেত্রফল কত হবে?",
+      "option_a": "২২৫ বর্গমিটার",
+      "option_b": "১৪৪ বর্গমিটার",
+      "option_c": "১৬৯ বর্গমিটার",
+      "option_d": "১৯৬ বর্গমিটার",
+      "correct_answer": "ঘ) ১৯৬ বর্গমিটার",
+      "explanation": "মনে করি,\nআয়তক্ষেত্রের দৈর্ঘ্য x মিটার এবং প্রস্থ y মিটার\n১ম শর্তমতে,\nxy = 192 sq.m.\n∴ y = 192/x sq.m. ………. (1)\n২য় শর্তমতে,\n(x-4)(y+4) = xy\n∴ x-y = 4 ………. (2)\n\nএখন y এর মান ২ নং এ বসিয়ে পাই,\nx-192/x = 4\n⇒ x²-4x-192 = 0\n⇒ (x-16)(x+12) = 0\n\nকিন্তু,\nx = 16 এবং x ≠ -12\n∴ x = 16 এবং y = 192/16 = 12\nআয়তক্ষেত্র পরিসীমা = 2(দৈর্ঘ্য+প্রস্থ) = 2(16+12) = 56 m\n\nআবার,\nবর্গক্ষেত্রের পরিসীমা, 4a=56\n∴ a = 14\n∴ বর্গক্ষেত্রের ক্ষেত্রফল = 14² = 196 sq.m.",
+      "subject": ""
+    },
+    {
+      "question_text": "তিনটি ক্রমিক সংখ্যার গুণফল তাদের যোগফলের ৫ গুণ; সংখ্যা তিনটির গড় কত?",
+      "option_a": "৬",
+      "option_b": "৩",
+      "option_c": "৫",
+      "option_d": "৪",
+      "correct_answer": "ঘ) ৪",
+      "explanation": "মনে করি,\nতিনটি ক্রমিক সংখ্যা যথাক্রমে ক-১, ক, ক+১\n\nপ্রশ্নমতে,\n(ক-১)(ক)(ক+১) = ৫(ক-১+ক+ক+১)\nবা, ক(ক²-১) = ৫×৩ক\nবা, ক²-১ = ১৫\nবা, ক² = ১৬\n∴ ক = ৪\nসুতরাং সংখ্যা তিনটি হলো ৩, ৪, ৫\nএবং এদের গড় = (৩+৪+৫)/৩ = ৪",
+      "subject": ""
+    },
+    {
+      "question_text": "একটি বৃত্তের পরিধি ও ক্ষেত্রফল যথাক্রমে ১৩২ সেন্টিমিটার ও ১৩৮৬ বর্গসেন্টিমিটার। বৃত্তটির বৃহত্তম জ্যা-এর দৈর্ঘ্য কত?",
+      "option_a": "৬৬ সেন্টিমিটার",
+      "option_b": "৪২ সেন্টিমিটার",
+      "option_c": "২১ সেন্টিমিটার",
+      "option_d": "২২ সেন্টিমিটার",
+      "correct_answer": "খ) ৪২ সেন্টিমিটার",
+      "explanation": "আমরা জানি,\nবৃত্তের পরিধি = 2πr একক এবং বৃত্তের ক্ষেত্রফল= πr² বর্গ একক\nপ্রশ্নমতে,\nπr²/2πr = ১৩৮৬/১৩২\nবা, r/2 = ১৩৮৬/১৩২\nবা, r = ২১\n∴ বৃত্তটির বৃহত্তম জ্যা-এর দৈর্ঘ্য = ২r = ২×২১ = ৪২ সে.মি.",
+      "subject": ""
+    },
+    {
+      "question_text": "একটি শ্রেণিতে যতজন ছাত্র-ছাত্রী আছে প্রত্যেকে তত পয়সার চেয়ে আরও ২৫ পয়সা বেশি করে চাঁদা দেওয়ায় মোট ৭৫ টাকা উঠল। ঐ শ্রেণির ছাত্র-ছাত্রীর সংখ্যা কত?",
+      "option_a": "৭০",
+      "option_b": "৮৫",
+      "option_c": "৭৫",
+      "option_d": "১০০",
+      "correct_answer": "গ) ৭৫",
+      "explanation": "মনে করি,\nছাত্র-ছাত্রী সংখ্যা x জন\n\nপ্রশ্নমতে,\nx(x+25) = 75X100 [∵ 75 টাকা = 7500 পয়সা] ⇒ x²+25x-7500 = 0\n⇒ x²+100x-75x-7500 = 0\n⇒ x(x+100)-75(x+100) = 0\n\nEither, (x+100)=0 or, x-75 = 0\n∴ x = -100(Which is not acceptable) | ∴ x=75\n∴ ঐ শ্রেণীতে ৭৫ জন ছাত্র ছাত্রী আছে।",
+      "subject": ""
+    },
+    {
+      "question_text": "মামুন 240 টাকায় একই রকম কতগুলি কলম কিনে দেখল যে, যদি সে একটি কলম বেশি পেত তাহলে প্রতিটি কলমের মূল্য 1 টাকা কম পড়ত। সে কতগুলো কলম কিনেছিল?",
+      "option_a": "13টি",
+      "option_b": "14টি",
+      "option_c": "15টি",
+      "option_d": "16টি",
+      "correct_answer": "গ) 15টি",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "একটি পঞ্চভুজের সমষ্টি-",
+      "option_a": "৪ সমকোণ",
+      "option_b": "৬ সমকোণ",
+      "option_c": "৮ সমকোণ",
+      "option_d": "১০ সমকোণ",
+      "correct_answer": "খ) ৬ সমকোণ",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "১৭ দিন আগে আবদুর রহিম বলেছিল যে তার জন্মদিন ‘আগামীকাল’। আজ ২৩ তারিখ হলে তার জন্মদিন কোন তারিখে?",
+      "option_a": "৭",
+      "option_b": "৮",
+      "option_c": "৯",
+      "option_d": "১০",
+      "correct_answer": "ক) ৭",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "০.০৩, ০.১২, ০.৪৮, ____ শূন্যস্থানে সংখ্যাটি কত হবে?",
+      "option_a": "০.৯৬",
+      "option_b": "১.৪৮",
+      "option_c": "১.৯২",
+      "option_d": "১.৫০",
+      "correct_answer": "গ) ১.৯২",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "২০ ফুট লম্বা একটি বাঁশ এমনভাবে কেটে দু’ভাগ করা হলো যেন ছোট অংশ বড় অংশের দুই তৃতীয়াংশ হয়, ছোট অংশের দৈর্ঘ্য কত ফুট?",
+      "option_a": "৬",
+      "option_b": "৭",
+      "option_c": "৮",
+      "option_d": "১০",
+      "correct_answer": "গ) ৮",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "ইদানীং আপনার মনে হচ্ছে সংসার আপনার গুরুত্ব হ্রাস পাচ্ছে। আপনি এমন অবস্থায়-",
+      "option_a": "খুবই হতাশাবোধ করবেন",
+      "option_b": "বন্ধুদের সাথে বিষয়টি আলাপ করবেন",
+      "option_c": "সংসারের প্রতি গভীর মনোযোগ দেবেন",
+      "option_d": "ক্ষোভ ও দুঃখ প্রকাশ করে মন খারাপ করবেন",
+      "correct_answer": "গ) সংসারের প্রতি গভীর মনোযোগ দেবেন",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "আমার কক্ষে এক বৃদ্ধ দম্পতি ও তাদের সাথে দুই দম্পতি প্রত্যেক দুইজন করে সন্তানসহ আমার কক্ষে প্রবেশ করলেন। আমার কক্ষে মোট কতজন লোক হলো?",
+      "option_a": "৯",
+      "option_b": "১০",
+      "option_c": "১১",
+      "option_d": "১২",
+      "correct_answer": "গ) ১১",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "ক খ-এর পুত্র। খ এবং গ পরস্পর বোন। ঘ হচ্ছে গ এর মা, চ, ঘ-এর পুত্র। চ এর সংগে ক-এর সম্পর্ক কি?",
+      "option_a": "ক এর মামা চ",
+      "option_b": "ক এর খালু চ",
+      "option_c": "চ এর নান ক",
+      "option_d": "ক এর চাচা চ",
+      "correct_answer": "ক) ক এর মামা চ",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "(5 n+2 +35×5 n-1 )/4×5n=?",
+      "option_a": "4",
+      "option_b": "8",
+      "option_c": "5",
+      "option_d": "7",
+      "correct_answer": "খ) 8",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "বিষমবাহু △ABC এর বাহুগুলির মান এমনভাবে নির্ধারিত যে, AD মধ্যমা দ্বারা গঠিত △ABD এর ক্ষেত্রফল x বর্গমিটার। △ABC এর ক্ষেত্রফল কত?",
+      "option_a": "x² বর্গমিটার",
+      "option_b": "2x বর্গমিটার",
+      "option_c": "(x²)² বর্গমিটার",
+      "option_d": "(x³)³ বর্গমিটার",
+      "correct_answer": "খ) 2x বর্গমিটার",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "A=, B=∅, A∪B=?",
+      "option_a": "",
+      "option_b": "{1,2,∅}",
+      "option_c": "{2,3,∅}",
+      "option_d": "∅",
+      "correct_answer": "ক)",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "x+y=2, x²+y²=4 হলে x³+y³=?",
+      "option_a": "8",
+      "option_b": "9",
+      "option_c": "16",
+      "option_d": "25",
+      "correct_answer": "ক) 8",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "ঘড়িতে এখন ৮টা বাজে। ঘন্টার কাঁটা ও মিনিটের কাঁটার মধ্যকার কোণটি হলো-",
+      "option_a": "১৫০°",
+      "option_b": "৬০°",
+      "option_c": "৯০°",
+      "option_d": "১২০°",
+      "correct_answer": "ঘ) ১২০°",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "",
+      "option_a": "T,X",
+      "option_b": "X,T",
+      "option_c": "S,T",
+      "option_d": "T,B",
+      "correct_answer": "“বাতিল করা হয়েছে”",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "ইউরিয়া সার থেকে উদ্ভিদ কি খাদ্য উপাদান গ্রহন করে?",
+      "option_a": "ফসফরাস",
+      "option_b": "নাইট্রোজেন",
+      "option_c": "পটাশিয়াম",
+      "option_d": "সালফার",
+      "correct_answer": "খ) নাইট্রোজেন",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "পরমাণুর নিউক্লিয়াসে কি কি থাকে?",
+      "option_a": "নিউট্রন ও প্রোটন",
+      "option_b": "ইলেকট্রন ও প্রোটন",
+      "option_c": "নিউট্রন ও পজিট্রন",
+      "option_d": "ইলেকট্রন ও পজিট্রন",
+      "correct_answer": "ক) নিউট্রন ও প্রোটন",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "রক্তে হিমোগ্লোবিনের কাজ কি?",
+      "option_a": "অক্সিজেন পরিবহন করা",
+      "option_b": "রোগ প্রতিরোধ করা",
+      "option_c": "রক্ত জমাট বাধতে সাহায্য করা",
+      "option_d": "উপরে উল্লিখিত সব কয়টিই",
+      "correct_answer": "ক) অক্সিজেন পরিবহন করা",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "সুষম খাদ্যের উপাদান কয়টি?",
+      "option_a": "৪ টি",
+      "option_b": "৬ টি",
+      "option_c": "৫ টি",
+      "option_d": "৮ টি",
+      "correct_answer": "খ) ৬ টি",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "ইনসুলিন নিঃসৃত হয় কোথা থেকে?",
+      "option_a": "অগ্ন্যাশয় হতে",
+      "option_b": "প্যানক্রিয়াস হতে",
+      "option_c": "লিভার হতে",
+      "option_d": "পিটুইটারী গ্লান্ড হতে",
+      "correct_answer": "“বাতিল করা হয়েছে”",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "পানির জীব হয়েও বাতাসে নিঃশ্বাস নেয়-",
+      "option_a": "পটকা মাছ",
+      "option_b": "হাঙ্গর",
+      "option_c": "শুশুক",
+      "option_d": "জেলী ফিস",
+      "correct_answer": "গ) শুশুক",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "অতিরিক্ত খাদ্য থেকে লিভারে সঞ্চিত সুগার হল-",
+      "option_a": "গ্লাইকোজেন",
+      "option_b": "গ্লুকোজ",
+      "option_c": "ফ্রুক্টোজ (Fructose)",
+      "option_d": "সুক্রোজ",
+      "correct_answer": "ক) গ্লাইকোজেন",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "প্রাণী জগতের উৎপত্তি ও বংশ সম্বন্ধীয় বিদ্যাকে বলে-",
+      "option_a": "জুওলজী",
+      "option_b": "বায়োলজী",
+      "option_c": "ইভোলিউশন",
+      "option_d": "জেনেটিক্স",
+      "correct_answer": "ঘ) জেনেটিক্স",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "কোন খাদ্যে প্রোটিন বেশি?",
+      "option_a": "ভাত",
+      "option_b": "গরুর মাংস",
+      "option_c": "মসুর ডাল",
+      "option_d": "ময়দা",
+      "correct_answer": "গ) মসুর ডাল",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "হাড় ও দাঁতকে মজবুত করে-",
+      "option_a": "আয়োডিন",
+      "option_b": "আয়রন",
+      "option_c": "ম্যাগনেসিয়াম",
+      "option_d": "ক্যালসিয়াম ও ফসফরাস",
+      "correct_answer": "ঘ) ক্যালসিয়াম ও ফসফরাস",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "সুনামীর কারণ হল-",
+      "option_a": "আগ্নেয়গিরির অগ্নুৎপাত",
+      "option_b": "ঘূর্ণীঝড়",
+      "option_c": "চন্দ্র ও সূর্যের আকর্ষণ",
+      "option_d": "সমুদ্রের তলদেশে ভূমিকম্প",
+      "correct_answer": "ঘ) সমুদ্রের তলদেশে ভূমিকম্প",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "ডায়াবেটিস রোগ সম্পর্কে যে তথ্যাটি সঠিক নয় তা হল-",
+      "option_a": "এ রোগে মানবদেহের কিডনি নষ্ট করে",
+      "option_b": "চিনি জাতীয় খাবার খেলে এ রোগ হয়",
+      "option_c": "এ রোগ হলে রক্তে গ্লুকোজের পরিমাণ বৃদ্ধি পায়",
+      "option_d": "ইনসুলিনের অভাবে এ রোগ হয়",
+      "correct_answer": "খ) চিনি জাতীয় খাবার খেলে এ রোগ হয়",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "প্রাকৃতিক কোন উৎস হতে সবচেয়ে বেশি মৃদু পানি পাওয়া যায়?",
+      "option_a": "নদী",
+      "option_b": "সাগর",
+      "option_c": "হ্রদ",
+      "option_d": "বৃষ্টিপাত",
+      "correct_answer": "ঘ) বৃষ্টিপাত",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "নবায়নযোগ্য জ্বালানী কোনটি?",
+      "option_a": "পরমাণু শক্তি",
+      "option_b": "কয়লা",
+      "option_c": "পেট্রোল",
+      "option_d": "প্রাকৃতিক গ্যাস",
+      "correct_answer": "ক) পরমাণু শক্তি",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "জমির লবণাক্ততা নিয়িন্ত্রণ করে কোনটি?",
+      "option_a": "কৃত্রিম সার প্রয়োগ",
+      "option_b": "পানি সেচ",
+      "option_c": "মাটিতে নাইট্রোজেন ধরে রাখা",
+      "option_d": "প্রাকৃতিক গ্যাস প্রয়োগ",
+      "correct_answer": "খ) পানি সেচ",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "নিচের কোনটির বিদ্যুৎ পরিবাহিতা সবচেয়ে বেশি?",
+      "option_a": "তামা",
+      "option_b": "রূপা",
+      "option_c": "সোনা",
+      "option_d": "কার্বন",
+      "correct_answer": "খ) রূপা",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "কোন ডালের সংগে ল্যাথারাইজম রোগের সম্পর্ক আছে?",
+      "option_a": "অড়হর",
+      "option_b": "ছোলা",
+      "option_c": "খেসারী",
+      "option_d": "মটর",
+      "correct_answer": "গ) খেসারী",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "মানবদেহে শক্তি উৎপাদনের প্রধান উৎস-",
+      "option_a": "পরিপাক",
+      "option_b": "খাদ্য গ্রহণ",
+      "option_c": "শ্বসন",
+      "option_d": "রক্ত সংবহন",
+      "correct_answer": "গ) শ্বসন",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "বরফ পানিতে ভাসে কারণ বরফের তুলনায় পানির-",
+      "option_a": "ঘনত্ব কম",
+      "option_b": "ঘনত্ব বেশি",
+      "option_c": "তাপমাত্রা বেশি",
+      "option_d": "দ্রবণীয়তা বেশি",
+      "correct_answer": "খ) ঘনত্ব বেশি",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "গাড়ির ব্যাটারিতে কোন এসিড ব্যবহৃত হয়?",
+      "option_a": "নাইট্রিক",
+      "option_b": "সালফিউরিক",
+      "option_c": "হাইড্রোক্লোরিক",
+      "option_d": "পারক্লোরিক",
+      "correct_answer": "খ) সালফিউরিক",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "Who is known as the ‘Lady of the Lamp’?",
+      "option_a": "Sorojini Naidu",
+      "option_b": "Hellen Killer",
+      "option_c": "Florence Nightingale",
+      "option_d": "Madame Teresa",
+      "correct_answer": "গ) Florence Nightingale",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "For which of the following disciplines Nobel Prize is awarded ?",
+      "option_a": "Physics and Chemistry",
+      "option_b": "Physiology or Medicine",
+      "option_c": "Literature, Peace and Economics",
+      "option_d": "All of the above",
+      "correct_answer": "ঘ) All of the above",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "Lunar eclipse occurs on-",
+      "option_a": "A new moon day",
+      "option_b": "A full moon day",
+      "option_c": "A half moon day",
+      "option_d": "A moonless day",
+      "correct_answer": "খ) A full moon day",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "World ‘ No-Tobacco Day’ is observed on-",
+      "option_a": "May 25",
+      "option_b": "May 28",
+      "option_c": "May 30",
+      "option_d": "May 31",
+      "correct_answer": "ঘ) May 31",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "Which of the following ecosystems covers the largest area of the earth’s surface ?",
+      "option_a": "Desert Ecosystem",
+      "option_b": "Mountain Ecosystem",
+      "option_c": "Freshwater Ecosystem",
+      "option_d": "Marine Ecosystem",
+      "correct_answer": "ঘ) Marine Ecosystem",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "In Cricket game the length of pitch between the two wickets is-",
+      "option_a": "14 yards",
+      "option_b": "23 yards",
+      "option_c": "22 yards",
+      "option_d": "21 yards",
+      "correct_answer": "গ) 22 yards",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "IMF (International Monetary Fund) is the result of-",
+      "option_a": "Hawana Conference",
+      "option_b": "Geneva Conference",
+      "option_c": "Rome Conference",
+      "option_d": "Brettonwood Conference",
+      "correct_answer": "ঘ) Brettonwood Conference",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "Dengue fever is spread by-",
+      "option_a": "Aedes aegypti mosquito",
+      "option_b": "Common House flies",
+      "option_c": "Anopheles mosquito",
+      "option_d": "Rats and squirrels",
+      "correct_answer": "ক) Aedes aegypti mosquito",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "The International Court of Justice is located in-",
+      "option_a": "New York",
+      "option_b": "London",
+      "option_c": "Geneva",
+      "option_d": "Hague",
+      "correct_answer": "ঘ) Hague",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "√169 is equal to-",
+      "option_a": "11",
+      "option_b": "13",
+      "option_c": "15",
+      "option_d": "17",
+      "correct_answer": "খ) 13",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "Badminton is the national sport of-",
+      "option_a": "Malaysia",
+      "option_b": "Scotland",
+      "option_c": "China",
+      "option_d": "Nepal",
+      "correct_answer": "“বাতিল করা হয়েছে”",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "EURO is the currency of-",
+      "option_a": "Asia",
+      "option_b": "Europe",
+      "option_c": "America",
+      "option_d": "Africa",
+      "correct_answer": "খ) Europe",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "Photosynthesis takes place in-",
+      "option_a": "Roots of the plants",
+      "option_b": "Stems of the plants",
+      "option_c": "Green parts of the plants",
+      "option_d": "All parts of the plants",
+      "correct_answer": "গ) Green parts of the plants",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "The term PC means-",
+      "option_a": "Private Computer",
+      "option_b": "Prime Computer",
+      "option_c": "Personal Computer",
+      "option_d": "Professional Computer",
+      "correct_answer": "গ) Personal Computer",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "Fill in the blank of the following sentence with the right form of verb. If I ____ a king!",
+      "option_a": "am",
+      "option_b": "was",
+      "option_c": "were",
+      "option_d": "shall be",
+      "correct_answer": "গ) were",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "Tiger : Zoology : : Mars : ____.",
+      "option_a": "Astrology",
+      "option_b": "Cryptology",
+      "option_c": "Astronomy",
+      "option_d": "Telescope",
+      "correct_answer": "গ) Astronomy",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "Maiden speech means-",
+      "option_a": "First speech",
+      "option_b": "Middle speech",
+      "option_c": "Maid servant’s speech",
+      "option_d": "Final speech",
+      "correct_answer": "ক) First speech",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "N.B. stands for-",
+      "option_a": "Note before",
+      "option_b": "No bar",
+      "option_c": "Non bearing",
+      "option_d": "Nota bene",
+      "correct_answer": "ঘ) Nota bene",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "What is the masculine gender of ”mare”?",
+      "option_a": "Mermaid",
+      "option_b": "Bear",
+      "option_c": "Stallion",
+      "option_d": "Dog",
+      "correct_answer": "গ) Stallion",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "Botany is to plants as Zoology is to-",
+      "option_a": "Flowers",
+      "option_b": "Rivers",
+      "option_c": "Mountains",
+      "option_d": "Animals",
+      "correct_answer": "ঘ) Animals",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "১৯৭১ সনের কত তারিখে মুজিবনগরে স্বাধীন বাংলাদেশের অস্থায়ী সরকার গঠিত হয়?",
+      "option_a": "৭ মার্চ ১৯৭১ খৃঃ",
+      "option_b": "২৬ মার্চ ১৯৭১ খৃঃ",
+      "option_c": "১০ এপ্রিল ১৯৭১ খৃঃ",
+      "option_d": "১৬ ডিসেম্বর ১৯৭১ খৃঃ",
+      "correct_answer": "গ) ১০ এপ্রিল ১৯৭১ খৃঃ",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "বঙ্গবন্ধু শেখ মুজিবুর রহমান কত তারিখে জন্মগ্রহণ করেন?",
+      "option_a": "১ মার্চ ১৯১৯ খৃঃ",
+      "option_b": "১৭ মার্চ ১৯২০ খৃঃ",
+      "option_c": "১৪ আগস্ট ১৯৪৭ খৃঃ",
+      "option_d": "২১ জুন ১৯৪১ খৃঃ",
+      "correct_answer": "খ) ১৭ মার্চ ১৯২০ খৃঃ",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "বহুল আলোচিত মুহুরীর চর কোন জেলায় অবস্থিত?",
+      "option_a": "নোয়াখালী",
+      "option_b": "ফেনী",
+      "option_c": "লালমনিরহাট",
+      "option_d": "সাতক্ষীরা",
+      "correct_answer": "খ) ফেনী",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "বাংলাদেশ টেলিভিশনের যাত্রা শুরু হয় কত সনে?",
+      "option_a": "১৯৪৭ খৃঃ",
+      "option_b": "১৯৫৮ খৃঃ",
+      "option_c": "১৯৬৪ খৃঃ",
+      "option_d": "১৯৬৫ খৃঃ",
+      "correct_answer": "গ) ১৯৬৪ খৃঃ",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "বাংলাদেশ জাতীয় সংসদের প্রথম নির্বাচন কবে অনুষ্ঠিত হয়?",
+      "option_a": "৭ মার্চ ১৯৭৩ খৃঃ",
+      "option_b": "৭ এপ্রিল ১৯৭৩ খৃঃ",
+      "option_c": "১৬ ডিসেম্বর ১৯৭২ খৃঃ",
+      "option_d": "৭ ডিসেম্বর ১৯৭২ খৃঃ",
+      "correct_answer": "ক) ৭ মার্চ ১৯৭৩ খৃঃ",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "চিরস্থায়ী বন্দোবস্ত প্রবর্তন করা হয় কত সনে?",
+      "option_a": "১৭৫৭ খৃঃ",
+      "option_b": "১৭৭০ খৃঃ",
+      "option_c": "১৮৫৭ খৃঃ",
+      "option_d": "১৭৯৩ খৃঃ",
+      "correct_answer": "ঘ) ১৭৯৩ খৃঃ",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "বাংলাদেশ উন্নয়ন ফোরামের সমন্বয়কারী কোন সংস্থা?",
+      "option_a": "এ, ডি, বি",
+      "option_b": "বিশ্বব্যাংক",
+      "option_c": "জাইকা",
+      "option_d": "আই, এম, এফ",
+      "correct_answer": "খ) বিশ্বব্যাংক",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "বাংলাদেশ ও বার্মার সীমান্তবর্তী নদী কোনটি?",
+      "option_a": "গোমতী",
+      "option_b": "জিঞ্জিরাম",
+      "option_c": "নাফ",
+      "option_d": "কর্ণফুলী",
+      "correct_answer": "গ) নাফ",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "বাংলাদেশে শেয়ারবাজার কার্যক্রম কোন সংস্থা নিয়ন্ত্রণ করে?",
+      "option_a": "অর্থ মন্ত্রণালয়",
+      "option_b": "প্রধানমন্ত্রীর কার্যালয়",
+      "option_c": "বাংলাদেশ ব্যাংক",
+      "option_d": "সিকিউরিটিজ এক্সচেঞ্জ কমিশন",
+      "correct_answer": "ঘ) সিকিউরিটিজ এক্সচেঞ্জ কমিশন",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "জামাল নজরুল ইসলাম কে?",
+      "option_a": "ফুটবল খেলোয়াড়",
+      "option_b": "অর্থনীতিবিদ",
+      "option_c": "কবি",
+      "option_d": "বৈজ্ঞানিক",
+      "correct_answer": "ঘ) বৈজ্ঞানিক",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "নিচের কোন সংস্থাটি ২১ ফেব্রুয়ারিকে আন্তর্জাতিক মাতৃভাষা দিবস হিসাবে স্বীকৃতি দিয়েছে?",
+      "option_a": "UNDP",
+      "option_b": "UNESCO",
+      "option_c": "UNICEF",
+      "option_d": "UNCTAD",
+      "correct_answer": "খ) UNESCO",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "‘তাহরির স্কয়ার’ কোথায় অবস্থিত?",
+      "option_a": "সিউল",
+      "option_b": "আম্মান",
+      "option_c": "কায়রো",
+      "option_d": "তেহরান",
+      "correct_answer": "গ) কায়রো",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "কোনটি D-৮ ভুক্ত দেশ নয়?",
+      "option_a": "নাইজেরিয়া",
+      "option_b": "ভারত",
+      "option_c": "মালয়েশিয়া",
+      "option_d": "তুরস্ক",
+      "correct_answer": "খ) ভারত",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "অ্যামনেস্টি ইন্টারন্যাশনাল-এর সদর দপ্তর কোথায় অবস্থিত?",
+      "option_a": "লন্ডন",
+      "option_b": "নিউইয়র্ক",
+      "option_c": "প্যারিস",
+      "option_d": "ভিয়েনা",
+      "correct_answer": "ক) লন্ডন",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "‘আরব বসন্ত’ বলতে কি বুঝায়?",
+      "option_a": "আরবের বিভিন্ন দেশে গণজাগরণ",
+      "option_b": "আরব অঞ্চলে বসন্তকাল",
+      "option_c": "আরব রাজতন্ত্র",
+      "option_d": "আরবীয় মহিলাদের ক্ষমতায়ন",
+      "correct_answer": "ক) আরবের বিভিন্ন দেশে গণজাগরণ",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "আয়তনে পৃথিবীর সবচেয়ে ছোট দেশ?",
+      "option_a": "ফিজি",
+      "option_b": "ভ্যাটিকান",
+      "option_c": "কুয়েত",
+      "option_d": "মালদ্বীপ",
+      "correct_answer": "খ) ভ্যাটিকান",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "এশিয়ার হিন্দু রাষ্ট্র কোনটি?",
+      "option_a": "নেপাল",
+      "option_b": "ভারত",
+      "option_c": "ভূটান",
+      "option_d": "মালদ্বীপ",
+      "correct_answer": "ক) নেপাল",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "‘লয়াজিরগা’ কোন দেশের আইন সভা?",
+      "option_a": "ফিজি",
+      "option_b": "সিরিয়া",
+      "option_c": "লেবানন",
+      "option_d": "আফগানিস্তান",
+      "correct_answer": "ঘ) আফগানিস্তান",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "কোপেন হেগেন কোন দেশের রাজধানী?",
+      "option_a": "ডেনমার্ক",
+      "option_b": "বেলজিয়াম",
+      "option_c": "ভিয়েতনাম",
+      "option_d": "আর্মেনিয়া",
+      "correct_answer": "ক) ডেনমার্ক",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "শ্যামদেশ কোন দেশের পুরাতন নাম?",
+      "option_a": "মিসর",
+      "option_b": "ইরাক",
+      "option_c": "ইরান",
+      "option_d": "থাইল্যান্ড",
+      "correct_answer": "ঘ) থাইল্যান্ড",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "‘চর্যাপদ’ কত সালে আবিষ্কৃত হয়?",
+      "option_a": "১৮০০",
+      "option_b": "১৮৫৭",
+      "option_c": "১৯০৭",
+      "option_d": "১৯০৯",
+      "correct_answer": "গ) ১৯০৭",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "বাংলা সাহিত্যের পঠন-পাঠনের সুবিধার জন্য বাংলা সাহিত্যের ইতিহাসকে তিনটি যুগে ভাগ করা হয়েছে, ____ বাংলা সাহিত্যের প্রাচীন যুগ।",
+      "option_a": "৪৫০-৬৫০",
+      "option_b": "৬৫০-৮৫০",
+      "option_c": "৬৫০-১২০০",
+      "option_d": "৬৫০-১২৫০",
+      "correct_answer": "গ) ৬৫০-১২০০",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "মধ্যযুগের কবি নন কে?",
+      "option_a": "জয়নন্দী",
+      "option_b": "বড়ু চণ্ডীদাস",
+      "option_c": "গোবিন্দ দাস",
+      "option_d": "জ্ঞান দাস",
+      "correct_answer": "ক) জয়নন্দী",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "বাংলা সাহিত্যে অন্ধকার যুগ বলতে-",
+      "option_a": "১১৯৯-১২৫০ পর্যন্ত",
+      "option_b": "১২০১-১৩৫০ পর্যন্ত",
+      "option_c": "১২৫০-১৩৫০ পর্যন্ত",
+      "option_d": "১২৫০-১৪৫০ পর্যন্ত",
+      "correct_answer": "খ) ১২০১-১৩৫০ পর্যন্ত",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "ফোর্ট উইলিয়াম কলেজের অধ্যক্ষ কে ছিলেন?",
+      "option_a": "উইলিয়াম কেরি",
+      "option_b": "লর্ড ওয়েলেসলি",
+      "option_c": "মৃত্যুঞ্জল বিদ্যালঙ্কার",
+      "option_d": "রামরাম বসু",
+      "correct_answer": "ক) উইলিয়াম কেরি",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "বাংলা সাহিত্যের জনক হিসেবে কার নাম চির স্মরণীয়?",
+      "option_a": "মাইকেল মধুসূদন দত্ত",
+      "option_b": "রাজা রামমোহন রায়",
+      "option_c": "ঈশ্বরচন্দ্র বিদ্যাসাগর",
+      "option_d": "বঙ্কিমচন্দ্র চট্টোপাধ্যায়",
+      "correct_answer": "“বাতিল করা হয়েছে”",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "মাইকেল মধুসূদন দত্তের রচনা নয় কোনটি?",
+      "option_a": "তিলোত্তমা কাব্য",
+      "option_b": "মেঘনাদ বধ কাব্য",
+      "option_c": "বেতাল পঞ্চবিংশতি",
+      "option_d": "বীরাঙ্গনা",
+      "correct_answer": "গ) বেতাল পঞ্চবিংশতি",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "কুলীন কুলসর্বস্ব নাটকটি কার লেখা?",
+      "option_a": "মাইকেল মধুসূদন দত্ত",
+      "option_b": "দীনবন্ধু মিত্র",
+      "option_c": "রামনারায়ণ তর্করত্ন",
+      "option_d": "রবীন্দ্রনাথ ঠাকুর",
+      "correct_answer": "গ) রামনারায়ণ তর্করত্ন",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "‘নীল দর্পণ’ নাটকটির বিষবস্তু কি?",
+      "option_a": "নীলকরদের অত্যাচার",
+      "option_b": "ভাষা আন্দোলন",
+      "option_c": "অসহযোগ আন্দোলন",
+      "option_d": "তে-ভাগা আন্দোলন",
+      "correct_answer": "ক) নীলকরদের অত্যাচার",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "‘ঘরে বাইরে’ উপন্যাসটি কার লেখা?",
+      "option_a": "আলাওল",
+      "option_b": "কাজী দীন মহম্মদ",
+      "option_c": "কাজী মোতাহের হোসেন",
+      "option_d": "রবীন্দ্রনাথ ঠাকুর",
+      "correct_answer": "ঘ) রবীন্দ্রনাথ ঠাকুর",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "সৈয়দ মুজতবা আলীর প্রবন্ধ গ্রন্থ কোনটি?",
+      "option_a": "পঞ্চতন্ত্র",
+      "option_b": "কালান্তর",
+      "option_c": "প্রবন্ধ সংগ্রহ",
+      "option_d": "শাশ্বত বঙ্গ",
+      "correct_answer": "ক) পঞ্চতন্ত্র",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "‘তত্ত্ববোধিনী’ পত্রিকার সম্পাদক কে ছিলেন?",
+      "option_a": "অক্ষয়কুমার দত্ত",
+      "option_b": "প্যারীচাঁদ মিত্র",
+      "option_c": "ঈশ্বরচন্দ্র বিদ্যাসাগর",
+      "option_d": "সৈয়দ মুজতবা আলী",
+      "correct_answer": "ক) অক্ষয়কুমার দত্ত",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "ভাষা আন্দোলনভিত্তিক নাটক কোনটি?",
+      "option_a": "কবর",
+      "option_b": "পায়ের আওয়াজ পাওয়া যায়",
+      "option_c": "জন্ডিস ও বিবিধ বেলুন",
+      "option_d": "ওরা কদম আলী",
+      "correct_answer": "ক) কবর",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "‘ভানুসিংহ ঠাকুর’ কার ছদ্মনাম?",
+      "option_a": "দীনবন্ধু মিত্র",
+      "option_b": "রবীন্দ্রনাথ ঠাকুর",
+      "option_c": "প্রমথ চৌধুরী",
+      "option_d": "জীবনানন্দ দাসল",
+      "correct_answer": "খ) রবীন্দ্রনাথ ঠাকুর",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "কোন কাব্যটি পল্লীকবি জসীমউদ্‌দীন রচিত?",
+      "option_a": "চৈতালী",
+      "option_b": "রাখালী",
+      "option_c": "ফনিমনসা",
+      "option_d": "আলো পৃথিবী",
+      "correct_answer": "খ) রাখালী",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "‘তুমি আসবে বলে হে স্বাধীনতা’ কার কবিতা?",
+      "option_a": "শওকত ওসমান",
+      "option_b": "সিকান্দার আবু জাফর",
+      "option_c": "সুফিয়া কামাল",
+      "option_d": "শামসুর রাহমান",
+      "correct_answer": "ঘ) শামসুর রাহমান",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "‘দেয়াল’ রচনাটি কার?",
+      "option_a": "হুমায়ূন আহমেদ",
+      "option_b": "তারাশঙ্কর বন্দ্যোপাধ্যায়",
+      "option_c": "বুদ্ধদেব বসু",
+      "option_d": "সেলিনা হোসেন",
+      "correct_answer": "ক) হুমায়ূন আহমেদ",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "মুক্তিযুদ্ধভিত্তিক উপন্যাস কোনটি?",
+      "option_a": "ক্রীতদাসের হাসি",
+      "option_b": "মাটি আর অশ্রু",
+      "option_c": "হাঙর নদী গ্রেনেড",
+      "option_d": "সারেং বউ",
+      "correct_answer": "গ) হাঙর নদী গ্রেনেড",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "‘আমার ভাইয়ের রক্তে রাঙানো একুশে ফেব্রুয়ারি আমি কি ভুলিতে পারি।’ এ গানের প্রথম সুরকার কে?",
+      "option_a": "আবদুল গাফফার চৌধুরী",
+      "option_b": "আসাদ চৌধুরী",
+      "option_c": "আলতাফ মাহমুদ",
+      "option_d": "আবদুল লতিফ",
+      "correct_answer": "ঘ) আবদুল লতিফ",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "১৯৮৫ সালে নাসির উদ্দিন স্বর্ণপদক কে পান?",
+      "option_a": "সৈয়দ আলী আহসান",
+      "option_b": "সৈয়দ ওয়ালীউল্লাহ",
+      "option_c": "সৈয়দ শামসুল হক",
+      "option_d": "সিকান্‌দার আবু জাফর",
+      "correct_answer": "ক) সৈয়দ আলী আহসান",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    },
+    {
+      "question_text": "প্রাণদ : জল : : মহীজ : ?",
+      "option_a": "সম্বর",
+      "option_b": "গ্রহ",
+      "option_c": "নিঃসর্গ",
+      "option_d": "অশ্ব",
+      "correct_answer": "খ) গ্রহ",
+      "explanation": "এই প্রশ্ন সহ কয়েক লাখ প্রশ্নের অথেনটিক ব্যাখ্যা দেখতে Live MCQ অ্যাপ ইন্সটল করুন।",
+      "subject": ""
+    }
+  ]
+}
