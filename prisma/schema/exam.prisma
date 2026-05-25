@@ -72,6 +72,7 @@ model Question {
   optionD       String   @map("option_d") @db.Text
   correctAnswer String   @map("correct_answer") @db.VarChar(1)
   explanation   String?  @db.Text
+  examName      String?  @map("exam_name") @db.VarChar(200)
   subject       String?  @db.VarChar(200)
   topic         String?  @db.VarChar(200)
   subTopic      String?  @map("sub_topic") @db.VarChar(200)

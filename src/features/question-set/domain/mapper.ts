@@ -36,6 +36,7 @@ export const questionMapper = {
       optionD: entity.optionD,
       correctAnswer: entity.correctAnswer,
       explanation: entity.explanation,
+      examName: entity.examName,
       subject: entity.subject,
       topic: entity.topic,
       subTopic: entity.subTopic,

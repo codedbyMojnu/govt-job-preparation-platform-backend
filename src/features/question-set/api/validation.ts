@@ -89,6 +89,7 @@ const bulkQuestionItem = z.object({
   optionD: z.string().min(1),
   correctAnswer: answerEnum,
   explanation: z.string().optional(),
+  examName: z.string().max(200).optional(),
   subject: z.string().max(200).optional(),
   topic: z.string().max(200).optional(),
   subTopic: z.string().max(200).optional(),
