@@ -1,12 +1,15 @@
 import type { AwilixContainer } from 'awilix';
+import compression from 'compression';
 import cors from 'cors';
 import express from 'express';
+import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 import type { Logger } from 'pino';
 
 import { config } from './config/index.js';
 import { createAuthRoutes } from './features/auth/index.js';
 import { createExamCategoryRoutes } from './features/exam-category/index.js';
+import { createJobCircularRoutes } from './features/job-circular/index.js';
 import { createNotificationRoutes } from './features/notification/index.js';
 import { createPackageRoutes } from './features/package/index.js';
 import { createQuestionSetRoutes } from './features/question-set/index.js';
@@ -32,6 +35,24 @@ export function createApp(container: AwilixContainer) {
     }),
   );
 
+  // Enable ETag support
+  app.set('etag', 'strong');
+
+  // Response compression (gzip/brotli) — skip for small responses
+  app.use(compression({ threshold: 1024 }));
+
+  // Per-user rate limiting: 200 req/min on API routes
+  const apiLimiter = rateLimit({
+    windowMs: 60 * 1000,
+    max: 200,
+    standardHeaders: true,
+    legacyHeaders: false,
+    keyGenerator: (req) => (req.headers['x-user-id'] as string) || req.ip || 'unknown',
+    message: { error: 'Too many requests, please try again later.' },
+    skip: (req) => req.path === '/api/health',
+  });
+  app.use('/api/', apiLimiter);
+
   // Body parsing
   app.use(express.json({ limit: '1mb' }));
 
@@ -54,6 +75,7 @@ export function createApp(container: AwilixContainer) {
   app.use('/api/v1/question-sets', createQuestionSetRoutes(container));
   app.use('/api/v1/routines', createRoutineRoutes(container));
   app.use('/api/v1/syllabuses', createSyllabusRoutes(container));
+  app.use('/api/v1/job-circulars', createJobCircularRoutes(container));
 
   // Terminal middleware
   app.use(notFoundHandler);

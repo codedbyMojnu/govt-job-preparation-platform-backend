@@ -316,6 +316,62 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     asyncHandler((req, res) => controller.getFavoriteQuestions(req, res)),
   );
 
+  // Auth: Get questions by subject+topic with cursor pagination and ETag
+  router.get(
+    '/by-topic',
+    authenticate,
+    asyncHandler(async (req, res) => {
+      const { subject, topic, cursor, limit } = req.query as Record<string, string | undefined>;
+      const userId = req.userId!;
+      const take = Math.min(parseInt(limit ?? '50', 10), 100);
+
+      const where: Record<string, unknown> = {};
+      if (subject) where['subject'] = subject;
+      if (topic) where['topic'] = topic;
+
+      const cursorClause = cursor ? { cursor: { id: cursor }, skip: 1 } : {};
+
+      const questions = await prisma.question.findMany({
+        where,
+        orderBy: { sortOrder: 'asc' },
+        take: take + 1,
+        ...cursorClause,
+      });
+
+      const hasNextPage = questions.length > take;
+      const items = hasNextPage ? questions.slice(0, take) : questions;
+      const nextCursor = hasNextPage ? items[items.length - 1]!.id : null;
+
+      const favoriteSet = new Set<string>();
+      if (items.length > 0) {
+        const favs = await prisma.userFavorite.findMany({
+          where: { userId, questionId: { in: items.map((q) => q.id) } },
+          select: { questionId: true },
+        });
+        favs.forEach((f) => favoriteSet.add(f.questionId));
+      }
+
+      const data = items.map((q) => ({
+        id: q.id,
+        questionText: q.questionText,
+        optionA: q.optionA,
+        optionB: q.optionB,
+        optionC: q.optionC,
+        optionD: q.optionD,
+        correctAnswer: q.correctAnswer,
+        explanation: q.explanation,
+        subject: q.subject,
+        topic: q.topic,
+        sortOrder: q.sortOrder,
+        userAnswer: null,
+        isCorrect: false,
+        isFavorite: favoriteSet.has(q.id),
+      }));
+
+      res.json({ data, nextCursor, total: items.length });
+    }),
+  );
+
   // Auth: Toggle favorite
   router.post(
     '/favorite/:questionId',

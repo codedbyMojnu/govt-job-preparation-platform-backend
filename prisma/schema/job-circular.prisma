@@ -1,0 +1,67 @@
+// Job Circular domain models
+
+enum OrgType {
+  GOVERNMENT
+  PRIVATE
+  AUTONOMOUS
+  NGO
+
+  @@map("org_type")
+}
+
+enum CircularStatus {
+  LIVE
+  UPCOMING
+  EXPIRED
+
+  @@map("circular_status")
+}
+
+model JobCircular {
+  id               String         @id @default(cuid())
+  gjobId           String?        @unique @map("gjob_id") @db.VarChar(50)
+  organizationName String         @map("organization_name") @db.VarChar(500)
+  organizationSlug String         @map("organization_slug") @db.VarChar(500)
+  orgType          OrgType        @default(GOVERNMENT) @map("org_type")
+  logoUrl          String?        @map("logo_url") @db.VarChar(1000)
+
+  // Job info
+  title            String         @db.VarChar(500)
+  totalPosts       Int            @default(0) @map("total_posts")
+  applicationUrl   String?        @map("application_url") @db.VarChar(1000)
+
+  // Dates
+  publishDate      DateTime?      @map("publish_date") @db.Date
+  deadline         DateTime?      @db.Date
+  examDate         DateTime?      @map("exam_date") @db.Date
+
+  // Rich content
+  description      String?        @db.Text
+  eligibility      String?        @db.Text
+  salary           String?        @db.VarChar(500)
+  experience       String?        @db.VarChar(500)
+  location         String?        @db.VarChar(500)
+  source           String?        @db.VarChar(1000)
+
+  // Categorization
+  category         String?        @db.VarChar(200)
+  ministry         String?        @db.VarChar(500)
+
+  // Status
+  status           CircularStatus @default(LIVE)
+  isActive         Boolean        @default(true) @map("is_active")
+
+  // Analytics
+  viewCount        Int            @default(0) @map("view_count")
+
+  createdAt        DateTime       @default(now()) @map("created_at")
+  updatedAt        DateTime       @updatedAt @map("updated_at")
+
+  @@index([deadline])
+  @@index([orgType])
+  @@index([status])
+  @@index([category])
+  @@index([publishDate])
+  @@index([organizationSlug])
+  @@map("job_circulars")
+}
