@@ -2,6 +2,7 @@ import type { PrismaClient } from '@prisma/client';
 import type { AwilixContainer } from 'awilix';
 import { Router } from 'express';
 
+import type { CacheService } from '../../../../infrastructure/cache/cache.service.js';
 import { authenticate, authorize } from '../../../../infrastructure/middleware/authenticate.js';
 import { validate } from '../../../../infrastructure/middleware/validate.js';
 import { NotFoundError } from '../../../../shared/errors/http-errors.js';
@@ -17,27 +18,39 @@ import {
 
 import { SubExamCategoryController } from './sub-exam-category.controller.js';
 
+const CACHE_TTL = 600; // 10 minutes
+
 export function createSubExamCategoryRoutes(container: AwilixContainer): Router {
   const router = Router();
 
   const prisma = container.resolve<PrismaClient>('prismaClient');
+  const cacheService = container.resolve<CacheService>('cacheService');
   const repository = new SubExamCategoryPrismaRepository(prisma);
   const service = new SubExamCategoryService(repository);
   const controller = new SubExamCategoryController(service);
+
+  async function invalidateCache() {
+    await cacheService.invalidatePattern('sub-categories:*');
+  }
 
   // Public: Get sub-categories by parent category slug
   router.get(
     '/by-category/:categorySlug',
     asyncHandler(async (req, res) => {
+      const categorySlug = req.params.categorySlug!;
       const category = await prisma.examCategory.findUnique({
-        where: { slug: req.params.categorySlug! },
+        where: { slug: categorySlug },
         select: { id: true },
       });
       if (!category) {
         throw new NotFoundError('Exam category not found');
       }
-      req.params.categoryId = category.id;
-      return controller.getByCategorySlug(req, res);
+      const data = await cacheService.getOrSet(
+        `sub-categories:category:${categorySlug}`,
+        () => service.getByCategoryId(category.id, true),
+        CACHE_TTL,
+      );
+      res.json({ data });
     }),
   );
 
@@ -64,7 +77,10 @@ export function createSubExamCategoryRoutes(container: AwilixContainer): Router 
     authenticate,
     authorize('ADMIN'),
     validate({ body: bulkUpsertSubExamCategoriesSchema }),
-    asyncHandler((req, res) => controller.bulkUpsert(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.bulkUpsert(req, res);
+      await invalidateCache();
+    }),
   );
 
   router.delete(
@@ -72,7 +88,10 @@ export function createSubExamCategoryRoutes(container: AwilixContainer): Router 
     authenticate,
     authorize('ADMIN'),
     validate({ body: bulkDeleteSubExamCategoriesSchema }),
-    asyncHandler((req, res) => controller.bulkDelete(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.bulkDelete(req, res);
+      await invalidateCache();
+    }),
   );
 
   // Admin: CRUD
@@ -81,7 +100,10 @@ export function createSubExamCategoryRoutes(container: AwilixContainer): Router 
     authenticate,
     authorize('ADMIN'),
     validate({ body: createSubExamCategorySchema }),
-    asyncHandler((req, res) => controller.create(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.create(req, res);
+      await invalidateCache();
+    }),
   );
 
   router.patch(
@@ -89,22 +111,29 @@ export function createSubExamCategoryRoutes(container: AwilixContainer): Router 
     authenticate,
     authorize('ADMIN'),
     validate({ body: updateSubExamCategorySchema }),
-    asyncHandler((req, res) => controller.update(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.update(req, res);
+      await invalidateCache();
+    }),
   );
 
   router.delete(
     '/:id',
     authenticate,
     authorize('ADMIN'),
-    asyncHandler((req, res) => controller.delete(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.delete(req, res);
+      await invalidateCache();
+    }),
   );
 
   // Public: Merit list for a sub-category
   router.get(
     '/merit-list/:subCategorySlug',
     asyncHandler(async (req, res) => {
+      const subCategorySlug = req.params.subCategorySlug!;
       const sub = await prisma.subExamCategory.findUnique({
-        where: { slug: req.params.subCategorySlug! },
+        where: { slug: subCategorySlug },
         select: { id: true },
       });
       if (!sub) {

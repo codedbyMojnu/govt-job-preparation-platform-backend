@@ -43,7 +43,7 @@ async function shutdown(signal: string) {
     logger.info('Prisma disconnected');
 
     const redis = container.resolve<Redis>('redisClient');
-    redis.disconnect();
+    await redis.quit();
     logger.info('Redis disconnected');
   } catch (err) {
     logger.error({ err }, 'Error during shutdown');

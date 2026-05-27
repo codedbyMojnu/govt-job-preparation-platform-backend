@@ -2,6 +2,7 @@ import type { PrismaClient } from '@prisma/client';
 import type { AwilixContainer } from 'awilix';
 import { Router } from 'express';
 
+import type { CacheService } from '../../../../infrastructure/cache/cache.service.js';
 import { authenticate, authorize } from '../../../../infrastructure/middleware/authenticate.js';
 import { validate } from '../../../../infrastructure/middleware/validate.js';
 import { NotFoundError } from '../../../../shared/errors/http-errors.js';
@@ -28,6 +29,7 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
   const router = Router();
 
   const prisma = container.resolve<PrismaClient>('prismaClient');
+  const cacheService = container.resolve<CacheService>('cacheService');
   const repository = new QuestionSetPrismaRepository(prisma);
   const service = new QuestionSetService(repository);
   const controller = new QuestionSetController(service);
@@ -44,13 +46,22 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     return sub.id;
   }
 
+  async function invalidateQuestionSetCache() {
+    await cacheService.invalidatePattern('question-sets:*');
+  }
+
   // Public: Get live question set by sub-category slug
   router.get(
     '/live/:subCategorySlug',
     asyncHandler(async (req, res) => {
-      const subCategoryId = await resolveSubCategoryId(req.params.subCategorySlug!);
-      req.params.subCategoryId = subCategoryId;
-      return controller.getLive(req, res);
+      const slug = req.params.subCategorySlug!;
+      const subCategoryId = await resolveSubCategoryId(slug);
+      const data = await cacheService.getOrSet(
+        `question-sets:live:${slug}`,
+        () => service.getLiveBySubCategoryId(subCategoryId),
+        300, // 5 minutes
+      );
+      res.json({ data });
     }),
   );
 
@@ -104,16 +115,29 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
   // Public: Get single question by slug (SEO page data)
   router.get(
     '/public/question/:slug',
-    asyncHandler((req, res) => controller.getPublicQuestion(req, res)),
+    asyncHandler(async (req, res) => {
+      const slug = req.params.slug!;
+      const data = await cacheService.getOrSet(
+        `question-sets:public-question:${slug}`,
+        () => service.getPublicQuestionBySlug(slug),
+        3600, // 1 hour
+      );
+      res.json({ data });
+    }),
   );
 
   // Public: Get archive question sets by sub-category slug
   router.get(
     '/archive/:subCategorySlug',
     asyncHandler(async (req, res) => {
-      const subCategoryId = await resolveSubCategoryId(req.params.subCategorySlug!);
-      req.params.subCategoryId = subCategoryId;
-      return controller.getArchive(req, res);
+      const slug = req.params.subCategorySlug!;
+      const subCategoryId = await resolveSubCategoryId(slug);
+      const data = await cacheService.getOrSet(
+        `question-sets:archive:${slug}`,
+        () => service.getArchiveBySubCategoryId(subCategoryId),
+        300, // 5 minutes
+      );
+      res.json({ data });
     }),
   );
 
@@ -167,7 +191,10 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     validate({ body: createQuestionSchema }),
-    asyncHandler((req, res) => controller.createQuestion(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.createQuestion(req, res);
+      await invalidateQuestionSetCache();
+    }),
   );
 
   // Admin: Update question
@@ -176,7 +203,10 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     validate({ body: updateQuestionSchema }),
-    asyncHandler((req, res) => controller.updateQuestion(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.updateQuestion(req, res);
+      await invalidateQuestionSetCache();
+    }),
   );
 
   // Admin: Delete question
@@ -184,7 +214,10 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     '/question/:id',
     authenticate,
     authorize('ADMIN'),
-    asyncHandler((req, res) => controller.deleteQuestion(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.deleteQuestion(req, res);
+      await invalidateQuestionSetCache();
+    }),
   );
 
   // Admin: Bulk upsert (create + update) questions in one call
@@ -193,7 +226,10 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     validate({ body: bulkUpsertQuestionsSchema }),
-    asyncHandler((req, res) => controller.bulkUpsertQuestions(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.bulkUpsertQuestions(req, res);
+      await invalidateQuestionSetCache();
+    }),
   );
 
   // Admin: Bulk delete questions by IDs
@@ -202,7 +238,10 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     validate({ body: bulkDeleteQuestionsSchema }),
-    asyncHandler((req, res) => controller.bulkDeleteQuestions(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.bulkDeleteQuestions(req, res);
+      await invalidateQuestionSetCache();
+    }),
   );
 
   // --- Exam flow ---
@@ -211,7 +250,15 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
   router.get(
     '/exam-questions/:questionSetId',
     authenticate,
-    asyncHandler((req, res) => controller.getExamQuestions(req, res)),
+    asyncHandler(async (req, res) => {
+      const questionSetId = req.params.questionSetId!;
+      const data = await cacheService.getOrSet(
+        `question-sets:exam-questions:${questionSetId}`,
+        () => service.getExamQuestions(questionSetId),
+        1800, // 30 minutes
+      );
+      res.json({ data });
+    }),
   );
 
   // Auth: Start exam attempt
@@ -316,7 +363,10 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     validate({ body: createQuestionSetSchema }),
-    asyncHandler((req, res) => controller.create(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.create(req, res);
+      await invalidateQuestionSetCache();
+    }),
   );
 
   // Admin: Update
@@ -325,7 +375,10 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     validate({ body: updateQuestionSetSchema }),
-    asyncHandler((req, res) => controller.update(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.update(req, res);
+      await invalidateQuestionSetCache();
+    }),
   );
 
   // Admin: Toggle live/archive status
@@ -333,7 +386,10 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     '/:id/toggle-status',
     authenticate,
     authorize('ADMIN'),
-    asyncHandler((req, res) => controller.toggleStatus(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.toggleStatus(req, res);
+      await invalidateQuestionSetCache();
+    }),
   );
 
   // Admin: Delete
@@ -341,7 +397,10 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     '/:id',
     authenticate,
     authorize('ADMIN'),
-    asyncHandler((req, res) => controller.delete(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.delete(req, res);
+      await invalidateQuestionSetCache();
+    }),
   );
 
   // Admin: Bulk upsert question sets
@@ -350,7 +409,10 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     validate({ body: bulkUpsertSetsSchema }),
-    asyncHandler((req, res) => controller.bulkUpsertSets(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.bulkUpsertSets(req, res);
+      await invalidateQuestionSetCache();
+    }),
   );
 
   // Admin: Bulk delete question sets
@@ -359,7 +421,10 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     validate({ body: bulkDeleteSetsSchema }),
-    asyncHandler((req, res) => controller.bulkDeleteSets(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.bulkDeleteSets(req, res);
+      await invalidateQuestionSetCache();
+    }),
   );
 
   return router;
