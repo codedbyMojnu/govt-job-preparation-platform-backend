@@ -2,6 +2,7 @@ import type { PrismaClient } from '@prisma/client';
 import type { AwilixContainer } from 'awilix';
 import { Router } from 'express';
 
+import type { CacheService } from '../../../../infrastructure/cache/cache.service.js';
 import { authenticate, authorize } from '../../../../infrastructure/middleware/authenticate.js';
 import { validate } from '../../../../infrastructure/middleware/validate.js';
 import { HttpStatus } from '../../../../shared/constants/http-status.js';
@@ -21,10 +22,13 @@ import {
 
 import { RoutineController } from './routine.controller.js';
 
+const CACHE_TTL = 600; // 10 minutes
+
 export function createRoutineRoutes(container: AwilixContainer): Router {
   const router = Router();
 
   const prisma = container.resolve<PrismaClient>('prismaClient');
+  const cacheService = container.resolve<CacheService>('cacheService');
   const repository = new RoutinePrismaRepository(prisma);
   const questionSetRepository = new QuestionSetPrismaRepository(prisma);
   const routineQuestionSetService = new RoutineQuestionSetService(
@@ -34,25 +38,41 @@ export function createRoutineRoutes(container: AwilixContainer): Router {
   const service = new RoutineService(repository);
   const controller = new RoutineController(service);
 
+  async function invalidateCache() {
+    await cacheService.invalidatePattern('routines:*');
+  }
+
   // Public: Get all active routines
   router.get(
     '/',
-    asyncHandler((req, res) => controller.getAll(req, res)),
+    asyncHandler(async (_req, res) => {
+      const data = await cacheService.getOrSet(
+        'routines:all',
+        () => service.getAll(true),
+        CACHE_TTL,
+      );
+      res.json({ data });
+    }),
   );
 
   // Public: Get routines by sub-category slug
   router.get(
     '/by-sub-category/:subCategorySlug',
     asyncHandler(async (req, res) => {
+      const slug = req.params.subCategorySlug!;
       const sub = await prisma.subExamCategory.findUnique({
-        where: { slug: req.params.subCategorySlug! },
+        where: { slug },
         select: { id: true },
       });
       if (!sub) {
         throw new NotFoundError('Sub exam category not found');
       }
-      req.params.subCategoryId = sub.id;
-      return controller.getBySubCategory(req, res);
+      const data = await cacheService.getOrSet(
+        `routines:sub:${slug}`,
+        () => service.getBySubCategoryId(sub.id, true),
+        CACHE_TTL,
+      );
+      res.json({ data });
     }),
   );
 
@@ -62,7 +82,10 @@ export function createRoutineRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     validate({ body: createRoutineSchema }),
-    asyncHandler((req, res) => controller.create(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.create(req, res);
+      await invalidateCache();
+    }),
   );
 
   router.patch(
@@ -70,14 +93,20 @@ export function createRoutineRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     validate({ body: updateRoutineSchema }),
-    asyncHandler((req, res) => controller.update(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.update(req, res);
+      await invalidateCache();
+    }),
   );
 
   router.delete(
     '/:id',
     authenticate,
     authorize('ADMIN'),
-    asyncHandler((req, res) => controller.delete(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.delete(req, res);
+      await invalidateCache();
+    }),
   );
 
   // Admin: Bulk operations
@@ -86,7 +115,10 @@ export function createRoutineRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     validate({ body: bulkUpsertRoutinesSchema }),
-    asyncHandler((req, res) => controller.bulkUpsert(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.bulkUpsert(req, res);
+      await invalidateCache();
+    }),
   );
 
   router.post(
@@ -105,7 +137,10 @@ export function createRoutineRoutes(container: AwilixContainer): Router {
     authenticate,
     authorize('ADMIN'),
     validate({ body: bulkDeleteRoutinesSchema }),
-    asyncHandler((req, res) => controller.bulkDelete(req, res)),
+    asyncHandler(async (req, res) => {
+      await controller.bulkDelete(req, res);
+      await invalidateCache();
+    }),
   );
 
   return router;
