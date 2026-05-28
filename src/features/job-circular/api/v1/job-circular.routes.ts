@@ -9,6 +9,8 @@ import { asyncHandler } from '../../../../shared/utils/async-handler.js';
 import { JobCircularService } from '../../domain/job-circular.service.js';
 import { JobCircularPrismaRepository } from '../../infra/job-circular.prisma-repository.js';
 import {
+  bulkDeleteJobCircularSchema,
+  bulkUpsertJobCircularSchema,
   createJobCircularSchema,
   jobCircularFilterSchema,
   updateJobCircularSchema,
@@ -124,6 +126,28 @@ export function createJobCircularRoutes(container: AwilixContainer): Router {
     authorize('ADMIN'),
     asyncHandler(async (req, res) => {
       await controller.delete(req, res);
+      await invalidateCache();
+    }),
+  );
+
+  router.post(
+    '/bulk-upsert',
+    authenticate,
+    authorize('ADMIN'),
+    validate(bulkUpsertJobCircularSchema),
+    asyncHandler(async (req, res) => {
+      await controller.bulkUpsert(req, res);
+      await invalidateCache();
+    }),
+  );
+
+  router.post(
+    '/bulk-delete',
+    authenticate,
+    authorize('ADMIN'),
+    validate(bulkDeleteJobCircularSchema),
+    asyncHandler(async (req, res) => {
+      await controller.bulkDelete(req, res);
       await invalidateCache();
     }),
   );

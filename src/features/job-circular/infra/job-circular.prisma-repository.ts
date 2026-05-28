@@ -3,6 +3,7 @@ import type { PrismaClient } from '@prisma/client';
 import { jobCircularMapper } from '../domain/mapper.js';
 import type { JobCircularRepository } from '../domain/repository.contract.js';
 import type {
+  BulkUpsertJobCircularItem,
   CreateJobCircularInput,
   JobCircularDto,
   JobCircularFilter,
@@ -148,5 +149,46 @@ export class JobCircularPrismaRepository implements JobCircularRepository {
 
   async delete(id: string): Promise<void> {
     await this.prisma.jobCircular.delete({ where: { id } });
+  }
+
+  async bulkUpsert(items: BulkUpsertJobCircularItem[]): Promise<JobCircularDto[]> {
+    const results: JobCircularDto[] = [];
+    for (const item of items) {
+      const data = {
+        gjobId: item.gjobId,
+        organizationName: item.organizationName,
+        organizationSlug: item.organizationSlug,
+        orgType: (item.orgType as 'GOVERNMENT' | 'PRIVATE' | 'AUTONOMOUS' | 'NGO') ?? 'GOVERNMENT',
+        logoUrl: item.logoUrl,
+        title: item.title,
+        totalPosts: item.totalPosts ?? 0,
+        applicationUrl: item.applicationUrl,
+        publishDate: item.publishDate ? new Date(item.publishDate) : null,
+        deadline: item.deadline ? new Date(item.deadline) : null,
+        examDate: item.examDate ? new Date(item.examDate) : null,
+        description: item.description,
+        eligibility: item.eligibility,
+        salary: item.salary,
+        experience: item.experience,
+        location: item.location,
+        source: item.source,
+        category: item.category,
+        ministry: item.ministry,
+        status: (item.status as 'LIVE' | 'UPCOMING' | 'EXPIRED') ?? 'LIVE',
+        isActive: item.isActive ?? true,
+      };
+      if (item.id) {
+        const row = await this.prisma.jobCircular.update({ where: { id: item.id }, data });
+        results.push(jobCircularMapper.toDto(row));
+      } else {
+        const row = await this.prisma.jobCircular.create({ data });
+        results.push(jobCircularMapper.toDto(row));
+      }
+    }
+    return results;
+  }
+
+  async bulkDelete(ids: string[]): Promise<void> {
+    await this.prisma.jobCircular.deleteMany({ where: { id: { in: ids } } });
   }
 }

@@ -45,3 +45,19 @@ export const jobCircularFilterSchema = z.object({
   page: z.coerce.number().int().min(1).optional(),
   limit: z.coerce.number().int().min(1).max(50).optional(),
 });
+
+export const bulkUpsertJobCircularSchema = z.object({
+  items: z
+    .array(
+      createJobCircularSchema.extend({
+        id: z.string().uuid().optional(),
+        isActive: z.boolean().optional(),
+      }),
+    )
+    .min(1)
+    .max(100),
+});
+
+export const bulkDeleteJobCircularSchema = z.object({
+  ids: z.array(z.string().uuid()).min(1).max(100),
+});

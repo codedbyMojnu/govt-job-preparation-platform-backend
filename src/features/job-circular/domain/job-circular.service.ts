@@ -2,6 +2,7 @@ import { NotFoundError } from '../../../shared/errors/http-errors.js';
 
 import type { JobCircularRepository } from './repository.contract.js';
 import type {
+  BulkUpsertJobCircularItem,
   CreateJobCircularInput,
   JobCircularDto,
   JobCircularFilter,
@@ -53,5 +54,13 @@ export class JobCircularService {
   async delete(id: string): Promise<void> {
     await this.getById(id);
     return this.repository.delete(id);
+  }
+
+  async bulkUpsert(items: BulkUpsertJobCircularItem[]): Promise<JobCircularDto[]> {
+    return this.repository.bulkUpsert(items);
+  }
+
+  async bulkDelete(ids: string[]): Promise<void> {
+    return this.repository.bulkDelete(ids);
   }
 }

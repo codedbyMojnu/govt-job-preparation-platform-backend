@@ -55,6 +55,15 @@ export interface UpdateJobCircularInput extends Partial<CreateJobCircularInput> 
   isActive?: boolean;
 }
 
+export interface BulkUpsertJobCircularItem extends CreateJobCircularInput {
+  id?: string;
+  isActive?: boolean;
+}
+
+export interface BulkDeleteJobCircularInput {
+  ids: string[];
+}
+
 export interface JobCircularFilter {
   orgType?: string;
   status?: string;

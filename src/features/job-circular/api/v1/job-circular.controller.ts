@@ -3,6 +3,7 @@ import type { Request, Response } from 'express';
 import { HttpStatus } from '../../../../shared/constants/http-status.js';
 import type { JobCircularService } from '../../domain/job-circular.service.js';
 import type {
+  BulkUpsertJobCircularItem,
   CreateJobCircularInput,
   JobCircularFilter,
   UpdateJobCircularInput,
@@ -56,6 +57,18 @@ export class JobCircularController {
 
   async delete(req: Request, res: Response): Promise<void> {
     await this.service.delete(req.params.id!);
+    res.status(HttpStatus.NO_CONTENT).send();
+  }
+
+  async bulkUpsert(req: Request, res: Response): Promise<void> {
+    const items: BulkUpsertJobCircularItem[] = req.body.items;
+    const result = await this.service.bulkUpsert(items);
+    res.status(HttpStatus.OK).json({ data: result });
+  }
+
+  async bulkDelete(req: Request, res: Response): Promise<void> {
+    const { ids }: { ids: string[] } = req.body;
+    await this.service.bulkDelete(ids);
     res.status(HttpStatus.NO_CONTENT).send();
   }
 }
