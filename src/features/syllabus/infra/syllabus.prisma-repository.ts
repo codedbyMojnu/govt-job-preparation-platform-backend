@@ -14,7 +14,7 @@ export class SyllabusPrismaRepository implements SyllabusRepository {
 
   async findAll(activeOnly: boolean): Promise<SyllabusWithCategoryDto[]> {
     const syllabuses = await this.prisma.syllabus.findMany({
-      where: activeOnly ? { isActive: true } : undefined,
+      ...(activeOnly ? { where: { isActive: true } } : {}),
       orderBy: [{ subExamCategoryId: 'asc' }, { sortOrder: 'asc' }],
       include: {
         subExamCategory: {
@@ -58,6 +58,7 @@ export class SyllabusPrismaRepository implements SyllabusRepository {
         title: input.title,
         slug: input.slug,
         content: input.content,
+        contentType: input.contentType ?? 'html',
         sortOrder: input.sortOrder ?? 0,
       },
     });
