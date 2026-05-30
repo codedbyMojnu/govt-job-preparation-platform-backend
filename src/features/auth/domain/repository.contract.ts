@@ -16,6 +16,6 @@ export interface AuthRepository {
   // Login attempt tracking for brute-force protection
   getFailedLoginAttempts(mobile: string): Promise<number>;
   getLastFailedLoginTime(mobile: string): Promise<Date | null>;
-  recordFailedLoginAttempt(mobile: string): Promise<void>;
+  recordFailedLoginAttempt(mobile: string, ipAddress?: string): Promise<void>;
   resetFailedLoginAttempts(mobile: string): Promise<void>;
 }

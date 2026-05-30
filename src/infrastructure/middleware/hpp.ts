@@ -10,7 +10,8 @@ export function hpp(req: Request, _res: Response, next: NextFunction): void {
     for (const [key, value] of Object.entries(req.query)) {
       if (Array.isArray(value)) {
         // Use only the last value to prevent parameter pollution
-        req.query[key] = value[value.length - 1] as string;
+        const lastValue = value[value.length - 1];
+        req.query[key] = typeof lastValue === 'string' ? lastValue : String(lastValue ?? '');
       }
     }
   }

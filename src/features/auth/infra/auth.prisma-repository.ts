@@ -100,7 +100,7 @@ export class AuthPrismaRepository implements AuthRepository {
     return attempt?.createdAt ?? null;
   }
 
-  async recordFailedLoginAttempt(mobile: string): Promise<void> {
+  async recordFailedLoginAttempt(mobile: string, ipAddress?: string): Promise<void> {
     const user = await this.prisma.user.findUnique({
       where: { mobile },
       select: { id: true },
@@ -110,6 +110,7 @@ export class AuthPrismaRepository implements AuthRepository {
         mobile,
         success: false,
         ...(user?.id ? { userId: user.id } : {}),
+        ...(ipAddress ? { ipAddress } : {}),
       },
     });
   }
