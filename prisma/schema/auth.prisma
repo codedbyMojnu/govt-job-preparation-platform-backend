@@ -22,6 +22,7 @@ model User {
   userPackages        UserPackage[]
   paymentTransactions PaymentTransaction[]
   notificationReads   UserNotificationRead[]
+  loginAttempts       LoginAttempt[]
 
   @@map("users")
 }
@@ -41,4 +42,19 @@ model Otp {
   @@index([mobile, code])
   @@index([mobile, expiresAt])
   @@map("otps")
+}
+
+model LoginAttempt {
+  id        String   @id @default(cuid())
+  mobile    String   @db.VarChar(11)
+  success   Boolean  @default(false)
+  ipAddress String?  @map("ip_address") @db.VarChar(45)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user   User?   @relation(fields: [userId], references: [id])
+  userId String? @map("user_id")
+
+  @@index([mobile, createdAt])
+  @@index([mobile, success])
+  @@map("login_attempts")
 }

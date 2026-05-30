@@ -18,30 +18,75 @@ import { createSubExamCategoryRoutes } from './features/sub-exam-category/index.
 import { createSyllabusRoutes } from './features/syllabus/index.js';
 import { correlationIdMiddleware } from './infrastructure/middleware/correlation-id.js';
 import { errorHandler } from './infrastructure/middleware/error-handler.js';
+import { hpp } from './infrastructure/middleware/hpp.js';
 import { notFoundHandler } from './infrastructure/middleware/not-found.js';
 import { createRequestContextMiddleware } from './infrastructure/middleware/request-context.js';
 import { createRequestLoggerMiddleware } from './infrastructure/middleware/request-logger.js';
+import { requestTimeout } from './infrastructure/middleware/request-timeout.js';
+import { sanitizeInput } from './infrastructure/middleware/sanitize.js';
+import { securityHeaders } from './infrastructure/middleware/security-headers.js';
 
 export function createApp(container: AwilixContainer) {
   const app = express();
   const logger = container.resolve<Logger>('logger');
 
-  // Security
-  app.use(helmet());
+  // Disable 'X-Powered-By' header to reduce fingerprinting
+  app.disable('x-powered-by');
+
+  // Security headers (Helmet + custom)
+  app.use(
+    helmet({
+      contentSecurityPolicy: {
+        directives: {
+          defaultSrc: ["'none'"],
+          scriptSrc: ["'none'"],
+          styleSrc: ["'none'"],
+          imgSrc: ["'none'"],
+          connectSrc: ["'self'"],
+          fontSrc: ["'none'"],
+          objectSrc: ["'none'"],
+          mediaSrc: ["'none'"],
+          frameSrc: ["'none'"],
+          formAction: ["'self'"],
+          frameAncestors: ["'none'"],
+          baseUri: ["'self'"],
+          upgradeInsecureRequests: [],
+        },
+      },
+      crossOriginEmbedderPolicy: true,
+      crossOriginOpenerPolicy: { policy: 'same-origin' },
+      crossOriginResourcePolicy: { policy: 'same-origin' },
+      dnsPrefetchControl: { allow: false },
+      hsts: { maxAge: 31536000, includeSubDomains: true, preload: true },
+      ieNoOpen: true,
+      noSniff: true,
+      referrerPolicy: { policy: 'strict-origin-when-cross-origin' },
+      xssFilter: true,
+    }),
+  );
+  app.use(securityHeaders);
+
+  // CORS
   app.use(
     cors({
       origin: config.CORS_ORIGINS === '*' ? '*' : config.CORS_ORIGINS.split(','),
       credentials: true,
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+      allowedHeaders: ['Content-Type', 'Authorization', 'X-Correlation-Id'],
+      maxAge: 86400, // Cache preflight for 24 hours
     }),
   );
 
   // Enable ETag support
   app.set('etag', 'strong');
 
+  // Request timeout protection (30 seconds)
+  app.use(requestTimeout(30_000));
+
   // Response compression (gzip/brotli) — skip for small responses
   app.use(compression({ threshold: 1024 }));
 
-  // Per-user rate limiting: 200 req/min on API routes
+  // Global rate limiting: 200 req/min on API routes
   const apiLimiter = rateLimit({
     windowMs: 60 * 1000,
     max: 200,
@@ -53,8 +98,26 @@ export function createApp(container: AwilixContainer) {
   });
   app.use('/api/', apiLimiter);
 
-  // Body parsing
-  app.use(express.json({ limit: '1mb' }));
+  // Stricter rate limiting on auth routes (brute force protection)
+  const authLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 20, // 20 attempts per 15 minutes
+    standardHeaders: true,
+    legacyHeaders: false,
+    keyGenerator: (req) => req.ip || 'unknown',
+    message: { error: 'Too many authentication attempts. Please try again later.' },
+  });
+  app.use('/api/v1/auth/', authLimiter);
+
+  // Body parsing with strict size limits
+  app.use(express.json({ limit: '100kb' }));
+  app.use(express.urlencoded({ extended: false, limit: '100kb' }));
+
+  // HTTP Parameter Pollution protection
+  app.use(hpp);
+
+  // Input sanitization (XSS prevention)
+  app.use(sanitizeInput);
 
   // Middleware pipeline (order matters)
   app.use(correlationIdMiddleware);

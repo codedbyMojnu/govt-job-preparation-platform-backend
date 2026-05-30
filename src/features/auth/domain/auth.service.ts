@@ -1,3 +1,5 @@
+import crypto from 'node:crypto';
+
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
@@ -20,9 +22,11 @@ import type {
   VerifyOtpInput,
 } from './types.js';
 
-const SALT_ROUNDS = 10;
+const SALT_ROUNDS = 12;
 const OTP_EXPIRY_MINUTES = 5;
 const MAX_OTP_ATTEMPTS = 5;
+const MAX_LOGIN_ATTEMPTS = 5;
+const LOGIN_LOCKOUT_MINUTES = 15;
 
 export class AuthService {
   constructor(
@@ -36,8 +40,8 @@ export class AuthService {
     // Invalidate previous OTPs
     await this.repository.invalidateOtps(input.mobile);
 
-    // Generate 4-digit OTP
-    const code = String(Math.floor(1000 + Math.random() * 9000));
+    // Generate 4-digit OTP using cryptographically secure random
+    const code = String(crypto.randomInt(1000, 10000));
     const expiresAt = new Date(Date.now() + OTP_EXPIRY_MINUTES * 60 * 1000);
 
     await this.repository.createOtp(input.mobile, code, expiresAt);
@@ -115,11 +119,28 @@ export class AuthService {
   async login(input: LoginInput): Promise<AuthResponse> {
     const user = await this.repository.findUserByMobile(input.mobile);
     if (!user) {
+      // Use constant-time response to prevent user enumeration
       throw new UnauthorizedError('Invalid mobile number or password');
     }
 
     if (!user.isActive) {
       throw new UnauthorizedError('Account is deactivated');
+    }
+
+    // Check for account lockout
+    const failedAttempts = await this.repository.getFailedLoginAttempts(input.mobile);
+    if (failedAttempts >= MAX_LOGIN_ATTEMPTS) {
+      const lastAttempt = await this.repository.getLastFailedLoginTime(input.mobile);
+      if (lastAttempt) {
+        const lockoutEnd = new Date(lastAttempt.getTime() + LOGIN_LOCKOUT_MINUTES * 60 * 1000);
+        if (new Date() < lockoutEnd) {
+          throw new UnauthorizedError(
+            `Account temporarily locked due to too many failed attempts. Try again after ${LOGIN_LOCKOUT_MINUTES} minutes.`,
+          );
+        }
+        // Lockout expired, reset counter
+        await this.repository.resetFailedLoginAttempts(input.mobile);
+      }
     }
 
     const passwordHash = await this.repository.getUserPasswordHash(input.mobile);
@@ -129,8 +150,12 @@ export class AuthService {
 
     const isMatch = await bcrypt.compare(input.password, passwordHash);
     if (!isMatch) {
+      await this.repository.recordFailedLoginAttempt(input.mobile);
       throw new UnauthorizedError('Invalid mobile number or password');
     }
+
+    // Reset failed attempts on successful login
+    await this.repository.resetFailedLoginAttempts(input.mobile);
 
     const token = this.generateToken(user);
 

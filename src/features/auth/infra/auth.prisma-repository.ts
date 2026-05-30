@@ -79,4 +79,49 @@ export class AuthPrismaRepository implements AuthRepository {
       data: { expiresAt: new Date() },
     });
   }
+
+  async getFailedLoginAttempts(mobile: string): Promise<number> {
+    const fifteenMinutesAgo = new Date(Date.now() - 15 * 60 * 1000);
+    return this.prisma.loginAttempt.count({
+      where: {
+        mobile,
+        success: false,
+        createdAt: { gt: fifteenMinutesAgo },
+      },
+    });
+  }
+
+  async getLastFailedLoginTime(mobile: string): Promise<Date | null> {
+    const attempt = await this.prisma.loginAttempt.findFirst({
+      where: { mobile, success: false },
+      orderBy: { createdAt: 'desc' },
+      select: { createdAt: true },
+    });
+    return attempt?.createdAt ?? null;
+  }
+
+  async recordFailedLoginAttempt(mobile: string): Promise<void> {
+    const user = await this.prisma.user.findUnique({
+      where: { mobile },
+      select: { id: true },
+    });
+    await this.prisma.loginAttempt.create({
+      data: {
+        mobile,
+        success: false,
+        ...(user?.id ? { userId: user.id } : {}),
+      },
+    });
+  }
+
+  async resetFailedLoginAttempts(mobile: string): Promise<void> {
+    const fifteenMinutesAgo = new Date(Date.now() - 15 * 60 * 1000);
+    await this.prisma.loginAttempt.deleteMany({
+      where: {
+        mobile,
+        success: false,
+        createdAt: { gt: fifteenMinutesAgo },
+      },
+    });
+  }
 }

@@ -12,4 +12,10 @@ export interface AuthRepository {
   markOtpVerified(id: string): Promise<void>;
   incrementOtpAttempts(id: string): Promise<void>;
   invalidateOtps(mobile: string): Promise<void>;
+
+  // Login attempt tracking for brute-force protection
+  getFailedLoginAttempts(mobile: string): Promise<number>;
+  getLastFailedLoginTime(mobile: string): Promise<Date | null>;
+  recordFailedLoginAttempt(mobile: string): Promise<void>;
+  resetFailedLoginAttempts(mobile: string): Promise<void>;
 }
