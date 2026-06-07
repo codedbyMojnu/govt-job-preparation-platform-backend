@@ -112,6 +112,33 @@ export function createQuestionSetRoutes(container: AwilixContainer): Router {
     }),
   );
 
+  // Public: Sitemap — returns [{slug, updatedAt}] for all questions with a slug
+  // Public: Sitemap — returns [{slug, updatedAt}] for all questions with a slug
+  router.get(
+    '/public/slugs',
+    asyncHandler(async (_req, res) => {
+      const data = await cacheService.getOrSet(
+        'question-sets:public-slugs',
+        async () => {
+          const rows = await prisma.question.findMany({
+            where: { slug: { not: null } },
+            select: { slug: true, updatedAt: true },
+            orderBy: { updatedAt: 'desc' },
+          });
+
+          // Filter + map without `!` — the `where` clause guarantees non-null
+          // but TypeScript still sees slug as `string | null` from Prisma types.
+          // A type-safe filter narrows it correctly without assertion.
+          return rows
+            .filter((r): r is typeof r & { slug: string } => r.slug !== null)
+            .map((r) => ({ slug: r.slug, updatedAt: r.updatedAt }));
+        },
+        21_600,
+      );
+      res.json({ data });
+    }),
+  );
+
   // Public: Get single question by slug (SEO page data)
   router.get(
     '/public/question/:slug',

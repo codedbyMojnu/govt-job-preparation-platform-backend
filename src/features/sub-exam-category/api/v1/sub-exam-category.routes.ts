@@ -71,6 +71,34 @@ export function createSubExamCategoryRoutes(container: AwilixContainer): Router 
     }),
   );
 
+  // Public: Sitemap — returns [{categorySlug, subSlug, updatedAt}]
+  router.get(
+    '/sitemap',
+    asyncHandler(async (_req, res) => {
+      const data = await cacheService.getOrSet(
+        'sub-categories:sitemap',
+        async () => {
+          const rows = await prisma.subExamCategory.findMany({
+            where: { isActive: true },
+            select: {
+              slug: true,
+              updatedAt: true,
+              examCategory: { select: { slug: true } },
+            },
+            orderBy: { sortOrder: 'asc' },
+          });
+          return rows.map((r) => ({
+            categorySlug: r.examCategory.slug,
+            subSlug: r.slug,
+            updatedAt: r.updatedAt,
+          }));
+        },
+        21_600, // 6 hours — matches sitemap revalidate
+      );
+      res.json({ data });
+    }),
+  );
+
   // Admin: Bulk operations (must be before /:id)
   router.post(
     '/bulk-upsert',
