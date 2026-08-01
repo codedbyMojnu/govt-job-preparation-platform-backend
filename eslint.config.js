@@ -1,6 +1,6 @@
 import js from '@eslint/js';
-import tseslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
+import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   // Base ignores
@@ -78,6 +78,20 @@ export default tseslint.config(
   // Infrastructure database — allowed to import @prisma/client directly
   {
     files: ['src/infrastructure/database/**/*.ts'],
+    rules: {
+      'no-restricted-imports': 'off',
+    },
+  },
+  // Feature infra layer — allowed to import @prisma/client directly (repository implementations)
+  {
+    files: ['src/features/*/infra/**/*.ts'],
+    rules: {
+      'no-restricted-imports': 'off',
+    },
+  },
+  // Feature api layer — allowed to import Express types (controllers/routes are the transport layer)
+  {
+    files: ['src/features/*/api/**/*.ts'],
     rules: {
       'no-restricted-imports': 'off',
     },

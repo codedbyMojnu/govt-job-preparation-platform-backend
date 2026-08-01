@@ -23,6 +23,7 @@ model User {
   paymentTransactions PaymentTransaction[]
   notificationReads   UserNotificationRead[]
   loginAttempts       LoginAttempt[]
+  slideStyleConfigs   SlideStyleConfig[]
 
   @@map("users")
 }

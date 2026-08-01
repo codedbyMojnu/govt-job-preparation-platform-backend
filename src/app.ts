@@ -14,6 +14,7 @@ import { createNotificationRoutes } from './features/notification/index.js';
 import { createPackageRoutes } from './features/package/index.js';
 import { createQuestionSetRoutes } from './features/question-set/index.js';
 import { createRoutineRoutes } from './features/routine/index.js';
+import { createSlideRoutes } from './features/slide/index.js';
 import { createSubExamCategoryRoutes } from './features/sub-exam-category/index.js';
 import { createSyllabusRoutes } from './features/syllabus/index.js';
 import { correlationIdMiddleware } from './infrastructure/middleware/correlation-id.js';
@@ -139,6 +140,7 @@ export function createApp(container: AwilixContainer) {
   app.use('/api/v1/routines', createRoutineRoutes(container));
   app.use('/api/v1/syllabuses', createSyllabusRoutes(container));
   app.use('/api/v1/job-circulars', createJobCircularRoutes(container));
+  app.use('/api/v1/slides', createSlideRoutes(container));
 
   // Terminal middleware
   app.use(notFoundHandler);

@@ -1,0 +1,83 @@
+// Slide generation domain models (Farhan MCQ /images slide generator feature)
+
+enum SlideMode {
+  GROUPED
+  SINGLE
+
+  @@map("slide_mode")
+}
+
+enum SlideJobStatus {
+  QUEUED
+  PROCESSING
+  DONE
+  FAILED
+
+  @@map("slide_job_status")
+}
+
+// A saved style configuration a member picked before generating slides.
+// configHash is a stable hash of the style fields, used as the cache key (Phase 8)
+// so identical style requests for the same question set reuse existing slides.
+model SlideStyleConfig {
+  id                 String    @id @default(cuid())
+  mode               SlideMode @default(GROUPED)
+  questionsPerSlide  Int       @default(1) @map("questions_per_slide")
+  slideWidth         Int       @map("slide_width")
+  slideHeight        Int       @map("slide_height")
+  bgColor            String?   @map("bg_color") @db.VarChar(20)
+  bgGradient         Json?     @map("bg_gradient")
+  textColor          String    @map("text_color") @db.VarChar(20)
+  textSize           Int       @map("text_size")
+  showOptions        Boolean   @default(true) @map("show_options")
+  showAnswer         Boolean   @default(true) @map("show_answer")
+  showExplanation    Boolean   @default(false) @map("show_explanation")
+  configHash         String    @unique @map("config_hash") @db.VarChar(64)
+  createdBy          String    @map("created_by")
+  createdAt          DateTime  @default(now()) @map("created_at")
+
+  creator User                 @relation(fields: [createdBy], references: [id])
+  jobs    SlideGenerationJob[]
+  slides  Slide[]
+
+  @@index([createdBy])
+  @@map("slide_style_configs")
+}
+
+model SlideGenerationJob {
+  id            String         @id @default(cuid())
+  questionSetId String         @map("question_set_id")
+  status        SlideJobStatus @default(QUEUED)
+  progress      Int            @default(0)
+  styleConfigId String         @map("style_config_id")
+  errorMessage  String?        @map("error_message") @db.Text
+  createdAt     DateTime       @default(now()) @map("created_at")
+  updatedAt     DateTime       @updatedAt @map("updated_at")
+
+  questionSet QuestionSet      @relation(fields: [questionSetId], references: [id], onDelete: Cascade)
+  styleConfig SlideStyleConfig @relation(fields: [styleConfigId], references: [id], onDelete: Cascade)
+
+  @@index([questionSetId])
+  @@index([status])
+  @@map("slide_generation_jobs")
+}
+
+model Slide {
+  id            String   @id @default(cuid())
+  questionSetId String   @map("question_set_id")
+  order         Int
+  imageUrl      String   @map("image_url") @db.VarChar(1000)
+  sceneJson     Json     @map("scene_json")
+  questionIds   String[] @map("question_ids")
+  styleConfigId String   @map("style_config_id")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  questionSet QuestionSet      @relation(fields: [questionSetId], references: [id], onDelete: Cascade)
+  styleConfig SlideStyleConfig @relation(fields: [styleConfigId], references: [id], onDelete: Cascade)
+
+  // Repeat "generate" for the same (questionSetId, styleConfigId) is a cache hit — see Phase 8
+  @@unique([questionSetId, styleConfigId, order])
+  @@index([questionSetId, styleConfigId])
+  @@map("slides")
+}

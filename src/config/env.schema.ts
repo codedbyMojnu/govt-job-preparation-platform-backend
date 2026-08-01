@@ -63,6 +63,17 @@ export const envSchema = z.object({
   MIMSMS_API_KEY: z.string().min(1),
   MIMSMS_USER_NAME: z.string().min(1),
   MIMSMS_SENDER_NAME: z.string().min(1),
+  MINIO_ENDPOINT: z.string().min(1).default('localhost'),
+  MINIO_PORT: z.coerce.number().int().min(1).max(65535).default(9000),
+  // NOTE: z.coerce.boolean() would turn the string "false" into `true` (any non-empty string is
+  // truthy) — parse explicitly instead.
+  MINIO_USE_SSL: z
+    .string()
+    .default('false')
+    .transform((val) => val === 'true'),
+  MINIO_ACCESS_KEY: z.string().min(1),
+  MINIO_SECRET_KEY: z.string().min(1),
+  MINIO_BUCKET: z.string().min(1).default('farhan-slides'),
 });
 
 export type Env = z.infer<typeof envSchema>;

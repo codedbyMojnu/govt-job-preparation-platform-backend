@@ -53,9 +53,11 @@ model QuestionSet {
   createdAt         DateTime @default(now()) @map("created_at")
   updatedAt         DateTime @updatedAt @map("updated_at")
 
-  subExamCategory SubExamCategory @relation(fields: [subExamCategoryId], references: [id], onDelete: Cascade)
-  questions       Question[]
-  examAttempts    ExamAttempt[]
+  subExamCategory     SubExamCategory      @relation(fields: [subExamCategoryId], references: [id], onDelete: Cascade)
+  questions           Question[]
+  examAttempts        ExamAttempt[]
+  slideGenerationJobs SlideGenerationJob[]
+  slides              Slide[]
 
   @@index([subExamCategoryId])
   @@index([date])

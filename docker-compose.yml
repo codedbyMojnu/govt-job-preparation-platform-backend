@@ -5,14 +5,14 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: express_api
+      POSTGRES_PASSWORD: '11111111'
+      POSTGRES_DB: farhan-mcq-project
     ports:
       - '5432:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U postgres -d express_api']
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d farhan-mcq-project']
       interval: 10s
       timeout: 5s
       retries: 5
@@ -31,6 +31,71 @@ services:
       timeout: 5s
       retries: 5
 
+  # S3-compatible object storage for generated slide PNGs + scene JSON (Farhan MCQ /images feature).
+  # Separate from any other MinIO instance you may have running for unrelated projects.
+  minio:
+    image: minio/minio:latest
+    container_name: farhan-mcq-minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ACCESS_KEY:-farhan_minio_admin}
+      MINIO_ROOT_PASSWORD: ${MINIO_SECRET_KEY:-farhan_minio_secret_key}
+    ports:
+      - '9000:9000' # S3 API
+      - '9001:9001' # Web console
+    volumes:
+      - farhan_minio_data:/data
+    healthcheck:
+      test: ['CMD', 'mc', 'ready', 'local']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # One-shot job: creates the slides bucket on boot, then exits. Safe to re-run (idempotent).
+  minio-init:
+    image: minio/mc:latest
+    container_name: farhan-mcq-minio-init
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      mc alias set local http://minio:9000 ${MINIO_ACCESS_KEY:-farhan_minio_admin} ${MINIO_SECRET_KEY:-farhan_minio_secret_key} &&
+      mc mb -p local/${MINIO_BUCKET:-farhan-slides} &&
+      echo 'MinIO bucket ready'
+      "
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: farhan-mcq-slide-worker
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      # Same Postgres as the main API — that's where real ExamCategory/QuestionSet/Question data lives
+      # (see backend/.env DATABASE_URL). The local "postgres" service above is unrelated/unused for this.
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: redis://redis:6379
+      MINIO_ENDPOINT: minio
+      MINIO_PORT: 9000
+      MINIO_USE_SSL: 'false'
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-farhan_minio_admin}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-farhan_minio_secret_key}
+      MINIO_BUCKET: ${MINIO_BUCKET:-farhan-slides}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-15m}
+      MIMSMS_API_KEY: ${MIMSMS_API_KEY}
+      MIMSMS_USER_NAME: ${MIMSMS_USER_NAME}
+      MIMSMS_SENDER_NAME: ${MIMSMS_SENDER_NAME}
+
 volumes:
   postgres_data:
   redis_data:
+  farhan_minio_data:
