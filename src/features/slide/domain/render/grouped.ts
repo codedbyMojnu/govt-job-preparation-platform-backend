@@ -1,6 +1,7 @@
 import { FONT_FAMILY } from './fonts.js';
+import { decodeHtmlEntities } from './html-decode.js';
 import { createMeasurementContext } from './paint.js';
-import { OPTION_LABELS, toBengaliDigits, wrapText } from './text-utils.js';
+import { OPTION_LABELS, toBengaliDigits, wrapText, BN_DARI } from './text-utils.js';
 import type {
   Scene,
   SceneNode,
@@ -140,11 +141,12 @@ function drawQuestionBlock(
 
   // Question number + text as a single wrapped block
   const qFontSize = textSize;
-  ctx.font = `bold ${qFontSize}px ${FONT_FAMILY}`;
+  const qText = decodeHtmlEntities(question.questionText);
   const qLines = wrapText(
     ctx,
-    `${toBengaliDigits(index + 1)}। ${question.questionText}`,
+    `${toBengaliDigits(index + 1)}${BN_DARI} ${qText}`,
     contentWidth,
+    { weight: 'bold', fontSize: qFontSize },
   );
   const qLineHeight = qFontSize * 1.5;
   nodes.push({
@@ -171,6 +173,7 @@ function drawQuestionBlock(
     cursor = drawExplanation(
       nodes,
       ctx,
+      question.id,
       question.explanation,
       styleConfig,
       x,
@@ -205,13 +208,18 @@ function drawOptions(
   for (const row of rows) {
     let rowHeight = 0;
     row.forEach((key, col) => {
-      const optionText = question[`option${key}` as 'optionA' | 'optionB' | 'optionC' | 'optionD'];
+      const optionText = decodeHtmlEntities(
+        question[`option${key}` as 'optionA' | 'optionB' | 'optionC' | 'optionD'],
+      );
       const isCorrect = styleConfig.showAnswer && question.correctAnswer === key;
       const ox = x + col * (colWidth + colGap);
       const label = OPTION_LABELS[key];
 
       ctx.font = `${isCorrect ? 'bold' : 'normal'} ${optSize}px ${FONT_FAMILY}`;
-      const lines = wrapText(ctx, `(${label}) ${optionText}`, colWidth - 20);
+      const lines = wrapText(ctx, `(${label}) ${optionText}`, colWidth - 20, {
+        weight: isCorrect ? 'bold' : 'normal',
+        fontSize: optSize,
+      });
       const blockHeight = lines.length * lineHeight;
       rowHeight = Math.max(rowHeight, blockHeight);
 
@@ -251,6 +259,7 @@ function drawOptions(
 function drawExplanation(
   nodes: SceneNode[],
   ctx: ReturnType<typeof createMeasurementContext>,
+  questionId: string,
   explanation: string,
   styleConfig: SlideStyleConfigInput,
   x: number,
@@ -259,13 +268,16 @@ function drawExplanation(
 ): number {
   const expSize = Math.round(styleConfig.textSize * 0.78);
   const padding = 16;
-  ctx.font = `${expSize}px ${FONT_FAMILY}`;
-  const lines = wrapText(ctx, `ব্যাখ্যা: ${explanation}`, contentWidth - padding * 2);
+  const decoded = decodeHtmlEntities(explanation);
+  const lines = wrapText(ctx, `ব্যাখ্যা: ${decoded}`, contentWidth - padding * 2, {
+    weight: 'normal',
+    fontSize: expSize,
+  });
   const lineHeight = expSize * 1.55;
   const blockHeight = lines.length * lineHeight + padding * 2;
 
   nodes.push({
-    id: `exp-bg-${x}-${y}`,
+    id: `exp-bg-${questionId}`,
     type: 'rect',
     x,
     y,
@@ -275,7 +287,7 @@ function drawExplanation(
     fill: EXPLANATION_BG,
   });
   nodes.push({
-    id: `exp-text-${x}-${y}`,
+    id: `exp-text-${questionId}`,
     type: 'text',
     x: x + padding,
     y: y + padding + expSize,

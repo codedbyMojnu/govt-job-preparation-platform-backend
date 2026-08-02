@@ -17,6 +17,7 @@ import { SlidePrismaRepository } from '../../infra/slide.prisma-repository.js';
 import {
   generateSlidesSchema,
   jobIdParamsSchema,
+  reRenderSchema,
   patchSceneSchema,
   questionSetIdParamsSchema,
   slideIdParamsSchema,
@@ -73,7 +74,7 @@ export function createSlideRoutes(container: AwilixContainer): Router {
 
   router.post(
     '/:slideId/render',
-    validate({ params: slideIdParamsSchema }),
+    validate({ params: slideIdParamsSchema, body: reRenderSchema }),
     asyncHandler((req, res) => controller.reRender(req, res)),
   );
 

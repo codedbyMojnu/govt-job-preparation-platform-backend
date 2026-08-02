@@ -1,12 +1,18 @@
 import type { Queue } from 'bullmq';
 
 import { BadRequestError, NotFoundError } from '../../../shared/errors/http-errors.js';
+import {
+  SLIDE_JOB_STALE_MESSAGE,
+  SLIDE_JOB_STALE_MS,
+} from '../../../shared/constants/slide.constants.js';
 import type { SlideGenerationJobData } from '../infra/slide-queue.js';
 import { SLIDE_GENERATE_JOB_NAME } from '../infra/slide-queue.js';
 import type { SlideStorageService } from '../infra/slide-storage.service.js';
 
-import { renderSceneToPng } from './render/index.js';
+import { renderSceneToPng, renderGroupedSlide, renderSingleQuestionSlide } from './render/index.js';
+import { applySceneEditsToQuestions } from './render/scene-edits.js';
 import type { Scene } from './render/types.js';
+import type { SlideQuestionInput } from './render/types.js';
 import type { SlideRepository } from './repository.contract.js';
 import { hashStyleConfig } from './style-hash.js';
 import type {
@@ -15,6 +21,7 @@ import type {
   JobStatusResult,
   QuestionSetSlidesResult,
   SlideDto,
+  SlideGenerationJobDto,
   UploadedImageInput,
 } from './types.js';
 
@@ -54,6 +61,17 @@ export class SlideService {
       styleConfig.id,
     );
     if (existingSlides.length > 0) {
+      // Phase 8 cache hit — no worker job, no render cost
+      if (process.env.NODE_ENV !== 'test') {
+        process.stdout.write(
+          JSON.stringify({
+            event: 'slide_cache_hit',
+            questionSetId: input.questionSetId,
+            styleConfigId: styleConfig.id,
+            slideCount: existingSlides.length,
+          }) + '\n',
+        );
+      }
       return { cached: true, styleConfigId: styleConfig.id, slides: existingSlides };
     }
 
@@ -63,7 +81,10 @@ export class SlideService {
       styleConfig.id,
     );
     if (activeJob) {
-      return { cached: false, styleConfigId: styleConfig.id, jobId: activeJob.id };
+      const reconciled = await this.reconcileStaleJob(activeJob);
+      if (reconciled.status === 'QUEUED' || reconciled.status === 'PROCESSING') {
+        return { cached: false, styleConfigId: styleConfig.id, jobId: reconciled.id };
+      }
     }
 
     const job = await this.repository.createJob({
@@ -84,14 +105,17 @@ export class SlideService {
     if (!job) {
       throw new NotFoundError('Slide generation job not found');
     }
-    if (job.status !== 'DONE') {
-      return job;
+
+    const reconciled = await this.reconcileStaleJob(job);
+    if (reconciled.status !== 'DONE') {
+      return reconciled;
     }
+
     const slides = await this.repository.findSlidesByQuestionSetAndStyle(
-      job.questionSetId,
-      job.styleConfigId,
+      reconciled.questionSetId,
+      reconciled.styleConfigId,
     );
-    return { ...job, slides };
+    return { ...reconciled, slides };
   }
 
   async listSlidesForQuestionSet(questionSetId: string): Promise<QuestionSetSlidesResult | null> {
@@ -103,13 +127,42 @@ export class SlideService {
     return this.repository.updateSlideScene(slideId, sceneJson);
   }
 
-  // Re-renders the PNG from whatever sceneJson is currently stored (i.e. the member's edits)
-  // and overwrites the same object key — the same paint function used for initial generation.
+  /** Save edited scene text, re-compose layout (fixes whitespace), render fresh PNG. */
+  async saveEditsAndReRender(slideId: string, sceneJson: Scene): Promise<SlideDto> {
+    await this.getSlideOrThrow(slideId);
+    await this.repository.updateSlideScene(slideId, sceneJson);
+    return this.reRenderSlide(slideId);
+  }
+
+  // Re-composes layout from edited text (fixes whitespace) then renders a fresh PNG.
   async reRenderSlide(slideId: string): Promise<SlideDto> {
     const slide = await this.getSlideOrThrow(slideId);
-    const buffer = await renderSceneToPng(slide.sceneJson);
-    await this.storage.putPng(slide.imageUrl, buffer);
-    return this.repository.touchSlideUpdatedAt(slideId);
+
+    const styleConfig = await this.repository.findStyleConfigById(slide.styleConfigId);
+    if (!styleConfig) {
+      throw new NotFoundError('Style config not found for slide');
+    }
+
+    const allQuestions = await this.repository.getQuestionsForSet(slide.questionSetId);
+    const ordered: SlideQuestionInput[] = slide.questionIds
+      .map((id) => allQuestions.find((q) => q.id === id))
+      .filter((q): q is (typeof allQuestions)[number] => q !== undefined);
+
+    const merged = applySceneEditsToQuestions(slide.sceneJson, ordered);
+
+    const siblings = await this.repository.findSlidesByQuestionSetAndStyle(
+      slide.questionSetId,
+      slide.styleConfigId,
+    );
+    const context = { slideIndex: slide.order, totalSlides: siblings.length };
+
+    const rendered =
+      styleConfig.mode === 'SINGLE' && merged.length === 1
+        ? await renderSingleQuestionSlide(merged[0]!, styleConfig, context)
+        : await renderGroupedSlide(merged, styleConfig, context);
+
+    await this.storage.putPng(slide.imageUrl, rendered.buffer);
+    return this.repository.updateSlideScene(slideId, rendered.sceneJson);
   }
 
   async uploadSlideImage(slideId: string, file: UploadedImageInput): Promise<{ url: string }> {
@@ -141,6 +194,22 @@ export class SlideService {
 
   getStorage(): SlideStorageService {
     return this.storage;
+  }
+
+  private async reconcileStaleJob(
+    job: SlideGenerationJobDto,
+  ): Promise<SlideGenerationJobDto> {
+    if (job.status === 'DONE' || job.status === 'FAILED') {
+      return job;
+    }
+
+    const ageMs = Date.now() - job.updatedAt.getTime();
+    if (ageMs <= SLIDE_JOB_STALE_MS) {
+      return job;
+    }
+
+    await this.repository.updateJobStatus(job.id, 'FAILED', SLIDE_JOB_STALE_MESSAGE);
+    return { ...job, status: 'FAILED', errorMessage: SLIDE_JOB_STALE_MESSAGE };
   }
 
   private async getSlideOrThrow(slideId: string): Promise<SlideDto> {

@@ -74,6 +74,16 @@ export const envSchema = z.object({
   MINIO_ACCESS_KEY: z.string().min(1),
   MINIO_SECRET_KEY: z.string().min(1),
   MINIO_BUCKET: z.string().min(1).default('farhan-slides'),
+  // When unset, embeds in development only. Set explicitly in production if the API should
+  // also process slide jobs (normally the dedicated worker container handles them).
+  EMBED_SLIDE_WORKER: z
+    .string()
+    .optional()
+    .transform((val) => {
+      if (val === 'true') return true;
+      if (val === 'false') return false;
+      return process.env.NODE_ENV === 'development';
+    }),
 });
 
 export type Env = z.infer<typeof envSchema>;

@@ -1,5 +1,13 @@
 import { createCanvas, type SKRSContext2D } from '@napi-rs/canvas';
 
+import { decodeHtmlEntities } from './html-decode.js';
+import {
+  fillMixedText,
+  measureMixedTextWidth,
+  type FontWeight,
+} from './font-runs.js';
+import { registerFonts } from './fonts.js';
+import { normalizeSceneForRender } from './normalize-scene.js';
 import type { BgGradient, Scene, SceneNode } from './types.js';
 
 function applyBackground(ctx: SKRSContext2D, scene: Scene) {
@@ -113,28 +121,37 @@ function drawLine(ctx: SKRSContext2D, node: SceneNode) {
 
 function drawText(ctx: SKRSContext2D, node: SceneNode) {
   const fontSize = node.fontSize ?? 16;
-  const fontFamily = node.fontFamily ?? 'sans-serif';
-  const weight = node.fontStyle === 'bold' ? 'bold ' : '';
-  ctx.font = `${weight}${fontSize}px ${fontFamily}`;
+  const weight: FontWeight = node.fontStyle === 'bold' ? 'bold' : 'normal';
   ctx.fillStyle = node.fill ?? '#000000';
-  ctx.textAlign = node.align ?? 'left';
+  ctx.textAlign = 'left';
   ctx.textBaseline = 'alphabetic';
 
-  const lines = (node.text ?? '').split('\n');
+  const lines = decodeHtmlEntities(node.text ?? '').split('\n');
   const lineHeight = node.lineHeight ?? fontSize * 1.4;
+  const align = node.align ?? 'left';
+
   lines.forEach((line, i) => {
-    ctx.fillText(line, node.x, node.y + i * lineHeight);
+    const y = node.y + i * lineHeight;
+    const lineWidth = measureMixedTextWidth(ctx, line, weight, fontSize);
+    let x = node.x;
+    if (align === 'center') x -= lineWidth / 2;
+    else if (align === 'right') x -= lineWidth;
+    fillMixedText(ctx, line, x, y, weight, fontSize);
   });
 }
 
 // The single rendering codepath for both initial generation and post-edit re-render (Phase 7):
 // paints whatever scene JSON it's given, whether freshly composed or edited by a member.
+// Ensures Bengali glyphs render on every path (initial worker job + API re-render after edits).
 export async function renderSceneToPng(scene: Scene): Promise<Buffer> {
-  const canvas = createCanvas(scene.width, scene.height);
+  registerFonts();
+  const normalized = normalizeSceneForRender(scene);
+
+  const canvas = createCanvas(normalized.width, normalized.height);
   const ctx = canvas.getContext('2d');
 
-  applyBackground(ctx, scene);
-  for (const node of scene.nodes) {
+  applyBackground(ctx, normalized);
+  for (const node of normalized.nodes) {
     drawNode(ctx, node);
   }
 
@@ -143,6 +160,7 @@ export async function renderSceneToPng(scene: Scene): Promise<Buffer> {
 
 // Exposed for measurement passes in the scene composers (grouped.ts / single.ts).
 export function createMeasurementContext(): SKRSContext2D {
+  registerFonts();
   const canvas = createCanvas(10, 10);
   return canvas.getContext('2d');
 }

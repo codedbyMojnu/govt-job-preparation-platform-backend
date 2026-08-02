@@ -63,6 +63,10 @@ export const sceneSchema = z.object({
   nodes: z.array(sceneNodeSchema).max(500),
 });
 
+export const reRenderSchema = z.object({
+  sceneJson: sceneSchema.optional(),
+});
+
 export const patchSceneSchema = z.object({
   sceneJson: sceneSchema,
 });

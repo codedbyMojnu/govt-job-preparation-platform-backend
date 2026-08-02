@@ -5,6 +5,7 @@ import { HttpStatus } from '../../../../shared/constants/http-status.js';
 import { BadRequestError } from '../../../../shared/errors/http-errors.js';
 import type { SlideService } from '../../domain/slide.service.js';
 import type { GenerateSlidesInput } from '../../domain/types.js';
+import type { Scene } from '../../domain/render/types.js';
 
 export class SlideController {
   constructor(private readonly service: SlideService) {}
@@ -37,7 +38,10 @@ export class SlideController {
 
   async reRender(req: Request, res: Response): Promise<void> {
     const slideId = req.params.slideId!;
-    const slide = await this.service.reRenderSlide(slideId);
+    const body = req.body as { sceneJson?: Scene };
+    const slide = body.sceneJson
+      ? await this.service.saveEditsAndReRender(slideId, body.sceneJson)
+      : await this.service.reRenderSlide(slideId);
     res.status(HttpStatus.OK).json({ data: slide });
   }
 
@@ -58,6 +62,8 @@ export class SlideController {
     const slideId = req.params.slideId!;
     const { slide, stream } = await this.service.getSlideForDownload(slideId);
     res.setHeader('Content-Type', 'image/png');
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
     res.setHeader(
       'Content-Disposition',
       `attachment; filename="${String(slide.order).padStart(4, '0')}.png"`,

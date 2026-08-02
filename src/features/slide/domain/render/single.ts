@@ -171,7 +171,10 @@ function drawOptionsStacked(
     const label = OPTION_LABELS[key];
 
     ctx.font = `${isCorrect ? 'bold' : 'normal'} ${optSize}px ${FONT_FAMILY}`;
-    const lines = wrapText(ctx, `(${label}) ${optionText}`, boxWidth - 40);
+    const lines = wrapText(ctx, `(${label}) ${optionText}`, boxWidth - 40, {
+      weight: isCorrect ? 'bold' : 'normal',
+      fontSize: optSize,
+    });
     const blockHeight = lines.length * lineHeight;
 
     if (isCorrect) {
@@ -217,8 +220,10 @@ function drawExplanation(
 ): number {
   const expSize = Math.round(styleConfig.textSize * 0.56);
   const padding = 18;
-  ctx.font = `${expSize}px ${FONT_FAMILY}`;
-  const lines = wrapText(ctx, `ব্যাখ্যা: ${explanation}`, boxWidth - padding * 2);
+  const lines = wrapText(ctx, `ব্যাখ্যা: ${explanation}`, boxWidth - padding * 2, {
+    weight: 'normal',
+    fontSize: expSize,
+  });
   const lineHeight = expSize * 1.55;
   const blockHeight = lines.length * lineHeight + padding * 2;
 
