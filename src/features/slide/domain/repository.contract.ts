@@ -61,4 +61,8 @@ export interface SlideRepository {
     status: SlideJobStatusValue,
     errorMessage?: string | null,
   ): Promise<void>;
+
+  findAllSlidesByQuestionSet(questionSetId: string): Promise<SlideDto[]>;
+  deleteSlidesByQuestionSet(questionSetId: string): Promise<number>;
+  deleteJobsByQuestionSet(questionSetId: string): Promise<void>;
 }

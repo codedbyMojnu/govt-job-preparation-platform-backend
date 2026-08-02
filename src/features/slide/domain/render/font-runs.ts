@@ -4,51 +4,67 @@ import { FONT_FAMILY_BENGALI, FONT_FAMILY_LATIN } from './fonts.js';
 
 export type FontWeight = 'normal' | 'bold';
 
-/** Devanagari danda — used as Bengali 'dari' (২।) but lives outside the Bengali block. */
-const BENGALI_DARI = 0x0964;
-const BENGALI_DOUBLE_DARI = 0x0965;
+/** Devanagari danda/double-danda — Bengali punctuation outside the Bengali block. */
+export const INDIC_DANDA = '\u0964';
+export const INDIC_DOUBLE_DANDA = '\u0965';
 
-/** Characters that must render with NotoSansBengali even outside U+0980–U+09FF. */
-function usesBengaliFont(code: number): boolean {
+const INDIC_PUNCTUATION = new Set<number>([0x0964, 0x0965]);
+
+/** Bengali script block + shared Indic danda used after question numbers (২।). */
+export function usesBengaliFont(code: number): boolean {
   if (code >= 0x0980 && code <= 0x09ff) return true;
-  // Shared Indic punctuation (। ॥) — NotoSans Latin shows tofu; Bengali font has these glyphs.
-  if (code === BENGALI_DARI || code === BENGALI_DOUBLE_DARI) return true;
+  if (INDIC_PUNCTUATION.has(code)) return true;
   return false;
 }
 
 export function fontFamilyForChar(char: string): string {
   const code = char.codePointAt(0) ?? 0;
-  if (usesBengaliFont(code)) return FONT_FAMILY_BENGALI;
-  return FONT_FAMILY_LATIN;
+  return usesBengaliFont(code) ? FONT_FAMILY_BENGALI : FONT_FAMILY_LATIN;
 }
 
-export interface FontRun {
+/** Bold Bengali files often omit danda glyphs — always draw danda with regular weight. */
+export function effectiveWeightForCode(code: number, weight: FontWeight): FontWeight {
+  if (weight === 'bold' && INDIC_PUNCTUATION.has(code)) return 'normal';
+  return weight;
+}
+
+export interface ShapedRun {
   text: string;
   family: string;
+  weight: FontWeight;
 }
 
-export function splitIntoFontRuns(text: string): FontRun[] {
+export function splitIntoShapedRuns(text: string, weight: FontWeight): ShapedRun[] {
   if (!text) return [];
 
-  const runs: FontRun[] = [];
+  const runs: ShapedRun[] = [];
   let i = 0;
 
   while (i < text.length) {
     const code = text.codePointAt(i)!;
     const ch = String.fromCodePoint(code);
     const family = fontFamilyForChar(ch);
+    const runWeight = effectiveWeightForCode(code, weight);
     const last = runs[runs.length - 1];
 
-    if (last && last.family === family) {
+    if (last && last.family === family && last.weight === runWeight) {
       last.text += ch;
     } else {
-      runs.push({ text: ch, family });
+      runs.push({ text: ch, family, weight: runWeight });
     }
 
     i += ch.length;
   }
 
   return runs;
+}
+
+/** @deprecated Use splitIntoShapedRuns */
+export function splitIntoFontRuns(text: string): Array<{ text: string; family: string }> {
+  return splitIntoShapedRuns(text, 'normal').map(({ text: t, family }) => ({
+    text: t,
+    family,
+  }));
 }
 
 export function setCanvasFont(
@@ -67,8 +83,8 @@ export function measureMixedTextWidth(
   fontSize: number,
 ): number {
   let width = 0;
-  for (const run of splitIntoFontRuns(text)) {
-    setCanvasFont(ctx, weight, fontSize, run.family);
+  for (const run of splitIntoShapedRuns(text, weight)) {
+    setCanvasFont(ctx, run.weight, fontSize, run.family);
     width += ctx.measureText(run.text).width;
   }
   return width;
@@ -83,8 +99,8 @@ export function fillMixedText(
   fontSize: number,
 ): number {
   let cursorX = x;
-  for (const run of splitIntoFontRuns(text)) {
-    setCanvasFont(ctx, weight, fontSize, run.family);
+  for (const run of splitIntoShapedRuns(text, weight)) {
+    setCanvasFont(ctx, run.weight, fontSize, run.family);
     ctx.fillText(run.text, cursorX, y);
     cursorX += ctx.measureText(run.text).width;
   }

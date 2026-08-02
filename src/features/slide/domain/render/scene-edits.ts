@@ -6,7 +6,7 @@ import { decodeHtmlEntities } from './html-decode.js';
 type MutableQuestion = SlideQuestionInput;
 
 function stripQuestionPrefix(text: string): string {
-  return text.replace(/^[\d০-৯]+[।.]\s*/, '').trim();
+  return text.replace(/^[\d০-৯]+[\u0964\u0965.]\s*/, '').trim();
 }
 
 function stripOptionPrefix(text: string): string {

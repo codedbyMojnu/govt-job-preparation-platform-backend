@@ -122,6 +122,36 @@ export class SlideService {
     return this.repository.findLatestSlidesByQuestionSet(questionSetId);
   }
 
+  /** Admin: remove all slides (and storage objects) for a question set. */
+  async deleteAllSlidesForQuestionSet(
+    questionSetId: string,
+  ): Promise<{ deletedCount: number }> {
+    const exists = await this.repository.questionSetExists(questionSetId);
+    if (!exists) {
+      throw new NotFoundError('Question set not found');
+    }
+
+    const slides = await this.repository.findAllSlidesByQuestionSet(questionSetId);
+    const keys = new Set<string>();
+    for (const slide of slides) {
+      keys.add(slide.imageUrl);
+      keys.add(this.storage.sceneKeyFromPngKey(slide.imageUrl));
+    }
+
+    for (const key of keys) {
+      try {
+        await this.storage.removeObject(key);
+      } catch {
+        // Object may already be missing — DB rows are still removed.
+      }
+    }
+
+    const deletedCount = await this.repository.deleteSlidesByQuestionSet(questionSetId);
+    await this.repository.deleteJobsByQuestionSet(questionSetId);
+
+    return { deletedCount };
+  }
+
   async patchSlideScene(slideId: string, sceneJson: Scene): Promise<SlideDto> {
     await this.getSlideOrThrow(slideId);
     return this.repository.updateSlideScene(slideId, sceneJson);

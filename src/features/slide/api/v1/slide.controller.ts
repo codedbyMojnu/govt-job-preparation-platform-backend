@@ -29,6 +29,12 @@ export class SlideController {
     res.status(HttpStatus.OK).json({ data: result });
   }
 
+  async deleteByQuestionSet(req: Request, res: Response): Promise<void> {
+    const questionSetId = req.params.questionSetId!;
+    const result = await this.service.deleteAllSlidesForQuestionSet(questionSetId);
+    res.status(HttpStatus.OK).json({ data: result });
+  }
+
   async patchScene(req: Request, res: Response): Promise<void> {
     const slideId = req.params.slideId!;
     const { sceneJson } = req.body;

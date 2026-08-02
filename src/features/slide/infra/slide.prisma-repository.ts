@@ -201,4 +201,21 @@ export class SlidePrismaRepository implements SlideRepository {
       data: { status, errorMessage: errorMessage ?? null },
     });
   }
+
+  async findAllSlidesByQuestionSet(questionSetId: string): Promise<SlideDto[]> {
+    const slides = await this.prisma.slide.findMany({
+      where: { questionSetId },
+      orderBy: [{ styleConfigId: 'asc' }, { order: 'asc' }],
+    });
+    return slides.map(slideMapper.toDto);
+  }
+
+  async deleteSlidesByQuestionSet(questionSetId: string): Promise<number> {
+    const result = await this.prisma.slide.deleteMany({ where: { questionSetId } });
+    return result.count;
+  }
+
+  async deleteJobsByQuestionSet(questionSetId: string): Promise<void> {
+    await this.prisma.slideGenerationJob.deleteMany({ where: { questionSetId } });
+  }
 }

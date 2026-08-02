@@ -6,7 +6,7 @@ import type { Client as MinioClient } from 'minio';
 import multer from 'multer';
 
 import { minioConfig } from '../../../../config/minio.js';
-import { authenticate } from '../../../../infrastructure/middleware/authenticate.js';
+import { authenticate, authorize } from '../../../../infrastructure/middleware/authenticate.js';
 import { validate } from '../../../../infrastructure/middleware/validate.js';
 import { BadRequestError } from '../../../../shared/errors/http-errors.js';
 import { asyncHandler } from '../../../../shared/utils/async-handler.js';
@@ -101,6 +101,13 @@ export function createSlideRoutes(container: AwilixContainer): Router {
     '/:questionSetId',
     validate({ params: questionSetIdParamsSchema }),
     asyncHandler((req, res) => controller.listByQuestionSet(req, res)),
+  );
+
+  router.delete(
+    '/:questionSetId',
+    authorize('ADMIN'),
+    validate({ params: questionSetIdParamsSchema }),
+    asyncHandler((req, res) => controller.deleteByQuestionSet(req, res)),
   );
 
   return router;

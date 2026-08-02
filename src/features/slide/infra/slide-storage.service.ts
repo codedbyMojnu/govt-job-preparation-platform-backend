@@ -51,4 +51,12 @@ export class SlideStorageService {
   async getObjectStream(key: string): Promise<Readable> {
     return this.client.getObject(this.bucket, key);
   }
+
+  async removeObject(key: string): Promise<void> {
+    await this.client.removeObject(this.bucket, key);
+  }
+
+  sceneKeyFromPngKey(pngKey: string): string {
+    return pngKey.replace(/\.png$/i, '.scene.json');
+  }
 }
