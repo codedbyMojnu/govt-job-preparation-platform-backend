@@ -17,6 +17,7 @@ import { createRoutineRoutes } from './features/routine/index.js';
 import { createSlideRoutes } from './features/slide/index.js';
 import { createSubExamCategoryRoutes } from './features/sub-exam-category/index.js';
 import { createSyllabusRoutes } from './features/syllabus/index.js';
+import { createVideoRoutes } from './features/video/index.js';
 import { correlationIdMiddleware } from './infrastructure/middleware/correlation-id.js';
 import { errorHandler } from './infrastructure/middleware/error-handler.js';
 import { hpp } from './infrastructure/middleware/hpp.js';
@@ -67,14 +68,13 @@ export function createApp(container: AwilixContainer) {
   );
   app.use(securityHeaders);
 
-  // CORS
   app.use(
     cors({
       origin: config.CORS_ORIGINS === '*' ? '*' : config.CORS_ORIGINS.split(','),
       credentials: true,
-      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-      allowedHeaders: ['Content-Type', 'Authorization', 'X-Correlation-Id'],
-      maxAge: 86400, // Cache preflight for 24 hours
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+      allowedHeaders: ['Content-Type', 'Authorization', 'X-Correlation-Id', 'Cache-Control'],
+      maxAge: 86400,
     }),
   );
 
@@ -141,6 +141,7 @@ export function createApp(container: AwilixContainer) {
   app.use('/api/v1/syllabuses', createSyllabusRoutes(container));
   app.use('/api/v1/job-circulars', createJobCircularRoutes(container));
   app.use('/api/v1/slides', createSlideRoutes(container));
+  app.use('/api/v1/videos', createVideoRoutes(container));
 
   // Terminal middleware
   app.use(notFoundHandler);

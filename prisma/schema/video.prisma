@@ -1,0 +1,90 @@
+// Video library — YouTube lectures for Bangladesh public job exam prep
+
+enum VideoCategory {
+  BCS
+  PRIMARY
+  BANK
+  SCHOOL
+  COLLEGE
+  NTRCA
+  SOMAJSEBA
+  COMPUTER_OPERATOR
+  POLICE
+  DEFENCE
+  RAILWAY
+  HEALTH
+  OTHER
+
+  @@map("video_category")
+}
+
+enum VideoSortHint {
+  NEWEST
+  POPULAR
+  MOST_LIKED
+
+  @@map("video_sort_hint")
+}
+
+model Video {
+  id             String         @id @default(cuid())
+  title          String         @db.VarChar(500)
+  description    String?        @db.Text
+  youtubeUrl     String         @map("youtube_url") @db.VarChar(500)
+  youtubeVideoId String         @map("youtube_video_id") @db.VarChar(20)
+  thumbnailUrl   String?        @map("thumbnail_url") @db.VarChar(1000)
+  category       VideoCategory  @default(OTHER)
+  tags           String[]       @default([])
+  durationSec    Int?           @map("duration_sec")
+  viewCount      Int            @default(0) @map("view_count")
+  likeCount      Int            @default(0) @map("like_count")
+  commentCount   Int            @default(0) @map("comment_count")
+  isFeatured     Boolean        @default(false) @map("is_featured")
+  isActive       Boolean        @default(true) @map("is_active")
+  publishedAt    DateTime?      @map("published_at")
+  /// YouTube video id for dedup when importing from Farhan MCQ channel
+  channelVideoId String?        @unique @map("channel_video_id") @db.VarChar(20)
+  createdBy      String?        @map("created_by")
+  createdAt      DateTime       @default(now()) @map("created_at")
+  updatedAt      DateTime       @updatedAt @map("updated_at")
+
+  creator  User?          @relation("VideoCreator", fields: [createdBy], references: [id], onDelete: SetNull)
+  likes    VideoLike[]
+  comments VideoComment[]
+
+  @@index([category])
+  @@index([isActive, isFeatured])
+  @@index([publishedAt])
+  @@index([likeCount])
+  @@index([viewCount])
+  @@map("videos")
+}
+
+model VideoLike {
+  id        String   @id @default(cuid())
+  videoId   String   @map("video_id")
+  userId    String   @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  video Video @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([videoId, userId])
+  @@index([userId])
+  @@map("video_likes")
+}
+
+model VideoComment {
+  id        String   @id @default(cuid())
+  videoId   String   @map("video_id")
+  userId    String   @map("user_id")
+  content   String   @db.VarChar(2000)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  video Video @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([videoId, createdAt])
+  @@map("video_comments")
+}

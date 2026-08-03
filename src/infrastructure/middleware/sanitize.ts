@@ -26,16 +26,23 @@ function sanitizeValue(req: Request, value: unknown): unknown {
   return value;
 }
 
+const RAW_STRING_KEYS = new Set(['content', 'youtubeUrl', 'url']);
+
 function shouldPreserveRawValue(req: Request, key: string, value: unknown): boolean {
   if (typeof value !== 'string') {
     return false;
   }
 
-  if (!req.path.startsWith('/api/v1/syllabuses')) {
-    return false;
+  if (RAW_STRING_KEYS.has(key)) {
+    if (req.path.startsWith('/api/v1/syllabuses') && key === 'content') {
+      return true;
+    }
+    if (req.path.startsWith('/api/v1/videos') && (key === 'youtubeUrl' || key === 'url')) {
+      return true;
+    }
   }
 
-  return key === 'content';
+  return false;
 }
 
 function sanitizeObject(req: Request, obj: Record<string, unknown>): Record<string, unknown> {

@@ -24,6 +24,9 @@ model User {
   notificationReads   UserNotificationRead[]
   loginAttempts       LoginAttempt[]
   slideStyleConfigs   SlideStyleConfig[]
+  videosCreated       Video[]          @relation("VideoCreator")
+  videoLikes          VideoLike[]
+  videoComments       VideoComment[]
 
   @@map("users")
 }

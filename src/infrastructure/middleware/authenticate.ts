@@ -28,6 +28,25 @@ export function authenticate(req: Request, _res: Response, next: NextFunction): 
   }
 }
 
+/** Sets userId/role when a valid token is present; continues anonymously otherwise. */
+export function optionalAuthenticate(req: Request, _res: Response, next: NextFunction): void {
+  const header = req.headers.authorization;
+  if (!header?.startsWith('Bearer ')) {
+    next();
+    return;
+  }
+
+  const token = header.slice(7);
+  try {
+    const payload = jwt.verify(token, authConfig.jwtSecret) as JwtPayload;
+    req.userId = payload.userId;
+    req.userRole = payload.role;
+  } catch {
+    // ignore invalid token for public browse
+  }
+  next();
+}
+
 export function authorize(...roles: UserRole[]) {
   return (req: Request, _res: Response, next: NextFunction): void => {
     if (!req.userRole || !roles.includes(req.userRole)) {
