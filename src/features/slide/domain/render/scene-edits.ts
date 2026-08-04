@@ -30,7 +30,7 @@ export function applySceneEditsToQuestions(
   questionsInOrder: SlideQuestionInput[],
 ): SlideQuestionInput[] {
   const byId = new Map<string, MutableQuestion>(
-    questionsInOrder.map((q) => [
+    questionsInOrder.map((q): [string, MutableQuestion] => [
       q.id,
       {
         ...q,
@@ -39,17 +39,43 @@ export function applySceneEditsToQuestions(
         optionB: decodeHtmlEntities(q.optionB),
         optionC: decodeHtmlEntities(q.optionC),
         optionD: decodeHtmlEntities(q.optionD),
-        explanation: q.explanation ? decodeHtmlEntities(q.explanation) : q.explanation,
+        explanation:
+          q.explanation != null && q.explanation !== ''
+            ? decodeHtmlEntities(q.explanation)
+            : q.explanation,
       },
     ]),
   );
 
   const legacyExpNodes: Array<{ text: string }> = [];
+  const [singleQuestion] = questionsInOrder;
 
   for (const node of scene.nodes) {
     if (node.type !== 'text' || !node.text?.trim()) continue;
     const text = decodeHtmlEntities(node.text);
 
+    // SINGLE mode — one question per slide
+    if (node.id === 'question-text' && singleQuestion) {
+      const q = byId.get(singleQuestion.id);
+      if (q) q.questionText = stripQuestionPrefix(text);
+      continue;
+    }
+
+    const singleOptMatch = node.id.match(/^single-opt-([ABCD])$/);
+    if (singleOptMatch && singleQuestion) {
+      const key = singleOptMatch[1] as 'A' | 'B' | 'C' | 'D';
+      const q = byId.get(singleQuestion.id);
+      if (q) q[`option${key}`] = stripOptionPrefix(text);
+      continue;
+    }
+
+    if (node.id === 'single-exp-text' && singleQuestion) {
+      const q = byId.get(singleQuestion.id);
+      if (q) q.explanation = stripExplanationPrefix(text);
+      continue;
+    }
+
+    // GROUPED mode
     if (node.id.startsWith('q-')) {
       const qId = node.id.slice(2);
       const q = byId.get(qId);

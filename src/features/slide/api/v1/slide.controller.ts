@@ -2,7 +2,7 @@ import { ZipArchive } from 'archiver';
 import type { Request, Response } from 'express';
 
 import { HttpStatus } from '../../../../shared/constants/http-status.js';
-import { BadRequestError } from '../../../../shared/errors/http-errors.js';
+import { BadRequestError, NotFoundError } from '../../../../shared/errors/http-errors.js';
 import type { SlideService } from '../../domain/slide.service.js';
 import type { GenerateSlidesInput } from '../../domain/types.js';
 import type { Scene } from '../../domain/render/types.js';
@@ -83,25 +83,36 @@ export class SlideController {
     const slides = await this.service.getSlidesForZip(questionSetId, styleConfigId);
 
     if (slides.length === 0) {
-      res.status(HttpStatus.OK).json({ data: [] });
-      return;
+      throw new NotFoundError('No slides found to download');
     }
 
     const storage = this.service.getStorage();
+    const entries: Array<{ name: string; stream: Awaited<ReturnType<typeof storage.getObjectStream>> }> =
+      [];
+
+    for (const slide of slides) {
+      try {
+        const stream = await storage.getObjectStream(slide.imageUrl);
+        entries.push({
+          name: `${String(slide.order).padStart(4, '0')}.png`,
+          stream,
+        });
+      } catch {
+        throw new NotFoundError(`Slide image missing for order ${slide.order}`);
+      }
+    }
+
     res.setHeader('Content-Type', 'application/zip');
     res.setHeader('Content-Disposition', `attachment; filename="${questionSetId}-slides.zip"`);
 
     const archive = new ZipArchive({ zlib: { level: 9 } });
-    // Headers/bytes may already be flowing by the time this fires — can't send a JSON error at
-    // that point, so just abort the connection rather than throwing into the event loop.
     archive.on('error', (err: Error) => {
       res.destroy(err);
     });
     archive.pipe(res);
 
-    for (const slide of slides) {
-      const stream = await storage.getObjectStream(slide.imageUrl);
-      archive.append(stream, { name: `${String(slide.order).padStart(4, '0')}.png` });
+    for (const entry of entries) {
+      archive.append(entry.stream, { name: entry.name });
     }
 
     await archive.finalize();

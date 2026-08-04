@@ -9,7 +9,7 @@ import type { SlideGenerationJobData } from '../infra/slide-queue.js';
 import { SLIDE_GENERATE_JOB_NAME } from '../infra/slide-queue.js';
 import type { SlideStorageService } from '../infra/slide-storage.service.js';
 
-import { renderSceneToPng, renderGroupedSlide, renderSingleQuestionSlide } from './render/index.js';
+import { renderGroupedSlide, renderSingleQuestionSlide } from './render/index.js';
 import { applySceneEditsToQuestions } from './render/scene-edits.js';
 import type { Scene } from './render/types.js';
 import type { SlideQuestionInput } from './render/types.js';
@@ -192,6 +192,8 @@ export class SlideService {
         : await renderGroupedSlide(merged, styleConfig, context);
 
     await this.storage.putPng(slide.imageUrl, rendered.buffer);
+    const sceneKey = this.storage.sceneKeyFromPngKey(slide.imageUrl);
+    await this.storage.putJson(sceneKey, rendered.sceneJson);
     return this.repository.updateSlideScene(slideId, rendered.sceneJson);
   }
 

@@ -73,7 +73,7 @@ export function createApp(container: AwilixContainer) {
       origin: config.CORS_ORIGINS === '*' ? '*' : config.CORS_ORIGINS.split(','),
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-      allowedHeaders: ['Content-Type', 'Authorization', 'X-Correlation-Id', 'Cache-Control'],
+      allowedHeaders: ['Content-Type', 'Authorization', 'X-Correlation-Id'],
       maxAge: 86400,
     }),
   );
@@ -108,7 +108,11 @@ export function createApp(container: AwilixContainer) {
     keyGenerator: (req) => req.ip || 'unknown',
     message: { error: 'Too many authentication attempts. Please try again later.' },
   });
-  app.use('/api/v1/auth/', authLimiter);
+
+  if (config.NODE_ENV !== 'development') {
+    app.use('/api/', apiLimiter);
+    app.use('/api/v1/auth/', authLimiter);
+  }
 
   // Body parsing with strict size limits
   app.use(express.json({ limit: '100kb' }));

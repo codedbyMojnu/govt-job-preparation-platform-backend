@@ -1,4 +1,5 @@
 import { FONT_FAMILY } from './fonts.js';
+import { decodeHtmlEntities } from './html-decode.js';
 import { createMeasurementContext } from './paint.js';
 import { fitWrappedText, OPTION_LABELS, toBengaliDigits, wrapText } from './text-utils.js';
 import type {
@@ -37,9 +38,10 @@ export function composeSingleScene(
   nodes.push(...buildBrandBar(width, context));
 
   const fontSizes = [1, 0.88, 0.78, 0.68, 0.58].map((f) => Math.round(styleConfig.textSize * f));
+  const questionText = decodeHtmlEntities(question.questionText);
   const fitted = fitWrappedText(
     ctx,
-    question.questionText,
+    questionText,
     innerWidth,
     fontSizes,
     6,
@@ -78,8 +80,11 @@ export function composeSingleScene(
     cursor = drawOptionsStacked(nodes, ctx, question, styleConfig, cursor, boxWidth);
   }
 
-  if (styleConfig.showExplanation && question.explanation?.trim()) {
-    cursor = drawExplanation(nodes, ctx, question.explanation, styleConfig, cursor, boxWidth);
+  const explanation = question.explanation?.trim()
+    ? decodeHtmlEntities(question.explanation)
+    : '';
+  if (styleConfig.showExplanation && explanation) {
+    cursor = drawExplanation(nodes, ctx, explanation, styleConfig, cursor, boxWidth);
   }
 
   const footerHeight = 46;
@@ -166,7 +171,9 @@ function drawOptionsStacked(
   let cursor = y;
 
   for (const key of ['A', 'B', 'C', 'D'] as const) {
-    const optionText = question[`option${key}` as 'optionA' | 'optionB' | 'optionC' | 'optionD'];
+    const optionText = decodeHtmlEntities(
+      question[`option${key}` as 'optionA' | 'optionB' | 'optionC' | 'optionD'],
+    );
     const isCorrect = styleConfig.showAnswer && question.correctAnswer === key;
     const label = OPTION_LABELS[key];
 
