@@ -2,7 +2,7 @@ import type { AwilixContainer } from 'awilix';
 import compression from 'compression';
 import cors from 'cors';
 import express from 'express';
-import rateLimit from 'express-rate-limit';
+import rateLimit, { ipKeyGenerator } from 'express-rate-limit';
 import helmet from 'helmet';
 import type { Logger } from 'pino';
 
@@ -93,7 +93,7 @@ export function createApp(container: AwilixContainer) {
     max: 200,
     standardHeaders: true,
     legacyHeaders: false,
-    keyGenerator: (req) => (req.headers['x-user-id'] as string) || req.ip || 'unknown',
+    keyGenerator: (req) => (req.headers['x-user-id'] as string) || ipKeyGenerator(req.ip),
     message: { error: 'Too many requests, please try again later.' },
     skip: (req) => req.path === '/api/health',
   });
@@ -101,12 +101,14 @@ export function createApp(container: AwilixContainer) {
 
   // Stricter rate limiting on auth routes (brute force protection)
   const authLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 20, // 20 attempts per 15 minutes
+    windowMs: 15 * 60 * 1000,
+    max: 20,
     standardHeaders: true,
     legacyHeaders: false,
-    keyGenerator: (req) => req.ip || 'unknown',
-    message: { error: 'Too many authentication attempts. Please try again later.' },
+    keyGenerator: (req) => ipKeyGenerator(req.ip),
+    message: {
+      error: 'Too many authentication attempts. Please try again later.',
+    },
   });
 
   if (config.NODE_ENV !== 'development') {
