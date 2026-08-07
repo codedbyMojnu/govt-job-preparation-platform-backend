@@ -35,15 +35,23 @@ export function errorHandler(err: Error, req: Request, res: Response, _next: Nex
   // Unknown / programmer error
   req.logger?.error({ err, correlationId }, 'Unhandled error');
 
+  // body-parser and some other libs set `.status` or `.statusCode` on the raw error
+  // (e.g. PayloadTooLargeError → 413). Fall back to 500 only if neither is set.
+  const rawStatus =
+    (err as { status?: number; statusCode?: number }).status ??
+    (err as { status?: number; statusCode?: number }).statusCode;
+  const statusCode =
+    rawStatus && rawStatus >= 400 && rawStatus < 600 ? rawStatus : HttpStatus.INTERNAL_SERVER_ERROR;
+
   const response: ErrorResponse = {
     error: {
-      code: ErrorCodes.INTERNAL_ERROR,
-      message: 'Internal server error',
-      statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+      code: statusCode === 413 ? ErrorCodes.INTERNAL_ERROR : ErrorCodes.INTERNAL_ERROR,
+      message: statusCode === 413 ? 'Request payload is too large' : 'Internal server error',
+      statusCode,
       correlationId,
       timestamp: new Date().toISOString(),
     },
   };
 
-  res.status(HttpStatus.INTERNAL_SERVER_ERROR).json(response);
+  res.status(statusCode).json(response);
 }

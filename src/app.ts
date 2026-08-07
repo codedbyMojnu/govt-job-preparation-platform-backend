@@ -117,8 +117,8 @@ export function createApp(container: AwilixContainer) {
   }
 
   // Body parsing with strict size limits
-  app.use(express.json({ limit: '100kb' }));
-  app.use(express.urlencoded({ extended: false, limit: '100kb' }));
+  app.use(express.json({ limit: '2mb' }));
+  app.use(express.urlencoded({ extended: false, limit: '2mb' }));
 
   // HTTP Parameter Pollution protection
   app.use(hpp);

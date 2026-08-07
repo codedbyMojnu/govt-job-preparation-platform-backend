@@ -100,43 +100,46 @@ export class RoutinePrismaRepository implements RoutineRepository {
 
   async bulkUpsert(items: BulkUpsertRoutineItem[]): Promise<RoutineDto[]> {
     const results: RoutineDto[] = [];
-    await this.prisma.$transaction(async (tx) => {
-      for (const item of items) {
-        if (item.id) {
-          const updated = await tx.routine.update({
-            where: { id: item.id },
-            data: {
-              date: new Date(item.date),
-              title: item.title,
-              totalMarks: item.totalMarks,
-              duration: item.duration,
-              subject: item.subject,
-              topics: item.topics ?? null,
-              sourceMaterial: item.sourceMaterial ?? null,
-              description: item.description ?? null,
-              ...(item.isActive !== undefined && { isActive: item.isActive }),
-            },
-          });
-          results.push(routineMapper.toDto(updated));
-        } else {
-          const created = await tx.routine.create({
-            data: {
-              subExamCategoryId: item.subExamCategoryId,
-              date: new Date(item.date),
-              title: item.title,
-              totalMarks: item.totalMarks,
-              duration: item.duration,
-              subject: item.subject,
-              topics: item.topics ?? null,
-              sourceMaterial: item.sourceMaterial ?? null,
-              description: item.description ?? null,
-              isActive: item.isActive ?? true,
-            },
-          });
-          results.push(routineMapper.toDto(created));
+    await this.prisma.$transaction(
+      async (tx) => {
+        for (const item of items) {
+          if (item.id) {
+            const updated = await tx.routine.update({
+              where: { id: item.id },
+              data: {
+                date: new Date(item.date),
+                title: item.title,
+                totalMarks: item.totalMarks,
+                duration: item.duration,
+                subject: item.subject,
+                topics: item.topics ?? null,
+                sourceMaterial: item.sourceMaterial ?? null,
+                description: item.description ?? null,
+                ...(item.isActive !== undefined && { isActive: item.isActive }),
+              },
+            });
+            results.push(routineMapper.toDto(updated));
+          } else {
+            const created = await tx.routine.create({
+              data: {
+                subExamCategoryId: item.subExamCategoryId,
+                date: new Date(item.date),
+                title: item.title,
+                totalMarks: item.totalMarks,
+                duration: item.duration,
+                subject: item.subject,
+                topics: item.topics ?? null,
+                sourceMaterial: item.sourceMaterial ?? null,
+                description: item.description ?? null,
+                isActive: item.isActive ?? true,
+              },
+            });
+            results.push(routineMapper.toDto(created));
+          }
         }
-      }
-    });
+      },
+      { timeout: 20000, maxWait: 5000 }, // <-- second argument to $transaction, not inside the callback
+    );
     return results;
   }
 
