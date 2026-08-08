@@ -1,0 +1,24 @@
+// AI provider key management — encrypted at rest. Decrypted only via the
+// internal-service-only /resolve route (see ai-provider-key feature module).
+
+enum AiProvider {
+  MISTRAL
+  ANTHROPIC
+  GEMINI
+  OPENAI
+  OMNIROUTE
+}
+
+model AiProviderKey {
+  id           String     @id @default(cuid())
+  provider     AiProvider
+  label        String?    @db.VarChar(100)
+  encryptedKey String     @map("encrypted_key") @db.Text
+  keyPreview   String     @map("key_preview") @db.VarChar(20)
+  isActive     Boolean    @default(true) @map("is_active")
+  createdAt    DateTime   @default(now()) @map("created_at")
+  updatedAt    DateTime   @updatedAt @map("updated_at")
+
+  @@index([provider, isActive])
+  @@map("ai_provider_keys")
+}

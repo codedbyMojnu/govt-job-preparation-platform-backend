@@ -48,6 +48,19 @@ export const envSchema = z.object({
       { message: `JWT_EXPIRES_IN cannot exceed ${MAX_JWT_EXPIRY}` },
     )
     .default('15m'),
+  AI_KEY_ENCRYPTION_SECRET: z
+    .string()
+    .length(
+      64,
+      'AI_KEY_ENCRYPTION_SECRET must be 64 hex chars — generate with: openssl rand -hex 32',
+    )
+    .regex(/^[0-9a-f]+$/i, 'AI_KEY_ENCRYPTION_SECRET must be hex'),
+  INTERNAL_API_SECRET: z
+    .string()
+    .min(
+      32,
+      'INTERNAL_API_SECRET should be at least 32 chars — generate with: openssl rand -hex 32',
+    ),
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent']).default('info'),
   CORS_ORIGINS: z
     .string()
