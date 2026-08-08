@@ -7,6 +7,7 @@ import helmet from 'helmet';
 import type { Logger } from 'pino';
 
 import { config } from './config/index.js';
+import { createAiProviderKeyRoutes } from './features/ai-provider-key/index.js';
 import { createAuthRoutes } from './features/auth/index.js';
 import { createExamCategoryRoutes } from './features/exam-category/index.js';
 import { createJobCircularRoutes } from './features/job-circular/index.js';
@@ -148,6 +149,7 @@ export function createApp(container: AwilixContainer) {
   app.use('/api/v1/job-circulars', createJobCircularRoutes(container));
   app.use('/api/v1/slides', createSlideRoutes(container));
   app.use('/api/v1/videos', createVideoRoutes(container));
+  app.use('/api/v1/ai-provider-keys', createAiProviderKeyRoutes(container));
 
   // Terminal middleware
   app.use(notFoundHandler);
