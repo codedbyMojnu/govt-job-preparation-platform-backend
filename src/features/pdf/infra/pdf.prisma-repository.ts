@@ -263,8 +263,14 @@ export class PdfPrismaRepository implements PdfRepository {
     return row ? pdfCommentMapper.toDto(row) : null;
   }
 
-  async countAll(): Promise<number> {
-    return this.prisma.pdfDocument.count();
+  async getStats(): Promise<{ total: number; free: number; featured: number; downloads: number }> {
+    const [total, free, featured, downloadAgg] = await Promise.all([
+      this.prisma.pdfDocument.count(),
+      this.prisma.pdfDocument.count({ where: { isFree: true } }),
+      this.prisma.pdfDocument.count({ where: { isFeatured: true } }),
+      this.prisma.pdfDocument.aggregate({ _sum: { downloadCount: true } }),
+    ]);
+    return { total, free, featured, downloads: downloadAgg._sum.downloadCount ?? 0 };
   }
 
   // question-set রিপোজিটরির hasActivePackage-এর সাথে হুবহু এক লজিক — একই "active subscription" নিয়ম

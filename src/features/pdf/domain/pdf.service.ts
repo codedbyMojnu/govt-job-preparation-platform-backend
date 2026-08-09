@@ -177,8 +177,8 @@ export class PdfService {
     await this.repository.deleteComment(commentId);
   }
 
-  async getStats(): Promise<{ total: number }> {
-    return { total: await this.repository.countAll() };
+  async getStats(): Promise<{ total: number; free: number; featured: number; downloads: number }> {
+    return this.repository.getStats();
   }
 
   private assertValidFile(file: UploadedPdfFile): void {

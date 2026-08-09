@@ -14,9 +14,7 @@ export interface PdfRepository {
   findFeatured(limit: number): Promise<PdfDto[]>;
   findById(id: string, userId?: string): Promise<PdfDto | null>;
   /** Raw row is needed internally (to read fileKey) — service.ts uses this, never exposed via mapper. */
-  findRawById(
-    id: string,
-  ): Promise<{
+  findRawById(id: string): Promise<{
     id: string;
     fileKey: string;
     fileName: string;
@@ -39,6 +37,6 @@ export interface PdfRepository {
   createComment(pdfId: string, userId: string, input: CreateCommentInput): Promise<PdfCommentDto>;
   findCommentById(commentId: string): Promise<PdfCommentDto | null>;
   deleteComment(commentId: string): Promise<void>;
-  countAll(): Promise<number>;
+  getStats(): Promise<{ total: number; free: number; featured: number; downloads: number }>;
   hasActivePackage(userId: string): Promise<boolean>;
 }
