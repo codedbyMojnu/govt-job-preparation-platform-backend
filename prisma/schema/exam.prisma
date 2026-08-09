@@ -30,6 +30,7 @@ model SubExamCategory {
   questionSets QuestionSet[]
   routines     Routine[]
   syllabuses   Syllabus[]
+  pdfDocuments PdfDocument[]
 
   @@index([examCategoryId])
   @@map("sub_exam_categories")

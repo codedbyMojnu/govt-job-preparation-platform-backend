@@ -1,0 +1,85 @@
+// PDF library — syllabus, routine, question banks, notes for Bangladesh public job exam prep
+// Mirrors video.prisma's shape (Like/Comment side-tables) + adds file-storage + isFree paywall fields.
+
+enum PdfDocType {
+  SYLLABUS
+  ROUTINE
+  QUESTION_BANK
+  PREVIOUS_QUESTIONS
+  BOOK_GUIDE
+  NOTES
+  MODEL_TEST
+  OTHER
+
+  @@map("pdf_doc_type")
+}
+
+model PdfDocument {
+  id                 String     @id @default(cuid())
+  title              String     @db.VarChar(500)
+  description        String?    @db.Text
+  // Internal MinIO object key — e.g. "pdfs/<id>/<timestamp>-<filename>.pdf".
+  // NEVER exposed to the frontend directly; only used server-side to stream the file.
+  fileKey            String     @map("file_key") @db.VarChar(1000)
+  fileName           String     @map("file_name") @db.VarChar(300)
+  fileSizeKb         Int?       @map("file_size_kb")
+  pageCount          Int?       @map("page_count")
+  docType            PdfDocType @default(OTHER)
+  subExamCategoryId  String?    @map("sub_exam_category_id")
+  subject            String?    @db.VarChar(200)
+  examName           String?    @db.VarChar(200)
+  tags               String[]   @default([])
+  downloadCount      Int        @default(0) @map("download_count")
+  viewCount          Int        @default(0) @map("view_count")
+  likeCount          Int        @default(0) @map("like_count")
+  commentCount       Int        @default(0) @map("comment_count")
+  isFeatured         Boolean    @default(false) @map("is_featured")
+  isActive           Boolean    @default(true) @map("is_active")
+  isFree             Boolean    @default(false) @map("is_free")
+  createdBy          String?    @map("created_by")
+  createdAt          DateTime   @default(now()) @map("created_at")
+  updatedAt          DateTime   @updatedAt @map("updated_at")
+
+  subExamCategory SubExamCategory? @relation(fields: [subExamCategoryId], references: [id], onDelete: SetNull)
+  creator         User?            @relation("PdfCreator", fields: [createdBy], references: [id], onDelete: SetNull)
+  likes           PdfLike[]
+  comments        PdfComment[]
+
+  @@index([docType])
+  @@index([subExamCategoryId])
+  @@index([isActive, isFeatured])
+  @@index([isFree])
+  @@index([createdAt])
+  @@index([downloadCount])
+  @@index([viewCount])
+  @@map("pdf_documents")
+}
+
+model PdfLike {
+  id        String   @id @default(cuid())
+  pdfId     String   @map("pdf_id")
+  userId    String   @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  pdf  PdfDocument @relation(fields: [pdfId], references: [id], onDelete: Cascade)
+  user User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([pdfId, userId])
+  @@index([userId])
+  @@map("pdf_likes")
+}
+
+model PdfComment {
+  id        String   @id @default(cuid())
+  pdfId     String   @map("pdf_id")
+  userId    String   @map("user_id")
+  content   String   @db.VarChar(2000)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  pdf  PdfDocument @relation(fields: [pdfId], references: [id], onDelete: Cascade)
+  user User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([pdfId, createdAt])
+  @@map("pdf_comments")
+}

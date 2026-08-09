@@ -13,6 +13,7 @@ import { createExamCategoryRoutes } from './features/exam-category/index.js';
 import { createJobCircularRoutes } from './features/job-circular/index.js';
 import { createNotificationRoutes } from './features/notification/index.js';
 import { createPackageRoutes } from './features/package/index.js';
+import { createPdfRoutes } from './features/pdf/index.js';
 import { createQuestionSetRoutes } from './features/question-set/index.js';
 import { createRoutineRoutes } from './features/routine/index.js';
 import { createSlideRoutes } from './features/slide/index.js';
@@ -149,6 +150,7 @@ export function createApp(container: AwilixContainer) {
   app.use('/api/v1/job-circulars', createJobCircularRoutes(container));
   app.use('/api/v1/slides', createSlideRoutes(container));
   app.use('/api/v1/videos', createVideoRoutes(container));
+  app.use('/api/v1/pdfs', createPdfRoutes(container));
   app.use('/api/v1/ai-provider-keys', createAiProviderKeyRoutes(container));
 
   // Terminal middleware
