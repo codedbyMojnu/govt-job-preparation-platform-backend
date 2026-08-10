@@ -7,11 +7,13 @@ import { createAppContainer } from '../container.js';
 import { SHUTDOWN_TIMEOUT_MS } from '../shared/constants/app.constants.js';
 
 import { startSlideWorker } from './slide-worker-bootstrap.js';
+import { startBroadcastWorker } from './broadcast-worker-bootstrap.js';
 
 const container = createAppContainer();
 const logger = container.resolve<Logger>('logger');
 
 let slideWorker: Worker | undefined;
+let broadcastWorker: Worker | undefined;
 
 async function bootstrap() {
   const prisma = container.resolve<PrismaClient>('prismaClient');
@@ -21,6 +23,7 @@ async function bootstrap() {
   await redis.ping();
 
   slideWorker = await startSlideWorker(container, logger);
+  broadcastWorker = await startBroadcastWorker(container, logger);
 }
 
 let isShuttingDown = false;
@@ -31,7 +34,7 @@ async function shutdown(signal: string) {
     process.exit(1);
   }
   isShuttingDown = true;
-  logger.info({ signal }, 'Slide worker shutting down gracefully...');
+  logger.info({ signal }, 'Workers shutting down gracefully...');
 
   const timer = setTimeout(() => {
     logger.error('Slide worker shutdown timed out, forcing exit');
@@ -40,6 +43,7 @@ async function shutdown(signal: string) {
 
   try {
     await slideWorker?.close();
+    await broadcastWorker?.close();
     await container.resolve<PrismaClient>('prismaClient').$disconnect();
     await container.resolve<Redis>('redisClient').quit();
   } catch (err) {
@@ -54,6 +58,6 @@ process.on('SIGTERM', () => shutdown('SIGTERM'));
 process.on('SIGINT', () => shutdown('SIGINT'));
 
 bootstrap().catch((err) => {
-  logger.error({ err }, 'Slide worker failed to start');
+  logger.error({ err }, 'Workers failed to start');
   process.exit(1);
 });

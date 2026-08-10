@@ -1,0 +1,88 @@
+// Broadcast automation — Telegram/Facebook credentials + send history.
+// Credentials encrypted at rest; decrypted only via internal /resolve route.
+
+enum BroadcastPlatform {
+  TELEGRAM_GROUP
+  TELEGRAM_CHANNEL
+  FACEBOOK_PAGE
+  WHATSAPP
+}
+
+enum BroadcastContentType {
+  QUESTION
+  QUESTION_SET
+  PDF
+  JOB_CIRCULAR
+  SLIDE_IMAGE
+  MOTIVATIONAL
+  STUDY_TIP
+  NOTICE
+  OFFER
+  CUSTOM
+}
+
+enum BroadcastStatus {
+  DRAFT
+  SENDING
+  SENT
+  FAILED
+}
+
+model IntegrationCredential {
+  id              String            @id @default(cuid())
+  platform        BroadcastPlatform
+  label           String?           @db.VarChar(100)
+  encryptedConfig String            @map("encrypted_config") @db.Text
+  configPreview   String            @map("config_preview") @db.VarChar(120)
+  isActive        Boolean           @default(true) @map("is_active")
+  createdAt       DateTime          @default(now()) @map("created_at")
+  updatedAt       DateTime          @updatedAt @map("updated_at")
+
+  @@index([platform, isActive])
+  @@map("integration_credentials")
+}
+
+model BroadcastLog {
+  id               String               @id @default(cuid())
+  contentType      BroadcastContentType @map("content_type")
+  platforms        BroadcastPlatform[]
+  questionIds      String[]             @default([]) @map("question_ids")
+  questionSetId    String?              @map("question_set_id")
+  pdfId            String?              @map("pdf_id")
+  jobCircularIds   String[]             @default([]) @map("job_circular_ids")
+  aiProvider       String?              @map("ai_provider") @db.VarChar(50)
+  aiModel          String?              @map("ai_model") @db.VarChar(100)
+  contentText      String?              @map("content_text") @db.Text
+  mediaUrl         String?              @map("media_url") @db.VarChar(2000)
+  status           BroadcastStatus      @default(DRAFT)
+  errorMessage     String?              @map("error_message") @db.Text
+  createdBy        String               @map("created_by")
+  createdAt        DateTime             @default(now()) @map("created_at")
+  sentAt           DateTime?            @map("sent_at")
+
+  @@index([contentType, status])
+  @@index([createdBy, createdAt])
+  @@map("broadcast_logs")
+}
+
+enum AutomationRuleKind {
+  RANDOM_QUESTIONS
+}
+
+model BroadcastAutomationRule {
+  id              String               @id @default(cuid())
+  name            String               @db.VarChar(120)
+  kind            AutomationRuleKind   @default(RANDOM_QUESTIONS)
+  platforms       BroadcastPlatform[]
+  questionCount   Int                  @default(3) @map("question_count")
+  intervalMinutes Int                  @default(120) @map("interval_minutes")
+  isActive        Boolean              @default(false) @map("is_active")
+  repeatJobKey    String?              @map("repeat_job_key") @db.VarChar(200)
+  lastRunAt       DateTime?            @map("last_run_at")
+  createdBy       String               @map("created_by")
+  createdAt       DateTime             @default(now()) @map("created_at")
+  updatedAt       DateTime             @updatedAt @map("updated_at")
+
+  @@index([isActive, kind])
+  @@map("broadcast_automation_rules")
+}

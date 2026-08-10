@@ -82,9 +82,11 @@ export class PdfController {
   }
 
   async download(req: Request, res: Response): Promise<void> {
+    const isAdmin = req.userRole === 'ADMIN';
     const { stream, fileName } = await this.service.getDownloadStream(
       req.params.pdfId!,
       req.userId,
+      isAdmin,
     );
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');

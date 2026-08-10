@@ -123,15 +123,16 @@ export class PdfService {
     }
   }
 
-  /** Gated file stream for the download endpoint. Throws before touching storage if access isn't allowed. */
+  /** Gated file stream for the download endpoint. Admins bypass subscription checks (broadcast). */
   async getDownloadStream(
     id: string,
     userId?: string,
+    isAdmin = false,
   ): Promise<{ stream: Readable; fileName: string }> {
     const raw = await this.repository.findRawById(id);
     if (!raw?.isActive) throw new NotFoundError('PDF not found');
 
-    if (!raw.isFree) {
+    if (!isAdmin && !raw.isFree) {
       if (!userId) throw new UnauthorizedError('ডাউনলোড করতে লগইন করুন');
       const hasPkg = await this.repository.hasActivePackage(userId);
       if (!hasPkg) {

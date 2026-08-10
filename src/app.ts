@@ -8,6 +8,11 @@ import type { Logger } from 'pino';
 
 import { config } from './config/index.js';
 import { createAiProviderKeyRoutes } from './features/ai-provider-key/index.js';
+import {
+  createBroadcastLogRoutes,
+  createIntegrationCredentialRoutes,
+  createAutomationRuleRoutes,
+} from './features/broadcast/index.js';
 import { createAuthRoutes } from './features/auth/index.js';
 import { createExamCategoryRoutes } from './features/exam-category/index.js';
 import { createJobCircularRoutes } from './features/job-circular/index.js';
@@ -152,6 +157,9 @@ export function createApp(container: AwilixContainer) {
   app.use('/api/v1/videos', createVideoRoutes(container));
   app.use('/api/v1/pdfs', createPdfRoutes(container));
   app.use('/api/v1/ai-provider-keys', createAiProviderKeyRoutes(container));
+  app.use('/api/v1/integration-credentials', createIntegrationCredentialRoutes(container));
+  app.use('/api/v1/broadcasts', createBroadcastLogRoutes(container));
+  app.use('/api/v1/broadcast-automation/rules', createAutomationRuleRoutes(container));
 
   // Terminal middleware
   app.use(notFoundHandler);
