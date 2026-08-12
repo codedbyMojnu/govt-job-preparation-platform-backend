@@ -1,1 +1,0 @@
-ALTER TABLE "questions" ADD COLUMN "exam_name" VARCHAR(200);

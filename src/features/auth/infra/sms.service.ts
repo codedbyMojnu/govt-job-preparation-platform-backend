@@ -4,6 +4,7 @@ export interface SmsConfig {
   apiKey: string;
   userName: string;
   senderName: string;
+  nodeEnv: 'development' | 'production' | 'test';
 }
 
 export interface SmsService {
@@ -16,6 +17,13 @@ export function createSmsService(logger: Logger, smsConfig: SmsConfig): SmsServi
   return {
     async send(mobile: string, message: string): Promise<void> {
       const number = mobile.startsWith('88') ? mobile : `88${mobile}`;
+
+      if (smsConfig.nodeEnv === 'development') {
+        const otp = message.match(/OTP is: (\d+)/)?.[1] ?? 'unknown';
+        console.log(`\n[DEV OTP] Mobile: ${number} | Code: ${otp}\n`);
+        logger.info({ mobile: number, otp }, '[SMS] Development mode — OTP logged (MiMSMS skipped)');
+        return;
+      }
 
       logger.info({ mobile: number }, '[SMS] Sending OTP via MimSMS');
 

@@ -26,6 +26,7 @@ export function createAuthRoutes(container: AwilixContainer): Router {
     apiKey: appConfig.MIMSMS_API_KEY,
     userName: appConfig.MIMSMS_USER_NAME,
     senderName: appConfig.MIMSMS_SENDER_NAME,
+    nodeEnv: appConfig.NODE_ENV,
   });
   const authService = new AuthService(repository, smsService.send.bind(smsService));
   const controller = new AuthController(authService);
