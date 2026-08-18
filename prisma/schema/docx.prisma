@@ -1,0 +1,79 @@
+// Docx export domain models (Farhan MCQ /docs feature)
+
+enum DocxTemplateStyle {
+  COLORFUL
+  PLAIN
+
+  @@map("docx_template_style")
+}
+
+enum DocxJobStatus {
+  QUEUED
+  PROCESSING
+  DONE
+  FAILED
+
+  @@map("docx_job_status")
+}
+
+// Saved layout/design configuration chosen by admin before generating a docx.
+model DocxStyleConfig {
+  id                  String            @id @default(cuid())
+  templateStyle       DocxTemplateStyle @default(COLORFUL) @map("template_style")
+  columnCount         Int               @default(1) @map("column_count")
+  fontSizePt          Float?            @map("font_size_pt")
+  fontBn              String            @default("Kalpurush") @map("font_bn") @db.VarChar(100)
+  brandName           String            @default("Farhan MCQ") @map("brand_name") @db.VarChar(200)
+  brandSubtitle       String            @default("farhanmcq.com") @map("brand_subtitle") @db.VarChar(200)
+  footerText          String            @default("নিয়মিত অনুশীলন করতে ফলো করুন — Farhan MCQ") @map("footer_text") @db.Text
+  showExplanation     Boolean           @default(false) @map("show_explanation")
+  explanationMaxChars Int               @default(400) @map("explanation_max_chars")
+  siteBaseUrl         String            @default("https://farhanmcq.com") @map("site_base_url") @db.VarChar(500)
+  configHash          String            @unique @map("config_hash") @db.VarChar(64)
+  createdBy           String            @map("created_by")
+  createdAt           DateTime          @default(now()) @map("created_at")
+
+  creator   User                @relation(fields: [createdBy], references: [id])
+  jobs      DocxGenerationJob[]
+  documents DocxDocument[]
+
+  @@index([createdBy])
+  @@map("docx_style_configs")
+}
+
+model DocxGenerationJob {
+  id             String        @id @default(cuid())
+  questionSetIds String[]      @map("question_set_ids")
+  setsHash       String        @map("sets_hash") @db.VarChar(64)
+  status         DocxJobStatus @default(QUEUED)
+  progress       Int           @default(0)
+  styleConfigId  String        @map("style_config_id")
+  errorMessage   String?       @map("error_message") @db.Text
+  createdAt      DateTime      @default(now()) @map("created_at")
+  updatedAt      DateTime      @updatedAt @map("updated_at")
+
+  styleConfig DocxStyleConfig @relation(fields: [styleConfigId], references: [id], onDelete: Cascade)
+
+  @@index([setsHash, styleConfigId])
+  @@index([status])
+  @@map("docx_generation_jobs")
+}
+
+// One export file — may contain one or many question sets (page break between each set).
+model DocxDocument {
+  id             String   @id @default(cuid())
+  questionSetIds String[] @map("question_set_ids")
+  setsHash       String   @map("sets_hash") @db.VarChar(64)
+  setCount       Int      @map("set_count")
+  fileUrl        String   @map("file_url") @db.VarChar(1000)
+  questionCount  Int      @map("question_count")
+  styleConfigId  String   @map("style_config_id")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  styleConfig DocxStyleConfig @relation(fields: [styleConfigId], references: [id], onDelete: Cascade)
+
+  @@unique([setsHash, styleConfigId])
+  @@index([setsHash])
+  @@map("docx_documents")
+}

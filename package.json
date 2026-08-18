@@ -32,6 +32,8 @@
     "db:recent-job-solution": "tsx --env-file=.env prisma/recent-job-solution.ts",
     "db:studio": "prisma studio",
     "smoke:slides": "tsx --env-file=.env scripts/smoke-test-slides.ts",
+    "smoke:docx": "tsx --env-file=.env scripts/smoke-test-docx.ts",
+    "db:apply-docx": "tsx --env-file=.env scripts/apply-docx-schema.ts",
     "smoke:broadcast": "tsx --env-file=.env scripts/smoke-broadcast-phase3.ts",
     "fonts:slides": "tsx scripts/download-slide-fonts.ts",
     "db:backfill-topic-subTopic": "tsx --env-file=.env prisma/backfull-topic-subTopic-mistral.ts"
@@ -59,6 +61,7 @@
     "bullmq": "^5.44.0",
     "compression": "^1.8.1",
     "cors": "^2.8.5",
+    "docx": "^9.7.1",
     "express": "^4.21.2",
     "express-rate-limit": "^8.5.2",
     "helmet": "^8.1.0",
