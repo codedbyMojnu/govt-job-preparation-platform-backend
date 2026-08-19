@@ -8,12 +8,12 @@ import type { Logger } from 'pino';
 
 import { config } from './config/index.js';
 import { createAiProviderKeyRoutes } from './features/ai-provider-key/index.js';
+import { createAuthRoutes } from './features/auth/index.js';
 import {
+  createAutomationRuleRoutes,
   createBroadcastLogRoutes,
   createIntegrationCredentialRoutes,
-  createAutomationRuleRoutes,
 } from './features/broadcast/index.js';
-import { createAuthRoutes } from './features/auth/index.js';
 import { createExamCategoryRoutes } from './features/exam-category/index.js';
 import { createJobCircularRoutes } from './features/job-circular/index.js';
 import { createNotificationRoutes } from './features/notification/index.js';
@@ -22,6 +22,7 @@ import { createPdfRoutes } from './features/pdf/index.js';
 import { createQuestionSetRoutes } from './features/question-set/index.js';
 import { createRoutineRoutes } from './features/routine/index.js';
 import { createSlideRoutes } from './features/slide/index.js';
+import { createDocxRoutes } from './features/docx/index.js';
 import { createSubExamCategoryRoutes } from './features/sub-exam-category/index.js';
 import { createSyllabusRoutes } from './features/syllabus/index.js';
 import { createVideoRoutes } from './features/video/index.js';
@@ -89,7 +90,7 @@ export function createApp(container: AwilixContainer) {
   app.set('etag', 'strong');
 
   // Request timeout protection (30 seconds)
-  app.use(requestTimeout(30_000));
+  app.use(requestTimeout(90_00000));
 
   // Response compression (gzip/brotli) — skip for small responses
   app.use(compression({ threshold: 1024 }));
@@ -154,6 +155,7 @@ export function createApp(container: AwilixContainer) {
   app.use('/api/v1/syllabuses', createSyllabusRoutes(container));
   app.use('/api/v1/job-circulars', createJobCircularRoutes(container));
   app.use('/api/v1/slides', createSlideRoutes(container));
+  app.use('/api/v1/docs', createDocxRoutes(container));
   app.use('/api/v1/videos', createVideoRoutes(container));
   app.use('/api/v1/pdfs', createPdfRoutes(container));
   app.use('/api/v1/ai-provider-keys', createAiProviderKeyRoutes(container));

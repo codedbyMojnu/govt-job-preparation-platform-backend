@@ -8,12 +8,14 @@ import { SHUTDOWN_TIMEOUT_MS } from '../shared/constants/app.constants.js';
 
 import { startSlideWorker } from './slide-worker-bootstrap.js';
 import { startBroadcastWorker } from './broadcast-worker-bootstrap.js';
+import { startDocxWorker } from './docx-worker-bootstrap.js';
 
 const container = createAppContainer();
 const logger = container.resolve<Logger>('logger');
 
 let slideWorker: Worker | undefined;
 let broadcastWorker: Worker | undefined;
+let docxWorker: Worker | undefined;
 
 async function bootstrap() {
   const prisma = container.resolve<PrismaClient>('prismaClient');
@@ -23,6 +25,7 @@ async function bootstrap() {
   await redis.ping();
 
   slideWorker = await startSlideWorker(container, logger);
+  docxWorker = await startDocxWorker(container, logger);
   broadcastWorker = await startBroadcastWorker(container, logger);
 }
 
@@ -43,6 +46,7 @@ async function shutdown(signal: string) {
 
   try {
     await slideWorker?.close();
+    await docxWorker?.close();
     await broadcastWorker?.close();
     await container.resolve<PrismaClient>('prismaClient').$disconnect();
     await container.resolve<Redis>('redisClient').quit();

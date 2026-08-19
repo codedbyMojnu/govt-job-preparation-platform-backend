@@ -6,6 +6,7 @@ export interface MinioClientOptions {
   useSSL: boolean;
   accessKey: string;
   secretKey: string;
+  region?: string;
 }
 
 // Only this file (and features/*/infra/*.ts) may import from 'minio' directly.

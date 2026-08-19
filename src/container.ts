@@ -7,6 +7,7 @@ import { minioConfig } from './config/minio.js';
 import { queueConfig } from './config/queue.js';
 import { redisConfig } from './config/redis.js';
 import { createSlideQueue } from './features/slide/infra/slide-queue.js';
+import { createDocxQueue } from './features/docx/infra/docx-queue.js';
 import { createBroadcastQueue } from './features/broadcast/infra/broadcast-queue.js';
 import { createCacheService } from './infrastructure/cache/cache.service.js';
 import { createRedisClient } from './infrastructure/cache/redis-client.js';
@@ -30,6 +31,7 @@ export function createAppContainer() {
     bullmqClient: asFunction(() => createBullMQClient(queueConfig.url)).singleton(),
     minioClient: asFunction(() => createMinioClient(minioConfig)).singleton(),
     slideQueue: asFunction(() => createSlideQueue(container.resolve('bullmqClient'))).singleton(),
+    docxQueue: asFunction(() => createDocxQueue(container.resolve('bullmqClient'))).singleton(),
     broadcastQueue: asFunction(() =>
       createBroadcastQueue(container.resolve('bullmqClient')),
     ).singleton(),

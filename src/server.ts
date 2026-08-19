@@ -8,12 +8,14 @@ import { config } from './config/index.js';
 import { createAppContainer } from './container.js';
 import { SHUTDOWN_TIMEOUT_MS } from './shared/constants/app.constants.js';
 import { startSlideWorker } from './worker/slide-worker-bootstrap.js';
+import { startDocxWorker } from './worker/docx-worker-bootstrap.js';
 
 const container = createAppContainer();
 const logger = container.resolve<Logger>('logger');
 const app = createApp(container);
 
 let slideWorker: Worker | undefined;
+let docxWorker: Worker | undefined;
 
 const server = app.listen(config.PORT, '0.0.0.0', () => {
   logger.info({ port: config.PORT, env: config.NODE_ENV }, 'Server started');
@@ -28,6 +30,18 @@ const server = app.listen(config.PORT, '0.0.0.0', () => {
         logger.error(
           { err },
           'Embedded slide worker failed to start — slide generation jobs will stay queued until worker is running',
+        );
+      });
+
+    startDocxWorker(container, logger)
+      .then((worker) => {
+        docxWorker = worker;
+        logger.info('Embedded docx worker started (EMBED_SLIDE_WORKER)');
+      })
+      .catch((err) => {
+        logger.error(
+          { err },
+          'Embedded docx worker failed to start — docx generation jobs will stay queued until worker is running',
         );
       });
   }
@@ -57,7 +71,8 @@ async function shutdown(signal: string) {
 
   try {
     await slideWorker?.close();
-    logger.info('Slide worker closed');
+    await docxWorker?.close();
+    logger.info('Workers closed');
 
     const prisma = container.resolve<PrismaClient>('prismaClient');
     await prisma.$disconnect();

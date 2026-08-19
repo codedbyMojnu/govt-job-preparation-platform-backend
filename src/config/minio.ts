@@ -8,4 +8,5 @@ export const minioConfig = Object.freeze({
   accessKey: config.MINIO_ACCESS_KEY,
   secretKey: config.MINIO_SECRET_KEY,
   bucket: config.MINIO_BUCKET,
+  region: config.MINIO_REGION,
 });
