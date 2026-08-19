@@ -73,9 +73,9 @@ export const envSchema = z.object({
         });
       }
     }),
-  MIMSMS_API_KEY: z.string().min(1),
-  MIMSMS_USER_NAME: z.string().min(1),
-  MIMSMS_SENDER_NAME: z.string().min(1),
+  MIMSMS_API_KEY: z.string().min(1).optional(),
+  MIMSMS_USER_NAME: z.string().min(1).optional(),
+  MIMSMS_SENDER_NAME: z.string().min(1).optional(),
   MINIO_ENDPOINT: z.string().min(1).default('localhost'),
   MINIO_PORT: z.coerce.number().int().min(1).max(65535).default(9000),
   // NOTE: z.coerce.boolean() would turn the string "false" into `true` (any non-empty string is
@@ -87,6 +87,9 @@ export const envSchema = z.object({
   MINIO_ACCESS_KEY: z.string().min(1),
   MINIO_SECRET_KEY: z.string().min(1),
   MINIO_BUCKET: z.string().min(1).default('farhan-slides'),
+  // Required by some S3-compatible providers for SigV4 signing (e.g. Cloudflare R2 wants
+  // "auto"; Supabase Storage wants your project region). Local MinIO doesn't care — leave unset.
+  MINIO_REGION: z.string().optional(),
   // When unset, embeds in development only. Set explicitly in production if the API should
   // also process slide jobs (normally the dedicated worker container handles them).
   EMBED_SLIDE_WORKER: z
@@ -97,6 +100,18 @@ export const envSchema = z.object({
       if (val === 'false') return false;
       return process.env.NODE_ENV === 'development';
     }),
+}).superRefine((data, ctx) => {
+  if (data.NODE_ENV === 'production') {
+    for (const field of ['MIMSMS_API_KEY', 'MIMSMS_USER_NAME', 'MIMSMS_SENDER_NAME'] as const) {
+      if (!data[field]) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `${field} is required in production`,
+          path: [field],
+        });
+      }
+    }
+  }
 });
 
 export type Env = z.infer<typeof envSchema>;

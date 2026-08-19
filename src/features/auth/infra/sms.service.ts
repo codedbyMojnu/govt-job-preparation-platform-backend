@@ -1,9 +1,10 @@
 import type { Logger } from 'pino';
 
 export interface SmsConfig {
-  apiKey: string;
-  userName: string;
-  senderName: string;
+  nodeEnv: string;
+  apiKey?: string;
+  userName?: string;
+  senderName?: string;
 }
 
 export interface SmsService {
@@ -17,16 +18,27 @@ export function createSmsService(logger: Logger, smsConfig: SmsConfig): SmsServi
     async send(mobile: string, message: string): Promise<void> {
       const number = mobile.startsWith('88') ? mobile : `88${mobile}`;
 
+      if (smsConfig.nodeEnv !== 'production') {
+        console.log(`[DEV SMS] To: ${number} | Message: ${message}`);
+        logger.info({ mobile: number }, '[SMS] Dev mode — OTP logged to console, not sent');
+        return;
+      }
+
+      const { apiKey, userName, senderName } = smsConfig;
+      if (!apiKey || !userName || !senderName) {
+        throw new Error('MIMSMS credentials are required in production');
+      }
+
       logger.info({ mobile: number }, '[SMS] Sending OTP via MimSMS');
 
       const response = await fetch(MIMSMS_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ApiKey: smsConfig.apiKey,
-          UserName: smsConfig.userName,
+          ApiKey: apiKey,
+          UserName: userName,
           MobileNumber: number,
-          SenderName: smsConfig.senderName,
+          SenderName: senderName,
           CampaignName: '',
           TransactionType: 'T',
           MessageId: '',

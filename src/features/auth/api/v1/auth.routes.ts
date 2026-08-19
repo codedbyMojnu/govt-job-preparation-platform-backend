@@ -23,6 +23,7 @@ export function createAuthRoutes(container: AwilixContainer): Router {
 
   const repository = new AuthPrismaRepository(prisma);
   const smsService = createSmsService(logger, {
+    nodeEnv: appConfig.NODE_ENV,
     apiKey: appConfig.MIMSMS_API_KEY,
     userName: appConfig.MIMSMS_USER_NAME,
     senderName: appConfig.MIMSMS_SENDER_NAME,
