@@ -8,6 +8,7 @@ import type {
 } from './types.js';
 
 export interface SubExamCategoryRepository {
+  findAll(activeOnly: boolean): Promise<SubExamCategoryDto[]>;
   findByCategoryId(examCategoryId: string, activeOnly: boolean): Promise<SubExamCategoryDto[]>;
   findById(id: string): Promise<SubExamCategoryDto | null>;
   findBySlug(slug: string): Promise<SubExamCategoryDto | null>;

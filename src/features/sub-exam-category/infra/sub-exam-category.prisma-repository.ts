@@ -14,6 +14,14 @@ import type {
 export class SubExamCategoryPrismaRepository implements SubExamCategoryRepository {
   constructor(private readonly prisma: PrismaClient) {}
 
+  async findAll(activeOnly: boolean): Promise<SubExamCategoryDto[]> {
+    const subs = await this.prisma.subExamCategory.findMany({
+      ...(activeOnly && { where: { isActive: true } }),
+      orderBy: { sortOrder: 'asc' },
+    });
+    return subs.map(subExamCategoryMapper.toDto);
+  }
+
   async findByCategoryId(
     examCategoryId: string,
     activeOnly: boolean,

@@ -33,6 +33,21 @@ export function createSubExamCategoryRoutes(container: AwilixContainer): Router 
     await cacheService.invalidatePattern('sub-categories:*');
   }
 
+  // Public: list all sub-categories (id + name and the rest of the DTO)
+  router.get(
+    '/',
+    asyncHandler(async (req, res) => {
+      const activeOnly = req.query.activeOnly !== 'false';
+      const cacheKey = activeOnly ? 'sub-categories:all' : 'sub-categories:all:inactive';
+      const data = await cacheService.getOrSet(
+        cacheKey,
+        () => service.getAll(activeOnly),
+        CACHE_TTL,
+      );
+      res.json({ data });
+    }),
+  );
+
   // Public: Get sub-categories by parent category slug
   router.get(
     '/by-category/:categorySlug',

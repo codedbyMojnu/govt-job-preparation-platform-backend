@@ -11,6 +11,12 @@ import type {
 export class SubExamCategoryController {
   constructor(private readonly service: SubExamCategoryService) {}
 
+  async getAll(req: Request, res: Response): Promise<void> {
+    const activeOnly = req.query.activeOnly !== 'false';
+    const subCategories = await this.service.getAll(activeOnly);
+    res.status(HttpStatus.OK).json({ data: subCategories });
+  }
+
   async getByCategorySlug(req: Request, res: Response): Promise<void> {
     // categoryId is resolved from the parent category slug in the route handler
     const categoryId = req.params.categoryId!;

@@ -13,6 +13,10 @@ import type {
 export class SubExamCategoryService {
   constructor(private readonly repository: SubExamCategoryRepository) {}
 
+  async getAll(activeOnly = true): Promise<SubExamCategoryDto[]> {
+    return this.repository.findAll(activeOnly);
+  }
+
   async getByCategoryId(examCategoryId: string, activeOnly = true): Promise<SubExamCategoryDto[]> {
     return this.repository.findByCategoryId(examCategoryId, activeOnly);
   }
